@@ -1,0 +1,9 @@
+validation:
+  number:
+    zero: 0
+    six: 6
+  name_max: 50
+  email_max: 255
+  password_min: 6
+  phone_min: 10
+  id_card_min: 10
