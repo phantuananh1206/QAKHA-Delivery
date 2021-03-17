@@ -1,10 +1,11 @@
-source "https://rubygems.org"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.1"
 
 gem "active_storage_validations", "0.8.2"
 gem "activerecord-session_store"
+gem "active_model_serializers"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "config"
 gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
@@ -12,6 +13,7 @@ gem "faker", :git => "https://github.com/faker-ruby/faker.git", :branch => "mast
 gem "figaro"
 gem "image_processing", "1.9.3"
 gem "jbuilder", "~> 2.7"
+gem "jwt"
 gem "mini_magick", "4.9.5"
 gem "mysql2", ">= 0.4.4"
 gem "puma", "~> 4.1"
@@ -24,6 +26,7 @@ gem "omniauth-google-oauth2"
 gem "omniauth-facebook"
 gem 'omniauth-rails_csrf_protection'
 gem "webpacker", "~> 4.0"
+gem 'rack-cors'
 
 group :development do
   gem "web-console", ">= 3.3.0"

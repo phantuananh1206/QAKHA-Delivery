@@ -8,8 +8,17 @@ Rails.application.routes.draw do
       get "/login", to: "devise/sessions#new"
       post "/login", to: "devise/sessions#create"
       delete "/logout", to: "devise/sessions#destroy"
-      # get '/users/auth/:provider' => 'omniauth_callbacks#passthru'
-      # get "/edit_password", to: "devise/mailer#password_change"
     end
+    namespace :api, default: {format: :json} do
+      namespace :v1 do
+        devise_scope :user do
+          post "sign_up", to: 'registrations#create'
+          post "sign_in", to: 'sessions#create'
+          delete "sign_out", to: 'sessions#destroy'
+        end
+        resources :users, only: %i(index show update)
+      end
+    end
+
   end
 end
