@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable,
+         :trackable, :timeoutable,
+         :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   VALID_PHONE_REGEX = /\A\d[0-9]{9}\z/.freeze
   VALID_PASSWORD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/.freeze
@@ -22,6 +26,24 @@ class User < ApplicationRecord
             length: {minimum: Settings.validation.password_min}
 
   before_save :downcase_email
+
+  def self.from_omniauth(auth)
+    user_with_provider = find_by(provider: auth.provider, uid: auth.uid)
+    return user_with_provider if user_with_provider
+
+    user = find_or_initialize_by(email: auth.info.email)
+    if user.new_record?
+      user.password = Devise.friendly_token[0,20]
+      user.name = auth.info.name
+      user.image = auth.info.image
+      user.skip_confirmation!
+    end
+    user.uid = auth.uid
+    user.provider = auth.provider
+    user.image = auth.info.image
+    user.save
+    user
+  end
 
   private
 
