@@ -13,5 +13,11 @@ module QAKHADelivery
     config.i18n.available_locales = [:en, :vi]
     config.i18n.default_locale = :en
     Rails.application.config.session_store :active_record_store
+    Rails.application.config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :post, :patch, :put]
+      end
+    end
   end
 end

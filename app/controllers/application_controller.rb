@@ -1,16 +1,15 @@
 class ApplicationController < ActionController::Base
+  respond_to :json
+
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  protected
+  private
 
   def configure_permitted_parameters
-    added_attrs = [:name, :email, :phone_number, :password, :password_confirmation, :remember_me]
+    added_attrs = [:email, :password, :password_confirmation]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
-    devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
-
-  private
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
