@@ -40,7 +40,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   def save_user user
     if user.save
       user.save_image!(params[:image])
-      render json: true, status: :created
+      render json: {message: "Please check your email and enter the code in the form to activate your account."}, status: :created
     else
       warden.custom_failure!
       render json: {message: user.errors.full_messages}, status: :bad_request
@@ -48,7 +48,20 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   end
 
   def check_email_exits
-    user = User.new user_params
+    case params[:type_user].to_i
+    when 1
+      user = User.new user_params
+      check_email user
+    when 2
+      driver = Driver.new driver_params
+      check_email driver
+    when 3
+      partner = Partner.new partner_params
+      check_email partner_params
+    end
+  end
+
+  def check_email user
     if params[:email].present?
       if check_email_exist(user)
         render json: false, status: :bad_request
@@ -61,7 +74,20 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   end
 
   def check_phone_number_exits
-    user = User.new user_params
+    case params[:type_user].to_i
+    when 1
+      user = User.new user_params
+      check_phone_number user
+    when 2
+      driver = Driver.new driver_params
+      check_phone_number driver
+    when 3
+      partner = Partner.new partner_params
+      check_phone_number partner_params
+    end
+  end
+
+  def check_phone_number user
     if check_phonenumber_exist(user)
       render json: false, status: :bad_request
     else
@@ -99,28 +125,70 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def activated_user
+    if params[:code_activate].present?
+      check = User.find_by_confirmation_token(params[:code_activate])
+      check_activate check
+    else
+      render json: {message: 'Please entering the code activation in your email.'}, status: :not_found
+    end
+  end
+
+  def activated_driver
+    if params[:code_activate].present?
+      check = Driver.find_by_confirmation_token(params[:code_activate])
+      check_activate check
+    else
+      render json: {message: 'Please entering the code activation in your email.'}, status: :not_found
+    end
+  end
+
+  def activated_partner
+    if params[:code_activate].present?
+      check = Partner.find_by_confirmation_token(params[:code_activate])
+      check_activate check
+    else
+      render json: {message: 'Please entering the code activation in your email.'}, status: :not_found
+    end
+  end
+
+  def check_activate ob
+    if ob.present?
+      ob.activated
+      render json: {message: 'This account has been activated. You can sign-in in QAKHA Delivery.'}, status: :ok
+    else
+      render json: {message: 'The activation code is invalid. Please check and try again.'}, status: :not_found
+    end
+  end
+
   private
 
   def check_email_exist user
-    user = User.find_by_email params[:email]
-    return true if user
-
-    user = Driver.find_by_email params[:email]
-    return true if user
-
-    user = Partner.find_by_email params[:email]
-    return true if user
+    case params[:type_user].to_i
+    when 1
+      user = User.find_by_email params[:email]
+      return true if user
+    when 2
+      user = Driver.find_by_email params[:email]
+      return true if user
+    when 3
+      user = Partner.find_by_email params[:email]
+      return true if user
+    end
   end
 
   def check_phonenumber_exist user
-    user = User.find_by_phone_number params[:phone_number]
-    return true if user
-
-    user = Driver.find_by_phone_number params[:phone_number]
-    return true if user
-
-    user = Partner.find_by_phone_number params[:phone_number]
-    return true if user
+    case params[:type_user].to_i
+    when 1
+      user = User.find_by_phone_number params[:phone_number]
+      return true if user
+    when 2
+      user = Driver.find_by_phone_number params[:phone_number]
+      return true if user
+    when 3
+      user = Partner.find_by_phone_number params[:phone_number]
+      return true if user
+    end
   end
 
   def check_location_partner

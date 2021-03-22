@@ -1,7 +1,7 @@
 class Partner < ApplicationRecord
   include AASM
   devise :database_authenticatable, :registerable, :trackable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   VALID_PHONE_REGEX = /\A\d[0-9]{9}\z/.freeze
   VALID_PASSWORD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/.freeze
@@ -95,6 +95,10 @@ class Partner < ApplicationRecord
     errors.add :time_close, 'must be greater than Time open'
   end
 
+
+  def activated
+    self.update_columns(confirmed_at: Time.now.utc)
+  end
   private
 
   def downcase_email

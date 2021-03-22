@@ -1,5 +1,9 @@
-<p>Welcome <%= @email %>!</p>
+<div>
+  <h2>Welcome <%= @email %> to QAKHA Delivery!</h2>
 
-<p>You can confirm your account email through the link below:</p>
+  <p>You can confirm your account email through the activation code below:</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+  <h2>Code: <%= @resource.confirmation_token %></h2>
+  <h4>Thank you,</h4>
+  <h4>Team QAKHA.</h4>
+</div>

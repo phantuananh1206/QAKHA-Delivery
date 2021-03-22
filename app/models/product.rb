@@ -42,4 +42,5 @@ class Product < ApplicationRecord
       end
     end
   end
+  scope :order_by_create, -> { order created_at: :desc}
 end
