@@ -8,30 +8,21 @@ class Api::V1::SessionsController < Devise::SessionsController
     if @user.valid_password? params[:password]
       sign_in @user, store: false
       jwt = JWT.encode(
-        { user_name: @user.name, exp: (Time.now + 2.hours).to_i },
+        { user_name: @user.name, id: @user.id, exp: (Time.now + 2.hours).to_i },
         Rails.application.secrets.secret_key_base,
         'HS256'
       )
-      render json: { role: @user[:role], token: jwt }, status: :created
-      # render :create, locals: { token: jwt}, status: :created
+      render json: { role: @user[:role], token: jwt }, status: :ok
       return
     end
       invalid_login_attempt
-    # if @user.valid_password? user_params[:password]
-    #   sign_in @user, store: false
-    #   render json: { message: "Signed in successfully",
-    #     token: @user[:authentication_token] }, status: 200
-    #   # redirect_to root_path
-    #   return
-    # end
-    #   invalid_login_attempt
   end
 
   private
 
   def load_user_authentication
     @user = User.find_by_email params[:email]
-    # return login_invalid unless @user
+    render json: {message: "Email is not exists. Please sign up !!"}, status: :bad_request unless @user
   end
 
   def user_params
