@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def new
     if partner_signed_in?
       redirect_to partners_partners_path
-    end 
+    end
   end
 
   def create

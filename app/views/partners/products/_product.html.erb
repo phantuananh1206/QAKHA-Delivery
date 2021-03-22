@@ -1,0 +1,14 @@
+<tr>
+  <td class="admin_product_images">
+    <%= image_tag product.image.url.to_s, class: "img-product"%>
+  </td>
+  <td><%= link_to product.name, "#" %></td>
+  <td><%= number_to_currency_vnd product.price %></td>
+  <td><%= product.category_id %></td>
+  <td><%= product.get_quantity_sold_product(product) %></td>
+
+  <td>
+    <span><%= link_to t(".delete"), partners_product_path(product), method: :delete, class: "btn btn-danger" %></span>
+    <span><%= link_to t(".edit"), edit_partners_product_path(product), class: "btn btn-success" %></span>
+  </td>
+</tr>
