@@ -9,7 +9,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
       render json: true, status: :created
     else
       warden.custom_failure!
-      render json: {message: "Registration error"}, status: :bad_request
+      render json: {error: user.errors.full_messages}, status: :bad_request
     end
   end
 

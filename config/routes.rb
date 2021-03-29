@@ -16,6 +16,8 @@ Rails.application.routes.draw do
           post "sign_in", to: 'sessions#create'
           delete "sign_out", to: 'sessions#destroy'
           get "user", to: "users#show"
+          post "passwords/forgot", to: 'passwords#forgot'
+          post "passwords/reset", to: 'passwords#reset'
         end
         resources :users, only: %i(index show update)
       end
