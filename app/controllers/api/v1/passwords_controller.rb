@@ -13,7 +13,7 @@ class Api::V1::PasswordsController < ApplicationController
       UserMailer.password_forgot(user).deliver
       render json: {message: 'Please check your email and received code'}, status: :ok
     else
-      render json: {message: ['Email address not found. Please check and try again.']}, status: :not_found
+      render json: {message: 'Email address not found. Please check and try again.'}, status: :not_found
     end
   end
 
