@@ -13,8 +13,8 @@ class User < ApplicationRecord
 
   enum role: {admin: 0, member: 1, block: 2}
 
-  # validates :name, presence: true,
-  #           length: {maximum: Settings.validation.name_max}
+  validates :name, presence: true,
+            length: {maximum: Settings.validation.name_max}
   validates :email, presence: true,
             length: {maximum: Settings.validation.email_max},
             format: {with: VALID_EMAIL_REGEX}, uniqueness: true

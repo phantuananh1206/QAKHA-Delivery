@@ -6,16 +6,16 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   def create
     user = User.new user_params
     if user.save
-      render json: user.as_json(except: [:password]), status: 200
+      render json: true, status: :created
     else
       warden.custom_failure!
-      render json: {message: "Registration error"}, status: 200
+      render json: {message: "Registration error"}, status: :bad_request
     end
   end
 
   private
 
   def user_params
-    params.permit :email, :password, :password_confirmation
+    params.permit :email, :password, :password_confirmation, :name, :phone_number
   end
 end
