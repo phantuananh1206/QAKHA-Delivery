@@ -50,9 +50,29 @@ class User < ApplicationRecord
                Rails.application.secrets.secret_key_base)
   end
 
+  def generate_password_token!
+    # self.reset_password_token = generate_token
+    self.update_columns(reset_password_token: generate_token)
+    self.update_columns(reset_password_sent_at: Time.now.utc)
+  end
+
+  def password_token_valid?
+    (self.reset_password_sent_at + 10.minutes) > Time.now.utc
+  end
+
+  def reset_password!(password)
+    self.reset_password_token = nil
+    self.password = password
+    save
+  end
+
   private
 
   def downcase_email
     email.downcase!
+  end
+
+  def generate_token
+    SecureRandom.base36(5)
   end
 end
