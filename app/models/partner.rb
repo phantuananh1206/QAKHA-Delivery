@@ -4,6 +4,7 @@ class Partner < ApplicationRecord
   VALID_PASSWORD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/.freeze
 
   belongs_to :city
+  belongs_to :type
 
   has_many_attached :images
   has_many :vouchers, dependent: :destroy

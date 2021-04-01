@@ -25,15 +25,10 @@ User.create!(name: "TuanAnh",
   )
 end
 
-#Categories
-Category.create!(name: "Foods")
-Category.create!(name: "Drinks")
-foods=["Korean","Japanese","Chinese","Vietnam","French"]
-foods.each do |food|
-  Category.create!(
-    name: food,
-    parent_id: Category.pluck(:id).sample
-  )
+#Type
+types = ["VEGE", "RICE BOX", "STREETFOOD"]
+types.each do |type|
+  Type.create!(name: type)
 end
 
 #Cities
@@ -52,7 +47,18 @@ end
     phone_number: Faker::Number.leading_zero_number(digits: 10),
     time_open: Time.zone.now,
     time_close: Faker::Time.forward(days: 15),
-    city_id: City.pluck(:id).sample
+    city_id: City.pluck(:id).sample,
+    type_id: Type.pluck(:id).sample
+  )
+end
+
+# Categories
+foods=["Korean","Japanese","Chinese","Vietnam","French"]
+foods.each do |food|
+  Category.create!(
+    name: food,
+    parent_id: Category.pluck(:id).sample,
+    partner_id: Partner.pluck(:id).sample
   )
 end
 
@@ -66,7 +72,6 @@ subCategories= Category.all-categories
     description: Faker::Food.description,
     price: Faker::Number.decimal(l_digits: 2),
     quantity_sold: Faker::Number.non_zero_digit,
-    partner_id: Partner.pluck(:id).sample
   )
 end
 
