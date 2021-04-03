@@ -1,0 +1,7 @@
+version: "3.3"
+services:
+  build:
+    image: delivery:latest
+    restart: always
+    ports:
+      - "8080:3000"
