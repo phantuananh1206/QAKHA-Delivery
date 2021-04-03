@@ -2,9 +2,9 @@
 git pull origin master
 
 # Build docker image
-docker build -t delivery --force-rm -f Dockerfile .
+sudo docker build -t delivery --force-rm -f Dockerfile .
 
 # Deploy image
-docker-compose stop
-docker-compose rm -f
-docker-compose up -d
+sudo docker-compose stop
+sudo docker-compose rm -f
+sudo docker-compose up -d
