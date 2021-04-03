@@ -18,6 +18,7 @@ Rails.application.routes.draw do
           get "user", to: "users#show"
           post "passwords/forgot", to: 'passwords#forgot'
           post "passwords/reset", to: 'passwords#reset'
+          get "test_method", to: 'users#test_method'
         end
         resources :users, only: %i(index show update)
       end

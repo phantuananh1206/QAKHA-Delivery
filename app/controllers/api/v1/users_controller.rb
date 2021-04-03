@@ -22,4 +22,8 @@ class Api::V1::UsersController < ApplicationController
     return if @user
     render json: {}, status: :not_found
   end
+
+  def test_method
+    render json: {message: "OK"}, status: 200
+  end
 end
