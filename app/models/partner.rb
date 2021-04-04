@@ -1,4 +1,8 @@
 class Partner < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable, :trackable,
+         :recoverable, :rememberable, :validatable
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   VALID_PHONE_REGEX = /\A\d[0-9]{9}\z/.freeze
   VALID_PASSWORD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/.freeze
@@ -24,4 +28,17 @@ class Partner < ApplicationRecord
             uniqueness: true, allow_nil: true
   validates :password, presence: true,
             length: {minimum: Settings.validation.password_min}
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+  def save_image!(image)
+    self.update_columns(image: image)
+  end
+  before_save :downcase_email
+
+  private
+
+  def downcase_email
+    email.downcase!
+  end
 end

@@ -27,4 +27,32 @@ class Driver < ApplicationRecord
   validates :password, presence: true,
             length: {minimum: Settings.validation.password_min}
   validates :license_plate, presence: true, uniqueness: true
+
+  aasm column: :status, enum: true do
+    state :not_activated, initial: true
+    state :activated, :offline, :online, :block
+
+    event :active do
+      transitions from: :not_activated, to: :offline
+    end
+
+    event :login do
+      transitions from: :offline, to: :online
+    end
+
+    event :logout do
+      transitions from: :online, to: :offline
+    end
+
+    event :lock do
+      transitions from: [:offline, :online], to: :locked
+    end
+  end
+  before_save :downcase_email
+
+  private
+
+  def downcase_email
+    email.downcase!
+  end
 end
