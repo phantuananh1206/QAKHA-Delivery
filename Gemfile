@@ -8,6 +8,8 @@ gem "activerecord-session_store"
 gem "active_model_serializers"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "config"
+gem "carrierwave"
+gem "cloudinary"
 gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 gem "faker", :git => "https://github.com/faker-ruby/faker.git", :branch => "master"
 gem "figaro"

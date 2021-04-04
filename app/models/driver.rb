@@ -4,7 +4,9 @@ class Driver < ApplicationRecord
   VALID_PASSWORD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/.freeze
   VALID_ID_CARD_REGEX = /\A\d[0-9]{9}\z/.freeze
 
-  has_one_attached :avatar
+  has_one :image, dependent: :destroy
+  mount_uploader :image, ImageUploader
+
   has_one :feedback
 
   has_many :orders, dependent: :destroy

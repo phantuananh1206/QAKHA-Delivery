@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_01_144404) do
+ActiveRecord::Schema.define(version: 2021_04_04_042701) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_144404) do
     t.string "phone_number"
     t.string "password"
     t.string "license_plate"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -84,6 +85,20 @@ ActiveRecord::Schema.define(version: 2021_04_01_144404) do
     t.index ["driver_id"], name: "index_feedbacks_on_driver_id"
     t.index ["order_id"], name: "index_feedbacks_on_order_id"
     t.index ["user_id"], name: "index_feedbacks_on_user_id"
+  end
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "image_url"
+    t.bigint "product_id"
+    t.bigint "driver_id"
+    t.bigint "partner_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["driver_id"], name: "index_images_on_driver_id"
+    t.index ["partner_id"], name: "index_images_on_partner_id"
+    t.index ["product_id"], name: "index_images_on_product_id"
+    t.index ["user_id"], name: "index_images_on_user_id"
   end
 
   create_table "order_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -128,6 +143,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_144404) do
     t.integer "status"
     t.float "latitude"
     t.float "longitude"
+    t.string "image"
     t.bigint "city_id", null: false
     t.bigint "type_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -141,6 +157,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_144404) do
     t.integer "quantity_sold"
     t.float "price"
     t.text "description"
+    t.string "image"
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -168,6 +185,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_144404) do
     t.string "address"
     t.string "phone_number"
     t.string "password"
+    t.string "image"
     t.integer "role", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -182,7 +200,6 @@ ActiveRecord::Schema.define(version: 2021_04_01_144404) do
     t.string "last_sign_in_ip"
     t.string "provider"
     t.string "uid"
-    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -208,6 +225,10 @@ ActiveRecord::Schema.define(version: 2021_04_01_144404) do
   add_foreign_key "feedbacks", "drivers"
   add_foreign_key "feedbacks", "orders"
   add_foreign_key "feedbacks", "users"
+  add_foreign_key "images", "drivers"
+  add_foreign_key "images", "partners"
+  add_foreign_key "images", "products"
+  add_foreign_key "images", "users"
   add_foreign_key "order_details", "orders"
   add_foreign_key "order_details", "products"
   add_foreign_key "orders", "drivers"
