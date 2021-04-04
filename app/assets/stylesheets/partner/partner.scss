@@ -291,3 +291,71 @@ $black_color: black;
   font-size: 15px;
   color: $black_color;
 }
+
+// CATEGORIES MANAGEMENT
+
+.btn-new {
+  width: 100px;
+  margin-right: 80px;
+  margin-bottom: 10px;
+  float: right;
+}
+
+#paginate {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.img-product {
+  width: 80px;
+  height: 80px;
+}
+
+// Login
+.custom-home {
+  padding: 0 !important;
+}
+
+.layout-custom {
+  background-color: rgba(251, 231, 231, 0.685);
+  height: 100vh;
+}
+
+.login-custom-form {
+  width: 1000px;
+  height: 400px;
+  font-weight: 600;
+  background-color: rgb(236, 225, 225);
+  display: block;
+  justify-content: center;
+  padding: 20px !important;
+  top: 80px !important;
+  left: 55vh;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.22);
+}
+
+.title-login {
+  display: flex;
+  justify-content: center;
+  font-size: 2.6em;
+  padding-bottom: 8px;
+}
+
+.btn-login-custom {
+  width: 120px;
+  height: 40px;
+  background-color: rgb(194, 75, 75);
+  border-style: none;
+  float: right;
+}
+.btn-login-custom:hover {
+  color: #fff;
+  background-color: rgb(104, 33, 33);
+}
+
+.forgot-pw-custom {
+  margin: 0;
+  font-style: italic;;
+}
