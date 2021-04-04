@@ -105,3 +105,5 @@ config/environments/*.local.yml
 
 # Ignore rspec
 /coverage/
+
+Gemfile.lock
