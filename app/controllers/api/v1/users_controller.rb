@@ -14,7 +14,7 @@ class Api::V1::UsersController < ApplicationController
     render json: @current_user.as_json(except: [:password]), status: 200
 
   rescue JWT::VerificationError, JWT::DecodeError, JWT::ExpiredSignature
-    render json: { error: ['Not Authenticated'] }, status: :unauthorized
+    render json: { message: 'Not Authenticated' }, status: :unauthorized
   end
 
   def load_user

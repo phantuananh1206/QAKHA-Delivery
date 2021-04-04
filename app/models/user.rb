@@ -53,7 +53,7 @@ class User < ApplicationRecord
   def generate_password_token!
     # self.reset_password_token = generate_token
     self.update_columns(reset_password_token: generate_token)
-    self.update_columns(reset_password_sent_at: Time.now.utc)
+    self.update_columns(reset_password_sent_at: Time.now.utc )
   end
 
   def password_token_valid?
