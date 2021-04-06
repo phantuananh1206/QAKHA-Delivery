@@ -12,4 +12,6 @@ class Product < ApplicationRecord
                           Settings.validation.number.zero}
   validates :price, presence: true,
             numericality: {greater_than: Settings.validation.number.zero}
+
+  scope :by_ids, ->(ids) { where(id: ids) }
 end
