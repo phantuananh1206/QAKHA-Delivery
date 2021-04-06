@@ -6,7 +6,9 @@ class Partner < ApplicationRecord
   belongs_to :city
   belongs_to :type
 
-  has_many_attached :images
+  has_one :image, dependent: :destroy
+  mount_uploader :image, ImageUploader
+
   has_many :vouchers, dependent: :destroy
 
   validates :name, presence: true,

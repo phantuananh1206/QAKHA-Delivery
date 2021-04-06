@@ -11,6 +11,7 @@ class CreatePartners < ActiveRecord::Migration[6.0]
       t.integer :status
       t.float :latitude
       t.float :longitude
+      t.string :image
       t.references :city, null: false, foreign_key: true
       t.references :type, null: false, foreign_key: true
 
