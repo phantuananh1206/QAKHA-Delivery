@@ -23,6 +23,8 @@ Rails.application.routes.draw do
           post "check_phone_number", to: 'registrations#check_phone_number_exits'
         end
         resources :users, only: %i(index show update)
+        resources :types, only: %i(index show)
+        resources :partners, only: %i(index)
       end
     end
 

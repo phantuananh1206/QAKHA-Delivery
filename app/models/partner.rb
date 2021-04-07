@@ -10,6 +10,7 @@ class Partner < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   has_many :vouchers, dependent: :destroy
+  has_many :categories, dependent: :destroy
 
   validates :name, presence: true,
             length: {maximum: Settings.validation.name_max}
