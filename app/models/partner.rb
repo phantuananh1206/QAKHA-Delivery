@@ -22,4 +22,7 @@ class Partner < ApplicationRecord
             uniqueness: true, allow_nil: true
   validates :password, presence: true,
             length: {minimum: Settings.validation.password_min}
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 end

@@ -19,7 +19,7 @@ class Driver < ApplicationRecord
   validates :id_card, presence: true,
             length: {minimum: Settings.validation.id_card_min},
             format: {with: VALID_ID_CARD_REGEX}, uniqueness: true
-  validates :phone_number, format: {width: VALID_PHONE_REGEX},
+  validates :phone_number, format: { with: VALID_PHONE_REGEX },
             length: {minimum: Settings.validation.phone_min},
             uniqueness: true, allow_nil: true
   validates :password, presence: true,

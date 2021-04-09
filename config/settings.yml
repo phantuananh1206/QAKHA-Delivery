@@ -7,3 +7,5 @@ validation:
   password_min: 6
   phone_min: 10
   id_card_min: 10
+product:
+  min_quantity: 1

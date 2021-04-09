@@ -21,13 +21,18 @@ Rails.application.routes.draw do
           get "test_method", to: 'users#test_method'
           post "check_email", to: 'registrations#check_email_exits'
           post "check_phone_number", to: 'registrations#check_phone_number_exits'
+          post "/cart", to: 'carts#show_cart'
           delete "/clear_cart", to: 'carts#clear_cart'
           get "/cart", to: 'carts#show'
+          post "/orders/voucher", to: 'orders#apply_voucher'
+          delete "/orders/voucher", to: 'orders#cancel_voucher'
+          post "/orders/calc_distance", to: 'orders#location'
         end
         resources :users, only: %i(index show update)
         resources :types, only: %i(index show)
         resources :partners, only: %i(index)
         resource :carts, only: %i(create update destroy)
+        resources :orders, only: %i(index create)
       end
     end
 

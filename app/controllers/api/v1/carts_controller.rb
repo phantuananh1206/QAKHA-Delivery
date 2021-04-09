@@ -5,6 +5,10 @@ class Api::V1::CartsController < ApplicationController
 
   respond_to :json
 
+  def show_cart
+    load_carts
+  end
+
   def show
     load_carts
   end

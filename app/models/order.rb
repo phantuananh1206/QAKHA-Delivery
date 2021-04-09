@@ -9,15 +9,17 @@ class Order < ApplicationRecord
 
   has_many :order_details, dependent: :destroy
 
-  validates :name, presence: true
+  validates :name, presence: true,
             length: {maximum: Settings.validation.name_max}
   validates :phone_number, format: {with: VALID_PHONE_REGEX},
             length: {minimum: Settings.validation.phone_min},
             uniqueness: true, allow_nil: true
   validates :address, presence: true
   validates :delivery_time, presence: true
-  validates :subtotal, presence: true,
+  validates :total_price_products, presence: true,
             numericality: {greater_than: Settings.validation.number.zero}
   validates :shipping_fee, presence: true,
+            numericality: {greater_than: Settings.validation.number.zero}
+  validates :total_price, presence: true,
             numericality: {greater_than: Settings.validation.number.zero}
 end
