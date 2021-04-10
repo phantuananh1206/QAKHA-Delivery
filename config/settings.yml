@@ -2,7 +2,7 @@ validation:
   number:
     zero: 0
     six: 6
-  name_max: 50
+  name_max: 100
   email_max: 255
   password_min: 6
   phone_min: 10
