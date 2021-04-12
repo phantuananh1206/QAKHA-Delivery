@@ -5,7 +5,9 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.string :phone_number
       t.string :address
       t.datetime :delivery_time
-      t.float :subtotal
+      t.float :total_price_products
+      t.float :discount
+      t.float :total_price
       t.string :shipping_fee
       t.string :float
       t.integer :status
