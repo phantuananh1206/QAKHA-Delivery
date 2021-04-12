@@ -1,7 +1,8 @@
 class Product < ApplicationRecord
   belongs_to :category
 
-  has_many_attached :images
+  has_one :image, dependent: :destroy
+  mount_uploader :image, ImageUploader
 
   validates :name, presence: true,
             length: {maximum: Settings.validation.name_max}
@@ -11,4 +12,6 @@ class Product < ApplicationRecord
                           Settings.validation.number.zero}
   validates :price, presence: true,
             numericality: {greater_than: Settings.validation.number.zero}
+
+  scope :by_ids, ->(ids) { where(id: ids) }
 end

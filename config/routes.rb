@@ -15,12 +15,19 @@ Rails.application.routes.draw do
           post "sign_up", to: 'registrations#create'
           post "sign_in", to: 'sessions#create'
           delete "sign_out", to: 'sessions#destroy'
-          get "user", to: "users#show"
+          get "user", to: 'users#show'
           post "passwords/forgot", to: 'passwords#forgot'
           post "passwords/reset", to: 'passwords#reset'
           get "test_method", to: 'users#test_method'
+          post "check_email", to: 'registrations#check_email_exits'
+          post "check_phone_number", to: 'registrations#check_phone_number_exits'
+          delete "/clear_cart", to: 'carts#clear_cart'
+          get "/cart", to: 'carts#show'
         end
         resources :users, only: %i(index show update)
+        resources :types, only: %i(index show)
+        resources :partners, only: %i(index)
+        resource :carts, only: %i(create update destroy)
       end
     end
 

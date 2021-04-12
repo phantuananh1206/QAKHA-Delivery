@@ -107,3 +107,4 @@ config/environments/*.local.yml
 /coverage/
 
 Gemfile.lock
+.env

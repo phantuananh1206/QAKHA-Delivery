@@ -7,7 +7,9 @@ class User < ApplicationRecord
   VALID_PHONE_REGEX = /\A\d[0-9]{9}\z/.freeze
   VALID_PASSWORD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/.freeze
 
-  has_many_attached :images
+  has_one :image, dependent: :destroy
+  mount_uploader :image, ImageUploader
+
   has_many :orders, dependent: :destroy
   has_many :feedbacks, dependent: :destroy
 
@@ -53,7 +55,7 @@ class User < ApplicationRecord
   def generate_password_token!
     # self.reset_password_token = generate_token
     self.update_columns(reset_password_token: generate_token)
-    self.update_columns(reset_password_sent_at: Time.now.utc)
+    self.update_columns(reset_password_sent_at: Time.now.utc )
   end
 
   def password_token_valid?

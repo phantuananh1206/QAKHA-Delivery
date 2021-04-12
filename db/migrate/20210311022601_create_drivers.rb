@@ -8,6 +8,7 @@ class CreateDrivers < ActiveRecord::Migration[6.0]
       t.string :phone_number
       t.string :password
       t.string :license_plate
+      t.string :image
 
       t.timestamps
     end
