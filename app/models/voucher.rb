@@ -1,7 +1,7 @@
 class Voucher < ApplicationRecord
   belongs_to :partner
 
-  has_many :orders, dependent: :destroy
+  has_many :orders
 
   validates :code, presence: true, uniqueness: true
   validates :discount, presence: true

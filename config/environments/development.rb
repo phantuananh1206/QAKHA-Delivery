@@ -35,7 +35,7 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = {host: "https://0dd70f80c349.ngrok.io"}
+  config.action_mailer.default_url_options = {host: "https://79818d700f43.ngrok.io"}
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {

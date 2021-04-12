@@ -1,6 +1,5 @@
 class Api::V1::UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
-  # before_action :load_user, only: %i(show)
 
   respond_to :json
 
@@ -15,15 +14,5 @@ class Api::V1::UsersController < ApplicationController
 
   rescue JWT::VerificationError, JWT::DecodeError, JWT::ExpiredSignature
     render json: { message: 'Not Authenticated' }, status: :unauthorized
-  end
-
-  def load_user
-    @user = User.find_by(id: params[:id])
-    return if @user
-    render json: {}, status: :not_found
-  end
-
-  def test_method
-    render json: {message: "OK"}, status: 200
   end
 end
