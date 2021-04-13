@@ -5,4 +5,10 @@ module Api::V1::CartsHelper
   rescue JWT::VerificationError, JWT::DecodeError, JWT::ExpiredSignature
     render json: { error: ['Not Authenticated'] }, status: :unauthorized
   end
+
+  def load_partner
+    return if @partner = Partner.find_by(id: params[:partner_id], status: :open)
+
+    render json: { error: 'Partner not found!' }, status: :not_found
+  end
 end

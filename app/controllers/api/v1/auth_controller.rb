@@ -17,6 +17,6 @@ class Api::V1::AuthController < ApplicationController
   end
 
   def verify_token
-    @user ||= User.find(JsonWebToken.decode(http_token)[:id]) if JsonWebToken.decode(http_token)
+    @user ||= User.find(JsonWebToken.decode(http_token)[:user][:id]) if JsonWebToken.decode(http_token)
   end
 end

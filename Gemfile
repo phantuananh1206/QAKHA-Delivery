@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.2"
 
+gem 'aasm'
 gem 'active_storage_validations', '0.8.2'
 gem 'activerecord-session_store'
 gem 'active_model_serializers'

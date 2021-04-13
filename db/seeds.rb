@@ -2,7 +2,6 @@ User.create!(name: "Admin",
   email: "admin@gmail.com",
   password: "Test123@",
   phone_number: "0123456789",
-  address: "Phan Thanh Thanh Khe Da Nang",
   role: 0
 )
 
@@ -10,7 +9,6 @@ User.create!(name: "TuanAnh",
   email: "phantuananhltt@gmail.com",
   password: "Test123@",
   phone_number: "0396355253",
-  address: "Dung si thanh khe Da Nang",
   role: 0
 )
 
@@ -20,8 +18,18 @@ User.create!(name: "TuanAnh",
     name: Faker::Name.name,
     email: "user#{n+1}@gmail.com",
     password: "Test123@",
-    address: Faker::Address.full_address,
     phone_number: Faker::Number.leading_zero_number(digits: 10)
+  )
+end
+
+
+#Address
+30.times do
+  Address.create!(
+    name: Faker::Address.full_address,
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude,
+    user_id: User.pluck(:id).sample
   )
 end
 
@@ -47,10 +55,28 @@ end
     phone_number: Faker::Number.leading_zero_number(digits: 10),
     time_open: Time.zone.now,
     time_close: Faker::Time.forward(days: 15),
+    status: 0,
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude,
     city_id: City.pluck(:id).sample,
     type_id: Type.pluck(:id).sample
   )
 end
+
+Partner.create!(
+  name: Faker::Name.name,
+  email: "partner50@gmail.com",
+  password: "Test123@",
+  address: "58 Dung Si Thanh Khe, Da Nang",
+  phone_number: Faker::Number.leading_zero_number(digits: 10),
+  time_open: Time.zone.now,
+  time_close: Faker::Time.forward(days: 15),
+  status: 0,
+  latitude: 16.0746,
+  longitude: 108.176,
+  city_id: City.pluck(:id).sample,
+  type_id: Type.pluck(:id).sample
+)
 
 # Categories
 foods=["Korean","Japanese","Chinese","Vietnam","French"]
@@ -71,7 +97,7 @@ subCategories= Category.all-categories
     name: Faker::Food.dish,
     description: Faker::Food.description,
     price: Faker::Number.decimal(l_digits: 2),
-    quantity_sold: Faker::Number.non_zero_digit,
+    quantity_sold: Faker::Number.non_zero_digit
   )
 end
 
@@ -86,3 +112,29 @@ end
     partner_id: Partner.pluck(:id).sample
   )
 end
+
+Driver.create!(
+  name: Faker::Name.name,
+  email: "driver1@gmail.com",
+  password: "Test123@",
+  address: Faker::Address.full_address,
+  phone_number: Faker::Number.leading_zero_number(digits: 10),
+  id_card: Faker::Number.number(digits: 10),
+  license_plate: Faker::Code.asin,
+  status: 2,
+  latitude: 16.0721,
+  longitude: 108.207
+)
+
+Driver.create!(
+  name: Faker::Name.name,
+  email: "driver2@gmail.com",
+  password: "Test123@",
+  address: Faker::Address.full_address,
+  phone_number: Faker::Number.leading_zero_number(digits: 10),
+  id_card: Faker::Number.number(digits: 10),
+  license_plate: Faker::Code.asin,
+  status: 2,
+  latitude: 16.072,
+  longitude: 108.174
+)
