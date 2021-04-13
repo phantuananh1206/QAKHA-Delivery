@@ -11,7 +11,7 @@ class Driver < ApplicationRecord
 
   has_one :feedback
 
-  has_many :orders, dependent: :destroy
+  has_many :orders, dependent: :restrict_with_error
 
   enum status: { not_activated: 0, offline: 1, online: 2, locked: 3}
 

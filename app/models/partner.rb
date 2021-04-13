@@ -9,8 +9,8 @@ class Partner < ApplicationRecord
   has_one :image, dependent: :destroy
   mount_uploader :image, ImageUploader
 
-  has_many :vouchers, dependent: :destroy
-  has_many :categories, dependent: :destroy
+  has_many :vouchers, dependent: :restrict_with_error
+  has_many :categories, dependent: :restrict_with_error
 
   enum status: { open: 0, close: 1 }
 
