@@ -55,12 +55,28 @@ end
     phone_number: Faker::Number.leading_zero_number(digits: 10),
     time_open: Time.zone.now,
     time_close: Faker::Time.forward(days: 15),
+    status: 0,
     latitude: Faker::Address.latitude,
     longitude: Faker::Address.longitude,
     city_id: City.pluck(:id).sample,
     type_id: Type.pluck(:id).sample
   )
 end
+
+Partner.create!(
+  name: Faker::Name.name,
+  email: "partner50@gmail.com",
+  password: "Test123@",
+  address: "58 Dung Si Thanh Khe, Da Nang",
+  phone_number: Faker::Number.leading_zero_number(digits: 10),
+  time_open: Time.zone.now,
+  time_close: Faker::Time.forward(days: 15),
+  status: 0,
+  latitude: 16.0746,
+  longitude: 108.176,
+  city_id: City.pluck(:id).sample,
+  type_id: Type.pluck(:id).sample
+)
 
 # Categories
 foods=["Korean","Japanese","Chinese","Vietnam","French"]
@@ -97,17 +113,28 @@ end
   )
 end
 
-#Drivers
-10.times do |n|
-  Driver.create!(
-    name: Faker::Name.name,
-    email: "driver#{n+1}@gmail.com",
-    password: "Test123@",
-    address: Faker::Address.full_address,
-    phone_number: Faker::Number.leading_zero_number(digits: 10),
-    id_card: Faker::Number.number(digits: 10),
-    license_plate: Faker::Code.asin,
-    latitude: Faker::Address.latitude,
-    longitude: Faker::Address.longitude
-  )
-end
+Driver.create!(
+  name: Faker::Name.name,
+  email: "driver1@gmail.com",
+  password: "Test123@",
+  address: Faker::Address.full_address,
+  phone_number: Faker::Number.leading_zero_number(digits: 10),
+  id_card: Faker::Number.number(digits: 10),
+  license_plate: Faker::Code.asin,
+  status: 2,
+  latitude: 16.0721,
+  longitude: 108.207
+)
+
+Driver.create!(
+  name: Faker::Name.name,
+  email: "driver2@gmail.com",
+  password: "Test123@",
+  address: Faker::Address.full_address,
+  phone_number: Faker::Number.leading_zero_number(digits: 10),
+  id_card: Faker::Number.number(digits: 10),
+  license_plate: Faker::Code.asin,
+  status: 2,
+  latitude: 16.072,
+  longitude: 108.174
+)

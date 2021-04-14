@@ -5,16 +5,15 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.string :phone_number
       t.string :address
       t.datetime :delivery_time
-      t.float :total_price_products
+      t.float :subtotal
       t.float :discount
-      t.float :total_price
+      t.float :total
       t.string :shipping_fee
-      t.string :float
       t.integer :status
       t.text :description
       t.references :user, null: false, foreign_key: true
       t.references :driver, null: false, foreign_key: true
-      t.references :voucher, null: false, foreign_key: true
+      t.references :voucher, foreign_key: true
 
       t.timestamps
     end

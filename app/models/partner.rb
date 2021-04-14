@@ -12,6 +12,8 @@ class Partner < ApplicationRecord
   has_many :vouchers, dependent: :destroy
   has_many :categories, dependent: :destroy
 
+  enum status: { open: 0, close: 1 }
+
   validates :name, presence: true,
             length: {maximum: Settings.validation.name_max}
   validates :email, presence: true,
@@ -22,4 +24,7 @@ class Partner < ApplicationRecord
             uniqueness: true, allow_nil: true
   validates :password, presence: true,
             length: {minimum: Settings.validation.password_min}
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 end

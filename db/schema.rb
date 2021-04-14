@@ -130,16 +130,15 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
     t.string "phone_number"
     t.string "address"
     t.datetime "delivery_time"
-    t.float "total_price_products"
+    t.float "subtotal"
     t.float "discount"
-    t.float "total_price"
+    t.float "total"
     t.string "shipping_fee"
-    t.string "float"
     t.integer "status"
     t.text "description"
     t.bigint "user_id", null: false
     t.bigint "driver_id", null: false
-    t.bigint "voucher_id", null: false
+    t.bigint "voucher_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["driver_id"], name: "index_orders_on_driver_id"
