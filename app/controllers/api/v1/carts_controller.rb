@@ -19,7 +19,7 @@ class Api::V1::CartsController < ApplicationController
       @cart.save
     end
     @carts = Cart.where(user_id: @current_user.id, partner_id: params[:partner_id])
-    render json: @carts, status: :created
+    render json: { carts: @carts, total_price_cart: total_price_cart }, status: :created
   end
 
   def update

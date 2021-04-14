@@ -3,7 +3,8 @@ class Api::V1::OrdersController < ApplicationController
   include Api::V1::OrdersHelper
 
   skip_before_action :verify_authenticity_token
-  before_action :load_user, :load_cart, :load_partner
+  before_action :load_user, :load_cart
+  before_action :load_partner, except: :list_vouchers
   before_action :load_voucher, only: :apply_voucher
   before_action :current_voucher, only: %i(apply_voucher cancel_voucher)
   before_action :remove_voucher, only: :cancel_voucher
@@ -22,6 +23,16 @@ class Api::V1::OrdersController < ApplicationController
     end
   rescue
     render json: { error: 'Create order failed' }
+  end
+
+  def list_vouchers
+    @vouchers = Voucher.all
+    render json: @vouchers, status: :ok
+  end
+
+  def vouchers_by_partner
+    @vouchers_by_partner = Voucher.where(partner_id: @partner.id)
+    render json: @vouchers_by_partner, status: :ok
   end
 
   def apply_voucher
