@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :phone_number
       t.string :password
       t.string :image
+      t.float :coins, default: 0
       t.integer :role, null: false, default: 1
 
       t.timestamps

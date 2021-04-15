@@ -20,6 +20,6 @@ module Api::V1::OrdersHelper
   end
 
   def current_voucher
-    session[:voucher] ||= {}
+    $current_voucher ||= {}
   end
 end

@@ -5,7 +5,7 @@ class Api::V1::AddressesController < ApplicationController
   before_action :load_user
   before_action :load_address, only: %i(update destroy)
 
-  def show
+  def index
     render json: @current_user.addresses, status: :ok
   end
 
@@ -41,7 +41,7 @@ class Api::V1::AddressesController < ApplicationController
   end
 
   def load_address
-    return if @address = Address.find_by(id: params[:id])
+    return if @address = Address.find_by(id: params[:id], user_id: @current_user.id)
 
     render json: { error: 'Address not found!' }, status: :not_found
   end

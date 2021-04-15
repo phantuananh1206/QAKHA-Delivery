@@ -10,9 +10,8 @@ class Driver < ApplicationRecord
   has_one :image, dependent: :destroy
   mount_uploader :image, ImageUploader
 
-  has_one :feedback
-
-  has_many :orders, dependent: :destroy
+  has_many :feedbacks, dependent: :restrict_with_error
+  has_many :orders, dependent: :restrict_with_error
 
   enum status: { not_activated: 0, offline: 1, online: 2, locked: 3}
 
@@ -20,16 +19,19 @@ class Driver < ApplicationRecord
             length: {maximum: Settings.validation.name_max}
   validates :email, presence: true,
             length: {maximum: Settings.validation.email_max},
-            format: {with: VALID_EMAIL_REGEX}, uniqueness: true
+            format: {with: VALID_EMAIL_REGEX}, uniqueness: { case_sensitive: true }
   validates :id_card, presence: true,
             length: {minimum: Settings.validation.id_card_min},
-            uniqueness: true
+            uniqueness: { case_sensitive: true }
+            # format: {with: VALID_ID_CARD_REGEX}
   validates :phone_number, format: { with: VALID_PHONE_REGEX },
             length: {minimum: Settings.validation.phone_min},
-            uniqueness: true, allow_nil: true
+            uniqueness: { case_sensitive: true }, allow_nil: true
   validates :password, presence: true,
             length: {minimum: Settings.validation.password_min}
-  validates :license_plate, presence: true, uniqueness: true
+  validates :license_plate, presence: true, uniqueness: { case_sensitive: true }
+  validates :coins, allow_nil: true,
+            numericality: { greater_than_or_equal_to: Settings.validation.number.zero }
 
   aasm column: :status, enum: true do
     state :not_activated, initial: true
@@ -51,10 +53,19 @@ class Driver < ApplicationRecord
       transitions from: [:offline, :online], to: :locked
     end
   end
+
   before_save :downcase_email
 
   def save_image!(image)
     self.update_columns(image: image)
+  end
+
+  def avg_point_feedback_driver
+    if feedbacks.present?
+      feedbacks.average(:point).round(1).to_f
+    else
+      0.0
+    end
   end
 
   private
