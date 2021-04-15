@@ -11,8 +11,10 @@ class Partner < ApplicationRecord
   has_one :image, dependent: :destroy
   mount_uploader :image, ImageUploader
 
-  has_many :vouchers, dependent: :destroy
-  has_many :categories, dependent: :destroy
+  has_many :vouchers, dependent: :restrict_with_error
+  has_many :categories, dependent: :restrict_with_error
+  has_many :feedbacks, dependent: :restrict_with_error
+  has_many :orders, dependent: :restrict_with_error
 
   enum status: { open: 0, close: 1 }
 
@@ -34,7 +36,21 @@ class Partner < ApplicationRecord
   def save_image!(image)
     self.update_columns(image: image)
   end
+
   before_save :downcase_email
+
+  def as_json(options = {})
+    super.merge(time_open: time_open.strftime('%H:%M:%S'),
+                time_close: time_close.strftime('%H:%M:%S'))
+  end
+
+  def avg_point_feedback_partner
+    if feedbacks.present?
+      feedbacks.average(:point).round(1).to_f
+    else
+      0.0
+    end
+  end
 
   private
 

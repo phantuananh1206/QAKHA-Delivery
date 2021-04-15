@@ -8,5 +8,7 @@ validation:
   phone_min: 10
   id_card_min: 9
   address_max: 255
+  min_point: 0
+  max_point: 6
 product:
   min_quantity: 1

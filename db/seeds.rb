@@ -3,6 +3,7 @@ User.create!(name: "Admin",
   password: "Test123@",
   phone_number: "0123456789",
   address: "Phan Thanh Thanh Khe Da Nang",
+  coins: 500000,
   role: 0
 )
 
@@ -11,6 +12,7 @@ User.create!(name: "TuanAnh",
   password: "Test123@",
   phone_number: "0396355253",
   address: "Dung si thanh khe Da Nang",
+  coins: 500000,
   role: 0
 )
 
@@ -21,9 +23,51 @@ User.create!(name: "TuanAnh",
     email: "user#{n+1}@gmail.com",
     password: "Test123@",
     address: Faker::Address.full_address,
-    phone_number: Faker::Number.leading_zero_number(digits: 10)
+    phone_number: Faker::Number.leading_zero_number(digits: 10),
+    coins: 1000000
   )
 end
+
+
+#Address
+30.times do
+  Address.create!(
+    name: Faker::Address.full_address,
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude,
+    user_id: User.pluck(:id).sample
+  )
+end
+
+# Driver
+
+Driver.create!(
+  name: Faker::Name.name,
+  email: "driver1@gmail.com",
+  password: "Test123@",
+  address: Faker::Address.full_address,
+  phone_number: Faker::Number.leading_zero_number(digits: 10),
+  id_card: Faker::Number.number(digits: 10),
+  license_plate: Faker::Code.asin,
+  status: 2,
+  coins: 100000,
+  latitude: 16.0721,
+  longitude: 108.207
+)
+
+Driver.create!(
+  name: Faker::Name.name,
+  email: "driver2@gmail.com",
+  password: "Test123@",
+  address: Faker::Address.full_address,
+  phone_number: Faker::Number.leading_zero_number(digits: 10),
+  id_card: Faker::Number.number(digits: 10),
+  license_plate: Faker::Code.asin,
+  status: 2,
+  coins: 100000,
+  latitude: 16.072,
+  longitude: 108.174
+)
 
 #Type
 types = ["VEGE", "RICE BOX", "STREETFOOD"]

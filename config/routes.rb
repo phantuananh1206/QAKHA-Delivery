@@ -31,16 +31,24 @@ Rails.application.routes.draw do
           get "/cart", to: 'carts#show'
           get "/orders/list_vouchers", to: 'orders#list_vouchers'
           get "/orders/voucher", to: 'orders#vouchers_by_partner'
+          get "/orders/vouchers", to: 'orders#vouchers_by_partner'
           post "/orders/voucher", to: 'orders#apply_voucher'
           delete "/orders/voucher", to: 'orders#cancel_voucher'
           post "/orders/calc_distance", to: 'orders#location'
           post "check_id_card_driver", to: 'registrations#check_id_card_driver'
           post "check_license_plate_driver", to: 'registrations#check_license_plate_driver'
+          get "feedbacks/partner", to: 'feedbacks#fb_partner'
+          get "feedbacks/driver", to: 'feedbacks#fb_driver'
+          get "/orders/coins_user", to: 'orders#coins_user'
         end
         resources :users, only: %i(index show update)
         resources :types, only: %i(index show)
         resources :partners, only: %i(index)
         resource :carts, only: %i(create update destroy)
+        resources :orders, only: :create do
+          resources :feedbacks, only: :create
+        end
+        resources :addresses, only: %i(index create update destroy)
       end
     end
 

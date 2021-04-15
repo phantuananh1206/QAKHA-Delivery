@@ -10,7 +10,7 @@ class Api::V1::TypesController < ApplicationController
 
   def show
     @partners = @type.partners
-    render json: @partners
+    render json: @partners.as_json(except: [:password], include: [:categories => {:include => :products}])
   end
 
   def load_type
