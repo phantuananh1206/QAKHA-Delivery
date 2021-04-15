@@ -1,4 +1,6 @@
-<% if resource.errors.any? %>
+<%
+=begin%>
+ <% if resource.errors.any? %>
   <div id="error_explanation">
     <h2>
       <%= I18n.t("errors.messages.not_saved",
@@ -13,3 +15,5 @@
     </ul>
   </div>
 <% end %>
+<%
+=end%>

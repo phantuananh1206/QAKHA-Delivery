@@ -32,6 +32,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
 gem 'webpacker', '~> 4.0'
 gem 'rack-cors'
+gem 'rails_admin'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
