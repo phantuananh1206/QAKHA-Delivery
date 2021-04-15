@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, skip: [:session, :password, :registration], controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   scope "(:locale)", locale: /en|vi/ do
     devise_for :users, skip: :omniauth_callbacks
@@ -24,18 +23,11 @@ Rails.application.routes.draw do
           post "check_phone_number", to: 'registrations#check_phone_number_exits'
           delete "/clear_cart", to: 'carts#clear_cart'
           get "/cart", to: 'carts#show'
-          get "/orders/list_vouchers", to: 'orders#list_vouchers'
-          get "/orders/voucher", to: 'orders#vouchers_by_partner'
-          post "/orders/voucher", to: 'orders#apply_voucher'
-          delete "/orders/voucher", to: 'orders#cancel_voucher'
-          post "/orders/calc_distance", to: 'orders#location'
         end
         resources :users, only: %i(index show update)
         resources :types, only: %i(index show)
         resources :partners, only: %i(index)
         resource :carts, only: %i(create update destroy)
-        resources :orders, only: :create
-        resources :addresses, only: %i(show create update destroy)
       end
     end
 

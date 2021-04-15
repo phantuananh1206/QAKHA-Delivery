@@ -1,6 +1,6 @@
 class Type < ApplicationRecord
-  has_many :partners, dependent: :restrict_with_error
+  has_many :partners, dependent: :destroy
 
-  validates :name, presence: true, uniqueness: true,
+  validates :name, presence: true,
             length: {maximum: Settings.validation.name_max}
 end

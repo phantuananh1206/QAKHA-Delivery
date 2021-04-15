@@ -33,16 +33,6 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
-    t.float "latitude"
-    t.float "longitude"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_addresses_on_user_id"
-  end
-
   create_table "carts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "quantity"
     t.bigint "product_id", null: false
@@ -79,9 +69,6 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
     t.string "password"
     t.string "license_plate"
     t.string "image"
-    t.integer "status"
-    t.float "latitude"
-    t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -130,15 +117,16 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
     t.string "phone_number"
     t.string "address"
     t.datetime "delivery_time"
-    t.float "subtotal"
+    t.float "total_price_products"
     t.float "discount"
-    t.float "total"
+    t.float "total_price"
     t.string "shipping_fee"
+    t.string "float"
     t.integer "status"
     t.text "description"
     t.bigint "user_id", null: false
     t.bigint "driver_id", null: false
-    t.bigint "voucher_id"
+    t.bigint "voucher_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["driver_id"], name: "index_orders_on_driver_id"
@@ -152,9 +140,9 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
     t.string "phone_number"
     t.string "email"
     t.string "password"
-    t.time "time_open"
-    t.time "time_close"
-    t.integer "status", default: 0
+    t.datetime "time_open"
+    t.datetime "time_close"
+    t.integer "status"
     t.float "latitude"
     t.float "longitude"
     t.string "image"
@@ -196,6 +184,7 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.string "address"
     t.string "phone_number"
     t.string "password"
     t.string "image"
@@ -231,7 +220,6 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "addresses", "users"
   add_foreign_key "carts", "partners"
   add_foreign_key "carts", "products"
   add_foreign_key "carts", "users"

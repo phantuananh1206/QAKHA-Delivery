@@ -1,7 +1,6 @@
 class Api::V1::SessionsController < Devise::SessionsController
   before_action :load_user_authentication, only: [:create, :destroy]
   skip_before_action :verify_authenticity_token
-  before_action :load_address, only: :create
 
   respond_to :json
 
@@ -9,7 +8,7 @@ class Api::V1::SessionsController < Devise::SessionsController
     if @user.valid_password? params[:password]
       sign_in @user, store: false
       jwt = JWT.encode(
-        { user: @user.as_json(except: [:password], include: [addresses: { only: [:name, :latitude, :longitude] }]), exp: (Time.now + 2.hours).to_i },
+        { user_name: @user.name, id: @user.id, exp: (Time.now + 2.hours).to_i },
         Rails.application.secrets.secret_key_base,
         'HS256'
       )
@@ -23,7 +22,6 @@ class Api::V1::SessionsController < Devise::SessionsController
 
   def load_user_authentication
     @user = User.find_by_email params[:email]
-
     render json: {message: "Email is not exists. Please sign up !!"}, status: :bad_request unless @user
   end
 
@@ -37,11 +35,6 @@ class Api::V1::SessionsController < Devise::SessionsController
 
   def ensure_params_exist
     return unless params.blank?
-
-    render json: {message: "Missing params"}, status: 422
-  end
-
-  def load_address
-    @addresses = @user.addresses
-  end
+     render json: {message: "Missing params"}, status: 422
+   end
 end

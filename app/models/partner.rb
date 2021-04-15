@@ -9,10 +9,8 @@ class Partner < ApplicationRecord
   has_one :image, dependent: :destroy
   mount_uploader :image, ImageUploader
 
-  has_many :vouchers, dependent: :restrict_with_error
-  has_many :categories, dependent: :restrict_with_error
-
-  enum status: { open: 0, close: 1 }
+  has_many :vouchers, dependent: :destroy
+  has_many :categories, dependent: :destroy
 
   validates :name, presence: true,
             length: {maximum: Settings.validation.name_max}
@@ -24,10 +22,4 @@ class Partner < ApplicationRecord
             uniqueness: true, allow_nil: true
   validates :password, presence: true,
             length: {minimum: Settings.validation.password_min}
-
-  geocoded_by :address
-  after_validation :geocode, if: :address_changed?
-  def save_image!(image)
-    self.update_columns(image: image)
-  end
 end
