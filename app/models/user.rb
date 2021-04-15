@@ -20,12 +20,14 @@ class User < ApplicationRecord
             length: {maximum: Settings.validation.name_max}
   validates :email, presence: true,
             length: {maximum: Settings.validation.email_max},
-            format: {with: VALID_EMAIL_REGEX}, uniqueness: true
+            format: {with: VALID_EMAIL_REGEX}, uniqueness: { case_sensitive: true }
   validates :phone_number, format: {with: VALID_PHONE_REGEX},
             length: {minimum: Settings.validation.phone_min},
-            uniqueness: true, allow_nil: true
-  validates :password, presence: true,
+            uniqueness: { case_sensitive: true }, allow_nil: true
+  validates :password, allow_nil: true,
             length: {minimum: Settings.validation.password_min}
+  validates :coins, allow_nil: true,
+            numericality: { greater_than_or_equal_to: Settings.validation.number.zero }
 
   before_save :downcase_email
 

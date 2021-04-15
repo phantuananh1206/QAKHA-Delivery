@@ -7,13 +7,15 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.datetime :delivery_time
       t.float :subtotal
       t.float :discount
-      t.float :total
       t.string :shipping_fee
-      t.integer :status
+      t.float :total
+      t.integer :status, default: 0
+      t.integer :type_checkout
       t.text :description
       t.references :user, null: false, foreign_key: true
       t.references :driver, null: false, foreign_key: true
       t.references :voucher, foreign_key: true
+      t.references :partner, null: false, foreign_key: true
 
       t.timestamps
     end
