@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
     t.string "license_plate"
     t.string "image"
     t.integer "status"
+    t.float "coins"
     t.float "latitude"
     t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
@@ -98,16 +99,17 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
   end
 
   create_table "feedbacks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.text "context"
-    t.float "point"
+    t.text "content"
+    t.integer "point"
     t.bigint "user_id", null: false
     t.bigint "order_id", null: false
-    t.bigint "driver_id", null: false
-    t.integer "parent_id"
+    t.bigint "driver_id"
+    t.bigint "partner_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["driver_id"], name: "index_feedbacks_on_driver_id"
     t.index ["order_id"], name: "index_feedbacks_on_order_id"
+    t.index ["partner_id"], name: "index_feedbacks_on_partner_id"
     t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end
 
@@ -143,16 +145,19 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
     t.datetime "delivery_time"
     t.float "subtotal"
     t.float "discount"
-    t.float "total"
     t.string "shipping_fee"
-    t.integer "status"
+    t.float "total"
+    t.integer "status", default: 0
+    t.integer "type_checkout"
     t.text "description"
     t.bigint "user_id", null: false
     t.bigint "driver_id", null: false
     t.bigint "voucher_id"
+    t.bigint "partner_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["driver_id"], name: "index_orders_on_driver_id"
+    t.index ["partner_id"], name: "index_orders_on_partner_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
     t.index ["voucher_id"], name: "index_orders_on_voucher_id"
   end
@@ -221,6 +226,7 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
     t.string "phone_number"
     t.string "password"
     t.string "image"
+    t.float "coins", default: 0.0
     t.integer "role", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -260,6 +266,7 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
   add_foreign_key "categories", "partners"
   add_foreign_key "feedbacks", "drivers"
   add_foreign_key "feedbacks", "orders"
+  add_foreign_key "feedbacks", "partners"
   add_foreign_key "feedbacks", "users"
   add_foreign_key "images", "drivers"
   add_foreign_key "images", "partners"
@@ -268,6 +275,7 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
   add_foreign_key "order_details", "orders"
   add_foreign_key "order_details", "products"
   add_foreign_key "orders", "drivers"
+  add_foreign_key "orders", "partners"
   add_foreign_key "orders", "users"
   add_foreign_key "orders", "vouchers"
   add_foreign_key "partners", "cities"

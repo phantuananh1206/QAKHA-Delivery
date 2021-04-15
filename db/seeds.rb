@@ -2,6 +2,7 @@ User.create!(name: "Admin",
   email: "admin@gmail.com",
   password: "Test123@",
   phone_number: "0123456789",
+  coins: 500000,
   role: 0
 )
 
@@ -9,6 +10,7 @@ User.create!(name: "TuanAnh",
   email: "phantuananhltt@gmail.com",
   password: "Test123@",
   phone_number: "0396355253",
+  coins: 500000,
   role: 0
 )
 
@@ -18,7 +20,8 @@ User.create!(name: "TuanAnh",
     name: Faker::Name.name,
     email: "user#{n+1}@gmail.com",
     password: "Test123@",
-    phone_number: Faker::Number.leading_zero_number(digits: 10)
+    phone_number: Faker::Number.leading_zero_number(digits: 10),
+    coins: 1000000
   )
 end
 
@@ -44,6 +47,7 @@ Driver.create!(
   id_card: Faker::Number.number(digits: 10),
   license_plate: Faker::Code.asin,
   status: 2,
+  coins: 100000,
   latitude: 16.0721,
   longitude: 108.207
 )
@@ -57,6 +61,7 @@ Driver.create!(
   id_card: Faker::Number.number(digits: 10),
   license_plate: Faker::Code.asin,
   status: 2,
+  coins: 100000,
   latitude: 16.072,
   longitude: 108.174
 )
