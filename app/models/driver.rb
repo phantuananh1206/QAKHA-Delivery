@@ -56,10 +56,13 @@ class Driver < ApplicationRecord
 
   before_save :downcase_email
 
+<<<<<<< HEAD
   def save_image!(image)
     self.update_columns(image: image)
   end
 
+=======
+>>>>>>> Feedback products
   def avg_point_feedback_driver
     if feedbacks.present?
       feedbacks.average(:point).round(1).to_f
@@ -72,5 +75,5 @@ class Driver < ApplicationRecord
 
   def downcase_email
     email.downcase!
-  end
+
 end

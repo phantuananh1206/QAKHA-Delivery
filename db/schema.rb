@@ -226,7 +226,11 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
     t.string "phone_number"
     t.string "password"
     t.string "image"
+<<<<<<< HEAD
     t.float "coins", default: 0.0
+=======
+    t.float "coins"
+>>>>>>> Feedback products
     t.integer "role", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
