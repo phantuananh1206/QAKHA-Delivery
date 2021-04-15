@@ -24,6 +24,8 @@ Rails.application.routes.draw do
           post "check_phone_number", to: 'registrations#check_phone_number_exits'
           delete "/clear_cart", to: 'carts#clear_cart'
           get "/cart", to: 'carts#show'
+          get "/orders/list_vouchers", to: 'orders#list_vouchers'
+          get "/orders/voucher", to: 'orders#vouchers_by_partner'
           post "/orders/voucher", to: 'orders#apply_voucher'
           delete "/orders/voucher", to: 'orders#cancel_voucher'
           post "/orders/calc_distance", to: 'orders#location'
@@ -33,6 +35,7 @@ Rails.application.routes.draw do
         resources :partners, only: %i(index)
         resource :carts, only: %i(create update destroy)
         resources :orders, only: :create
+        resources :addresses, only: %i(show create update destroy)
       end
     end
 
