@@ -7,7 +7,7 @@ class Order < ApplicationRecord
 
   has_one :feedback
 
-  has_many :order_details, dependent: :restrict_with_error
+  has_many :order_details, dependent: :destroy
 
   with_options presence: true do
     validates :name,
