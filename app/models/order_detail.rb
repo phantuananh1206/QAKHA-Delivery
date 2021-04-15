@@ -7,8 +7,4 @@ class OrderDetail < ApplicationRecord
                            greater_than: Settings.validation.number.zero}
   validates :price, presence: true,
             numericality: {greater_than: Settings.validation.number.zero}
-
-  def update_quantity_product
-    product.update(quantity_sold: (product.quantity_sold + quantity))
-  end
 end

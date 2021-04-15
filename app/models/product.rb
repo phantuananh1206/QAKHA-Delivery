@@ -14,8 +14,4 @@ class Product < ApplicationRecord
             numericality: {greater_than: Settings.validation.number.zero}
 
   scope :by_ids, ->(ids) { where(id: ids) }
-
-  def save_image!(image)
-    self.update_columns(image: image)
-  end
 end

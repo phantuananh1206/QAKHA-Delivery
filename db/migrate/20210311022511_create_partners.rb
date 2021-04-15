@@ -6,9 +6,9 @@ class CreatePartners < ActiveRecord::Migration[6.0]
       t.string :phone_number
       t.string :email
       t.string :password
-      t.time :time_open
-      t.time :time_close
-      t.integer :status, default: 0
+      t.datetime :time_open
+      t.datetime :time_close
+      t.integer :status
       t.float :latitude
       t.float :longitude
       t.string :image
