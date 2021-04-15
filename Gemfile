@@ -8,6 +8,7 @@ gem 'active_storage_validations', '0.8.2'
 gem 'activerecord-session_store'
 gem 'active_model_serializers'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootstrap', '~> 4.0.0'
 gem 'config'
 gem 'carrierwave'
 gem 'cloudinary'
@@ -31,7 +32,10 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
-gem 'webpacker', '~> 4.0'
+gem "webpacker", "~> 4.0"
+gem "will_paginate", "3.1.8"
+gem "bootstrap-will_paginate", "1.0.0"
+gem "will_paginate-bootstrap4"
 gem 'rack-cors'
 
 group :development do

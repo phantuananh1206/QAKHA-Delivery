@@ -1,0 +1,22 @@
+<div class="p-4">
+  <h1><%= "Management Categories" %></h1>
+  <h3><%= "Total of categories" %>: <%= Category.load_category_of_partner(current_partner.id).size %></h3>
+  <%= link_to "New", new_partners_category_path , class: "btn btn-info btn-new" %>
+  <table class="table table-striped track_tbl">
+    <thead>
+      <tr>
+        <th><%= "No" %></th>
+        <th><%= "Name of categories" %></th>
+        <th><%= "Parent id" %></th>
+        <th><%= "Created at" %></th>
+        <th><%= "Control" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @categories %>
+    </tbody>
+  </table>
+  <div id="paginate">
+    <%= will_paginate @categories %>
+  </div>
+</div>

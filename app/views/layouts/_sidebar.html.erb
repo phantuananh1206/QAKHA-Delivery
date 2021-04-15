@@ -31,7 +31,7 @@
           <li> <a href="#" data-toggle="collapse" data-target="#e-commerce" class="collapsed active" ><i class="fa fa-shopping-cart"></i> <span class="nav-label">E-commerce</span><span class="fa fa-chevron-left pull-right"></span></a>
             <ul  class="sub-menu collapse" id="e-commerce" >
               <li><%= link_to "Management Products", "#" %></li>
-              <li><%= link_to "Management Categories", "#" %></li>
+              <li><%= link_to "Management Categories", partners_categories_path %></li>
               <li><%= link_to "Management Vouchers", "model" %></li>
               <li><%= link_to "Management Orders", "model" %></li>
             </ul>
@@ -50,9 +50,8 @@
           <li> <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Other Pages</span></a> </li>
         </ul>
       </div>
-    </div>
+    </aside>
   <% end %>
-  </aside>
 </div>
 <script>
   $(document).ready(function(){

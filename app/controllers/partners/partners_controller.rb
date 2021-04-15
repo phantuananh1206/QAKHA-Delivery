@@ -4,5 +4,6 @@ class Partners::PartnersController < ApplicationController
   before_action :check_sign_in
 
   def index
+    @partner = current_partner
   end
 end
