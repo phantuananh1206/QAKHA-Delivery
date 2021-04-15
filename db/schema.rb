@@ -152,9 +152,9 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
     t.string "phone_number"
     t.string "email"
     t.string "password"
-    t.datetime "time_open"
-    t.datetime "time_close"
-    t.integer "status"
+    t.time "time_open"
+    t.time "time_close"
+    t.integer "status", default: 0
     t.float "latitude"
     t.float "longitude"
     t.string "image"

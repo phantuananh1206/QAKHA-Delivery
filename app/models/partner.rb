@@ -27,4 +27,7 @@ class Partner < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+  def save_image!(image)
+    self.update_columns(image: image)
+  end
 end
