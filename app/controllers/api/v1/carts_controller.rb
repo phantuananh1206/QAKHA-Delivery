@@ -1,6 +1,8 @@
 class Api::V1::CartsController < ApplicationController
+  include Api::V1::CartsHelper
+
   skip_before_action :verify_authenticity_token
-  before_action :load_user, :load_cart
+  before_action :load_user, :load_cart, :load_partner
   before_action :load_product, only: %i(create update destroy)
 
   respond_to :json
@@ -17,7 +19,7 @@ class Api::V1::CartsController < ApplicationController
       @cart.save
     end
     @carts = Cart.where(user_id: @current_user.id, partner_id: params[:partner_id])
-    render json: @carts, status: :created
+    render json: { carts: @carts, total_price_cart: total_price_cart }, status: :created
   end
 
   def update
@@ -45,13 +47,6 @@ class Api::V1::CartsController < ApplicationController
 
   private
 
-  def load_user
-    return if @current_user = Api::V1::AuthController.new(request.headers).authenticate_request!
-
-  rescue JWT::VerificationError, JWT::DecodeError, JWT::ExpiredSignature
-    render json: { error: ['Not Authenticated'] }, status: :unauthorized
-  end
-
   def load_product
     return if @product = Product.find_by(id: params[:product_id])
 
@@ -70,6 +65,14 @@ class Api::V1::CartsController < ApplicationController
 
   def load_carts
     @carts = Cart.where(user_id: @current_user.id, partner_id: params[:partner_id])
-    render json: @carts, status: :ok
+    render json: { carts: @carts, total_price_cart: total_price_cart }, status: :ok
+  end
+
+  def total_price_cart
+    @total = 0
+    @carts.each do |cart|
+      @total += cart.quantity * cart.product.price
+    end
+    @total
   end
 end
