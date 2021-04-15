@@ -11,6 +11,8 @@ class Driver < ApplicationRecord
 
   has_many :orders, dependent: :destroy
 
+  enum status: { not_activated: 0, offline: 1, online: 2, locked: 3}
+
   validates :name, presence: true,
             length: {maximum: Settings.validation.name_max}
   validates :email, presence: true,

@@ -12,6 +12,8 @@ class Partner < ApplicationRecord
   has_many :vouchers, dependent: :destroy
   has_many :categories, dependent: :destroy
 
+  enum status: { open: 0, close: 1 }
+
   validates :name, presence: true,
             length: {maximum: Settings.validation.name_max}
   validates :email, presence: true,
