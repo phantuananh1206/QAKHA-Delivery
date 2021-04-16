@@ -57,6 +57,8 @@ Rails.application.routes.draw do
       get "sign_in", to: 'sessions#new'
       post "sign_in", to: 'sessions#create'
       delete 'logout', to: 'sessions#destroy'
+      get "drivers/statistics_by_day", to: 'drivers#statistics_by_day'
+      resources :drivers
     end
   end
 end

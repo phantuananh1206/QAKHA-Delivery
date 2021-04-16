@@ -55,6 +55,7 @@ class Driver < ApplicationRecord
   end
 
   before_save :downcase_email
+  scope :completed_order, ->(day) { joins(:orders).where(orders: { status: 'completed', delivery_time: day })}
 
 <<<<<<< HEAD
   def save_image!(image)
@@ -75,5 +76,5 @@ class Driver < ApplicationRecord
 
   def downcase_email
     email.downcase!
-
+  end
 end

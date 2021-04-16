@@ -56,4 +56,5 @@ class Partner < ApplicationRecord
 
   def downcase_email
     email.downcase!
+  end
 end
