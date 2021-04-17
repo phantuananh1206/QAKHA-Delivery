@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
@@ -30,6 +32,8 @@ class User < ApplicationRecord
             numericality: { greater_than_or_equal_to: Settings.validation.number.zero }
 
   before_save :downcase_email
+
+  scope :_role_admin, -> { where(role: :admin) }
 
   def self.from_omniauth(auth)
     user_with_provider = find_by(provider: auth.provider, uid: auth.uid)

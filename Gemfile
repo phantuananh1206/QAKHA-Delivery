@@ -7,6 +7,7 @@ gem 'aasm'
 gem 'active_storage_validations', '0.8.2'
 gem 'activerecord-session_store'
 gem 'active_model_serializers'
+gem 'bcrypt'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'config'
 gem 'carrierwave'

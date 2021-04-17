@@ -3,9 +3,7 @@
     <div class="col-sm-4 col-sm-offset-4 login-custom-form">
       <div class="login-form">
         <h2 class="title-login">SIGN-IN</h2>
-
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <%= render 'shared/error_messages', object: f.object %>
+        <%= form_for :session, url: admin_sign_in_path do |f| %>
           <div class="form-group">
             <%= f.label :email %><br />
             <%= f.text_field :email, autofocus: true, class: "form-control" %>
@@ -15,15 +13,6 @@
             <%= f.label :password %><br />
             <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
           </div>
-          <% if devise_mapping.rememberable? -%>
-            <div class="form-group">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
-            </div>
-          <% end %>
-          <p class="forgot-pw-custom">
-            <%= render "devise/shared/links" %>
-          </p>
           <div class="actions">
             <%= f.submit "Sign-In", class: "btn btn-primary btn-login-custom" %>
           </div>

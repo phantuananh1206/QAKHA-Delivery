@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:700");
 
-// .image-custom {
-//   // height: 100vh;
-//   // width: auto;
-// }
+.image-custom {
+  // height: 100%;
+  width: 100%;
+}
 
 .sign-in-custom {
   font-size: 2rem;
@@ -14,7 +14,7 @@
   text-decoration: none;
   padding: 5px 5px !important;
   width: 250px !important;
-  left: 38% !important;
+  left: calc(100vh - 70vh) !important;
   bottom: 40px !important;
   color: #fff(167, 167, 167, 0.863) !important;
   font-weight: 800;
