@@ -1,8 +1,14 @@
 class Driver < ApplicationRecord
+<<<<<<< HEAD
+=======
+  include AASM
+  devise :database_authenticatable, :registerable, :trackable,
+         :recoverable, :rememberable, :validatable
+>>>>>>> API Sign up for partner and driver
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   VALID_PHONE_REGEX = /\A\d[0-9]{9}\z/.freeze
   VALID_PASSWORD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/.freeze
-  VALID_ID_CARD_REGEX = /\A\d[0-9]{9}\z/.freeze
+  # VALID_ID_CARD_REGEX = /^[0-9]{9,}$.freeze
 
   has_one :image, dependent: :destroy
   mount_uploader :image, ImageUploader
@@ -21,7 +27,7 @@ class Driver < ApplicationRecord
   validates :id_card, presence: true,
             length: {minimum: Settings.validation.id_card_min},
             format: {with: VALID_ID_CARD_REGEX}, uniqueness: true
-  validates :phone_number, format: {width: VALID_PHONE_REGEX},
+  validates :phone_number, format: { with: VALID_PHONE_REGEX },
             length: {minimum: Settings.validation.phone_min},
             uniqueness: true, allow_nil: true
   validates :password, presence: true,
@@ -49,6 +55,10 @@ class Driver < ApplicationRecord
     end
   end
   before_save :downcase_email
+
+  def save_image!(image)
+    self.update_columns(image: image)
+  end
 
   private
 

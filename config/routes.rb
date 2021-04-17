@@ -20,6 +20,7 @@ Rails.application.routes.draw do
           post "sign_up", to: 'registrations#create'
           post "sign_in", to: 'sessions#create'
           delete "sign_out", to: 'sessions#destroy'
+          post "sign_in_driver", to: 'sessions#sign_in_driver'
           get "user", to: 'users#show'
           post "passwords/forgot", to: 'passwords#forgot'
           post "passwords/reset", to: 'passwords#reset'
@@ -28,6 +29,13 @@ Rails.application.routes.draw do
           post "check_phone_number", to: 'registrations#check_phone_number_exits'
           delete "/clear_cart", to: 'carts#clear_cart'
           get "/cart", to: 'carts#show'
+          get "/orders/list_vouchers", to: 'orders#list_vouchers'
+          get "/orders/voucher", to: 'orders#vouchers_by_partner'
+          post "/orders/voucher", to: 'orders#apply_voucher'
+          delete "/orders/voucher", to: 'orders#cancel_voucher'
+          post "/orders/calc_distance", to: 'orders#location'
+          post "check_id_card_driver", to: 'registrations#check_id_card_driver'
+          post "check_license_plate_driver", to: 'registrations#check_license_plate_driver'
         end
         resources :users, only: %i(index show update)
         resources :types, only: %i(index show)

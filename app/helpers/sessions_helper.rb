@@ -13,7 +13,6 @@ module SessionsHelper
 
   def check_sign_in
     return if partner_signed_in?
-    byebug
     flash[:danger] = "Please sign-in"
     redirect_to partner_session_path
   end
