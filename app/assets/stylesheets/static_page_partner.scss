@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:700");
+
+// .image-custom {
+//   // height: 100vh;
+//   // width: auto;
+// }
+
+.sign-in-custom {
+  font-size: 2rem;
+  border-color: transparent;
+  border-style: solid;
+  border-radius: 20px;
+  background: rgba(27, 18, 7, 0.541);
+  text-decoration: none;
+  padding: 5px 5px !important;
+  width: 250px !important;
+  left: 38% !important;
+  bottom: 40px !important;
+  color: #fff(167, 167, 167, 0.863) !important;
+  font-weight: 800;
+}
+
+.sign-in-custom:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: rgba(116, 90, 51, 0.432);
+}
+.footer-custom {
+  background-color: rgba(255, 255, 255, 0.404);
+}
+.footer-1 {
+  background-color: rgba(212, 212, 212, 0.644);
+  font-size: 1rem;
+  padding: 40px 100px;
+  padding-left: 120px;
+  color: rgb(80, 156, 189);
+  font-weight: 800;
+}
+.alrazy-title {
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-weight: 800;
+  font-size: calc( 100vw / 24 );
+  position: relative;
+  padding: 0.4em 0;
+  overflow: hidden;
+  margin: 0;
+  color: #fff !important;
+  bottom: 100px !important;
+  left: 5% !important;
+}
+.alrazy-title:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  // border-bottom: solid 0.1em;
+  -webkit-animation: underline 1s cubic-bezier(0.8, 0, 0, 1);
+          animation: underline 1s cubic-bezier(0.8, 0, 0, 1);
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+@-webkit-keyframes underline {
+  from {
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+  }
+}
+@keyframes underline {
+  from {
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+  }
+}
+.alrazy-title .word {
+  display: inline-block;
+  -webkit-animation: slide-up 1.25s cubic-bezier(0.5, 0.2, 0, 1);
+          animation: slide-up 1.25s cubic-bezier(0.5, 0.2, 0, 1);
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-delay: calc( .5s + (.1s * var(--word-index)) );
+          animation-delay: calc( .5s + (.1s * var(--word-index)) );
+}
+@-webkit-keyframes slide-up {
+  from {
+    -webkit-transform: translateY(125%);
+            transform: translateY(125%);
+  }
+}
+@keyframes slide-up {
+  from {
+    -webkit-transform: translateY(125%);
+            transform: translateY(125%);
+  }
+}
