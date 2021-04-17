@@ -1,17 +1,18 @@
 Rails.application.routes.draw do
   root 'static_page_partner#index'
+  devise_for :drivers, skip: [:session, :password, :registration]
+  devise_for :partners, skip: [:session, :password, :registration]
   devise_for :users, skip: [:session, :password, :registration], controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   scope "(:locale)", locale: /en|vi/ do
     devise_for :users, skip: :omniauth_callbacks
+    devise_for :partners, controllers: { sessions: 'sessions' }
 
-    devise_scope :user do
-      get "/signup", to: "devise/registrations#new"
-      get "/login", to: "devise/sessions#new"
-      post "/login", to: "devise/sessions#create"
-      delete "/logout", to: "devise/sessions#destroy"
-    end
     namespace :partners do
       get "/partners", to: "partners#index"
+      devise_scope :partner do
+        get "/sign_in", to: "sessions#new"
+        post "/sign_in", to: "sessions#create"
+      end
     end
     namespace :api, default: {format: :json} do
       namespace :v1 do

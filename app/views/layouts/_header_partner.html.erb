@@ -28,11 +28,11 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to t("header.page_admin"), "admin_root_path", class: "dropdown-item" %></li>
-              <li><%= link_to t("header.profile"), "current_user", class: "dropdown-item" %></li>
+              <li><%= link_to t("header.profile"), "current_partner" , class: "dropdown-item" %></li>
               <li><%= link_to t("header.settings"), "#", class: "dropdown-item" %></li>
               <li class="divider"></li>
               <li>
-                <%= link_to t("header.log_out"), "logout_path", method: "delete", class: "dropdown-item" %>
+                <%= link_to t("header.log_out"), destroy_partner_session_path , method: "delete", class: "dropdown-item" %>
               </li>
             </ul>
           </li>
