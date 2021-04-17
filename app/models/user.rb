@@ -69,6 +69,10 @@ class User < ApplicationRecord
     save
   end
 
+  def save_image!(image)
+    self.update_columns(image: image)
+  end
+
   private
 
   def downcase_email
