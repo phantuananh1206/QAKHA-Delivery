@@ -7,7 +7,6 @@ class User < ApplicationRecord
   VALID_PHONE_REGEX = /\A\d[0-9]{9}\z/.freeze
   VALID_PASSWORD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/.freeze
 
-  has_one :image, dependent: :destroy
   mount_uploader :image, ImageUploader
 
   has_many :orders, dependent: :destroy

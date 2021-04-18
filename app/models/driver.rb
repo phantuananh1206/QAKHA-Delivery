@@ -7,13 +7,12 @@ class Driver < ApplicationRecord
   VALID_PASSWORD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/.freeze
   # VALID_ID_CARD_REGEX = /^[0-9]{9,}$.freeze
 
-  has_one :image, dependent: :destroy
   mount_uploader :image, ImageUploader
 
   has_many :feedbacks, dependent: :restrict_with_error
   has_many :orders, dependent: :restrict_with_error
 
-  enum status: { not_activated: 0, offline: 1, online: 2, locked: 3}
+  enum status: { not_activated: 0, offline: 1, online: 2, shipping: 3, locked: 4}
 
   validates :name, presence: true,
             length: {maximum: Settings.validation.name_max}
@@ -35,18 +34,22 @@ class Driver < ApplicationRecord
 
   aasm column: :status, enum: true do
     state :not_activated, initial: true
-    state :activated, :offline, :online, :block
+    state :offline, :online, :shipping, :locked
 
     event :active do
       transitions from: :not_activated, to: :offline
     end
 
-    event :login do
+    event :turn_on do
       transitions from: :offline, to: :online
     end
 
-    event :logout do
+    event :turn_off do
       transitions from: :online, to: :offline
+    end
+
+    event :ship do
+      transitions from: :online, to: :shipping
     end
 
     event :lock do

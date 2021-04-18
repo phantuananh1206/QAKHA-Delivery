@@ -31,6 +31,9 @@ class Order < ApplicationRecord
   after_create :update_quantity_sold_of_product
   after_create :update_coins_user, :update_coins_driver, if: :payment_by_coins
 
+  scope :_order_completed, -> { where(status: :completed) }
+  scope :_created_at_desc, -> { order(created_at: :desc) }
+
   def update_quantity_sold_of_product
     order_details.each do |order_detail|
       order_detail.update_quantity_product

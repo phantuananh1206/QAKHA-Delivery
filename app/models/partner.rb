@@ -8,7 +8,6 @@ class Partner < ApplicationRecord
   belongs_to :city
   belongs_to :type
 
-  has_one :image, dependent: :destroy
   mount_uploader :image, ImageUploader
 
   has_many :vouchers, dependent: :restrict_with_error
@@ -46,7 +45,7 @@ class Partner < ApplicationRecord
 
   def avg_point_feedback_partner
     if feedbacks.present?
-      feedbacks.average(:point).round(1).to_f
+      feedbacks._feedback_partner.average(:point).round(1).to_f
     else
       0.0
     end

@@ -16,7 +16,7 @@ class Api::V1::FeedbacksController < ApplicationController
   end
 
   def fb_partner
-    render json: { feedbacks: @partner.feedbacks.as_json(include: [user: { only: [:name, :image] }]), avg_point: @partner.avg_point_feedback_partner }, status: :ok
+    render json: { feedbacks: @partner.feedbacks._feedback_partner.as_json(include: [user: { only: [:name, :image] }]), avg_point: @partner.avg_point_feedback_partner }, status: :ok
   end
 
   def fb_driver

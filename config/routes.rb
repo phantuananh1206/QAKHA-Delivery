@@ -48,7 +48,7 @@ Rails.application.routes.draw do
         resources :types, only: %i(index show)
         resources :partners, only: %i(index)
         resource :carts, only: %i(create update destroy)
-        resources :orders, only: :create do
+        resources :orders, only: %i(create index) do
           resources :feedbacks, only: :create
         end
         resources :addresses, only: %i(index create update destroy)
