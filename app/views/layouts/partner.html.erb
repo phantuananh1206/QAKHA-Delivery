@@ -19,8 +19,10 @@
     <div class="d-flex" id="wrapper">
       <%= render "layouts/sidebar" %>
       <div class="container-fluid">
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
         <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
         <%= yield %>
       </div>
     </div>

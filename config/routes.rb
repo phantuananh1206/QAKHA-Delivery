@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  root 'static_page_partner#index'
   devise_for :drivers, skip: [:session, :password, :registration]
   devise_for :partners, skip: [:session, :password, :registration]
   devise_for :users, skip: [:session, :password, :registration], controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   scope "(:locale)", locale: /en|vi/ do
+    root 'static_page_partner#index'
     devise_for :users, skip: :omniauth_callbacks
     devise_for :partners, controllers: { sessions: 'sessions' }
 
@@ -13,7 +13,10 @@ Rails.application.routes.draw do
         get "/sign_in", to: "sessions#new"
         post "/sign_in", to: "sessions#create"
       end
+      resources :categories
+      resources :products
     end
+
     namespace :api, default: {format: :json} do
       namespace :v1 do
         devise_scope :user do
