@@ -1,7 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :category
 
-  has_one :image, dependent: :destroy
   mount_uploader :image, ImageUploader
 
   validates :name, presence: true,

@@ -4,11 +4,11 @@ class Api::V1::OrdersController < ApplicationController
 
   skip_before_action :verify_authenticity_token
   before_action :load_user
-  before_action :load_cart, except: :coins_user
-  before_action :load_partner, except: %i(list_vouchers coins_user)
+  before_action :load_cart, except: %i(coins_user index)
+  before_action :load_partner, except: %i(list_vouchers coins_user index)
   before_action :load_voucher, only: :apply_voucher
   before_action :remove_voucher, only: :cancel_voucher
-  before_action :current_voucher, except: :coins_user
+  before_action :current_voucher, except: %i(coins_user index)
 
   def create
     @order = @current_user.orders.new(order_params)
@@ -24,6 +24,11 @@ class Api::V1::OrdersController < ApplicationController
     end
   rescue
     render json: { error: 'Create order failed' }, status: :bad_request
+  end
+
+  def index
+    @order_history = @current_user.orders._order_completed._created_at_desc
+    render json: @order_history , status: :ok
   end
 
   def list_vouchers
