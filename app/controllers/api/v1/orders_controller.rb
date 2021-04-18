@@ -27,8 +27,8 @@ class Api::V1::OrdersController < ApplicationController
   end
 
   def index
-    @order_history = @current_user.orders._order_completed._created_at_desc
-    render json: @order_history , status: :ok
+    @order_history = @current_user.orders._created_at_desc
+    render json: @order_history.as_json(include: [driver: { only: [:name] }]) , status: :ok
   end
 
   def list_vouchers

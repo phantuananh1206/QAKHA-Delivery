@@ -1,18 +1,24 @@
-User.create!(name: "Admin",
-  email: "admin@gmail.com",
-  password: "Test123@",
-  phone_number: "0123456789",
-  coins: 500000,
-  role: 0
-)
+1.times do
+  u = User.create!(name: "Admin",
+    email: "phantuananh1206@gmail.com",
+    password: "Test123@",
+    phone_number: "0905109870",
+    coins: 500000,
+    role: 0
+  )
+  u.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618750460/qakha-driver_srmxd2.png")
+end
 
-User.create!(name: "TuanAnh",
-  email: "phantuananhltt@gmail.com",
-  password: "Test123@",
-  phone_number: "0396355253",
-  coins: 500000,
-  role: 0
-)
+1.times do
+  u = User.create!(name: "TuanAnh",
+    email: "phantuananhltt@gmail.com",
+    password: "Test123@",
+    phone_number: "0396355253",
+    coins: 500000,
+    role: 0
+  )
+  u.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618750460/qakha-driver_srmxd2.png")
+end
 
 #Users
 10.times do |n|
@@ -4584,3 +4590,62 @@ Voucher.create!(
   usage_limit: 2,
   partner_id: Partner.pluck(:id).sample
 )
+
+#Driver
+15.times do |n|
+  Driver.create!(
+    name: Faker::Name.name,
+    email: "testdv#{n+1}@gmail.com",
+    password: "Test123@",
+    address: Faker::Address.full_address,
+    phone_number: Faker::Number.leading_zero_number(digits: 10),
+    id_card: Faker::Number.number(digits: 10),
+    license_plate: Faker::Code.asin,
+    status: 2,
+    coins: 100000,
+    latitude: 16.0721,
+    longitude: 108.207
+  )
+end
+
+#Orders
+12.times do
+  Order.create(
+    name: Faker::Name.name,
+    phone_number: Faker::Number.leading_zero_number(digits: 10),
+    address: Faker::Address.full_address,
+    delivery_time: Faker::Time.backward(days: 10),
+    subtotal: Faker::Number.decimal(l_digits: 5),
+    discount: 0,
+    total: Faker::Number.decimal(l_digits: 5),
+    status: 1,
+    type_checkout: 0,
+    user_id: User.pluck(:id).sample,
+    driver_id: Driver.pluck(:id).sample,
+    partner_id: Partner.pluck(:id).sample
+  )
+end
+
+#Orders Details
+orders = Order.all
+orders.each do |order|
+  2.times do
+    OrderDetail.create!(
+      order_id: order.id,
+      product_id: Product.pluck(:id).sample,
+      price: Faker::Number.decimal(l_digits: 2),
+      quantity: rand(1..10)
+    )
+  end
+end
+
+# #Feedbacks
+# 20.times do
+#   Feedback.create!(
+#     content: Faker::Lorem.sentences,
+#     point: rand(1..5),
+#     user_id: User.pluck(:id).sample,
+#     order_id: Order.pluck(:id).sample,
+#     driver_id: Driver.pluck(:id).sample
+#   )
+# end

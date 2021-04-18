@@ -26,11 +26,11 @@ class Api::V1::FeedbacksController < ApplicationController
   private
 
   def feedback_params
-    params.permit(:content, :point, :order_id, :partner_id, :driver_id)
+    params.permit(:content, :image, :point, :order_id, :partner_id, :driver_id)
   end
 
   def load_order
-    return if @order = Order.find_by(id: params[:order_id])
+    return if @order = Order.find_by(id: params[:order_id], status: :completed)
 
     render json: { error: 'Order not found' }, status: :not_found
   end

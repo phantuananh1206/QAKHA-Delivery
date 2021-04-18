@@ -1,6 +1,7 @@
 @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700');
 @import "font-awesome";
+@import 'bootstrap/glyphicons';
 
 body{ font-size: 14px; color: #333; list-style: 26px;font-family: 'Roboto', sans-serif; }
 
@@ -338,4 +339,17 @@ $black_color: black;
 .forgot-pw-custom {
   margin: 0;
   font-style: italic;;
+}
+
+// Drivers MANAGEMENT
+
+#paginate {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.img-product {
+  width: 80px;
+  height: 80px;
 }

@@ -52,6 +52,7 @@ Rails.application.routes.draw do
           resources :feedbacks, only: :create
         end
         resources :addresses, only: %i(index create update destroy)
+        resources :order_details, only: %i(index)
       end
     end
 
@@ -59,7 +60,10 @@ Rails.application.routes.draw do
       root "base#home"
       get "sign_in", to: 'sessions#new'
       post "sign_in", to: 'sessions#create'
-      delete 'logout', to: 'sessions#destroy'
+      delete "logout", to: 'sessions#destroy'
+      patch "drivers/status/:id", to: 'drivers#update_status', as: :driver_status
+      resources :drivers, except: :show
+      resources :export_drivers, only: :index
     end
   end
 end
