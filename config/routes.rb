@@ -52,5 +52,11 @@ Rails.application.routes.draw do
       end
     end
 
+    namespace :admin do
+      root "base#home"
+      get "sign_in", to: 'sessions#new'
+      post "sign_in", to: 'sessions#create'
+      delete 'logout', to: 'sessions#destroy'
+    end
   end
 end

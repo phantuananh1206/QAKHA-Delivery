@@ -31,6 +31,8 @@ class User < ApplicationRecord
 
   before_save :downcase_email
 
+  scope :_role_admin, -> { where(role: :admin)}
+
   def self.from_omniauth(auth)
     user_with_provider = find_by(provider: auth.provider, uid: auth.uid)
     return user_with_provider if user_with_provider

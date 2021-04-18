@@ -1,0 +1,61 @@
+<div class=" border-right " id="sidebar-wrapper">
+  <aside>
+    <div class="sidebar ">
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="http://via.placeholder.com/160x160" class="rounded-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>Admin Dashboard</p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+      <ul class="list-sidebar bg-defoult">
+        <li> <a href="#" data-toggle="collapse" data-target="#dashboard" class="collapsed active" > <i class="fa fa-th-large"></i> <span class="nav-label"> Dashboards </span> <span class="fa fa-chevron-left pull-right"></span> </a>
+          <ul class="sub-menu collapse" id="dashboard">
+            <li class="active"><a href="#">Accept Order</a></li>
+            <li><a href="#">Refused Order</a></li>
+            <li><a href="#">Delivered Order</a></li>
+          </ul>
+        </li>
+        <li> <a href="#" data-toggle="collapse" data-target="#products" class="collapsed active" > <i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span> <span class="fa fa-chevron-left pull-right"></span> </a>
+          <ul class="sub-menu collapse" id="products">
+            <li class="active"><a href="#">CSS3 Animation</a></li>
+            <li><a href="#">General</a></li>
+            <li><a href="#">Buttons</a></li>
+            <li><a href="#">Tabs & Accordions</a></li>
+          </ul>
+        </li>
+        <li> <a href="#"><i class="fa fa-laptop"></i> <span class="nav-label">Grid options</span></a> </li>
+        <li> <a href="#" data-toggle="collapse" data-target="#e-commerce" class="collapsed active" ><i class="fa fa-shopping-cart"></i> <span class="nav-label">E-commerce</span><span class="fa fa-chevron-left pull-right"></span></a>
+          <ul  class="sub-menu collapse" id="e-commerce" >
+            <li><%= link_to "Management Products", "#" %></li>
+            <li><%= link_to "Management Categories", "#" %></li>
+            <li><%= link_to "Management Vouchers", "model" %></li>
+            <li><%= link_to "Management Orders", "model" %></li>
+          </ul>
+        </li>
+        <li> <a href="#" data-toggle="collapse" data-target="#tables" class="collapsed active" ><i class="fa fa-table"></i> <span class="nav-label">Report & Statistics</span><span class="fa fa-chevron-left pull-right"></span></a>
+          <ul  class="sub-menu collapse" id="tables" >
+            <li><a href=""> Report of Revenue </a></li>
+            <li><a href=""> Report of Product</a></li>
+            <li><a href=""> Report of Voucher</a></li>
+            <li><a href=""> Report of Order</a></li>
+          </ul>
+        </li>
+        <li> <a href=""><i class="fa fa-pie-chart"></i> <span class="nav-label">Statistics</span> </a></li>
+        <li> <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Other Pages</span></a> </li>
+        <li> <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Other Pages</span></a> </li>
+        <li> <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Other Pages</span></a> </li>
+      </ul>
+    </div>
+  </aside>
+</div>
+<script>
+  $(document).ready(function(){
+    $('.button-left').click(function(e){
+      e.preventDefault();
+      $('.sidebar').toggleClass('fliph');
+    });
+  });
+</script>
