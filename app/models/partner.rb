@@ -1,6 +1,4 @@
 class Partner < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :trackable,
          :recoverable, :rememberable, :validatable
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
@@ -31,6 +29,8 @@ class Partner < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+  before_save :downcase_email
+
   def save_image!(image)
     self.update_columns(image: image)
   end
