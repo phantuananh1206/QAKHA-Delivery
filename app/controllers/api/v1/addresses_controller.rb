@@ -14,7 +14,7 @@ class Api::V1::AddressesController < ApplicationController
     if @address.save
       render json: @address, status: :created
     else
-      render json: { error: 'Create address failed' }
+      render json: { error: 'Create address failed' }, status: :bad_request
     end
   end
 
@@ -22,15 +22,15 @@ class Api::V1::AddressesController < ApplicationController
     if @address.update(address_params)
       render json: @address, status: :created
     else
-      render json: { error: 'Create address failed' }
+      render json: { error: 'Create address failed' }, status: :bad_request
     end
   end
 
   def destroy
     if @address.destroy
-      render json: { message: 'Delete address success' }
+      render json: { message: 'Delete address success' }, status: :ok
     else
-      render json: { error: 'Delete address failed' }
+      render json: { error: 'Delete address failed' }, status: :bad_request
     end
   end
 

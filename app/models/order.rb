@@ -7,7 +7,7 @@ class Order < ApplicationRecord
   belongs_to :partner
 
   has_many :feedbacks, dependent: :restrict_with_error
-  has_many :order_details, dependent: :destroy
+  has_many :order_details, dependent: :restrict_with_error
 
   validates :name, presence: true
             length: {maximum: Settings.validation.name_max}

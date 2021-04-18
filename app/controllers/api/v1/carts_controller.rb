@@ -1,6 +1,6 @@
 class Api::V1::CartsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :load_user, :load_cart
+  before_action :load_user, :load_cart, :load_partner
   before_action :load_product, only: %i(create update destroy)
 
   respond_to :json

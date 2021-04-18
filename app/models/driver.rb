@@ -1,10 +1,8 @@
 class Driver < ApplicationRecord
-<<<<<<< HEAD
-=======
   include AASM
+  
   devise :database_authenticatable, :registerable, :trackable,
          :recoverable, :rememberable, :validatable
->>>>>>> API Sign up for partner and driver
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   VALID_PHONE_REGEX = /\A\d[0-9]{9}\z/.freeze
   VALID_PASSWORD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/.freeze
