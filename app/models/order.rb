@@ -12,6 +12,7 @@ class Order < ApplicationRecord
 
   enum type_checkout: { cash: 0, coins: 1, paypal: 2 }
   enum status: { shipping: 0, completed: 1 }
+  enum rate_status: { not_rated: 0, rate: 1, rated: 2}
 
   with_options presence: true do
     validates :name,
@@ -19,7 +20,6 @@ class Order < ApplicationRecord
     validates :phone_number, format: {with: VALID_PHONE_REGEX},
               length: {minimum: Settings.validation.phone_min}
     validates :address
-    validates :delivery_time
     validates :subtotal,
               numericality: {greater_than: Settings.validation.number.zero}
     validates :shipping_fee,
@@ -55,7 +55,11 @@ class Order < ApplicationRecord
   end
 
   def as_json(options = {})
-    super.merge(delivery_time: delivery_time.strftime('%d-%m-%Y %H:%M'),
-                created_at: created_at.strftime('%d-%m-%Y %H:%M'))
+    unless delivery_time.blank?
+      super.merge(delivery_time: delivery_time.strftime('%d-%m-%Y %H:%M'),
+                  created_at: created_at.strftime('%d-%m-%Y %H:%M'))
+    else
+      super.merge(created_at: created_at.strftime('%d-%m-%Y %H:%M'))
+    end
   end
 end

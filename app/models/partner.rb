@@ -16,7 +16,7 @@ class Partner < ApplicationRecord
   has_many :orders, dependent: :restrict_with_error
   has_many :products, through: :categories
 
-  enum status: { open: 0, close: 1 }
+  enum status: { not_activated: 0, open: 1, close: 2, locked: 3 }
 
   validates :name, presence: true,
             length: {maximum: Settings.validation.name_max}

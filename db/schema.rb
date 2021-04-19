@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_144041) do
     t.string "license_plate"
     t.string "image"
     t.integer "status", default: 0
-    t.float "coins"
+    t.float "coins", default: 0.0
     t.float "latitude"
     t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
@@ -136,6 +136,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_144041) do
     t.float "total"
     t.integer "status", default: 0
     t.integer "type_checkout"
+    t.integer "rate_status", default: 0
     t.text "description"
     t.bigint "user_id", null: false
     t.bigint "driver_id", null: false

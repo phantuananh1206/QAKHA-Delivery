@@ -10,7 +10,7 @@ class CreateDrivers < ActiveRecord::Migration[6.0]
       t.string :license_plate
       t.string :image
       t.integer :status, default: 0
-      t.float :coins
+      t.float :coins, default: 0
       t.float :latitude
       t.float :longitude
 

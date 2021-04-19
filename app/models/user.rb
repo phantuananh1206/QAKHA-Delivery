@@ -9,9 +9,9 @@ class User < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  has_many :orders, dependent: :destroy
-  has_many :feedbacks, dependent: :destroy
-  has_many :addresses, dependent: :destroy
+  has_many :orders, dependent: :restrict_with_error
+  has_many :feedbacks, dependent: :restrict_with_error
+  has_many :addresses, dependent: :restrict_with_error
 
   enum role: {admin: 0, member: 1, block: 2}
 

@@ -18,6 +18,7 @@ gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 gem 'dotenv-rails'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'figaro'
+gem 'firebase'
 gem 'geocoder'
 gem "font-awesome-rails"
 gem 'image_processing', '1.9.3'

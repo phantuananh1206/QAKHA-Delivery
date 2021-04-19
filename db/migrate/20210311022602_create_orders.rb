@@ -11,6 +11,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.float :total
       t.integer :status, default: 0
       t.integer :type_checkout
+      t.integer :rate_status, default: 0
       t.text :description
       t.references :user, null: false, foreign_key: true
       t.references :driver, null: false, foreign_key: true

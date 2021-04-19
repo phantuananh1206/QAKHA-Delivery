@@ -55,7 +55,7 @@ class Admin::DriversController < Admin::BaseController
   def driver_params
     params.require(:driver).permit(:name, :email, :address, :id_card,
                                    :phone_number, :password, :password_confirmation,
-                                   :license_plate)
+                                   :license_plate, :image)
   end
 
   def load_driver
