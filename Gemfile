@@ -7,6 +7,8 @@ gem 'aasm'
 gem 'active_storage_validations', '0.8.2'
 gem 'activerecord-session_store'
 gem 'active_model_serializers'
+gem 'bootstrap-glyphicons'
+gem 'bootstrap4-kaminari-views'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.0.0'
 gem 'config'
@@ -21,9 +23,12 @@ gem "font-awesome-rails"
 gem 'image_processing', '1.9.3'
 gem 'jbuilder', '~> 2.7'
 gem 'jwt'
+gem 'kaminari'
 gem 'mini_magick', '4.9.5'
 gem 'mysql2', '>= 0.4.4'
 gem 'puma', '~> 4.1'
+gem 'rack-cors'
+gem 'ransack'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.5'
 gem 'rails-i18n'
 gem 'sass-rails', '>= 6'
@@ -33,10 +38,6 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
 gem "webpacker", "~> 4.0"
-gem "will_paginate", "3.1.8"
-gem "bootstrap-will_paginate", "1.0.0"
-gem "will_paginate-bootstrap4"
-gem 'rack-cors'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

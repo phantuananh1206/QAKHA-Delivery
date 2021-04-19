@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :category
+  has_many :orders, through: :order_details
+  has_many :order_details, dependent: :restrict_with_error
 
   mount_uploader :image, ImageUploader
 

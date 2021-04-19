@@ -27,7 +27,8 @@ class Driver < ApplicationRecord
             length: {minimum: Settings.validation.phone_min},
             uniqueness: { case_sensitive: true }, allow_nil: true
   validates :password, presence: true,
-            length: {minimum: Settings.validation.password_min}
+            length: {minimum: Settings.validation.password_min},
+            allow_nil: true
   validates :license_plate, presence: true, uniqueness: { case_sensitive: true }
   validates :coins, allow_nil: true,
             numericality: { greater_than_or_equal_to: Settings.validation.number.zero }
@@ -68,6 +69,15 @@ class Driver < ApplicationRecord
       feedbacks.average(:point).round(1).to_f
     else
       0.0
+    end
+  end
+
+  def self.to_xls
+    CSV.generate do |csv|
+      csv << column_names
+      all.each do |driver|
+        csv << driver.attributes.values_at(*column_names)
+      end
     end
   end
 

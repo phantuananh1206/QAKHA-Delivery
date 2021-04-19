@@ -7,7 +7,8 @@ class Order < ApplicationRecord
   belongs_to :partner
 
   has_many :feedbacks, dependent: :restrict_with_error
-  has_many :order_details, dependent: :destroy
+  has_many :products, through: :order_details
+  has_many :order_details, dependent: :restrict_with_error
 
   enum type_checkout: { cash: 0, coins: 1, paypal: 2 }
   enum status: { shipping: 0, completed: 1 }
@@ -31,7 +32,6 @@ class Order < ApplicationRecord
   after_create :update_quantity_sold_of_product
   after_create :update_coins_user, :update_coins_driver, if: :payment_by_coins
 
-  scope :_order_completed, -> { where(status: :completed) }
   scope :_created_at_desc, -> { order(created_at: :desc) }
 
   def update_quantity_sold_of_product
@@ -55,6 +55,7 @@ class Order < ApplicationRecord
   end
 
   def as_json(options = {})
-    super.merge(delivery_time: delivery_time.strftime('%d-%m-%Y %H:%M'))
+    super.merge(delivery_time: delivery_time.strftime('%d-%m-%Y %H:%M'),
+                created_at: created_at.strftime('%d-%m-%Y %H:%M'))
   end
 end
