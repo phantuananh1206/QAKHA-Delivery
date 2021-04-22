@@ -1,5 +1,5 @@
 class Admin::CitiesController < Admin::BaseController
-  before_action :load_city, except: %i(index new create import export)
+  before_action :load_city, except: %i(index new create export)
 
   def index
     @search = City.search(params[:q])
@@ -47,11 +47,6 @@ class Admin::CitiesController < Admin::BaseController
     respond_to do |format|
 	    format.xls { send_data @cities.to_xls }
 	  end
-  end
-
-  def import
-    City.import(params[:file])
-    redirect_to admin_cities_path, notice: "Users imported."
   end
 
   private
