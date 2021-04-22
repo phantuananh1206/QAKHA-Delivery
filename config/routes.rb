@@ -48,6 +48,9 @@ Rails.application.routes.draw do
           post "/orders/feedbacks", to: 'feedbacks#create'
           get "user", to: 'users#show'
           patch "user", to: 'users#update'
+          get "/drivers/statistics/day", to: 'statistics_driver#statistics_by_day'
+          get "/drivers/statistics/month", to: 'statistics_driver#statistics_by_month'
+          get "/drivers/statistics/year", to: 'statistics_driver#statistics_by_year'
         end
         resources :users, only: :index
         resources :types, only: %i(index show)
