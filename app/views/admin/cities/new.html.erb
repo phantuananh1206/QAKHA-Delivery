@@ -1,0 +1,10 @@
+<%= provide :title, "New City"%>
+<%= provide :button, "Create City"%>
+<%= provide :url, admin_cities_path(@city)%>
+
+<div class="">
+  <div class="col-md-6 col-md-offset-3">
+    <h1><%= "Create new city" %></h1>
+    <%= render "form" %>
+  </div>
+</div>

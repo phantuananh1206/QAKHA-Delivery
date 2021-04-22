@@ -35,7 +35,7 @@ class Api::V1::OrdersController < ApplicationController
       end
     end
     render json: @order_history.as_json(include: [driver: { only: [:name, :image] },
-      partner: { only: [:name, :address] }]) , status: :ok
+      partner: { only: [:name, :address, :image] }]) , status: :ok
   end
 
   def list_vouchers
