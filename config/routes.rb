@@ -79,6 +79,9 @@ Rails.application.routes.draw do
       resources :cities, except: :show do
         collection { get :export }
       end
+      resources :types, except: :show do
+        collection { get :export }
+      end
     end
   end
 end
