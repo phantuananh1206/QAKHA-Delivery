@@ -43,34 +43,39 @@ end
 end
 
 # Driver
+1.times do
+  d = Driver.create!(
+    name: 'Phan Tuấn Anh',
+    email: "phantuananhltt@gmail.com",
+    password: "Test123@",
+    address: 'K58/5C Dũng Sĩ Thanh Khê, Thanh khê, Đà Nẵng',
+    phone_number: '0396355253',
+    id_card: '206321161',
+    license_plate: '92L1-19896',
+    status: 2,
+    coins: 100000,
+    latitude: 16.0721,
+    longitude: 108.207
+  )
+  d.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1619059800/cuzjsiobvow3hmmlrrgg.png")
+end
 
-Driver.create!(
-  name: Faker::Name.name,
-  email: "driver1@gmail.com",
-  password: "Test123@",
-  address: Faker::Address.full_address,
-  phone_number: Faker::Number.leading_zero_number(digits: 10),
-  id_card: Faker::Number.number(digits: 10),
-  license_plate: Faker::Code.asin,
-  status: 2,
-  coins: 100000,
-  latitude: 16.0721,
-  longitude: 108.207
-)
-
-Driver.create!(
-  name: Faker::Name.name,
-  email: "driver2@gmail.com",
-  password: "Test123@",
-  address: Faker::Address.full_address,
-  phone_number: Faker::Number.leading_zero_number(digits: 10),
-  id_card: Faker::Number.number(digits: 10),
-  license_plate: Faker::Code.asin,
-  status: 2,
-  coins: 100000,
-  latitude: 16.072,
-  longitude: 108.174
-)
+1.times do
+  d = Driver.create!(
+    name: 'Võ Văn Khang',
+    email: "khangvv158@gmail.com",
+    password: "Test123@",
+    address: 'K63/H9/21 Phạm Văn Nghị, Đà Nẵng',
+    phone_number: '0378365756',
+    id_card: '206501871',
+    license_plate: '92H1-12345',
+    status: 2,
+    coins: 100000,
+    latitude: 16.0721,
+    longitude: 108.207
+  )
+  d.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1619059800/cuzjsiobvow3hmmlrrgg.png")
+end
 
 #Type
 types = ["VEGE", "RICE BOX", "STREETFOOD", "SUSHI", "DRINK"]
@@ -4573,7 +4578,6 @@ end
 end
 
 #Vouchers
-
 Voucher.create!(
   code: "FSDN",
   discount: 15000,
@@ -4583,6 +4587,7 @@ Voucher.create!(
   status: 1,
   partner_id: Partner.pluck(:id).sample
 )
+
 Voucher.create!(
   code: "ALLFREE",
   discount: 15000,
@@ -4592,20 +4597,3 @@ Voucher.create!(
   status: 1,
   partner_id: Partner.pluck(:id).sample
 )
-
-# #Driver
-# 15.times do |n|
-#   Driver.create!(
-#     name: Faker::Name.name,
-#     email: "testdv#{n+1}@gmail.com",
-#     password: "Test123@",
-#     address: Faker::Address.full_address,
-#     phone_number: Faker::Number.leading_zero_number(digits: 10),
-#     id_card: Faker::Number.number(digits: 10),
-#     license_plate: Faker::Code.asin,
-#     status: 2,
-#     coins: 100000,
-#     latitude: 16.0721,
-#     longitude: 108.207
-#   )
-# end

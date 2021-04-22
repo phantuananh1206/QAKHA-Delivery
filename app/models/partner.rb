@@ -1,4 +1,5 @@
 class Partner < ApplicationRecord
+  include AASM
   devise :database_authenticatable, :registerable, :trackable,
          :recoverable, :rememberable, :validatable
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
@@ -28,6 +29,28 @@ class Partner < ApplicationRecord
             uniqueness: true, allow_nil: true
   validates :password, presence: true,
             length: {minimum: Settings.validation.password_min}
+  validate :time_close_valid
+
+  aasm column: :status, enum: true do
+    state :not_activated, initial: true
+    state :open, :close, :locked
+
+    event :active do
+      transitions from: :not_activated, to: :close
+    end
+
+    event :open do
+      transitions from: :close, to: :open
+    end
+
+    event :close do
+      transitions from: :open, to: :close
+    end
+
+    event :lock do
+      transitions from: [:open, :close], to: :locked
+    end
+  end
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
@@ -50,6 +73,21 @@ class Partner < ApplicationRecord
     else
       0.0
     end
+  end
+
+  def self.to_xls
+    CSV.generate do |csv|
+      csv << column_names
+      all.each do |partner|
+        csv << partner.attributes.values_at(*column_names)
+      end
+    end
+  end
+
+  def time_close_valid
+    return if time_close > time_open
+
+    errors.add :time_close, 'must be greater than Time open'
   end
 
   private

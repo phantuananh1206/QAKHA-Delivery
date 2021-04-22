@@ -11,7 +11,8 @@ WORKDIR /qakha-delivery
 ADD Gemfile /qakha-delivery/Gemfile
 RUN bundle install
 ADD . /qakha-delivery
-
+RUN bundle exec rails webpacker:install
+RUN npm install
 EXPOSE 3000
 
 CMD rails db:migrate && bundle exec rails s -b 0.0.0.0
