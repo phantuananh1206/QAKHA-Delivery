@@ -69,8 +69,11 @@ Rails.application.routes.draw do
       post "sign_in", to: 'sessions#create'
       delete "logout", to: 'sessions#destroy'
       patch "drivers/status/:id", to: 'drivers#update_status', as: :driver_status
+      patch "partners/status/:id", to: 'partners#update_status', as: :partner_status
       resources :drivers, except: :show
       resources :export_drivers, only: :index
+      resources :partners, except: :show
+      resources :export_partners, only: :index
     end
   end
 end

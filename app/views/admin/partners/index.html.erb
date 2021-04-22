@@ -1,0 +1,46 @@
+<% provide(:title, 'partners') %>
+<div class="p-4">
+  <h1><%= "Management partners" %></h1>
+  <h3><%= "Total of partners" %>: <%= @partners.total_count %></h3>
+  <%= link_to "Export list partners to excel", admin_export_partners_path(format: :xls) %>
+  <br>
+  <%= search_form_for @search, url: admin_partners_path do |f|%>
+    <%= f.condition_fields do |c| %>
+      <%= c.attribute_fields do |a| %>
+        <%= a.attribute_select %>
+      <% end %>
+      <%= c.predicate_select %>
+      <%= c.value_fields do |v| %>
+        <%= v.text_field :value %>
+      <% end %>
+    <% end %>
+    <%= f.submit 'Search', class: "btn btn-outline-info" %>
+  <% end %>
+  <br>
+  <%= link_to "New partner", new_admin_partner_path, class: "btn btn-info glyphicon glyphicon-plus" %>
+  <table class="table table-striped track_tbl">
+    <thead>
+      <tr>
+        <th><%= sort_link(@search, :id, 'ID') %></th>
+        <th><%= "Image" %></th>
+        <th><%= sort_link(@search, :name, 'Name') %></th>
+        <th><%= sort_link(@search, :email, 'Email') %></th>
+        <th><%= "Address" %></th>
+        <th><%= "Phone number" %></th>
+        <th><%= "Time open" %></th>
+        <th><%= "Time close" %></th>
+        <th><%= sort_link(@search, :status, 'Status') %></th>
+        <th><%= "Latitude" %></th>
+        <th><%= "Longitude" %></th>
+        <th><%= "Management status" %></th>
+        <th><%= "Action" %></th>
+      </tr>
+    </thead>
+    <tbody id="partners">
+      <%= render @partners %>
+    </tbody>
+  </table>
+  <div id="paginate">
+    <%= paginate @partners, theme: 'twitter-bootstrap-4', remote: true %>
+  </div>
+</div>
