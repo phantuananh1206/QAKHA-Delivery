@@ -82,6 +82,9 @@ Rails.application.routes.draw do
       resources :types, except: :show do
         collection { get :export }
       end
+      resources :categories, except: :show do
+        collection { get :export }
+      end
     end
   end
 end

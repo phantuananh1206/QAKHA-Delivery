@@ -71,7 +71,7 @@ class Admin::PartnersController < Admin::BaseController
     return if @partner = Partner.find_by(id: params[:id])
 
     flash[:danger] = 'Partner not found'
-    redirect_to admin_root_path
+    redirect_to admin_partners_path
   end
 
   def update_status_partner

@@ -69,7 +69,7 @@ class Admin::DriversController < Admin::BaseController
     return if @driver = Driver.find_by(id: params[:id])
 
     flash[:danger] = 'Driver not found'
-    redirect_to admin_root_path
+    redirect_to admin_drivers_path
   end
 
   def update_status_driver
