@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_04_042701) do
+ActiveRecord::Schema.define(version: 2021_04_02_144041) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
     t.string "password"
     t.string "license_plate"
     t.string "image"
-    t.integer "status"
-    t.float "coins"
+    t.integer "status", default: 0
+    t.float "coins", default: 0.0
     t.float "latitude"
     t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
 
   create_table "feedbacks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "content"
+    t.string "image"
     t.integer "point"
     t.bigint "user_id", null: false
     t.bigint "order_id", null: false
@@ -111,20 +112,6 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
     t.index ["order_id"], name: "index_feedbacks_on_order_id"
     t.index ["partner_id"], name: "index_feedbacks_on_partner_id"
     t.index ["user_id"], name: "index_feedbacks_on_user_id"
-  end
-
-  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "image_url"
-    t.bigint "product_id"
-    t.bigint "driver_id"
-    t.bigint "partner_id"
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["driver_id"], name: "index_images_on_driver_id"
-    t.index ["partner_id"], name: "index_images_on_partner_id"
-    t.index ["product_id"], name: "index_images_on_product_id"
-    t.index ["user_id"], name: "index_images_on_user_id"
   end
 
   create_table "order_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -149,6 +136,7 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
     t.float "total"
     t.integer "status", default: 0
     t.integer "type_checkout"
+    t.integer "rate_status", default: 0
     t.text "description"
     t.bigint "user_id", null: false
     t.bigint "driver_id", null: false
@@ -249,6 +237,7 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
     t.string "code"
     t.float "discount"
     t.float "condition"
+    t.integer "status", default: 0
     t.datetime "expiry_date"
     t.integer "usage_limit"
     t.text "description"
@@ -268,10 +257,6 @@ ActiveRecord::Schema.define(version: 2021_04_04_042701) do
   add_foreign_key "feedbacks", "orders"
   add_foreign_key "feedbacks", "partners"
   add_foreign_key "feedbacks", "users"
-  add_foreign_key "images", "drivers"
-  add_foreign_key "images", "partners"
-  add_foreign_key "images", "products"
-  add_foreign_key "images", "users"
   add_foreign_key "order_details", "orders"
   add_foreign_key "order_details", "products"
   add_foreign_key "orders", "drivers"

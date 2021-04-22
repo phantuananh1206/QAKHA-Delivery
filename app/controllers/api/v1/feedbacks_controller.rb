@@ -8,7 +8,7 @@ class Api::V1::FeedbacksController < ApplicationController
 
   def create
     @feedback = @current_user.feedbacks.new(feedback_params)
-    if feedback_valid? && @feedback.save
+    if @order.rate? && feedback_valid? && @feedback.save
       render json: @feedback, status: :created
     else
       render json: { error: 'Feedback failed' }
@@ -16,7 +16,7 @@ class Api::V1::FeedbacksController < ApplicationController
   end
 
   def fb_partner
-    render json: { feedbacks: @partner.feedbacks.as_json(include: [user: { only: [:name, :image] }]), avg_point: @partner.avg_point_feedback_partner }, status: :ok
+    render json: { feedbacks: @partner.feedbacks._feedback_partner.as_json(include: [user: { only: [:name, :image] }]), avg_point: @partner.avg_point_feedback_partner }, status: :ok
   end
 
   def fb_driver
@@ -26,11 +26,16 @@ class Api::V1::FeedbacksController < ApplicationController
   private
 
   def feedback_params
-    params.permit(:content, :point, :order_id, :partner_id, :driver_id)
+    params.permit(:content, :image, :point, :order_id, :partner_id, :driver_id)
   end
 
   def load_order
-    return if @order = Order.find_by(id: params[:order_id])
+    if params[:driver_id].blank?
+      return if @order = Order.find_by(id: params[:order_id], partner_id: params[:partner_id], status: :completed)
+    else
+      return if @order = Order.find_by(id: params[:order_id], driver_id: params[:driver_id],
+        partner_id: params[:partner_id], status: :completed)
+    end
 
     render json: { error: 'Order not found' }, status: :not_found
   end

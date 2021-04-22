@@ -1,0 +1,23 @@
+<tr>
+  <td><%= driver.id %></td>
+  <td><%= image_tag driver.image.url.to_s, class: "img-product"%></td>
+  <td><%= driver.name %></td>
+  <td><%= driver.email %></td>
+  <td><%= driver.address %></td>
+  <td><%= driver.id_card %></td>
+  <td><%= driver.phone_number %></td>
+  <td><%= driver.license_plate %></td>
+  <td><%= driver.coins %></td>
+  <td><%= driver.status %></td>
+  <td>
+    <% if driver.may_active? %>
+      <%= link_to 'Activate driver', admin_driver_status_path(id: driver.id, status: :active), method: :patch, remote: true, class: "btn btn-primary glyphicon glyphicon-ok" %>
+    <% elsif driver.may_lock? %>
+      <%= link_to 'Lock driver', admin_driver_status_path(id: driver.id, status: :lock), method: :patch, remote: true, class: "btn btn-secondary glyphicon glyphicon-lock" %>
+    <% end %>
+  </td>
+  <td>
+    <span><%= link_to "Delete", admin_driver_path(driver), method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
+    <span><%= link_to "Edit", edit_admin_driver_path(driver), class: "btn btn-success glyphicon glyphicon-edit" %></span>
+  </td>
+</tr>

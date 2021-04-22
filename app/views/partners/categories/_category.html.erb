@@ -1,0 +1,10 @@
+<tr>
+  <td><%= category.id %></td>
+  <td><%= link_to category.name, "#" %></td>
+  <td><%= category.parent_id %></td>
+  <td><%= category.created_at %></td>
+  <td>
+    <span><%= link_to "Delete", partners_category_path(category), method: :delete, class: "btn btn-danger" %></span>
+    <span><%= link_to "Edit", edit_partners_category_path(category), class: "btn btn-success" %></span>
+  </td>
+</tr>

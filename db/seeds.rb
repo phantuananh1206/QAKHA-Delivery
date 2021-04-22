@@ -1,18 +1,24 @@
-User.create!(name: "Admin",
-  email: "admin@gmail.com",
-  password: "Test123@",
-  phone_number: "0123456789",
-  coins: 500000,
-  role: 0
-)
+1.times do
+  u = User.create!(name: "Admin",
+    email: "phantuananh1206@gmail.com",
+    password: "Test123@",
+    phone_number: "0905109870",
+    coins: 500000,
+    role: 0
+  )
+  u.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618750460/qakha-driver_srmxd2.png")
+end
 
-User.create!(name: "TuanAnh",
-  email: "phantuananhltt@gmail.com",
-  password: "Test123@",
-  phone_number: "0396355253",
-  coins: 500000,
-  role: 0
-)
+1.times do
+  u = User.create!(name: "TuanAnh",
+    email: "phantuananhltt@gmail.com",
+    password: "Test123@",
+    phone_number: "0396355253",
+    coins: 500000,
+    role: 0
+  )
+  u.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618750460/qakha-driver_srmxd2.png")
+end
 
 #Users
 10.times do |n|
@@ -4573,7 +4579,8 @@ Voucher.create!(
   discount: 15000,
   condition: 60000,
   expiry_date: Time.new(2021, 7, 30),
-  usage_limit: 1,
+  usage_limit: 10,
+  status: 1,
   partner_id: Partner.pluck(:id).sample
 )
 Voucher.create!(
@@ -4581,6 +4588,24 @@ Voucher.create!(
   discount: 15000,
   condition: 40000,
   expiry_date: Time.new(2021, 8, 30),
-  usage_limit: 2,
+  usage_limit: 20,
+  status: 1,
   partner_id: Partner.pluck(:id).sample
 )
+
+# #Driver
+# 15.times do |n|
+#   Driver.create!(
+#     name: Faker::Name.name,
+#     email: "testdv#{n+1}@gmail.com",
+#     password: "Test123@",
+#     address: Faker::Address.full_address,
+#     phone_number: Faker::Number.leading_zero_number(digits: 10),
+#     id_card: Faker::Number.number(digits: 10),
+#     license_plate: Faker::Code.asin,
+#     status: 2,
+#     coins: 100000,
+#     latitude: 16.0721,
+#     longitude: 108.207
+#   )
+# end

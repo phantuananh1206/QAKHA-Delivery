@@ -1,8 +1,14 @@
 class SessionsController < ApplicationController
   include SessionsHelper
+  skip_before_action :verify_authenticity_token
+
   before_action :load_partner_authentication, only: [:create]
 
-  def new; end
+  def new
+    if partner_signed_in?
+      redirect_to partners_partners_path
+    end
+  end
 
   def create
     if @partner.present?

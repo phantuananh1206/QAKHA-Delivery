@@ -22,7 +22,7 @@ class Api::V1::SessionsController < Devise::SessionsController
   end
 
   def sign_in_driver
-    if @driver.valid_password? params[:password]
+    if @driver.offline? && @driver.valid_password?(params[:password])
       sign_in @driver, store: false
       jwt = JWT.encode(
         { name: @driver.name, id: @driver.id, exp: (Time.now + 2.hours).to_i },

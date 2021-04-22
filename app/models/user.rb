@@ -7,12 +7,11 @@ class User < ApplicationRecord
   VALID_PHONE_REGEX = /\A\d[0-9]{9}\z/.freeze
   VALID_PASSWORD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/.freeze
 
-  has_one :image, dependent: :destroy
   mount_uploader :image, ImageUploader
 
-  has_many :orders, dependent: :destroy
-  has_many :feedbacks, dependent: :destroy
-  has_many :addresses, dependent: :destroy
+  has_many :orders, dependent: :restrict_with_error
+  has_many :feedbacks, dependent: :restrict_with_error
+  has_many :addresses, dependent: :restrict_with_error
 
   enum role: {admin: 0, member: 1, block: 2}
 
@@ -30,6 +29,8 @@ class User < ApplicationRecord
             numericality: { greater_than_or_equal_to: Settings.validation.number.zero }
 
   before_save :downcase_email
+
+  scope :_role_admin, -> { where(role: :admin)}
 
   def self.from_omniauth(auth)
     user_with_provider = find_by(provider: auth.provider, uid: auth.uid)

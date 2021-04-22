@@ -1,0 +1,45 @@
+<% provide(:title, 'Drivers') %>
+<div class="p-4">
+  <h1><%= "Management Drivers" %></h1>
+  <h3><%= "Total of drivers" %>: <%= @drivers.total_count %></h3>
+  <%= link_to "Export list drivers to excel", admin_export_drivers_path(format: :xls) %>
+  <br>
+  <%= search_form_for @search, url: admin_drivers_path do |f|%>
+    <%= f.condition_fields do |c| %>
+      <%= c.attribute_fields do |a| %>
+        <%= a.attribute_select %>
+      <% end %>
+      <%= c.predicate_select %>
+      <%= c.value_fields do |v| %>
+        <%= v.text_field :value %>
+      <% end %>
+    <% end %>
+    <%= f.submit 'Search', class: "btn btn-outline-info" %>
+  <% end %>
+  <br>
+  <%= link_to "New Driver", new_admin_driver_path, class: "btn btn-info glyphicon glyphicon-plus" %>
+  <table class="table table-striped track_tbl">
+    <thead>
+      <tr>
+        <th><%= sort_link(@search, :id, 'ID') %></th>
+        <th><%= "Image" %></th>
+        <th><%= sort_link(@search, :name, 'Name') %></th>
+        <th><%= sort_link(@search, :email, 'Email') %></th>
+        <th><%= "Address" %></th>
+        <th><%= "ID Card" %></th>
+        <th><%= "Phone number" %></th>
+        <th><%= "License plate" %></th>
+        <th><%= sort_link(@search, :coins, 'Coins') %></th>
+        <th><%= sort_link(@search, :status, 'Status') %></th>
+        <th><%= "Management status" %></th>
+        <th><%= "Action" %></th>
+      </tr>
+    </thead>
+    <tbody id="drivers">
+      <%= render @drivers %>
+    </tbody>
+  </table>
+  <div id="paginate">
+    <%= paginate @drivers, theme: 'twitter-bootstrap-4', remote: true %>
+  </div>
+</div>

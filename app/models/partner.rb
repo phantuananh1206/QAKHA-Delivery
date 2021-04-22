@@ -8,15 +8,15 @@ class Partner < ApplicationRecord
   belongs_to :city
   belongs_to :type
 
-  has_one :image, dependent: :destroy
   mount_uploader :image, ImageUploader
 
   has_many :vouchers, dependent: :restrict_with_error
   has_many :categories, dependent: :restrict_with_error
   has_many :feedbacks, dependent: :restrict_with_error
   has_many :orders, dependent: :restrict_with_error
+  has_many :products, through: :categories
 
-  enum status: { open: 0, close: 1 }
+  enum status: { not_activated: 0, open: 1, close: 2, locked: 3 }
 
   validates :name, presence: true,
             length: {maximum: Settings.validation.name_max}
@@ -46,7 +46,7 @@ class Partner < ApplicationRecord
 
   def avg_point_feedback_partner
     if feedbacks.present?
-      feedbacks.average(:point).round(1).to_f
+      feedbacks._feedback_partner.average(:point).round(1).to_f
     else
       0.0
     end
@@ -57,4 +57,6 @@ class Partner < ApplicationRecord
   def downcase_email
     email.downcase!
   end
+  # scope :load_cate, -> (partner_id) { includes(:categories).where (partner_id: partner_id) }
+  # Ex:- scope :active, -> {where(:active => true)}
 end

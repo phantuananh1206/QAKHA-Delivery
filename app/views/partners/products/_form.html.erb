@@ -1,0 +1,32 @@
+<%= form_for @product, url: yield(:url) do |f| %>
+  <div class="form-group">
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= image_tag @product.image.url , class: "img-product" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :name, placeholder: "Name", class:
+      "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.phone_field :price, placeholder: "Price", class:
+      "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field :description, placeholder: "Description", class:
+      "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <% cate_array = Category.load_category_of_partner(current_partner).map { |cate| [cate.name, cate.id] } %>
+    <%= f.select :category_id, cate_array %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit yield(:button), class: "btn btn-info form-control" %>
+  </div>
+<% end %>
