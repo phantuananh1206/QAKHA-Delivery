@@ -5,8 +5,9 @@ class Api::V1::OrderDetailsController < ApplicationController
 
   def index
     @order_details = @order.order_details
-    render json: { order_details: @order_details.as_json(include: [product: {only: [:name] },order: { only: [:subtotal, :shipping_fee, :discount, :total] }]),
-      user_name: @order.user.name }, status: :ok
+    render json: { order_details: @order_details.as_json(include: [product: {only: [:name, :image] }]),
+      order: @order.as_json(except: [:updated_at],
+      include: [partner: { only: [:name, :address, :image] }]) }, status: :ok
   end
 
   private

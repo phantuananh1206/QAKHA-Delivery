@@ -25,10 +25,8 @@ Rails.application.routes.draw do
           post "sign_in", to: 'sessions#create'
           delete "sign_out", to: 'sessions#destroy'
           post "sign_in_driver", to: 'sessions#sign_in_driver'
-          get "user", to: 'users#show'
           post "passwords/forgot", to: 'passwords#forgot'
           post "passwords/reset", to: 'passwords#reset'
-          get "test_method", to: 'users#test_method'
           post "check_email", to: 'registrations#check_email_exits'
           post "check_phone_number", to: 'registrations#check_phone_number_exits'
           delete "/clear_cart", to: 'carts#clear_cart'
@@ -44,16 +42,21 @@ Rails.application.routes.draw do
           get "feedbacks/partner", to: 'feedbacks#fb_partner'
           get "feedbacks/driver", to: 'feedbacks#fb_driver'
           get "/orders/coins_user", to: 'orders#coins_user'
+          get "/drivers/status_driver", to: 'drivers#status_driver'
+          get "/drivers/show_infor", to: 'drivers#show_infor'
+          patch "/drivers/complete_delivery", to: 'drivers#complete_delivery'
+          post "/orders/feedbacks", to: 'feedbacks#create'
+          get "user", to: 'users#show'
+          patch "user", to: 'users#update'
         end
-        resources :users, only: %i(index show update)
+        resources :users, only: :index
         resources :types, only: %i(index show)
         resources :partners, only: %i(index)
         resource :carts, only: %i(create update destroy)
-        resources :orders, only: %i(create index) do
-          resources :feedbacks, only: :create
-        end
+        resources :orders, only: %i(create index)
         resources :addresses, only: %i(index create update destroy)
         resources :order_details, only: %i(index)
+        resources :drivers, only: %i(index update)
       end
     end
 

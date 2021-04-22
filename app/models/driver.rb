@@ -41,16 +41,20 @@ class Driver < ApplicationRecord
       transitions from: :not_activated, to: :offline
     end
 
-    event :turn_on do
+    event :online do
       transitions from: :offline, to: :online
     end
 
-    event :turn_off do
+    event :offline do
       transitions from: :online, to: :offline
     end
 
     event :ship do
       transitions from: :online, to: :shipping
+    end
+
+    event :delivered do
+      transitions from: :shipping, to: :online
     end
 
     event :lock do
@@ -59,6 +63,9 @@ class Driver < ApplicationRecord
   end
 
   before_save :downcase_email
+
+  scope :by_ids, ->(ids) { where(id: ids) }
+  scope :_can_ship, -> { where(status: :online) }
 
   def save_image!(image)
     self.update_columns(image: image)
