@@ -2,7 +2,7 @@
 <div class="p-4">
   <h1><%= "Management partners" %></h1>
   <h3><%= "Total of partners" %>: <%= @partners.total_count %></h3>
-  <%= link_to "Export list partners to excel", admin_export_partners_path(format: :xls) %>
+  <%= link_to "Export list partners to excel", export_admin_partners_path(format: :xls) %>
   <br>
   <%= search_form_for @search, url: admin_partners_path do |f|%>
     <%= f.condition_fields do |c| %>

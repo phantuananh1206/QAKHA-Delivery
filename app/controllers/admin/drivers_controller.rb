@@ -1,5 +1,5 @@
 class Admin::DriversController < Admin::BaseController
-  before_action :load_driver, except: %i(index new create)
+  before_action :load_driver, except: %i(index new create export)
 
   def index
     @search = Driver.search(params[:q])
@@ -48,6 +48,13 @@ class Admin::DriversController < Admin::BaseController
 
   def update_status
     update_status_driver
+  end
+
+  def export
+    @drivers = Driver.order(:name)
+    respond_to do |format|
+	    format.xls { send_data @drivers.to_xls }
+	  end
   end
 
   private

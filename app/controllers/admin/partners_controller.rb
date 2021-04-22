@@ -1,6 +1,6 @@
 class Admin::PartnersController < Admin::BaseController
-  before_action :load_partner, except: %i(index new create)
-  before_action :list_city, :list_type, except: %i(index destroy)
+  before_action :load_partner, except: %i(index new create export)
+  before_action :list_city, :list_type, except: %i(index destroy export)
 
   def index
     @search = Partner.search(params[:q])
@@ -49,6 +49,13 @@ class Admin::PartnersController < Admin::BaseController
 
   def update_status
     update_status_partner
+  end
+
+  def export
+    @partners = Partner.order(:name)
+    respond_to do |format|
+	    format.xls { send_data @partners.to_xls }
+	  end
   end
 
   private

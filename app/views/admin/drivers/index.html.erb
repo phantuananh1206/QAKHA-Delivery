@@ -2,7 +2,7 @@
 <div class="p-4">
   <h1><%= "Management Drivers" %></h1>
   <h3><%= "Total of drivers" %>: <%= @drivers.total_count %></h3>
-  <%= link_to "Export list drivers to excel", admin_export_drivers_path(format: :xls) %>
+  <%= link_to "Export list drivers to excel", export_admin_drivers_path(format: :xls) %>
   <br>
   <%= search_form_for @search, url: admin_drivers_path do |f|%>
     <%= f.condition_fields do |c| %>
