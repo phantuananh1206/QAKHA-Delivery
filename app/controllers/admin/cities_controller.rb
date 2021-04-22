@@ -55,7 +55,7 @@ class Admin::CitiesController < Admin::BaseController
     return if @city = City.find_by(id: params[:id])
 
     flash[:danger] = 'City not found'
-    redirect_to admin_root_path
+    redirect_to admin_cities_path
   end
 
   def city_params

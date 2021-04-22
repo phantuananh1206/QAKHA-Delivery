@@ -1,0 +1,37 @@
+<% provide(:title, 'Categories') %>
+<div class="p-4">
+  <h1><%= "Management Categories" %></h1>
+  <h3><%= "Total of categories" %>: <%= @categories.total_count %></h3>
+  <%= link_to "Export list categories to excel", export_admin_categories_path(format: :xls) %>
+  <br>
+  <%= search_form_for @search, url: admin_categories_path do |f|%>
+    <%= f.condition_fields do |c| %>
+      <%= c.attribute_fields do |a| %>
+        <%= a.attribute_select %>
+      <% end %>
+      <%= c.predicate_select %>
+      <%= c.value_fields do |v| %>
+        <%= v.text_field :value %>
+      <% end %>
+    <% end %>
+    <%= f.submit 'Search', class: "btn btn-outline-info" %>
+  <% end %>
+  <br>
+  <%= link_to "New Category", new_admin_category_path, class: "btn btn-info glyphicon glyphicon-plus" %>
+  <table class="table table-striped track_tbl">
+    <thead>
+      <tr>
+        <th><%= sort_link(@search, :id, 'ID') %></th>
+        <th><%= sort_link(@search, :name, 'Name') %></th>
+        <th><%= sort_link(@search, :partner_id, 'Partner name') %></th>
+        <th><%= "Action" %></th>
+      </tr>
+    </thead>
+    <tbody id="categories">
+      <%= render @categories %>
+    </tbody>
+  </table>
+  <div id="paginate">
+    <%= paginate @categories, theme: 'twitter-bootstrap-4', remote: true %>
+  </div>
+</div>

@@ -111,13 +111,11 @@ end
 
 Category.create!(
   name: "CƠM",
-  parent_id: 0,
   partner_id: 1
 )
 
 Category.create!(
   name: "NƯỚC UỐNG",
-  parent_id: 0,
   partner_id: 1
 )
 
@@ -232,23 +230,19 @@ end
 # Category of Cơm 1989
 Category.create!(
   name: "CƠM 1989",
-  parent_id: 0,
   partner_id: 2
 )
 
 Category.create!(
   name: "MÓN THÊM",
-  parent_id: 0,
   partner_id: 2
 )
 Category.create!(
   name: "COMBO",
-  parent_id: 0,
   partner_id: 2
 )
 Category.create!(
   name: "ĐỒ UỐNG",
-  parent_id: 0,
   partner_id: 2
 )
 
@@ -455,13 +449,11 @@ end
 
 Category.create!(
   name: "THỰC ĐƠN CƠM",
-  parent_id: 0,
   partner_id: 3
 )
 
 Category.create!(
   name: "COMBO",
-  parent_id: 0,
   partner_id: 3
 )
 
@@ -629,17 +621,14 @@ end
 
 Category.create!(
   name: "CƠM BẾP NHÀ QUÊ",
-  parent_id: 0,
   partner_id: 4
 )
 Category.create!(
   name: "ĐỒ UỐNG",
-  parent_id: 0,
   partner_id: 4
 )
 Category.create!(
   name: "ĐỒ ĂN THÊM",
-  parent_id: 0,
   partner_id: 4
 )
 1.times do |n|
@@ -867,12 +856,10 @@ end
 
 Category.create!(
   name: "MENU CƠM",
-  parent_id: 0,
   partner_id: 5
 )
 Category.create!(
   name: "COMBO",
-  parent_id: 0,
   partner_id: 5
 )
 
@@ -971,37 +958,30 @@ end
 
 Category.create!(
   name: "ĐỒ UỐNG NÓNG",
-  parent_id: 0,
   partner_id: 6
 )
 Category.create!(
   name: "TRÀ ĐÓNG CHAI",
-  parent_id: 0,
   partner_id: 6
 )
 Category.create!(
   name: "TRÀ SỮA",
-  parent_id: 0,
   partner_id: 6
 )
 Category.create!(
   name: "TRÀ TRÁI CÂY",
-  parent_id: 0,
   partner_id: 6
 )
 Category.create!(
   name: "SƯÃ TƯƠI",
-  parent_id: 0,
   partner_id: 6
 )
 Category.create!(
   name: "TOPPING",
-  parent_id: 0,
   partner_id: 6
 )
 Category.create!(
   name: "ĐỒ ĂN VẶT",
-  parent_id: 0,
   partner_id: 6
 )
 
@@ -1387,27 +1367,22 @@ end
 
 Category.create!(
   name: "ĐỒ UỐNG NÓNG",
-  parent_id: 0,
   partner_id: 7
 )
 Category.create!(
   name: "TRÀ ĐÓNG CHAI",
-  parent_id: 0,
   partner_id: 7
 )
 Category.create!(
   name: "TRÀ SỮA",
-  parent_id: 0,
   partner_id: 7
 )
 Category.create!(
   name: "SỮA TƯƠI",
-  parent_id: 0,
   partner_id: 7
 )
 Category.create!(
   name: "TOPPING",
-  parent_id: 0,
   partner_id: 7
 )
 
@@ -1653,44 +1628,36 @@ end
 
 Category.create!(
   name: "FRUIT TEA SERIES",
-  parent_id: 0,
   partner_id: 8
 )
 
 Category.create!(
   name: "FRESH TARO SERIES",
-  parent_id: 0,
   partner_id: 8
 )
 Category.create!(
   name: "WHITE XMAS SERIES",
-  parent_id: 0,
   partner_id: 8
 )
 
 Category.create!(
   name: "THỨC UỐNG VỊ TRÁI CÂY",
-  parent_id: 0,
   partner_id: 8
 )
 Category.create!(
   name: "TRÀ KEM SỮA GONG CHA",
-  parent_id: 0,
   partner_id: 8
 )
 Category.create!(
   name: "MÓN MỚI",
-  parent_id: 0,
   partner_id: 8
 )
 Category.create!(
   name: "TRÀ NGUYÊN CHẤT",
-  parent_id: 0,
   partner_id: 8
 )
 Category.create!(
   name: "THỨC UỐNG ĐÁ XAY",
-  parent_id: 0,
   partner_id: 8
 )
 
@@ -1977,43 +1944,35 @@ end
 
 Category.create!(
   name: "FRUIT TEA SERIES",
-  parent_id: 0,
   partner_id: 9
 )
 
 Category.create!(
   name: "FRESH TARO SERIES",
-  parent_id: 0,
   partner_id: 9
 )
 Category.create!(
   name: "WHITE XMAS SERIES",
-  parent_id: 0,
   partner_id: 9
 )
 Category.create!(
   name: "THỨC UỐNG VỊ TRÁI CÂY",
-  parent_id: 0,
   partner_id: 9
 )
 Category.create!(
   name: "TRÀ KEM SỮA GONG CHA",
-  parent_id: 0,
   partner_id: 9
 )
 Category.create!(
   name: "MÓN MỚI",
-  parent_id: 0,
   partner_id: 9
 )
 Category.create!(
   name: "TRÀ NGUYÊN CHẤT",
-  parent_id: 0,
   partner_id: 9
 )
 Category.create!(
   name: "THỨC UỐNG ĐÁ XAY",
-  parent_id: 0,
   partner_id: 9
 )
 1.times do |n|
@@ -2299,32 +2258,26 @@ end
 
 Category.create!(
   name: "TRÀ SỮA",
-  parent_id: 0,
   partner_id: 10
 )
 Category.create!(
   name: "SỮA TƯƠI",
-  parent_id: 0,
   partner_id: 10
 )
 Category.create!(
   name: "TRÀ TRÁI CÂY",
-  parent_id: 0,
   partner_id: 10
 )
 Category.create!(
   name: "ĐÁ XAY",
-  parent_id: 0,
   partner_id: 10
 )
 Category.create!(
   name: "YAOURT",
-  parent_id: 0,
   partner_id: 10
 )
 Category.create!(
   name: "SODA",
-  parent_id: 0,
   partner_id: 10
 )
 
@@ -2640,32 +2593,26 @@ end
 
 Category.create!(
   name: "TRÀ SỮA",
-  parent_id: 0,
   partner_id: 11
 )
 Category.create!(
   name: "SỮA TƯƠI",
-  parent_id: 0,
   partner_id: 11
 )
 Category.create!(
   name: "TRÀ TRÁI CÂY",
-  parent_id: 0,
   partner_id: 11
 )
 Category.create!(
   name: "ĐÁ XAY",
-  parent_id: 0,
   partner_id: 11
 )
 Category.create!(
   name: "YAOURT",
-  parent_id: 0,
   partner_id: 11
 )
 Category.create!(
   name: "SODA",
-  parent_id: 0,
   partner_id: 11
 )
 
@@ -2980,17 +2927,14 @@ end
 end
 Category.create!(
   name: "TRÀ SỮA",
-  parent_id: 0,
   partner_id: 12
 )
 Category.create!(
   name: "MILO DINO SERIES",
-  parent_id: 0,
   partner_id: 12
 )
 Category.create!(
   name: "TRÀ SỮA NÓNG",
-  parent_id: 0,
   partner_id: 12
 )
 1.times do |n|
@@ -3184,17 +3128,14 @@ end
 end
 Category.create!(
   name: "SUSHI",
-  parent_id: 0,
   partner_id: 13
 )
 Category.create!(
   name: "SALAD & CƠM",
-  parent_id: 0,
   partner_id: 13
 )
 Category.create!(
   name: "HÀN FOOD",
-  parent_id: 0,
   partner_id: 13
 )
 
@@ -3440,17 +3381,14 @@ end
 
 Category.create!(
   name: "SASHIMI",
-  parent_id: 0,
   partner_id: 14
 )
 Category.create!(
   name: "SUSHI & CƠM CUỘN",
-  parent_id: 0,
   partner_id: 14
 )
 Category.create!(
   name: "COMBO",
-  parent_id: 0,
   partner_id: 14
 )
 1.times do |n|
@@ -3603,12 +3541,10 @@ end
 
 Category.create!(
   name: "SASHIMI",
-  parent_id: 0,
   partner_id: 15
 )
 Category.create!(
   name: "SUSHI & CƠM CUỘN",
-  parent_id: 0,
   partner_id: 15
 )
 1.times do |n|
@@ -3742,17 +3678,14 @@ end
 
 Category.create!(
   name: "MENU FOOD",
-  parent_id: 0,
   partner_id: 16
 )
 Category.create!(
   name: "COMBO",
-  parent_id: 0,
   partner_id: 16
 )
 Category.create!(
   name: "ĐỒ UỐNG",
-  parent_id: 0,
   partner_id: 16
 )
 1.times do |n|
@@ -3967,12 +3900,10 @@ end
 
 Category.create!(
   name: "MENU FOOD",
-  parent_id: 0,
   partner_id: 17
 )
 Category.create!(
   name: "ĐỒ UỐNG",
-  parent_id: 0,
   partner_id: 17
 )
 
@@ -4117,12 +4048,10 @@ end
 
 Category.create!(
   name: "ĂN VẶT",
-  parent_id: 0,
   partner_id: 18
 )
 Category.create!(
   name: "ĐỒ UỐNG",
-  parent_id: 0,
   partner_id: 18
 )
 
@@ -4268,17 +4197,14 @@ end
 
 Category.create!(
   name: "CƠM",
-  parent_id: 0,
   partner_id: 19
 )
 Category.create!(
   name: "MÓN ĐẶC BIỆT",
-  parent_id: 0,
   partner_id: 19
 )
 Category.create!(
   name: "LẨU",
-  parent_id: 0,
   partner_id: 19
 )
 1.times do |n|
@@ -4433,17 +4359,14 @@ end
 
 Category.create!(
   name: "CƠM",
-  parent_id: 0,
   partner_id: 20
 )
 Category.create!(
   name: "MÓN ĐẶC BIỆT",
-  parent_id: 0,
   partner_id: 20
 )
 Category.create!(
   name: "LẨU",
-  parent_id: 0,
   partner_id: 20
 )
 1.times do |n|

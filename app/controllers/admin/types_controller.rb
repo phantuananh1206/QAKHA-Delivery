@@ -59,6 +59,6 @@ class Admin::TypesController < Admin::BaseController
     return if @type = Type.find_by(id: params[:id])
 
     flash[:danger] = 'Type not found'
-    redirect_to admin_root_path
+    redirect_to admin_types_path
   end
 end

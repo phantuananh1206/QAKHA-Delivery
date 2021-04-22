@@ -1,0 +1,10 @@
+<%= provide :title, "New Category"%>
+<%= provide :button, "Create Category"%>
+<%= provide :url, admin_categories_path(@category)%>
+
+<div class="">
+  <div class="col-md-6 col-md-offset-3">
+    <h1><%= "Create new category" %></h1>
+    <%= render "form" %>
+  </div>
+</div>
