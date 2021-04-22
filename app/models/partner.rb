@@ -14,6 +14,7 @@ class Partner < ApplicationRecord
   has_many :categories, dependent: :restrict_with_error
   has_many :feedbacks, dependent: :restrict_with_error
   has_many :orders, dependent: :restrict_with_error
+  has_many :products, through: :categories
 
   enum status: { open: 0, close: 1 }
 
@@ -56,4 +57,6 @@ class Partner < ApplicationRecord
   def downcase_email
     email.downcase!
   end
+  # scope :load_cate, -> (partner_id) { includes(:categories).where (partner_id: partner_id) }
+  # Ex:- scope :active, -> {where(:active => true)}
 end

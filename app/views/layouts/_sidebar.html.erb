@@ -4,10 +4,10 @@
       <div class="sidebar ">
         <div class="user-panel">
           <div class="pull-left image">
-            <img src="http://via.placeholder.com/160x160" class="rounded-circle" alt="User Image">
+            <%= image_tag current_partner.image.url , class: "rounded-circle" %>
           </div>
           <div class="pull-left info">
-            <p>Partner Dashboard</p>
+            <p><%= current_partner.name %></p>
             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
           </div>
         </div>
@@ -30,7 +30,7 @@
           <li> <a href="#"><i class="fa fa-laptop"></i> <span class="nav-label">Grid options</span></a> </li>
           <li> <a href="#" data-toggle="collapse" data-target="#e-commerce" class="collapsed active" ><i class="fa fa-shopping-cart"></i> <span class="nav-label">E-commerce</span><span class="fa fa-chevron-left pull-right"></span></a>
             <ul  class="sub-menu collapse" id="e-commerce" >
-              <li><%= link_to "Management Products", "#" %></li>
+              <li><%= link_to "Management Products", partners_products_path %></li>
               <li><%= link_to "Management Categories", partners_categories_path %></li>
               <li><%= link_to "Management Vouchers", "model" %></li>
               <li><%= link_to "Management Orders", "model" %></li>

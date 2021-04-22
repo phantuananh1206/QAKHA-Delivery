@@ -5,7 +5,10 @@ class Partners::CategoriesController < ApplicationController
   before_action :load_category, only: %i(edit update destroy)
 
   def index
-    @categories = Category.load_category_of_partner(current_partner.id).paginate(page: params[:page], per_page: 5)
+    @search = Category.load_category_of_partner(current_partner.id).search(params[:q])
+    @categories = @search.result.page(params[:page]).per(5)
+    @search.build_condition
+    @search.build_sort
   end
 
   def new
@@ -13,7 +16,7 @@ class Partners::CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new category_params.merge(partner_id: 1)
+    @category = Category.new category_params.merge(partner_id: current_partner.id)
     if @category.save
       flash[:success] = "Creat new category successful"
       redirect_to partners_categories_path
