@@ -93,6 +93,9 @@ Rails.application.routes.draw do
       resources :users, except: :show do
         collection { get :export }
       end
+      resources :addresses, except: :show do
+        collection { get :export }
+      end
     end
   end
 end

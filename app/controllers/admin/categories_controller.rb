@@ -53,7 +53,7 @@ class Admin::CategoriesController < Admin::BaseController
   private
 
   def category_params
-    params.require(:category).permit(:name, :parent_id, :partner_id)
+    params.require(:category).permit(:name, :partner_id)
   end
 
   def load_category

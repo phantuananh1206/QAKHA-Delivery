@@ -1,0 +1,19 @@
+<%= form_for @address, url: yield(:url) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="form-group">
+    <%= f.text_field :name, placeholder: "Name" +" (*)", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :latitude, placeholder: "Latitude", class: "form-control" %>
+  </div>
+    <div class="form-group">
+    <%= f.text_field :longitude, placeholder: "Longitude", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :user_id %>
+    <%= f.collection_select(:user_id, @users, :id, :name) %>
+  </div>
+  <div class="form-group">
+    <%= f.submit yield(:button), class: "btn btn-info form-control" %>
+  </div>
+<% end %>
