@@ -1,0 +1,44 @@
+<% provide(:title, 'Vouchers') %>
+<div class="p-4">
+  <h1><%= "Management Vouchers" %></h1>
+  <h3><%= "Total of vouchers" %>: <%= @vouchers.total_count %></h3>
+  <%= link_to "Export list vouchers to excel", export_admin_vouchers_path(format: :xls) %>
+  <br>
+  <%= search_form_for @search, url: admin_vouchers_path do |f|%>
+    <%= f.condition_fields do |c| %>
+      <%= c.attribute_fields do |a| %>
+        <%= a.attribute_select %>
+      <% end %>
+      <%= c.predicate_select %>
+      <%= c.value_fields do |v| %>
+        <%= v.text_field :value %>
+      <% end %>
+    <% end %>
+    <%= f.submit 'Search', class: "btn btn-outline-info" %>
+  <% end %>
+  <br>
+  <%= link_to " New Voucher", new_admin_voucher_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+  <table class="table table-striped track_tbl">
+    <thead>
+      <tr>
+        <th><%= sort_link(@search, :id, 'ID') %></th>
+        <th><%= sort_link(@search, :code, 'Code') %></th>
+        <th><%= sort_link(@search, :discount, 'Discount') %></th>
+        <th><%= sort_link(@search, :condition, 'Condition') %></th>
+        <th><%= sort_link(@search, :status, 'Status') %></th>
+        <th><%= sort_link(@search, :expiry_date, 'Expiry date') %></th>
+        <th><%= sort_link(@search, :usage_limit, 'Usage limit') %></th>
+        <th><%= "Description" %></th>
+        <th><%= sort_link(@search, :partner_id, 'Partner name') %></th>
+        <th><%= "Management status" %></th>
+        <th><%= "Control" %></th>
+      </tr>
+    </thead>
+    <tbody id="vouchers">
+      <%= render @vouchers %>
+    </tbody>
+  </table>
+  <div id="paginate">
+    <%= paginate @vouchers, theme: 'twitter-bootstrap-4', remote: true %>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+$('#vouchers').html('<%= j render(@vouchers) %>');
+$('#paginate').html('<%= j paginate(@vouchers, theme: 'twitter-bootstrap-4', remote: true) %>');
