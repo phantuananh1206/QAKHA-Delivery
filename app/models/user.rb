@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :feedbacks, dependent: :restrict_with_error
   has_many :addresses, dependent: :restrict_with_error
 
-  enum role: {admin: 0, member: 1, block: 2}
+  enum role: { admin: 0, member: 1, block: 2 }
 
   validates :name, presence: true,
             length: {maximum: Settings.validation.name_max}
@@ -22,7 +22,7 @@ class User < ApplicationRecord
             format: {with: VALID_EMAIL_REGEX}, uniqueness: { case_sensitive: true }
   validates :phone_number, format: {with: VALID_PHONE_REGEX},
             length: {minimum: Settings.validation.phone_min},
-            uniqueness: { case_sensitive: true }, allow_nil: true
+            uniqueness: { case_sensitive: true }
   validates :password, allow_nil: true,
             length: {minimum: Settings.validation.password_min}
   validates :coins, allow_nil: true,
@@ -31,6 +31,7 @@ class User < ApplicationRecord
   before_save :downcase_email
 
   scope :_role_admin, -> { where(role: :admin)}
+  scope :_not_role_block, ->{where.not(role: :block)}
 
   def self.from_omniauth(auth)
     user_with_provider = find_by(provider: auth.provider, uid: auth.uid)
@@ -74,6 +75,15 @@ class User < ApplicationRecord
 
   def save_image!(image)
     self.update_columns(image: image)
+  end
+
+  def self.to_xls
+    CSV.generate do |csv|
+      csv << column_names
+      all.each do |driver|
+        csv << driver.attributes.values_at(*column_names)
+      end
+    end
   end
 
   private

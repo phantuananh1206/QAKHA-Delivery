@@ -1,0 +1,29 @@
+<tr>
+  <td><%= user.id %></td>
+  <td><%= image_tag user.image.url.to_s, class: "img-product"%></td>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td><%= user.phone_number %></td>
+  <td><%= user.coins %></td>
+  <td><%= user.role %></td>
+  <td>
+    <% if user.member? %>
+      <%= link_to 'Lock user', admin_user_status_path(id: user.id, role: :block),
+                               method: :patch,
+                               remote: true,
+                               class: "btn btn-secondary glyphicon glyphicon-lock" %>
+    <% elsif user.block? %>
+      <%= link_to 'Unlock user', admin_user_status_path(id: user.id, role: :member),
+                                 method: :patch,
+                                 remote: true,
+                                 class: "btn btn-secondary glyphicon glyphicon-ok" %>
+    <% end %>
+  </td>
+  <td>
+    <span><%= link_to "Edit", edit_admin_user_path(user),
+                              class: "btn btn-success glyphicon glyphicon-edit" %></span>
+    <span><%= link_to "Delete", admin_user_path(user),
+                                data: { confirm: 'Are you sure you want to delete?' },
+                                method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
+  </td>
+</tr>
