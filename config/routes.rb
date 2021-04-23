@@ -72,6 +72,7 @@ Rails.application.routes.draw do
       patch "partners/status/:id", to: 'partners#update_status', as: :partner_status
       patch "products/status/:id", to: 'products#update_status', as: :product_status
       patch "users/status/:id", to: 'users#update_status', as: :user_status
+      patch "vouchers/status/:id", to: 'vouchers#update_status', as: :voucher_status
       resources :drivers, except: :show do
         collection { get :export }
       end
@@ -94,6 +95,9 @@ Rails.application.routes.draw do
         collection { get :export }
       end
       resources :addresses, except: :show do
+        collection { get :export }
+      end
+      resources :vouchers, except: :show do
         collection { get :export }
       end
     end

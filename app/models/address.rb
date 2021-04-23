@@ -11,8 +11,8 @@ class Address < ApplicationRecord
   def self.to_xls
     CSV.generate do |csv|
       csv << column_names
-      all.each do |type|
-        csv << type.attributes.values_at(*column_names)
+      all.each do |address|
+        csv << address.attributes.values_at(*column_names)
       end
     end
   end
