@@ -100,6 +100,9 @@ Rails.application.routes.draw do
       resources :vouchers, except: :show do
         collection { get :export }
       end
+      resources :orders, only: %i(index show update) do
+        collection { get :export }
+      end
     end
   end
 end
