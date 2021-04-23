@@ -1,6 +1,6 @@
 class Admin::CategoriesController < Admin::BaseController
   before_action :load_category, except: %i(index new create export)
-  before_action :list_partner, except: %i(index destroy export)
+  before_action :list_partners, except: %i(index destroy export)
 
   def index
     @search = Category.search(params[:q])
@@ -63,7 +63,7 @@ class Admin::CategoriesController < Admin::BaseController
     redirect_to admin_categories_path
   end
 
-  def list_partner
+  def list_partners
     @partners = Partner.all
   end
 end

@@ -1,0 +1,40 @@
+<div class="p-4">
+  <h1><%= "Management Products" %></h1>
+  <h3><%= "Total of product" %>: <%= @products.total_count %></h3>
+  <%= link_to "Export list products to excel", export_admin_products_path(format: :xls) %>
+  <%= search_form_for @search, url: admin_products_path do |f|%>
+    <%= f.condition_fields do |c| %>
+      <%= c.attribute_fields do |a| %>
+        <%= a.attribute_select %>
+      <% end %>
+      <%= c.predicate_select %>
+      <%= c.value_fields do |v| %>
+        <%= v.text_field :value %>
+      <% end %>
+    <% end %>
+    <%= f.submit 'Search', class: "btn btn-outline-info" %>
+  <% end %>
+  <%= link_to " New Product", new_admin_product_path , class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= sort_link(@search, :id, 'ID') %></th>
+        <th><%= 'Image' %></th>
+        <th><%= sort_link(@search, :name, 'Name') %></th>
+        <th><%= sort_link(@search, :quantity_sold, 'Quantity sold') %></th>
+        <th><%= sort_link(@search, :price, 'Price') %></th>
+        <th><%= sort_link(@search, :status, 'Status') %></th>
+        <th><%= sort_link(@search, :category_id, 'Category name') %></th>
+        <th><%= sort_link(@p, :partner_id, 'Partner name') %></th>
+        <th><%= "Management status" %></th>
+        <th><%= "Control" %></th>
+      </tr>
+    </thead>
+    <tbody id="product">
+      <%= render @products %>
+    </tbody>
+  </table>
+  <div id="paginate">
+    <%= paginate @products, theme: 'twitter-bootstrap-4', remote: true %>
+  </div>
+</div>

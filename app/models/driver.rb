@@ -60,6 +60,10 @@ class Driver < ApplicationRecord
     event :lock do
       transitions from: [:offline, :online], to: :locked
     end
+
+    event :unlock do
+      transitions from: :lock, to: :offline
+    end
   end
 
   before_save :downcase_email
