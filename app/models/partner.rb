@@ -23,12 +23,13 @@ class Partner < ApplicationRecord
             length: {maximum: Settings.validation.name_max}
   validates :email, presence: true,
             length: {maximum: Settings.validation.email_max},
-            format: {with: VALID_EMAIL_REGEX}, uniqueness: true
+            format: {with: VALID_EMAIL_REGEX}, uniqueness: { case_sensitive: true }
   validates :phone_number, format: {with: VALID_PHONE_REGEX},
             length: {minimum: Settings.validation.phone_min},
-            uniqueness: true, allow_nil: true
+            uniqueness: { case_sensitive: true }, allow_nil: true
   validates :password, presence: true,
-            length: {minimum: Settings.validation.password_min}
+            length: {minimum: Settings.validation.password_min},
+            allow_nil: true
   validate :time_close_valid
 
   aasm column: :status, enum: true do
@@ -49,6 +50,10 @@ class Partner < ApplicationRecord
 
     event :lock do
       transitions from: [:open, :close], to: :locked
+    end
+
+    event :unlock do
+      transitions from: :locked, to: :close
     end
   end
 

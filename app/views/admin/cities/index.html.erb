@@ -17,13 +17,13 @@
     <%= f.submit 'Search', class: "btn btn-outline-info" %>
   <% end %>
   <br>
-  <%= link_to "New City", new_admin_city_path, class: "btn btn-info glyphicon glyphicon-plus" %>
+  <%= link_to " New City", new_admin_city_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
   <table class="table table-striped track_tbl">
     <thead>
       <tr>
         <th><%= sort_link(@search, :id, 'ID') %></th>
         <th><%= sort_link(@search, :name, 'Name') %></th>
-        <th><%= "Action" %></th>
+        <th><%= "Control" %></th>
       </tr>
     </thead>
     <tbody id="cities">

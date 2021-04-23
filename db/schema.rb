@@ -186,6 +186,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_144041) do
     t.float "price"
     t.text "description"
     t.string "image"
+    t.integer "status", default: 0
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
