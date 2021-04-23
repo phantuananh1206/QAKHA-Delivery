@@ -182,7 +182,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_144041) do
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
-    t.integer "quantity_sold"
+    t.integer "quantity_sold", default: 0
     t.float "price"
     t.text "description"
     t.string "image"

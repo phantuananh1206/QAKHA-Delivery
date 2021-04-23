@@ -11,4 +11,8 @@ class OrderDetail < ApplicationRecord
   def update_quantity_product
     product.update(quantity_sold: (product.quantity_sold + quantity))
   end
+
+  def restock_product
+    product.update(quantity_sold: (product.quantity_sold - quantity))
+  end
 end
