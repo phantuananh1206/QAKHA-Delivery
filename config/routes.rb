@@ -70,10 +70,49 @@ Rails.application.routes.draw do
       delete "logout", to: 'sessions#destroy'
       patch "drivers/status/:id", to: 'drivers#update_status', as: :driver_status
       patch "partners/status/:id", to: 'partners#update_status', as: :partner_status
-      resources :drivers, except: :show
-      resources :export_drivers, only: :index
-      resources :partners, except: :show
-      resources :export_partners, only: :index
+      patch "products/status/:id", to: 'products#update_status', as: :product_status
+      patch "users/status/:id", to: 'users#update_status', as: :user_status
+      patch "vouchers/status/:id", to: 'vouchers#update_status', as: :voucher_status
+      get "/partners/statistics/month", to: 'statistics_partners#statistics_by_month'
+      get "/partners/statistics/quarter", to: 'statistics_partners#statistics_by_quarter'
+      get "/partners/statistics/year", to: 'statistics_partners#statistics_by_year'
+      get "/partners/statistics", to: 'statistics_partners#statistics'
+      get "/drivers/statistics/month", to: 'statistics_drivers#statistics_by_month'
+      get "/drivers/statistics/quarter", to: 'statistics_drivers#statistics_by_quarter'
+      get "/drivers/statistics/year", to: 'statistics_drivers#statistics_by_year'
+      get "/drivers/statistics", to: 'statistics_drivers#statistics'
+      resources :drivers, except: :show do
+        collection { get :export }
+      end
+      resources :partners, except: :show do
+        collection { get :export }
+      end
+      resources :cities, except: :show do
+        collection { get :export }
+      end
+      resources :types, except: :show do
+        collection { get :export }
+      end
+      resources :categories, except: :show do
+        collection { get :export }
+      end
+      resources :products, except: :show do
+        collection { get :export }
+      end
+      resources :users, except: :show do
+        collection { get :export }
+      end
+      resources :addresses, except: :show do
+        collection { get :export }
+      end
+      resources :vouchers, except: :show do
+        collection { get :export }
+      end
+      resources :orders, only: %i(index show update) do
+        collection { get :export }
+      end
+      resources :statistics_partners, only: :index
+      resources :statistics_drivers, only: :index
     end
   end
 end

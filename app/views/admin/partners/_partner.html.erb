@@ -5,24 +5,47 @@
   <td><%= partner.email %></td>
   <td><%= partner.address %></td>
   <td><%= partner.phone_number %></td>
-  <td><%= partner.time_open %></td>
-  <td><%= partner.time_close %></td>
+  <td><%= partner.time_open.strftime('%H:%M') %></td>
+  <td><%= partner.time_close.strftime('%H:%M') %></td>
   <td><%= partner.status %></td>
   <td><%= partner.latitude %></td>
   <td><%= partner.longitude %></td>
   <td>
     <% if partner.may_active? %>
-      <%= link_to 'Activate partner', admin_partner_status_path(id: partner.id, status: :active), method: :patch, remote: true, class: "btn btn-primary glyphicon glyphicon-ok" %>
+      <%= link_to 'Activate partner', admin_partner_status_path(id: partner.id, status: :active),
+                                      method: :patch,
+                                      remote: true,
+                                      class: "btn btn-primary glyphicon glyphicon-ok" %>
     <% elsif partner.may_lock? %>
-      <%= link_to 'Lock partner', admin_partner_status_path(id: partner.id, status: :lock), method: :patch, remote: true, class: "btn btn-secondary glyphicon glyphicon-lock" %>
+      <%= link_to 'Lock partner', admin_partner_status_path(id: partner.id, status: :lock),
+                                  method: :patch,
+                                  remote: true,
+                                  class: "btn btn-secondary glyphicon glyphicon-lock" %>
+    <% elsif partner.may_unlock? %>
+      <%= link_to 'Unlock partner', admin_partner_status_path(id: partner.id, status: :unlock),
+                                    method: :patch,
+                                    remote: true,
+                                    class: "btn btn-primary glyphicon glyphicon-ok" %>
+    <% end %>
+    <hr>
+    <% if partner.may_open? %>
+      <%= link_to 'Open partner', admin_partner_status_path(id: partner.id, status: :open),
+                                  method: :patch,
+                                  remote: true,
+                                  class: "btn btn-primary glyphicon glyphicon-eye-open" %>
+    <% elsif partner.may_close? %>
+      <%= link_to 'Close partner', admin_partner_status_path(id: partner.id, status: :close),
+                                   method: :patch,
+                                   remote: true,
+                                   class: "btn btn-outline-secondary glyphicon glyphicon-eye-close" %>
     <% end %>
   </td>
   <td>
+    <span><%= link_to "Edit", edit_admin_partner_path(partner),
+                              class: "btn btn-success glyphicon glyphicon-edit" %></span>
     <span><%= link_to "Delete", admin_partner_path(partner),
                                 data: { confirm: 'Are you sure you want to delete?' },
                                 method: :delete,
                                 class: "btn btn-danger glyphicon glyphicon-trash" %></span>
-    <span><%= link_to "Edit", edit_admin_partner_path(partner),
-                              class: "btn btn-success glyphicon glyphicon-edit" %></span>
   </td>
 </tr>

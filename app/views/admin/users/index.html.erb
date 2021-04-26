@@ -1,0 +1,42 @@
+<% provide(:title, 'Users') %>
+<div class="p-4">
+  <h1><%= "Management Users" %></h1>
+  <h3><%= "Total of users" %>: <%= @users.total_count %></h3>
+  <%= link_to "Export list users to excel", export_admin_users_path(format: :xls) %>
+  <br>
+  <%= search_form_for @search, url: admin_users_path do |f|%>
+    <%= f.condition_fields do |c| %>
+      <%= c.attribute_fields do |a| %>
+        <%= a.attribute_select %>
+      <% end %>
+      <%= c.predicate_select %>
+      <%= c.value_fields do |v| %>
+        <%= v.text_field :value %>
+      <% end %>
+    <% end %>
+    <%= f.submit 'Search', class: "btn btn-outline-info" %>
+  <% end %>
+  <br>
+  <%= link_to " New User", new_admin_user_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+  <table class="table table-striped track_tbl">
+    <thead>
+      <tr>
+        <th><%= sort_link(@search, :id, 'ID') %></th>
+        <th><%= "Image" %></th>
+        <th><%= sort_link(@search, :name, 'Name') %></th>
+        <th><%= sort_link(@search, :email, 'Email') %></th>
+        <th><%= "Phone number" %></th>
+        <th><%= sort_link(@search, :coins, 'Coins') %></th>
+        <th><%= sort_link(@search, :role, 'Role') %></th>
+        <th><%= "Management role" %></th>
+        <th><%= "Control" %></th>
+      </tr>
+    </thead>
+    <tbody id="users">
+      <%= render @users %>
+    </tbody>
+  </table>
+  <div id="paginate">
+    <%= paginate @users, theme: 'twitter-bootstrap-4', remote: true %>
+  </div>
+</div>

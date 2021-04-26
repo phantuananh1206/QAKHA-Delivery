@@ -1,0 +1,2 @@
+$('#orders').html('<%= j render(@orders) %>');
+$('#paginate').html('<%= j paginate(@orders, theme: 'twitter-bootstrap-4', remote: true) %>');

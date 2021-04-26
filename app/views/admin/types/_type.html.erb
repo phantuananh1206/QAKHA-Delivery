@@ -1,0 +1,11 @@
+<tr>
+  <td><%= type.id %></td>
+  <td><%= type.name %></td>
+  <td>
+    <span><%= link_to "Edit", edit_admin_type_path(type),
+                              class: "btn btn-success glyphicon glyphicon-edit" %></span>
+    <span><%= link_to "Delete", admin_type_path(type),
+                                data: { confirm: 'Are you sure you want to delete?' },
+                                method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
+  </td>
+</tr>

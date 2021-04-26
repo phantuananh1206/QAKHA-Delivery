@@ -3,4 +3,13 @@ class Type < ApplicationRecord
 
   validates :name, presence: true,
             length: {maximum: Settings.validation.name_max}
+
+  def self.to_xls
+    CSV.generate do |csv|
+      csv << column_names
+      all.each do |type|
+        csv << type.attributes.values_at(*column_names)
+      end
+    end
+  end
 end

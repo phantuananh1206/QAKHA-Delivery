@@ -1,0 +1,36 @@
+<% provide(:title, 'Cities') %>
+<div class="p-4">
+  <h1><%= "Management Cities" %></h1>
+  <h3><%= "Total of cities" %>: <%= @cities.total_count %></h3>
+  <%= link_to "Export list cities to excel", export_admin_cities_path(format: :xls) %>
+  <br>
+  <%= search_form_for @search, url: admin_cities_path do |f|%>
+    <%= f.condition_fields do |c| %>
+      <%= c.attribute_fields do |a| %>
+        <%= a.attribute_select %>
+      <% end %>
+      <%= c.predicate_select %>
+      <%= c.value_fields do |v| %>
+        <%= v.text_field :value %>
+      <% end %>
+    <% end %>
+    <%= f.submit 'Search', class: "btn btn-outline-info" %>
+  <% end %>
+  <br>
+  <%= link_to " New City", new_admin_city_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+  <table class="table table-striped track_tbl">
+    <thead>
+      <tr>
+        <th><%= sort_link(@search, :id, 'ID') %></th>
+        <th><%= sort_link(@search, :name, 'Name') %></th>
+        <th><%= "Control" %></th>
+      </tr>
+    </thead>
+    <tbody id="cities">
+      <%= render @cities %>
+    </tbody>
+  </table>
+  <div id="paginate">
+    <%= paginate @cities, theme: 'twitter-bootstrap-4', remote: true %>
+  </div>
+</div>

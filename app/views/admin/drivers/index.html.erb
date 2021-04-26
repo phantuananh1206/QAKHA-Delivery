@@ -2,7 +2,7 @@
 <div class="p-4">
   <h1><%= "Management Drivers" %></h1>
   <h3><%= "Total of drivers" %>: <%= @drivers.total_count %></h3>
-  <%= link_to "Export list drivers to excel", admin_export_drivers_path(format: :xls) %>
+  <%= link_to "Export list drivers to excel", export_admin_drivers_path(format: :xls) %>
   <br>
   <%= search_form_for @search, url: admin_drivers_path do |f|%>
     <%= f.condition_fields do |c| %>
@@ -17,7 +17,7 @@
     <%= f.submit 'Search', class: "btn btn-outline-info" %>
   <% end %>
   <br>
-  <%= link_to "New Driver", new_admin_driver_path, class: "btn btn-info glyphicon glyphicon-plus" %>
+  <%= link_to " New Driver", new_admin_driver_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
   <table class="table table-striped track_tbl">
     <thead>
       <tr>
@@ -32,7 +32,7 @@
         <th><%= sort_link(@search, :coins, 'Coins') %></th>
         <th><%= sort_link(@search, :status, 'Status') %></th>
         <th><%= "Management status" %></th>
-        <th><%= "Action" %></th>
+        <th><%= "Control" %></th>
       </tr>
     </thead>
     <tbody id="drivers">

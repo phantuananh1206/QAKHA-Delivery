@@ -1,0 +1,36 @@
+<% provide(:title, 'Types') %>
+<div class="p-4">
+  <h1><%= "Management Types" %></h1>
+  <h3><%= "Total of types" %>: <%= @types.total_count %></h3>
+  <%= link_to "Export list types to excel", export_admin_types_path(format: :xls) %>
+  <br>
+  <%= search_form_for @search, url: admin_types_path do |f|%>
+    <%= f.condition_fields do |c| %>
+      <%= c.attribute_fields do |a| %>
+        <%= a.attribute_select %>
+      <% end %>
+      <%= c.predicate_select %>
+      <%= c.value_fields do |v| %>
+        <%= v.text_field :value %>
+      <% end %>
+    <% end %>
+    <%= f.submit 'Search', class: "btn btn-outline-info" %>
+  <% end %>
+  <br>
+  <%= link_to "New Type", new_admin_type_path, class: "btn btn-info glyphicon glyphicon-plus" %>
+  <table class="table table-striped track_tbl">
+    <thead>
+      <tr>
+        <th><%= sort_link(@search, :id, 'ID') %></th>
+        <th><%= sort_link(@search, :name, 'Name') %></th>
+        <th><%= "Action" %></th>
+      </tr>
+    </thead>
+    <tbody id="types">
+      <%= render @types %>
+    </tbody>
+  </table>
+  <div id="paginate">
+    <%= paginate @types, theme: 'twitter-bootstrap-4', remote: true %>
+  </div>
+</div>

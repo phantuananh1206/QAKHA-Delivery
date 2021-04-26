@@ -1,6 +1,6 @@
 class Admin::PartnersController < Admin::BaseController
-  before_action :load_partner, except: %i(index new create)
-  before_action :list_city, :list_type, except: %i(index destroy)
+  before_action :load_partner, except: %i(index new create export)
+  before_action :list_city, :list_type, except: %i(index destroy export)
 
   def index
     @search = Partner.search(params[:q])
@@ -51,6 +51,13 @@ class Admin::PartnersController < Admin::BaseController
     update_status_partner
   end
 
+  def export
+    @partners = Partner.order(:name)
+    respond_to do |format|
+	    format.xls { send_data @partners.to_xls }
+	  end
+  end
+
   private
 
   def partner_params
@@ -64,7 +71,7 @@ class Admin::PartnersController < Admin::BaseController
     return if @partner = Partner.find_by(id: params[:id])
 
     flash[:danger] = 'Partner not found'
-    redirect_to admin_root_path
+    redirect_to admin_partners_path
   end
 
   def update_status_partner

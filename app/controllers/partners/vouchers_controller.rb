@@ -53,7 +53,6 @@ class Partners::VouchersController < ApplicationController
 
   def load_voucher
     return if @voucher = current_partner.vouchers.find_by(id: params[:id])
-    @voucher.update_status_voucher
 
     flash[:info] = "Voucher is empty"
     redirect_to partners_vouchers_path

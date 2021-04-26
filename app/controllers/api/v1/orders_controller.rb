@@ -9,6 +9,7 @@ class Api::V1::OrdersController < ApplicationController
   before_action :load_voucher, only: :apply_voucher
   before_action :remove_voucher, only: :cancel_voucher
   before_action :current_voucher, except: %i(coins_user index)
+  before_action :find_driver_nearest, only: :create
 
   def create
     @order = @current_user.orders.new(order_params)
@@ -35,7 +36,7 @@ class Api::V1::OrdersController < ApplicationController
       end
     end
     render json: @order_history.as_json(include: [driver: { only: [:name, :image] },
-      partner: { only: [:name, :address] }]) , status: :ok
+      partner: { only: [:name, :address, :image] }]) , status: :ok
   end
 
   def list_vouchers
@@ -172,34 +173,37 @@ class Api::V1::OrdersController < ApplicationController
   end
 
   def save_success
-    @driver = find_driver_nearest
     order = FireBase.new.push("drivers/shipping/#{@driver['id']}/order", { driver_id: @driver['id'], order_id: @order.id })
     driver = Driver.find_by(id: @driver['id'])
     driver.ship!
-    render json: { order: @order, order_details: @order.order_details,
+    render json: { order: @order.as_json(include: [user: { only: [:name, :image] }]), order_details: @order.order_details,
       driver_nearest: driver.as_json(only: [:id, :name, :email, :id_card, :phone_number, :license_plate, :image, :status]),
-      partner: @order.partner.as_json(only: [:name, :address, :latitude, :longitude]),
+      partner: @order.partner.as_json(only: [:name, :address, :image, :latitude, :longitude]),
       gps_user: { latitude: params[:latitude], longitude: params[:longitude] } }, status: :ok
     @carts.delete_all
     $current_voucher = {}
   end
 
   def find_driver_nearest
-    @drivers = FireBase.new.get('drivers').body['location']['driver'].values
+    @drivers = FireBase.new.get('drivers').body['location']['driver'].compact!
     @list_drivers = Driver.by_ids(@drivers.pluck('id'))
     @drivers_can_ship = @list_drivers._can_ship
-    driver_first = @drivers_can_ship.first
-    min_driver = @drivers.find { |driver_fb| driver_fb['id'].to_i == driver_first.id }
-    nearest = getDistanceFromLatLongInKm(min_driver['latitude'], min_driver['longitude'], @partner.latitude, @partner.longitude)
-    @driver = min_driver
-    @drivers_can_ship.each do |driver|
-      driver_loop = @drivers.find { |driver_rt| driver_rt['id'].to_i == driver.id }
-      current_distance = getDistanceFromLatLongInKm(driver_loop['latitude'], driver_loop['longitude'], @partner.latitude, @partner.longitude)
-      if current_distance < nearest
-        nearest = current_distance
-        @driver = driver_loop
+    if @drivers_can_ship.present?
+      driver_first = @drivers_can_ship.first
+      min_driver = @drivers.find { |driver_fb| driver_fb['id'].to_i == driver_first.id }
+      nearest = getDistanceFromLatLongInKm(min_driver['latitude'], min_driver['longitude'], @partner.latitude, @partner.longitude)
+      @driver = min_driver
+      @drivers_can_ship.each do |driver|
+        driver_loop = @drivers.find { |driver_rt| driver_rt['id'].to_i == driver.id }
+        current_distance = getDistanceFromLatLongInKm(driver_loop['latitude'], driver_loop['longitude'], @partner.latitude, @partner.longitude)
+        if current_distance < nearest
+          nearest = current_distance
+          @driver = driver_loop
+        end
       end
+      @driver
+    else
+      render json: { error: 'No recent delivery person found. Please re-order after a few minutes. We are very sorry for the inconvenience.'}, status: :not_found
     end
-    @driver
   end
 end

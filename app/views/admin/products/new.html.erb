@@ -1,0 +1,10 @@
+<%= provide :title, "New Product"%>
+<%= provide :button, "Create Product"%>
+<%= provide :url, admin_products_path(@product)%>
+
+<div class="">
+  <div class="col-md-6 col-md-offset-3">
+    <h1><%= "Create new product" %></h1>
+    <%= render "form" %>
+  </div>
+</div>

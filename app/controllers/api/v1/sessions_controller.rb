@@ -22,7 +22,7 @@ class Api::V1::SessionsController < Devise::SessionsController
   end
 
   def sign_in_driver
-    if @driver.offline? && @driver.valid_password?(params[:password])
+    if (@driver.offline? || @driver.online? || @driver.shipping?) && @driver.valid_password?(params[:password])
       sign_in @driver, store: false
       jwt = JWT.encode(
         { name: @driver.name, id: @driver.id, exp: (Time.now + 2.hours).to_i },
@@ -38,7 +38,7 @@ class Api::V1::SessionsController < Devise::SessionsController
   private
 
   def load_user_authentication
-    @user = User.find_by_email params[:email]
+    @user = User._not_role_block.find_by_email params[:email]
 
     render json: {message: "Email is not exists. Please sign up !!"}, status: :bad_request unless @user
   end

@@ -1,0 +1,6 @@
+<%= form_tag admin_drivers_statistics_path, method: :get, remote: true do %>
+  <%= date_select(:delivery_time, :statistics, use_month_numbers: true, order: [:year], discard_day: true, discard_month: true)%>
+  <%= submit_tag 'Statistics' %>
+<% end %>
+<div class="statistics">
+</div>

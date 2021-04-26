@@ -1,0 +1,39 @@
+<% provide(:title, 'Addresses') %>
+<div class="p-4">
+  <h1><%= "Management Addresses" %></h1>
+  <h3><%= "Total of addresses" %>: <%= @addresses.total_count %></h3>
+  <%= link_to "Export list addresses to excel", export_admin_addresses_path(format: :xls) %>
+  <br>
+  <%= search_form_for @search, url: admin_addresses_path do |f|%>
+    <%= f.condition_fields do |c| %>
+      <%= c.attribute_fields do |a| %>
+        <%= a.attribute_select %>
+      <% end %>
+      <%= c.predicate_select %>
+      <%= c.value_fields do |v| %>
+        <%= v.text_field :value %>
+      <% end %>
+    <% end %>
+    <%= f.submit 'Search', class: "btn btn-outline-info" %>
+  <% end %>
+  <br>
+  <%= link_to " New Address", new_admin_address_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+  <table class="table table-striped track_tbl">
+    <thead>
+      <tr>
+        <th><%= sort_link(@search, :id, 'ID') %></th>
+        <th><%= sort_link(@search, :name, 'Name') %></th>
+        <th><%= sort_link(@search, :latitude, 'Latitude') %></th>
+        <th><%= sort_link(@search, :longitude, 'Longitude') %></th>
+        <th><%= sort_link(@search, :user_id, 'User name') %></th>
+        <th><%= "Control" %></th>
+      </tr>
+    </thead>
+    <tbody id="addresses">
+      <%= render @addresses %>
+    </tbody>
+  </table>
+  <div id="paginate">
+    <%= paginate @addresses, theme: 'twitter-bootstrap-4', remote: true %>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<tr>
+  <td><%= product.id %></td>
+  <td class="admin_product_images">
+    <%= image_tag product.image.url.to_s, class: "img-product"%>
+  </td>
+  <td><%= product.name %></td>
+  <td><%= product.quantity_sold %></td>
+  <td><%= product.price %></td>
+  <td><%= product.status %></td>
+  <td><%= product.category_name %></td>
+  <td><%= product.category.partner.name %></td>
+    <td>
+      <%= link_to 'Out of stock', admin_product_status_path(id: product.id, status: :out_of_stock),
+                                      method: :patch,
+                                      remote: true,
+                                      class: "btn btn-secondary glyphicon glyphicon-lock" if product.in_stock? %>
+      <%= link_to 'In stock', admin_product_status_path(id: product.id, status: :in_stock),
+                                      method: :patch,
+                                      remote: true,
+                                      class: "btn btn-secondary glyphicon glyphicon-lock" if product.out_of_stock? %>
+  </td>
+  <td>
+    <span><%= link_to "Edit", edit_admin_product_path(product),
+                              class: "btn btn-success glyphicon glyphicon-edit" %></span>
+    <span><%= link_to "Delete", admin_product_path(product),
+                                data: { confirm: 'Are you sure you want to delete?' },
+                                method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
+  </td>
+</tr>
