@@ -21,7 +21,6 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'figaro'
 gem 'firebase'
 gem 'geocoder'
-gem 'groupdate'
 gem "font-awesome-rails"
 gem 'image_processing', '1.9.3'
 gem 'jbuilder', '~> 2.7'

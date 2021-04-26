@@ -1,4 +1,4 @@
-class Admin::StatisticsPartnersController < Admin::BaseController
+class Admin::StatisticsDriversController < Admin::BaseController
   def statistics
     @orders = Order._completed_order(params[:delivery_time]["statistics(1i)"].to_i)
     if @orders.present?

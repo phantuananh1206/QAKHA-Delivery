@@ -76,6 +76,11 @@ Rails.application.routes.draw do
       get "/partners/statistics/month", to: 'statistics_partners#statistics_by_month'
       get "/partners/statistics/quarter", to: 'statistics_partners#statistics_by_quarter'
       get "/partners/statistics/year", to: 'statistics_partners#statistics_by_year'
+      get "/partners/statistics", to: 'statistics_partners#statistics'
+      get "/drivers/statistics/month", to: 'statistics_drivers#statistics_by_month'
+      get "/drivers/statistics/quarter", to: 'statistics_drivers#statistics_by_quarter'
+      get "/drivers/statistics/year", to: 'statistics_drivers#statistics_by_year'
+      get "/drivers/statistics", to: 'statistics_drivers#statistics'
       resources :drivers, except: :show do
         collection { get :export }
       end
@@ -107,6 +112,7 @@ Rails.application.routes.draw do
         collection { get :export }
       end
       resources :statistics_partners, only: :index
+      resources :statistics_drivers, only: :index
     end
   end
 end
