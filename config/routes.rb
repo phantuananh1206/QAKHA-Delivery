@@ -73,6 +73,9 @@ Rails.application.routes.draw do
       patch "products/status/:id", to: 'products#update_status', as: :product_status
       patch "users/status/:id", to: 'users#update_status', as: :user_status
       patch "vouchers/status/:id", to: 'vouchers#update_status', as: :voucher_status
+      get "/partners/statistics/month", to: 'statistics_partners#statistics_by_month'
+      get "/partners/statistics/quarter", to: 'statistics_partners#statistics_by_quarter'
+      get "/partners/statistics/year", to: 'statistics_partners#statistics_by_year'
       resources :drivers, except: :show do
         collection { get :export }
       end
@@ -103,6 +106,7 @@ Rails.application.routes.draw do
       resources :orders, only: %i(index show update) do
         collection { get :export }
       end
+      resources :statistics_partners, only: :index
     end
   end
 end

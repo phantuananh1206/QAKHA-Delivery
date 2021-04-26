@@ -1,0 +1,1 @@
+<%= column_chart Order.joins(:partner).group('partners.name').group("YEAR(delivery_time)").sum(:subtotal) %>
