@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :load_partners, :load_voucher
+  # before_action :load_partners, :load_voucher
   include SessionsHelper
 
   private
