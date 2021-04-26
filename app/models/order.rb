@@ -48,6 +48,7 @@ class Order < ApplicationRecord
   end
 
   scope :_created_at_desc, -> { order(created_at: :desc) }
+  scope :_completed_order, ->(year) { where(status: :completed).where("YEAR(delivery_time) = ?", year) }
 
   def update_quantity_sold_of_product
     order_details.each do |order_detail|

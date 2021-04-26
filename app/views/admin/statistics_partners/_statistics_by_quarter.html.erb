@@ -1,1 +1,1 @@
-<%= column_chart Order.joins(:partner).group('partners.name').group("QUARTER(delivery_time)").sum(:subtotal) %>
+<%= column_chart $orders.joins(:partner).group('partners.name').group("QUARTER(delivery_time)").sum(:subtotal) %>

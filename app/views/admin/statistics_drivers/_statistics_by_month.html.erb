@@ -1,0 +1,1 @@
+<%= column_chart $orders.joins(:driver).group('drivers.name').group("MONTH(delivery_time)").sum(:shipping_fee) %>
