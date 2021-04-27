@@ -51,6 +51,9 @@ Rails.application.routes.draw do
           get "/drivers/statistics/day", to: 'statistics_driver#statistics_by_day'
           get "/drivers/statistics/month", to: 'statistics_driver#statistics_by_month'
           get "/drivers/statistics/year", to: 'statistics_driver#statistics_by_year'
+          post "activated_account", to: 'registrations#activated_user'
+          post "activated_account_driver", to: 'registrations#activated_driver'
+          post "activated_account_partner", to: 'registrations#activated_partner'
         end
         resources :users, only: :index
         resources :types, only: %i(index show)

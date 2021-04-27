@@ -9,13 +9,17 @@ class Api::V1::SessionsController < Devise::SessionsController
 
   def create
     if @user.valid_password? params[:password]
-      sign_in @user, store: false
-      jwt = JWT.encode(
-        { user: @user.as_json(except: [:password], include: [addresses: { only: [:name, :latitude, :longitude] }]), exp: (Time.now + 2.hours).to_i },
-        Rails.application.secrets.secret_key_base,
-        'HS256'
-      )
-      render json: { role: @user[:role], token: jwt }, status: :ok
+      if @user.confirmed?
+        sign_in @user, store: false
+        jwt = JWT.encode(
+          { user: @user.as_json(except: [:password], include: [addresses: { only: [:name, :latitude, :longitude] }]), exp: (Time.now + 2.hours).to_i },
+          Rails.application.secrets.secret_key_base,
+          'HS256'
+        )
+        render json: { role: @user[:role], token: jwt }, status: :ok
+      else
+        render json: { message: "Your account has not been activated. Please check your email for the activation code.", active_account: false }, status: :not_found
+      end
       return
     end
       invalid_login_attempt
@@ -23,13 +27,17 @@ class Api::V1::SessionsController < Devise::SessionsController
 
   def sign_in_driver
     if (@driver.offline? || @driver.online? || @driver.shipping?) && @driver.valid_password?(params[:password])
-      sign_in @driver, store: false
-      jwt = JWT.encode(
-        { name: @driver.name, id: @driver.id, exp: (Time.now + 2.hours).to_i },
-        Rails.application.secrets.secret_key_base,
-        'HS256'
-      )
-      render json: { message: "Log in successful", token: jwt }, status: :ok
+      if @driver.confirmed?
+        sign_in @driver, store: false
+        jwt = JWT.encode(
+          { name: @driver.name, id: @driver.id, exp: (Time.now + 2.hours).to_i },
+          Rails.application.secrets.secret_key_base,
+          'HS256'
+        )
+        render json: { message: "Log in successful", token: jwt }, status: :ok
+      else
+        render json: { message: "Your account has not been activated. Please check your email for the activation code.", active_account: false }, status: :not_found
+      end
       return
     end
       invalid_login_attempt

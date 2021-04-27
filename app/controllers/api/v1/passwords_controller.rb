@@ -23,6 +23,9 @@ class Api::V1::PasswordsController < ApplicationController
     if params[:verification_code].blank?
       return render json: {error: 'Token not present'}, status: 404
     end
+
+    user = User.find_by(reset_password_token: verify_code)
+
     if user.present? && user.password_token_valid?
       if user.reset_password!(params[:new_password])
         render json: {message: 'Reset password successfully'}, status: :ok
