@@ -1,6 +1,7 @@
 class Api::V1::UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :load_user, only: %i(show update)
+  before_action :load_user, except: :index
+  before_action :load_order, only: :tracking_order
 
   respond_to :json
 
@@ -29,6 +30,23 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def orders_shipping
+    @orders = Order._shipping_order(@current_user.id)
+    render json: @orders.as_json(include: [partner: { only: [:name, :address, :image] }]) , status: :ok
+  end
+
+  def tracking_order
+    @address = Address.find_by(user_id: @order.user_id, name: @order.address)
+    if @address
+      render json: { order: @order.as_json(include: [user: { only: [:name, :image] }]), order_details: @order.order_details,
+      driver_nearest: @order.driver.as_json(only: [:id, :name, :email, :id_card, :phone_number, :license_plate, :image, :status]),
+      partner: @order.partner.as_json(only: [:name, :address, :image, :latitude, :longitude]),
+      gps_user: { name: @address.name, latitude: @address.latitude, longitude: @address.longitude } }, status: :ok
+    else
+      render json: { error: 'Address not found' }, status: :not_found
+    end
+  end
+
   private
 
   def user_params
@@ -41,5 +59,11 @@ class Api::V1::UsersController < ApplicationController
 
   rescue JWT::VerificationError, JWT::DecodeError, JWT::ExpiredSignature
     render json: { message: 'Not Authenticated' }, status: :unauthorized
+  end
+
+  def load_order
+    return if @order = Order.find_by(id: params[:order_id], user_id: @current_user.id)
+
+    render json: { error: 'Order not found' }, status: :not_found
   end
 end
