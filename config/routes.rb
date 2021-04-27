@@ -54,6 +54,8 @@ Rails.application.routes.draw do
           post "activated_account", to: 'registrations#activated_user'
           post "activated_account_driver", to: 'registrations#activated_driver'
           post "activated_account_partner", to: 'registrations#activated_partner'
+          get "/users/orders_shipping", to: 'users#orders_shipping'
+          get "/users/tracking_order", to: 'users#tracking_order'
         end
         resources :users, only: :index
         resources :types, only: %i(index show)
@@ -84,6 +86,10 @@ Rails.application.routes.draw do
       get "/drivers/statistics/quarter", to: 'statistics_drivers#statistics_by_quarter'
       get "/drivers/statistics/year", to: 'statistics_drivers#statistics_by_year'
       get "/drivers/statistics", to: 'statistics_drivers#statistics'
+      get "/products/statistics/month", to: 'statistics_products#statistics_by_month'
+      get "/products/statistics/quarter", to: 'statistics_products#statistics_by_quarter'
+      get "/products/statistics/year", to: 'statistics_products#statistics_by_year'
+      get "/products/statistics", to: 'statistics_products#statistics'
       resources :drivers, except: :show do
         collection { get :export }
       end
@@ -116,6 +122,7 @@ Rails.application.routes.draw do
       end
       resources :statistics_partners, only: :index
       resources :statistics_drivers, only: :index
+      resources :statistics_products, only: :index
     end
   end
 end
