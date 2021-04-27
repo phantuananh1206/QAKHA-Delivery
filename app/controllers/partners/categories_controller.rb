@@ -19,7 +19,7 @@ class Partners::CategoriesController < Partners::PartnersController
       flash[:success] = "Creat new category successful"
       redirect_to partners_categories_path
     else
-      flash.now[:danger] = "Fail"
+      flash.now[:danger] = "Create new category fail"
       render :new
     end
   end

@@ -20,6 +20,9 @@ Rails.application.routes.draw do
         get "/revenue/statistics/quarter", to: 'statistics_revenue#statistics_by_quarter'
         get "/revenue/statistics/year", to: 'statistics_revenue#statistics_by_year'
         get "/revenue/statistics", to: 'statistics_revenue#statistics'
+        patch "products/status/:id", to: 'products#update_status', as: :product_status
+        patch "vouchers/status/:id", to: 'vouchers#update_status', as: :voucher_status
+
       end
       resources :categories
       resources :products

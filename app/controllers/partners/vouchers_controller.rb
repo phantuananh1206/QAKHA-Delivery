@@ -1,5 +1,5 @@
 class Partners::VouchersController < Partners::PartnersController
-  before_action :load_voucher, only: %i(show update edit destroy)
+  before_action :load_voucher, only: %i(show update edit destroy update_status)
 
   def index
     @search = current_partner.vouchers.search(params[:q])
@@ -39,6 +39,16 @@ class Partners::VouchersController < Partners::PartnersController
     else
       flash[:danger] = "You cannot delete this voucher. If you delete it, it will affect the store's statistics."
     end
+    redirect_to partners_vouchers_path
+  end
+
+  def update_status
+    # byebug
+    @voucher.send("#{params[:status]}!")
+    flash[:success] = "Update status #{params[:status]} success"
+  rescue StandardError
+    flash[:danger] = "Update status failed"
+  ensure
     redirect_to partners_vouchers_path
   end
 
