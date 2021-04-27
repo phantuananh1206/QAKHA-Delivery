@@ -11,12 +11,14 @@ class Api::V1::FeedbacksController < ApplicationController
     if @order.rate? && feedback_valid? && @feedback.save
       render json: @feedback, status: :created
     else
-      render json: { error: 'Feedback failed' }
+      render json: { message: 'Feedback failed' }
     end
   end
 
   def fb_partner
-    render json: { feedbacks: @partner.feedbacks._feedback_partner.as_json(include: [user: { only: [:name, :image] }]), avg_point: @partner.avg_point_feedback_partner }, status: :ok
+    render json: { feedbacks: @partner.feedbacks._feedback_partner.as_json(include: [user: { only: [:name, :image] }]),
+                   avg_point: @partner.avg_point_feedback_partner,
+                   number_of_reviews: @partner.number_of_reviews }, status: :ok
   end
 
   def fb_driver
@@ -37,7 +39,7 @@ class Api::V1::FeedbacksController < ApplicationController
         partner_id: params[:partner_id], status: :completed)
     end
 
-    render json: { error: 'Order not found' }, status: :not_found
+    render json: { message: 'Order not found' }, status: :not_found
   end
 
   def feedback_valid?
@@ -50,18 +52,18 @@ class Api::V1::FeedbacksController < ApplicationController
   def user_can_feedback
     return if @current_user.id == @order.user_id
 
-    render json: { error: "Current user can't feedback"}, status: :bad_request
+    render json: { message: "Current user can't feedback"}, status: :bad_request
   end
 
   def load_driver
     return if @driver = Driver.find_by(id: params[:driver_id])
 
-    render json: { error: 'Driver not found' }, status: :not_found
+    render json: { message: 'Driver not found' }, status: :not_found
   end
 
   def load_partner
     return if @partner = Partner.find_by(id: params[:partner_id])
 
-    render json: { error: 'Partner not found' }, status: :not_found
+    render json: { message: 'Partner not found' }, status: :not_found
   end
 end

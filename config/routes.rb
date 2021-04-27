@@ -56,10 +56,13 @@ Rails.application.routes.draw do
           post "activated_account_partner", to: 'registrations#activated_partner'
           get "/users/orders_shipping", to: 'users#orders_shipping'
           get "/users/tracking_order", to: 'users#tracking_order'
+          get "suggest_partners", to: 'suggest_choice#suggest_partners'
+          post "suggest_partners_nearby", to: 'suggest_choice#suggest_partners_nearby'
+          get "/partner", to: 'partners#show_partner'
         end
         resources :users, only: :index
         resources :types, only: %i(index show)
-        resources :partners, only: %i(index)
+        resources :partners, only: :index
         resource :carts, only: %i(create update destroy)
         resources :orders, only: %i(create index)
         resources :addresses, only: %i(index create update destroy)

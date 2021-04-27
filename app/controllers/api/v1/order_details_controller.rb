@@ -15,6 +15,6 @@ class Api::V1::OrderDetailsController < ApplicationController
   def load_order
     return if @order = Order.find_by(id: params[:order_id], user_id: @current_user.id)
 
-    render json: { error: 'Order not found' }, status: :not_found
+    render json: { message: 'Order not found' }, status: :not_found
   end
 end
