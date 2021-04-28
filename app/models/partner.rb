@@ -61,6 +61,9 @@ class Partner < ApplicationRecord
   after_validation :geocode, if: :address_changed?
   before_save :downcase_email
 
+  scope :_partner_valid, -> { where.not(status: :not_activated).where.not(status: :locked) }
+  scope :_partner_open, -> { where(status: :open) }
+
   def save_image!(image)
     self.update_columns(image: image)
   end
@@ -95,15 +98,20 @@ class Partner < ApplicationRecord
     errors.add :time_close, 'must be greater than Time open'
   end
 
-
   def activated
     self.update_columns(confirmed_at: Time.now.utc)
+  end
+
+  def number_of_reviews
+    if feedbacks.present?
+      feedbacks._feedback_partner.count(:partner_id).to_i
+    else
+      0
+    end
   end
   private
 
   def downcase_email
     email.downcase!
   end
-  # scope :load_cate, -> (partner_id) { includes(:categories).where (partner_id: partner_id) }
-  # Ex:- scope :active, -> {where(:active => true)}
 end

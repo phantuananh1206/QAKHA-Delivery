@@ -43,7 +43,7 @@ class Api::V1::UsersController < ApplicationController
       partner: @order.partner.as_json(only: [:name, :address, :image, :latitude, :longitude]),
       gps_user: { name: @address.name, latitude: @address.latitude, longitude: @address.longitude } }, status: :ok
     else
-      render json: { error: 'Address not found' }, status: :not_found
+      render json: { message: 'Address not found' }, status: :not_found
     end
   end
 
@@ -64,6 +64,6 @@ class Api::V1::UsersController < ApplicationController
   def load_order
     return if @order = Order.find_by(id: params[:order_id], user_id: @current_user.id)
 
-    render json: { error: 'Order not found' }, status: :not_found
+    render json: { message: 'Order not found' }, status: :not_found
   end
 end

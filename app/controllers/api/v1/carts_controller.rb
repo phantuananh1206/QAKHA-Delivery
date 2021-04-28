@@ -27,7 +27,7 @@ class Api::V1::CartsController < ApplicationController
       @cart[0].update(quantity: params[:quantity].to_i)
       load_carts
     else
-      render json: { error: 'Update product in cart failed' }, status: :bad_request
+      render json: { message: 'Update product in cart failed' }, status: :bad_request
     end
   end
 
@@ -36,13 +36,13 @@ class Api::V1::CartsController < ApplicationController
       Cart.destroy(@cart[0][:id].to_i)
       load_carts
     else
-      render json: { error: 'Delete product in cart failed' }, status: :bad_request
+      render json: { message: 'Delete product in cart failed' }, status: :bad_request
     end
   end
 
   def clear_cart
     Cart.where(user_id: @current_user.id, partner_id: params[:partner_id]).delete_all
-    render json: { error: 'Clear cart success'}, status: :ok
+    render json: { message: 'Clear cart success'}, status: :ok
   end
 
   private
@@ -50,7 +50,7 @@ class Api::V1::CartsController < ApplicationController
   def load_product
     return if @product = Product.find_by(id: params[:product_id])
 
-    render json: { error: 'Product not found!' }, status: :not_found
+    render json: { message: 'Product not found!' }, status: :not_found
   end
 
   def load_cart

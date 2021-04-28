@@ -19,7 +19,7 @@ class Api::V1::DriversController < ApplicationController
           location_user: { name: @address.name, latitude: @address.latitude, longitude: @address.longitude } },
             status: :ok
     else
-      render json: { error: 'Address not found' }, status: :not_found
+      render json: { message: 'Address not found' }, status: :not_found
     end
   end
 
@@ -48,10 +48,10 @@ class Api::V1::DriversController < ApplicationController
       render json: { order: @order.as_json(only: [:delivery_time, :status, :rate_status]),
         status_driver: @current_driver.status }, status: :ok
     else
-      render json: { error: 'Order status not valid' }, status: :not_found
+      render json: { message: 'Order status not valid' }, status: :not_found
     end
   rescue
-    render json: { error: 'Complete delivery error' }, status: :bad_request
+    render json: { message: 'Complete delivery error' }, status: :bad_request
   end
 
   private
@@ -59,6 +59,6 @@ class Api::V1::DriversController < ApplicationController
   def load_order
     return if @order = Order.find_by(id: params[:order_id], driver_id: @current_driver.id)
 
-    render json: { error: 'Order not found' }, status: :not_found
+    render json: { message: 'Order not found' }, status: :not_found
   end
 end
