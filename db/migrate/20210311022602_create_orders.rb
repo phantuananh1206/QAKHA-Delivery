@@ -7,7 +7,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.datetime :delivery_time
       t.float :subtotal
       t.float :discount
-      t.string :shipping_fee
+      t.float :shipping_fee
       t.float :total
       t.integer :status, default: 0
       t.integer :type_checkout

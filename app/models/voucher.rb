@@ -39,4 +39,8 @@ class Voucher < ApplicationRecord
       end
     end
   end
+
+  def as_json(options = {})
+    super.merge(expiry_date: expiry_date.strftime('%d-%m-%Y %H:%M'))
+  end
 end

@@ -4551,6 +4551,7 @@ Voucher.create!(
   discount: 15000,
   condition: 60000,
   expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
   usage_limit: 10,
   status: 1,
   partner_id: Partner.pluck(:id).sample
@@ -4560,6 +4561,7 @@ Voucher.create!(
   code: "ALLFREE",
   discount: 15000,
   condition: 40000,
+  description: 'Code 15k off, min order 40k',
   expiry_date: Time.new(2021, 8, 30),
   usage_limit: 20,
   status: 1,

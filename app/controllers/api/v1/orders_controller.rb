@@ -20,7 +20,7 @@ class Api::V1::OrdersController < ApplicationController
         save_success
       end
     else
-      session.delete(:voucher)
+      $current_voucher = {}
       render json: { message: 'Voucher not valid' }, status: :bad_request
     end
   rescue
@@ -45,7 +45,7 @@ class Api::V1::OrdersController < ApplicationController
   end
 
   def vouchers_by_partner
-    @vouchers_by_partner = Voucher.where(partner_id: @partner.id)
+    @vouchers_by_partner = Voucher.where(partner_id: @partner.id, status: :effective)
     render json: @vouchers_by_partner, status: :ok
   end
 
@@ -93,6 +93,7 @@ class Api::V1::OrdersController < ApplicationController
   def load_voucher
     return if @voucher = Voucher.find_by(code: params[:code], partner_id: params[:partner_id].to_i)
 
+    $current_voucher = {}
     render json: { message: 'Voucher not found' }, status: :not_found
   end
 
@@ -121,7 +122,7 @@ class Api::V1::OrdersController < ApplicationController
     params.permit(:name, :phone_number, :address)
           .merge(subtotal: total_price_cart, discount: $current_voucher[:discount],
                  shipping_fee: params[:shipping_fee].to_f, total: total_order,
-                 type_checkout: params[:type_checkout],
+                 type_checkout: params[:type_checkout].to_i,
                  driver_id: find_driver_nearest['id'], voucher_id: $current_voucher[:id],
                  partner_id: @partner.id)
   end
@@ -145,8 +146,8 @@ class Api::V1::OrdersController < ApplicationController
 
   def total_after_discount
     total = total_price_cart
-    if @voucher
-      total -= @voucher.discount
+    if $current_voucher
+      total -= $current_voucher[:discount].to_f
     else
       total
     end
@@ -176,7 +177,8 @@ class Api::V1::OrdersController < ApplicationController
     order = FireBase.new.push("drivers/shipping/#{@driver['id']}/order", { driver_id: @driver['id'], order_id: @order.id })
     driver = Driver.find_by(id: @driver['id'])
     driver.ship!
-    render json: { order: @order.as_json(include: [user: { only: [:name, :image] }]), order_details: @order.order_details,
+    render json: { order: @order.as_json(include: [user: { only: [:name, :image] }]),
+      order_details: @order.order_details.as_json(include: [product: { only: [:name, :quantity_sold, :price, :image] }]),
       driver_nearest: driver.as_json(only: [:id, :name, :email, :id_card, :phone_number, :license_plate, :image, :status]),
       partner: @order.partner.as_json(only: [:name, :address, :image, :latitude, :longitude]),
       gps_user: { latitude: params[:latitude], longitude: params[:longitude] } }, status: :ok

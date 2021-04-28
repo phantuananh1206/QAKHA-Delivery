@@ -54,6 +54,16 @@ class Api::V1::DriversController < ApplicationController
     render json: { message: 'Complete delivery error' }, status: :bad_request
   end
 
+  def order_history
+    @orders = @current_driver.orders._order_completed
+    render json: @orders.as_json(include: [partner: { only: [:name, :address, :image] },
+      order_details: { include: [product: { only: [:name, :image] }] }]), status: :ok
+  end
+
+  def coins_driver
+    render json: { coins: @current_driver.coins }, status: :ok
+  end
+
   private
 
   def load_order

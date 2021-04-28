@@ -59,6 +59,9 @@ Rails.application.routes.draw do
           get "suggest_partners", to: 'suggest_choice#suggest_partners'
           post "suggest_partners_nearby", to: 'suggest_choice#suggest_partners_nearby'
           get "/partner", to: 'partners#show_partner'
+          get "/drivers/order_history", to: 'drivers#order_history'
+          get "/drivers/coins", to: 'drivers#coins_driver'
+          get "feedbacks/check_feedback_driver", to: "feedbacks#check_feedback_driver"
         end
         resources :users, only: :index
         resources :types, only: %i(index show)

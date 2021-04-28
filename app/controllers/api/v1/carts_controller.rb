@@ -42,13 +42,14 @@ class Api::V1::CartsController < ApplicationController
 
   def clear_cart
     Cart.where(user_id: @current_user.id, partner_id: params[:partner_id]).delete_all
-    render json: { message: 'Clear cart success'}, status: :ok
+    render json: { message: 'Clear cart success'}, status: :no_content
   end
 
   private
 
   def load_product
-    return if @product = Product.find_by(id: params[:product_id])
+    @product = Product.find_by(id: params[:product_id])
+    return if @product.category.partner_id == params[:partner_id].to_i
 
     render json: { message: 'Product not found!' }, status: :not_found
   end
