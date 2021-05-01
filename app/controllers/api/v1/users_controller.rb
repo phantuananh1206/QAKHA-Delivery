@@ -15,9 +15,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
-    if params[:password].blank? && params[:password_confirmation].blank? && params[:image].blank?
-      params.delete(:password)
-      params.delete(:password_confirmation)
+    if params[:image].blank?
       params.delete(:image)
     end
     if @current_user.update(user_params)
@@ -48,11 +46,26 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def change_password
+    if @current_user.valid_password?(params[:current_password])
+      if @current_user.update(password_params)
+        render json: @current_user.as_json(except: [:password]), status: :ok
+      else
+        render json: { errors: @current_user.errors.full_messages }, status: :bad_request
+      end
+    else
+      render json: { message: "Current password don't match" }, status: :bad_request
+    end
+  end
+
   private
 
   def user_params
-    params.permit(:name, :email, :phone_number, :image,
-                  :password, :password_confirmation)
+    params.permit(:name, :email, :phone_number, :image)
+  end
+
+  def password_params
+    params.permit(:password, :password_confirmation)
   end
 
   def load_user

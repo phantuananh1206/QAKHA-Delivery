@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_144041) do
     t.bigint "user_id", null: false
     t.bigint "order_id", null: false
     t.bigint "driver_id"
-    t.bigint "partner_id", null: false
+    t.bigint "partner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["driver_id"], name: "index_feedbacks_on_driver_id"

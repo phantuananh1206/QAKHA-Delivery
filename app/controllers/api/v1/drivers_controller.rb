@@ -64,11 +64,45 @@ class Api::V1::DriversController < ApplicationController
     render json: { coins: @current_driver.coins }, status: :ok
   end
 
+  def update_profile
+    if params[:image].blank?
+      params.delete(:image)
+    end
+    if @current_driver.update(driver_params)
+      if params[:image].present?
+        @current_driver.save_image!(params[:image])
+      end
+      render json: @current_driver.as_json(except: [:password]), status: :ok
+    else
+      render json: { errors: @current_driver.errors.full_messages }, status: :bad_request
+    end
+  end
+
+  def change_password
+    if @current_driver.valid_password?(params[:current_password])
+      if @current_driver.update(password_params)
+        render json: @current_driver.as_json(except: [:password]), status: :ok
+      else
+        render json: { errors: @current_driver.errors.full_messages }, status: :bad_request
+      end
+    else
+      render json: { message: "Current password don't match" }, status: :bad_request
+    end
+  end
+
   private
 
   def load_order
     return if @order = Order.find_by(id: params[:order_id], driver_id: @current_driver.id)
 
     render json: { message: 'Order not found' }, status: :not_found
+  end
+
+  def driver_params
+    params.permit(:name, :email, :address, :phone_number, :image)
+  end
+
+  def password_params
+    params.permit(:password, :password_confirmation)
   end
 end
