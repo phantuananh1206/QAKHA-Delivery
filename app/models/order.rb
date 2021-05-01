@@ -31,7 +31,7 @@ class Order < ApplicationRecord
     validates :type_checkout
   end
 
-  after_create :update_quantity_sold_of_product
+  after_create :update_quantity_sold_of_product, :update_usage_limit_voucher
   after_create :update_coins_user, :update_coins_driver, if: :payment_by_coins
 
   aasm column: :status, enum: true do
@@ -70,6 +70,12 @@ class Order < ApplicationRecord
 
   def update_coins_driver
     driver.update(coins: (driver.coins + shipping_fee.to_f))
+  end
+
+  def update_usage_limit_voucher
+    return unless voucher
+
+    voucher.update(usage_limit: voucher.usage_limit - 1)
   end
 
   def as_json(options = {})

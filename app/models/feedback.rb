@@ -16,4 +16,8 @@ class Feedback < ApplicationRecord
   def as_json(options = {})
     super.merge(created_at: created_at.strftime('%d-%m-%Y %H:%M'))
   end
+
+  def save_image!(image)
+    self.update_columns(image: image)
+  end
 end

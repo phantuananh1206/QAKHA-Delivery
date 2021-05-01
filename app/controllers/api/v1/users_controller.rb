@@ -38,7 +38,8 @@ class Api::V1::UsersController < ApplicationController
   def tracking_order
     @address = Address.find_by(user_id: @order.user_id, name: @order.address)
     if @address
-      render json: { order: @order.as_json(include: [user: { only: [:name, :image] }]), order_details: @order.order_details,
+      render json: { order: @order.as_json(include: [user: { only: [:name, :image] }]),
+      order_details: @order.order_details.as_json(include: [product: { only: [:name, :quantity_sold, :price, :image] }]),
       driver_nearest: @order.driver.as_json(only: [:id, :name, :email, :id_card, :phone_number, :license_plate, :image, :status]),
       partner: @order.partner.as_json(only: [:name, :address, :image, :latitude, :longitude]),
       gps_user: { name: @address.name, latitude: @address.latitude, longitude: @address.longitude } }, status: :ok

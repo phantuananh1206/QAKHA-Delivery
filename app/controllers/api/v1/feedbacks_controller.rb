@@ -9,6 +9,9 @@ class Api::V1::FeedbacksController < ApplicationController
   def create
     @feedback = @current_user.feedbacks.new(feedback_params)
     if @order.rate? && feedback_valid? && @feedback.save
+      if params[:image].present?
+        @feedback.save_image!(params[:image])
+      end
       render json: @feedback, status: :created
     else
       render json: { message: 'Feedback failed' }
@@ -23,6 +26,20 @@ class Api::V1::FeedbacksController < ApplicationController
 
   def fb_driver
     render json: { feedbacks: @driver.feedbacks.as_json(include: [user: { only: [:name, :image] }]), avg_point: @driver.avg_point_feedback_driver }, status: :ok
+  end
+
+  def check_feedback_driver
+    if @current_user = Api::V1::AuthController.new(request.headers).authenticate_request!
+      @feedback = Feedback.find_by(order_id: params[:order_id], user_id: @current_user.id)
+      if @feedback && @feedback.driver_id.present?
+        render json: { rated_driver: true }, status: :ok
+      else
+        render json: { rated_driver: false }, status: :ok
+      end
+    end
+
+  rescue JWT::VerificationError, JWT::DecodeError, JWT::ExpiredSignature
+    render json: { message: ['Not Authenticated'] }, status: :unauthorized
   end
 
   private
