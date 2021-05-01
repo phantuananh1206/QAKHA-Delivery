@@ -1,6 +1,6 @@
 <div class="p-4">
   <h1><%= "Management Vouchers" %></h1>
-  <h3><%= "Total" %>: <%= current_partner.vouchers.size %></h3>
+  <h3><%= "Total" %>: <%= @vouchers.total_count %></h3>
   <%= search_form_for @search, url: partners_vouchers_path do |f|%>
     <%= f.condition_fields do |c| %>
       <%= c.attribute_fields do |a| %>
@@ -18,10 +18,11 @@
     <thead>
       <tr>
         <th><%= "No" %></th>
-        <th><%= sort_link(@search, :code,"Name of voucher") %></th>
+        <th><%= sort_link(@search, :code,"Code of voucher") %></th>
         <th><%= sort_link(@search, :discount,"Discount") %></th>
         <th><%= "Expiry date" %></th>
-        <th><%= sort_link(@search, :time_use, "Times use") %></th>
+        <th><%= sort_link(@search, :usage_limit, "Usage limit") %></th>
+        <th><%= sort_link(@search, :number_of_uses, "Number of uses") %></th>
         <th><%= sort_link(@search, :status,"Status") %></th>
 
         <th><%= "Control" %></th>

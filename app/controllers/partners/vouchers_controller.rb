@@ -4,9 +4,8 @@ class Partners::VouchersController < ApplicationController
   before_action :load_voucher, only: %i(show update edit destroy)
 
   def index
-    # @vouchers = current_partner.vouchers.all.page(params[:page]).per(2)
     @search = current_partner.vouchers.search(params[:q])
-    @vouchers = @search.result.page(params[:page]).per(5)
+    @vouchers = @search.result.includes(:orders).page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort
   end

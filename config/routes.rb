@@ -58,6 +58,7 @@ Rails.application.routes.draw do
           get "/users/tracking_order", to: 'users#tracking_order'
           get "suggest_partners", to: 'suggest_choice#suggest_partners'
           post "suggest_partners_nearby", to: 'suggest_choice#suggest_partners_nearby'
+          get "suggest_products", to: 'suggest_choice#suggest_products'
           get "/partner", to: 'partners#show_partner'
           get "/drivers/order_history", to: 'drivers#order_history'
           get "/drivers/coins", to: 'drivers#coins_driver'

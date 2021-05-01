@@ -1,15 +1,14 @@
-class Api::V1::SuggestChoiceController < ApplicationController
+class Api::V1::SuggestChoiceController < Api::V1::ApplicationController
   include Api::V1::OrdersHelper
 
-  skip_before_action :verify_authenticity_token
   before_action :load_user, only: :suggest_partners_nearest
 
   def suggest_partners
     @partners = Partner._partner_valid
     if @partners.present?
-      render json: @partners.select("partners.id, status, name, avg(point) as average_point, count(partner_id) as number_of_reviews, time_open, time_close")
-                            .group("partners.id, name, time_open, time_close")
-                            .order("count(partner_id) DESC, avg(point) DESC")
+      render json: @partners.select("partners.id, name, address, phone_number, email, latitude, longitude, partners.image, status, city_id, type_id, avg(point) as average_point, count(partner_id) as number_of_reviews, time_open, time_close")
+                            .group("partners.id")
+                            .order("avg(point) DESC, count(partner_id) DESC")
                             .joins(:feedbacks).where(feedbacks: { driver_id: nil })
                             .limit(5), status: :ok
     else
@@ -31,6 +30,11 @@ class Api::V1::SuggestChoiceController < ApplicationController
     else
       render json: { message: 'Partners not found' }, status: :not_found
     end
+  end
+
+  def suggest_products
+    @products = Product.order(quantity_sold: :desc).limit(10).includes(category: [:partner])
+    render json: @products.as_json(include: [category: {include: :partner }]), status: :ok
   end
 
   private

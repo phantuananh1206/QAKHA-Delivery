@@ -1,6 +1,4 @@
-class Api::V1::TypesController < ApplicationController
-  respond_to :json
-
+class Api::V1::TypesController < Api::V1::ApplicationController
   before_action :load_type, only: %i(show)
 
   def index
@@ -9,7 +7,7 @@ class Api::V1::TypesController < ApplicationController
   end
 
   def show
-    @partners = @type.partners
+    @partners = @type.partners.includes(categories: [:products])
     render json: @partners.as_json(except: [:password], include: [:categories => {:include => :products}])
   end
 

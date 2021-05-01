@@ -10,6 +10,9 @@ class Category < ApplicationRecord
   delegate :name, to: :partner, prefix: true
   delegate :products, to: :partner, prefix: true
 
+  after_save :clear_cache_partners
+  after_destroy :clear_cache_partners
+
   def self.to_xls
     CSV.generate do |csv|
       csv << column_names
@@ -17,5 +20,9 @@ class Category < ApplicationRecord
         csv << category.attributes.values_at(*column_names)
       end
     end
+  end
+
+  def clear_cache_partners
+    $redis.del 'partners'
   end
 end

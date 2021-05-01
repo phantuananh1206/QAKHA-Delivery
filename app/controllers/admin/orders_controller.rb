@@ -2,14 +2,14 @@ class Admin::OrdersController < Admin::BaseController
   before_action :load_order, only: %i(show update)
 
   def index
-    @search = Order.search(params[:q])
+    @search = Order.includes(:user, :driver, :partner).search(params[:q])
     @orders = @search.result.page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort
   end
 
   def show
-    @order_details = @order.order_details
+    @order_details = @order.order_details.includes(:product)
   end
 
   def update

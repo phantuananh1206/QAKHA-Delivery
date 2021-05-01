@@ -1,8 +1,6 @@
-class Api::V1::StatisticsDriverController < ApplicationController
+class Api::V1::StatisticsDriverController < Api::V1::ApplicationController
   include Api::V1::DriversHelper
-  respond_to :json
 
-  skip_before_action :verify_authenticity_token
   before_action :load_driver
 
   def statistics_by_day

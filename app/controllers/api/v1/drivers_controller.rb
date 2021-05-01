@@ -1,7 +1,6 @@
-class Api::V1::DriversController < ApplicationController
+class Api::V1::DriversController < Api::V1::ApplicationController
   include Api::V1::DriversHelper
 
-  skip_before_action :verify_authenticity_token
   before_action :load_driver
   before_action :load_order, only: %i(show_infor complete_delivery)
 
@@ -14,10 +13,11 @@ class Api::V1::DriversController < ApplicationController
   def show_infor
     @address = Address.find_by(user_id: @order.user_id, name: @order.address)
     if @address
-      render json: { order: @order.as_json(include: [order_details: { except: [:created_at, :updated_at],
-        include: [product: { only: [:name, :image] }] }, partner: { only: [:name, :address, :latitude, :longitude] }]),
-          location_user: { name: @address.name, latitude: @address.latitude, longitude: @address.longitude } },
-            status: :ok
+      @order_details = @order.order_details.includes(:product)
+      render json: { order_details: @order_details.as_json(include: [product: {only: [:name, :image] }]),
+        order: @order.as_json(except: [:updated_at],
+        include: [partner: { only: [:name, :address, :image, :latitude, :longitude] }]),
+        location_user: { name: @address.name, latitude: @address.latitude, longitude: @address.longitude } }, status: :ok
     else
       render json: { message: 'Address not found' }, status: :not_found
     end
@@ -56,7 +56,7 @@ class Api::V1::DriversController < ApplicationController
 
   def order_history
     @orders = @current_driver.orders._order_completed
-    render json: @orders.as_json(include: [partner: { only: [:name, :address, :image] },
+    render json: @orders.includes(:partner, order_details: [:product]).as_json(include: [partner: { only: [:name, :address, :image] },
       order_details: { include: [product: { only: [:name, :image] }] }]), status: :ok
   end
 

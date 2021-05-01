@@ -60,6 +60,8 @@ class Partner < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   before_save :downcase_email
+  after_save :clear_cache_partners
+  after_destroy :clear_cache_partners
 
   scope :_partner_valid, -> { where.not(status: :not_activated).where.not(status: :locked) }
   scope :_partner_open, -> { where(status: :open) }
@@ -109,6 +111,11 @@ class Partner < ApplicationRecord
       0
     end
   end
+
+  def clear_cache_partners
+    $redis.del 'partners'
+  end
+  
   private
 
   def downcase_email

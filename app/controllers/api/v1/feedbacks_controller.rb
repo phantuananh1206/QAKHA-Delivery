@@ -1,7 +1,6 @@
-class Api::V1::FeedbacksController < ApplicationController
+class Api::V1::FeedbacksController < Api::V1::ApplicationController
   include Api::V1::CartsHelper
 
-  skip_before_action :verify_authenticity_token
   before_action :load_user, :load_order, :user_can_feedback, only: :create
   before_action :load_partner, only: :fb_partner
   before_action :load_driver, only: :fb_driver
@@ -19,13 +18,14 @@ class Api::V1::FeedbacksController < ApplicationController
   end
 
   def fb_partner
-    render json: { feedbacks: @partner.feedbacks.as_json(include: [user: { only: [:name, :image] }]),
+    render json: { feedbacks: @partner.feedbacks.includes(:user).as_json(include: [user: { only: [:name, :image] }]),
                    avg_point: @partner.avg_point_feedback_partner,
                    number_of_reviews: @partner.number_of_reviews }, status: :ok
   end
 
   def fb_driver
-    render json: { feedbacks: @driver.feedbacks.as_json(include: [user: { only: [:name, :image] }]), avg_point: @driver.avg_point_feedback_driver }, status: :ok
+    render json: { feedbacks: @driver.feedbacks.includes(:user).as_json(include: [user: { only: [:name, :image] }]),
+                   avg_point: @driver.avg_point_feedback_driver }, status: :ok
   end
 
   def check_feedback_driver

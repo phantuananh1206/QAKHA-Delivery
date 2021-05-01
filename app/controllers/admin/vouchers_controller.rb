@@ -3,7 +3,7 @@ class Admin::VouchersController < Admin::BaseController
   before_action :list_partners, except: %i(index destroy export)
 
   def index
-    @search = Voucher.search(params[:q])
+    @search = Voucher.includes(:partner).search(params[:q])
     @vouchers = @search.result.page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort

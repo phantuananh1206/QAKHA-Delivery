@@ -1,8 +1,7 @@
-class Api::V1::OrdersController < ApplicationController
+class Api::V1::OrdersController < Api::V1::ApplicationController
   include Api::V1::CartsHelper
   include Api::V1::OrdersHelper
 
-  skip_before_action :verify_authenticity_token
   before_action :load_user
   before_action :load_cart, except: %i(coins_user index)
   before_action :load_partner, except: %i(list_vouchers coins_user index)
@@ -28,7 +27,7 @@ class Api::V1::OrdersController < ApplicationController
   end
 
   def index
-    @order_history = @current_user.orders._created_at_desc
+    @order_history = @current_user.orders._created_at_desc.includes(:driver, :partner)
     @order_history.each do |order|
       feedbacks = Feedback.where(order_id: order.id, user_id: order.user_id)
       if feedbacks&.size == 2
@@ -75,13 +74,6 @@ class Api::V1::OrdersController < ApplicationController
     render json: { coins: @current_user.coins }, status: :ok
   end
 
-  def show_infor
-    render json: { order: @order.as_json(include: [order_details: { except: [:created_at, :updated_at],
-      include: [product: { only: [:name] }] }, partner: { only: [:latitude, :longitude] }]),
-        user: { latitude: $latitude, longitude: $longitude } },
-          status: :ok
-  end
-
   private
 
   def valid_voucher?
@@ -99,7 +91,7 @@ class Api::V1::OrdersController < ApplicationController
 
   def total_price_cart
     @total = 0
-    @carts.each do |cart|
+    @carts.includes(:product).each do |cart|
       @total += cart.quantity * cart.product.price
     end
     @total
@@ -178,7 +170,7 @@ class Api::V1::OrdersController < ApplicationController
     driver = Driver.find_by(id: @driver['id'])
     driver.ship!
     render json: { order: @order.as_json(include: [user: { only: [:name, :image] }]),
-      order_details: @order.order_details.as_json(include: [product: { only: [:name, :quantity_sold, :price, :image] }]),
+      order_details: @order.order_details.includes(:product).as_json(include: [product: { only: [:name, :quantity_sold, :price, :image] }]),
       driver_nearest: driver.as_json(only: [:id, :name, :email, :id_card, :phone_number, :license_plate, :image, :status]),
       partner: @order.partner.as_json(only: [:name, :address, :image, :latitude, :longitude]),
       gps_user: { latitude: params[:latitude], longitude: params[:longitude] } }, status: :ok
