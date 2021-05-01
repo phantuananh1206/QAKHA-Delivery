@@ -19,7 +19,7 @@ class Api::V1::FeedbacksController < ApplicationController
   end
 
   def fb_partner
-    render json: { feedbacks: @partner.feedbacks._feedback_partner.as_json(include: [user: { only: [:name, :image] }]),
+    render json: { feedbacks: @partner.feedbacks.as_json(include: [user: { only: [:name, :image] }]),
                    avg_point: @partner.avg_point_feedback_partner,
                    number_of_reviews: @partner.number_of_reviews }, status: :ok
   end
@@ -52,8 +52,7 @@ class Api::V1::FeedbacksController < ApplicationController
     if params[:driver_id].blank?
       return if @order = Order.find_by(id: params[:order_id], partner_id: params[:partner_id], status: :completed)
     else
-      return if @order = Order.find_by(id: params[:order_id], driver_id: params[:driver_id],
-        partner_id: params[:partner_id], status: :completed)
+      return if @order = Order.find_by(id: params[:order_id], driver_id: params[:driver_id], status: :completed)
     end
 
     render json: { message: 'Order not found' }, status: :not_found

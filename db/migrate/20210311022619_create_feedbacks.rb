@@ -7,7 +7,7 @@ class CreateFeedbacks < ActiveRecord::Migration[6.0]
       t.references :user, null: false, foreign_key: true
       t.references :order, null: false, foreign_key: true
       t.references :driver, foreign_key: true
-      t.references :partner, null: false, foreign_key: true
+      t.references :partner, foreign_key: true
 
       t.timestamps
     end

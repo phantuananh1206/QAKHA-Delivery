@@ -62,6 +62,9 @@ Rails.application.routes.draw do
           get "/drivers/order_history", to: 'drivers#order_history'
           get "/drivers/coins", to: 'drivers#coins_driver'
           get "feedbacks/check_feedback_driver", to: "feedbacks#check_feedback_driver"
+          patch "/user/change_password", to: "users#change_password"
+          patch "/driver/update_profile", to: "drivers#update_profile"
+          patch "/driver/change_password", to: "drivers#change_password"
         end
         resources :users, only: :index
         resources :types, only: %i(index show)

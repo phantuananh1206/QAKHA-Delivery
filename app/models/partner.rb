@@ -77,7 +77,7 @@ class Partner < ApplicationRecord
 
   def avg_point_feedback_partner
     if feedbacks.present?
-      feedbacks._feedback_partner.average(:point).round(1).to_f
+      feedbacks.average(:point).round(1).to_f
     else
       0.0
     end
@@ -104,7 +104,7 @@ class Partner < ApplicationRecord
 
   def number_of_reviews
     if feedbacks.present?
-      feedbacks._feedback_partner.count(:partner_id).to_i
+      feedbacks.count(:partner_id).to_i
     else
       0
     end
