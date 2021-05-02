@@ -21,5 +21,12 @@ module QAKHADelivery
         resource '*', headers: :any, methods: :any
       end
     end
+    config.cache_store = :redis_store, {
+      host: "localhost",
+      port: 6379,
+      db: 0
+    }, {
+      expires_in: 90.minutes
+    }
   end
 end

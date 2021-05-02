@@ -1,11 +1,8 @@
-class Api::V1::CartsController < ApplicationController
+class Api::V1::CartsController < Api::V1::ApplicationController
   include Api::V1::CartsHelper
 
-  skip_before_action :verify_authenticity_token
   before_action :load_user, :load_cart, :load_partner
   before_action :load_product, only: %i(create update destroy)
-
-  respond_to :json
 
   def show
     load_carts
@@ -42,14 +39,14 @@ class Api::V1::CartsController < ApplicationController
 
   def clear_cart
     Cart.where(user_id: @current_user.id, partner_id: params[:partner_id]).delete_all
-    render json: { message: 'Clear cart success'}, status: :no_content
+    render json: { message: 'Clear cart success'}, status: :ok
   end
 
   private
 
   def load_product
     @product = Product.find_by(id: params[:product_id])
-    return if @product.category.partner_id == params[:partner_id].to_i
+    return if @product && @product.category.partner_id == params[:partner_id].to_i
 
     render json: { message: 'Product not found!' }, status: :not_found
   end
@@ -71,7 +68,7 @@ class Api::V1::CartsController < ApplicationController
 
   def total_price_cart
     @total = 0
-    @carts.each do |cart|
+    @carts.includes(:product).each do |cart|
       @total += cart.quantity * cart.product.price
     end
     @total

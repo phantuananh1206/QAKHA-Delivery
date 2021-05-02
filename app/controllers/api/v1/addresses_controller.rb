@@ -1,7 +1,6 @@
-class Api::V1::AddressesController < ApplicationController
+class Api::V1::AddressesController < Api::V1::ApplicationController
   include Api::V1::CartsHelper
 
-  skip_before_action :verify_authenticity_token
   before_action :load_user
   before_action :load_address, only: %i(update destroy)
 

@@ -1,6 +1,4 @@
-class Api::V1::PasswordsController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
+class Api::V1::PasswordsController < Api::V1::ApplicationController
   def forgot
     if params[:email].blank?
       return render json: {message: 'Email not present'}

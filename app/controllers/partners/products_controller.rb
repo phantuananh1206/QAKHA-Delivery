@@ -5,7 +5,7 @@ class Partners::ProductsController < ApplicationController
   before_action :load_product, only: %i(edit update destroy)
 
   def index
-    @search = current_partner.products.search(params[:q])
+    @search = current_partner.products.includes(:category).search(params[:q])
     @products = @search.result.page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort

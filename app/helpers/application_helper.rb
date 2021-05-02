@@ -5,6 +5,6 @@ module ApplicationHelper
   end
 
   def number_to_currency_vnd(number)
-    number_to_currency(number, :unit => "vnđ", :delimiter => ".", format: "%n %u")
+    number_to_currency(number, :unit => "vnđ", :delimiter => ".", format: "%n %u", precision: 0)
   end
 end

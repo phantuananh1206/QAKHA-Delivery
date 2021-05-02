@@ -1,10 +1,10 @@
-class Api::V1::OrderDetailsController < ApplicationController
+class Api::V1::OrderDetailsController < Api::V1::ApplicationController
   include Api::V1::CartsHelper
 
   before_action :load_user, :load_order
 
   def index
-    @order_details = @order.order_details
+    @order_details = @order.order_details.includes(:product)
     render json: { order_details: @order_details.as_json(include: [product: {only: [:name, :image] }]),
       order: @order.as_json(except: [:updated_at],
       include: [partner: { only: [:name, :address, :image] }]) }, status: :ok
