@@ -12,10 +12,15 @@ Rails.application.routes.draw do
       devise_scope :partner do
         get "/sign_in", to: "sessions#new"
         post "/sign_in", to: "sessions#create"
+        get "/products/statistics/month", to: 'statistics_products#statistics_by_month'
+        get "/products/statistics/quarter", to: 'statistics_products#statistics_by_quarter'
+        get "/products/statistics/year", to: 'statistics_products#statistics_by_year'
+        get "/products/statistics", to: 'statistics_products#statistics'
       end
       resources :categories
       resources :products
       resources :vouchers
+      resources :statistics_products, only: :index
     end
 
     namespace :api, default: {format: :json} do

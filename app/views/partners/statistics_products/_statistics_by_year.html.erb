@@ -1,0 +1,1 @@
+<%= column_chart $orders.joins(order_details:[:product]).group('products.name').group("YEAR(delivery_time)").sum('order_details.quantity') %>

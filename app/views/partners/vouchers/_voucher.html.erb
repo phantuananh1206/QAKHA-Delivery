@@ -7,7 +7,10 @@
   <td><%= voucher.orders.size %></td>
   <td><%= voucher.update_status_voucher %></td>
   <td>
-    <span><%= link_to t(".delete"), partners_voucher_path(voucher), method: :delete, class: "btn btn-danger" %></span>
-    <span><%= link_to t(".edit"), edit_partners_voucher_path(voucher) , class: "btn btn-success" %></span>
+    <span><%= link_to t(".edit"), edit_partners_voucher_path(voucher) ,
+    class: "btn btn-success glyphicon glyphicon-edit" %></span>
+    <span><%= link_to t(".delete"), partners_voucher_path(voucher),
+                                    data: { confirm: 'Are you sure you want to delete?' },
+                                    method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
   </td>
 </tr>

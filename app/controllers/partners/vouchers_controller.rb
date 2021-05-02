@@ -1,6 +1,4 @@
-class Partners::VouchersController < ApplicationController
-  layout "layouts/partner"
-  before_action :check_sign_in
+class Partners::VouchersController < Partners::PartnersController
   before_action :load_voucher, only: %i(show update edit destroy)
 
   def index

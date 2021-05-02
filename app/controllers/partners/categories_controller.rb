@@ -1,6 +1,4 @@
-class Partners::CategoriesController < ApplicationController
-  layout "layouts/partner"
-  # before_action :authenticate_partner!
+class Partners::CategoriesController < Partners::PartnersController
   before_action :check_sign_in
   before_action :load_category, only: %i(edit update destroy)
 

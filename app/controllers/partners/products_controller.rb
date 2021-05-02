@@ -1,7 +1,4 @@
-class Partners::ProductsController < ApplicationController
-  layout "layouts/partner"
-  # before_action :authenticate_partner!
-  before_action :check_sign_in
+class Partners::ProductsController < Partners::PartnersController
   before_action :load_product, only: %i(edit update destroy)
 
   def index

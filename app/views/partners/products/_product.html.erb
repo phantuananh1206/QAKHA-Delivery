@@ -8,7 +8,10 @@
   <td><%= product.quantity_sold %></td>
 
   <td>
-    <span><%= link_to t(".delete"), partners_product_path(product), method: :delete, class: "btn btn-danger" %></span>
-    <span><%= link_to t(".edit"), edit_partners_product_path(product), class: "btn btn-success" %></span>
+    <span><%= link_to t(".edit"), edit_partners_product_path(product),
+                                  class: "btn btn-success glyphicon glyphicon-edit" %></span>
+    <span><%= link_to t(".delete"), partners_product_path(product),
+                                    data: { confirm: 'Are you sure you want to delete?' },
+                                    method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
   </td>
 </tr>
