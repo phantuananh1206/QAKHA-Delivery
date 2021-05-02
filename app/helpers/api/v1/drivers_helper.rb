@@ -3,13 +3,13 @@ module Api::V1::DriversHelper
     return if @current_driver = Api::V1::AuthDriverController.new(request.headers).authenticate_request!
 
   rescue JWT::VerificationError, JWT::DecodeError, JWT::ExpiredSignature
-    render json: { error: ['Not Authenticated'] }, status: :unauthorized
+    render json: { message: ['Not Authenticated'] }, status: :unauthorized
   end
 
   def load_partner
     return if @partner = Partner.find_by(id: params[:partner_id], status: :open)
 
-    render json: { error: 'Partner not found!' }, status: :not_found
+    render json: { message: 'Partner not found!' }, status: :not_found
   end
 
   def calculate(lat1, long1, lat2, long2)

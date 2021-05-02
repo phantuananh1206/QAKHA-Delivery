@@ -1,5 +1,4 @@
-class Api::V1::AuthDriverController < ApplicationController
-
+class Api::V1::AuthDriverController < Api::V1::ApplicationController
   def initialize(headers = {})
     @headers = headers
   end

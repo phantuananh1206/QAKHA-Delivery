@@ -1,4 +1,4 @@
-<%= form_tag admin_drivers_statistics_path, method: :get, remote: true do %>
+<%= form_tag admin_products_statistics_path, method: :get, remote: true do %>
   <%= date_select(:delivery_time, :statistics, use_month_numbers: true, order: [:year], start_year: 2020, end_year: 2021, discard_day: true, discard_month: true)%>
   <%= submit_tag 'Statistics' %>
 <% end %>

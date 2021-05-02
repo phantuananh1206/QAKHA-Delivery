@@ -5,11 +5,6 @@
   </div>
 
   <div class="form-group">
-    <% cate_array = Category.load_category_of_partner(current_partner.id).map { |cate| [cate.name, cate.id] } %>
-    <%= f.select :parent_id, cate_array %>
-  </div>
-
-  <div class="form-group">
     <%= f.submit yield(:button), class: "btn btn-info form-control" %>
   </div>
 <% end %>

@@ -1,6 +1,6 @@
 <div class="p-4">
   <h1><%= "Management Product of food store" %></h1>
-  <h3><%= "Total of product" %>: <%= current_partner.products.size %></h3>
+  <h3><%= "Total of product" %>: <%= @products.total_count %></h3>
   <%= search_form_for @search, url: partners_products_path do |f|%>
     <%= f.condition_fields do |c| %>
       <%= c.attribute_fields do |a| %>
@@ -20,7 +20,7 @@
         <th><%= "Image" %></th>
         <th><%= sort_link(@search, :name,"Name of product") %></th>
         <th><%= sort_link(@search, :price, "Price") %></th>
-        <th><%= "Category_id" %></th>
+        <th><%= "Category name" %></th>
         <th><%= sort_link(@search, :quantity_sold,"Quantity sold") %></th>
 
         <th><%= "Control" %></th>

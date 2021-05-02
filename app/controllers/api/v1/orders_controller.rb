@@ -1,8 +1,7 @@
-class Api::V1::OrdersController < ApplicationController
+class Api::V1::OrdersController < Api::V1::ApplicationController
   include Api::V1::CartsHelper
   include Api::V1::OrdersHelper
 
-  skip_before_action :verify_authenticity_token
   before_action :load_user
   before_action :load_cart, except: %i(coins_user index)
   before_action :load_partner, except: %i(list_vouchers coins_user index)
@@ -20,15 +19,15 @@ class Api::V1::OrdersController < ApplicationController
         save_success
       end
     else
-      session.delete(:voucher)
-      render json: { error: 'Voucher not valid' }, status: :bad_request
+      $current_voucher = {}
+      render json: { message: 'Voucher not valid' }, status: :bad_request
     end
   rescue
-    render json: { error: 'Create order failed' }, status: :bad_request
+    render json: { message: 'Create order failed' }, status: :bad_request
   end
 
   def index
-    @order_history = @current_user.orders._created_at_desc
+    @order_history = @current_user.orders._created_at_desc.includes(:driver, :partner)
     @order_history.each do |order|
       feedbacks = Feedback.where(order_id: order.id, user_id: order.user_id)
       if feedbacks&.size == 2
@@ -45,7 +44,7 @@ class Api::V1::OrdersController < ApplicationController
   end
 
   def vouchers_by_partner
-    @vouchers_by_partner = Voucher.where(partner_id: @partner.id)
+    @vouchers_by_partner = Voucher.where(partner_id: @partner.id, status: :effective)
     render json: @vouchers_by_partner, status: :ok
   end
 
@@ -54,7 +53,7 @@ class Api::V1::OrdersController < ApplicationController
       $current_voucher = @voucher
       render json: { voucher: @voucher, subtotal: total_price_cart, total_after_discount: total_after_discount }, status: :ok
     else
-      render json: { error: 'Voucher not valid' }, status: :bad_request
+      render json: { message: 'Voucher not valid' }, status: :bad_request
     end
   end
 
@@ -63,7 +62,7 @@ class Api::V1::OrdersController < ApplicationController
       $current_voucher = {}
       render json: { message: 'Delete voucher success', subtotal: total_price_cart, total_before_discount: total_price_cart }, status: :ok
     else
-      render json: { error: 'Delete voucher failed' }, status: :bad_request
+      render json: { message: 'Delete voucher failed' }, status: :bad_request
     end
   end
 
@@ -73,13 +72,6 @@ class Api::V1::OrdersController < ApplicationController
 
   def coins_user
     render json: { coins: @current_user.coins }, status: :ok
-  end
-
-  def show_infor
-    render json: { order: @order.as_json(include: [order_details: { except: [:created_at, :updated_at],
-      include: [product: { only: [:name] }] }, partner: { only: [:latitude, :longitude] }]),
-        user: { latitude: $latitude, longitude: $longitude } },
-          status: :ok
   end
 
   private
@@ -93,12 +85,13 @@ class Api::V1::OrdersController < ApplicationController
   def load_voucher
     return if @voucher = Voucher.find_by(code: params[:code], partner_id: params[:partner_id].to_i)
 
-    render json: { error: 'Voucher not found' }, status: :not_found
+    $current_voucher = {}
+    render json: { message: 'Voucher not found' }, status: :not_found
   end
 
   def total_price_cart
     @total = 0
-    @carts.each do |cart|
+    @carts.includes(:product).each do |cart|
       @total += cart.quantity * cart.product.price
     end
     @total
@@ -107,21 +100,21 @@ class Api::V1::OrdersController < ApplicationController
   def load_cart
     return if @carts = Cart.where(user_id: @current_user.id, partner_id: params[:partner_id])
 
-    render json: { error: 'Cart is empty' }, status: :bad_request
+    render json: { message: 'Cart is empty' }, status: :bad_request
   end
 
   def remove_voucher
     @voucher = Voucher.find_by(id: params[:voucher_id])
     return if @voucher && @partner
 
-    render json: { error: 'Voucher not found' }, status: :not_found
+    render json: { message: 'Voucher not found' }, status: :not_found
   end
 
   def order_params
     params.permit(:name, :phone_number, :address)
           .merge(subtotal: total_price_cart, discount: $current_voucher[:discount],
                  shipping_fee: params[:shipping_fee].to_f, total: total_order,
-                 type_checkout: params[:type_checkout],
+                 type_checkout: params[:type_checkout].to_i,
                  driver_id: find_driver_nearest['id'], voucher_id: $current_voucher[:id],
                  partner_id: @partner.id)
   end
@@ -130,7 +123,7 @@ class Api::V1::OrdersController < ApplicationController
     if @partner
       distance = getDistanceFromLatLongInKm(params[:latitude].to_f, params[:longitude].to_f, @partner.latitude, @partner.longitude)
     else
-      render json: { error: 'Partner not found' }, status: :not_found
+      render json: { message: 'Partner not found' }, status: :not_found
     end
     distance
   end
@@ -145,8 +138,8 @@ class Api::V1::OrdersController < ApplicationController
 
   def total_after_discount
     total = total_price_cart
-    if @voucher
-      total -= @voucher.discount
+    if $current_voucher
+      total -= $current_voucher[:discount].to_f
     else
       total
     end
@@ -176,7 +169,8 @@ class Api::V1::OrdersController < ApplicationController
     order = FireBase.new.push("drivers/shipping/#{@driver['id']}/order", { driver_id: @driver['id'], order_id: @order.id })
     driver = Driver.find_by(id: @driver['id'])
     driver.ship!
-    render json: { order: @order.as_json(include: [user: { only: [:name, :image] }]), order_details: @order.order_details,
+    render json: { order: @order.as_json(include: [user: { only: [:name, :image] }]),
+      order_details: @order.order_details.includes(:product).as_json(include: [product: { only: [:name, :quantity_sold, :price, :image] }]),
       driver_nearest: driver.as_json(only: [:id, :name, :email, :id_card, :phone_number, :license_plate, :image, :status]),
       partner: @order.partner.as_json(only: [:name, :address, :image, :latitude, :longitude]),
       gps_user: { latitude: params[:latitude], longitude: params[:longitude] } }, status: :ok
@@ -185,7 +179,12 @@ class Api::V1::OrdersController < ApplicationController
   end
 
   def find_driver_nearest
-    @drivers = FireBase.new.get('drivers').body['location']['driver'].compact!
+    @drivers2 = FireBase.new.get('drivers').body['location']['driver'].compact!
+    if @drivers2.blank?
+      @drivers = FireBase.new.get('drivers').body['location']['driver'].values
+    else
+      @drivers = @drivers2
+    end
     @list_drivers = Driver.by_ids(@drivers.pluck('id'))
     @drivers_can_ship = @list_drivers._can_ship
     if @drivers_can_ship.present?
@@ -203,7 +202,9 @@ class Api::V1::OrdersController < ApplicationController
       end
       @driver
     else
-      render json: { error: 'No recent delivery person found. Please re-order after a few minutes. We are very sorry for the inconvenience.'}, status: :not_found
+      render json: { message: 'Sorry, the drivers are busy, please try again later.'}, status: :not_found
     end
+  rescue
+    render json: { message: 'Sorry, the drivers are busy, please try again later.'}, status: :not_found
   end
 end

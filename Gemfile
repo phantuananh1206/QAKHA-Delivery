@@ -43,6 +43,11 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
 gem "webpacker", "~> 4.0"
+gem 'bullet', group: 'development'
+gem "redis"
+gem "redis-namespace"
+gem "redis-rails"
+gem "redis-rack-cache"
 
 group :development do
   gem 'web-console', '>= 3.3.0'

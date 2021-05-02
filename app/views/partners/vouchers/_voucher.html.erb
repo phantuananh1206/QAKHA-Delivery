@@ -2,7 +2,8 @@
   <td><%= voucher.id %></td>
   <td><%= link_to voucher.code, "#" %></td>
   <td><%= number_to_currency_vnd voucher.discount %></td>
-  <td><%= voucher.expiry_date %></td>
+  <td><%= voucher.expiry_date.strftime('%d-%m-%Y %H:%M:%S') %></td>
+  <td><%= voucher.usage_limit %></td>
   <td><%= voucher.orders.size %></td>
   <td><%= voucher.update_status_voucher %></td>
   <td>

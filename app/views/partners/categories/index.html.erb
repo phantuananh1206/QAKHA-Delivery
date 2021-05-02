@@ -1,6 +1,6 @@
 <div class="p-4">
   <h1><%= "Management Categories" %></h1>
-  <h3><%= "Total of categories" %>: <%= Category.load_category_of_partner(current_partner.id).size %></h3>
+  <h3><%= "Total of categories" %>: <%= @categories.total_count %></h3>
   <%= search_form_for @search, url: partners_categories_path do |f|%>
     <%= f.condition_fields do |c| %>
       <%= c.attribute_fields do |a| %>
@@ -20,7 +20,6 @@
       <tr>
         <th><%= sort_link(@search, :id, 'ID') %></th>
         <th><%= sort_link(@search, :name, "Name of categories") %></th>
-        <th><%= "Parent id" %></th>
         <th><%= sort_link(@search, :created_at, "Created at") %></th>
         <th><%= "Control" %></th>
       </tr>

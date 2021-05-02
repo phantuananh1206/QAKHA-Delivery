@@ -1,7 +1,7 @@
 class Partner < ApplicationRecord
   include AASM
   devise :database_authenticatable, :registerable, :trackable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   VALID_PHONE_REGEX = /\A\d[0-9]{9}\z/.freeze
   VALID_PASSWORD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/.freeze
@@ -60,6 +60,11 @@ class Partner < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   before_save :downcase_email
+  after_save :clear_cache_partners
+  after_destroy :clear_cache_partners
+
+  scope :_partner_valid, -> { where.not(status: :not_activated).where.not(status: :locked) }
+  scope :_partner_open, -> { where(status: :open) }
 
   def save_image!(image)
     self.update_columns(image: image)
@@ -74,7 +79,7 @@ class Partner < ApplicationRecord
 
   def avg_point_feedback_partner
     if feedbacks.present?
-      feedbacks._feedback_partner.average(:point).round(1).to_f
+      feedbacks.average(:point).round(1).to_f
     else
       0.0
     end
@@ -95,11 +100,25 @@ class Partner < ApplicationRecord
     errors.add :time_close, 'must be greater than Time open'
   end
 
+  def activated
+    self.update_columns(confirmed_at: Time.now.utc)
+  end
+
+  def number_of_reviews
+    if feedbacks.present?
+      feedbacks.count(:partner_id).to_i
+    else
+      0
+    end
+  end
+
+  def clear_cache_partners
+    $redis.del 'partners'
+  end
+  
   private
 
   def downcase_email
     email.downcase!
   end
-  # scope :load_cate, -> (partner_id) { includes(:categories).where (partner_id: partner_id) }
-  # Ex:- scope :active, -> {where(:active => true)}
 end

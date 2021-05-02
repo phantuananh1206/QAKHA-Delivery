@@ -51,10 +51,25 @@ Rails.application.routes.draw do
           get "/drivers/statistics/day", to: 'statistics_driver#statistics_by_day'
           get "/drivers/statistics/month", to: 'statistics_driver#statistics_by_month'
           get "/drivers/statistics/year", to: 'statistics_driver#statistics_by_year'
+          post "activated_account", to: 'registrations#activated_user'
+          post "activated_account_driver", to: 'registrations#activated_driver'
+          post "activated_account_partner", to: 'registrations#activated_partner'
+          get "/users/orders_shipping", to: 'users#orders_shipping'
+          get "/users/tracking_order", to: 'users#tracking_order'
+          get "suggest_partners", to: 'suggest_choice#suggest_partners'
+          post "suggest_partners_nearby", to: 'suggest_choice#suggest_partners_nearby'
+          get "suggest_products", to: 'suggest_choice#suggest_products'
+          get "/partner", to: 'partners#show_partner'
+          get "/drivers/order_history", to: 'drivers#order_history'
+          get "/drivers/coins", to: 'drivers#coins_driver'
+          get "feedbacks/check_feedback_driver", to: "feedbacks#check_feedback_driver"
+          patch "/user/change_password", to: "users#change_password"
+          patch "/driver/update_profile", to: "drivers#update_profile"
+          patch "/driver/change_password", to: "drivers#change_password"
         end
         resources :users, only: :index
         resources :types, only: %i(index show)
-        resources :partners, only: %i(index)
+        resources :partners, only: :index
         resource :carts, only: %i(create update destroy)
         resources :orders, only: %i(create index)
         resources :addresses, only: %i(index create update destroy)
@@ -81,6 +96,10 @@ Rails.application.routes.draw do
       get "/drivers/statistics/quarter", to: 'statistics_drivers#statistics_by_quarter'
       get "/drivers/statistics/year", to: 'statistics_drivers#statistics_by_year'
       get "/drivers/statistics", to: 'statistics_drivers#statistics'
+      get "/products/statistics/month", to: 'statistics_products#statistics_by_month'
+      get "/products/statistics/quarter", to: 'statistics_products#statistics_by_quarter'
+      get "/products/statistics/year", to: 'statistics_products#statistics_by_year'
+      get "/products/statistics", to: 'statistics_products#statistics'
       resources :drivers, except: :show do
         collection { get :export }
       end
@@ -113,6 +132,7 @@ Rails.application.routes.draw do
       end
       resources :statistics_partners, only: :index
       resources :statistics_drivers, only: :index
+      resources :statistics_products, only: :index
     end
   end
 end
