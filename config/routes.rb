@@ -16,11 +16,16 @@ Rails.application.routes.draw do
         get "/products/statistics/quarter", to: 'statistics_products#statistics_by_quarter'
         get "/products/statistics/year", to: 'statistics_products#statistics_by_year'
         get "/products/statistics", to: 'statistics_products#statistics'
+        get "/revenue/statistics/month", to: 'statistics_revenue#statistics_by_month'
+        get "/revenue/statistics/quarter", to: 'statistics_revenue#statistics_by_quarter'
+        get "/revenue/statistics/year", to: 'statistics_revenue#statistics_by_year'
+        get "/revenue/statistics", to: 'statistics_revenue#statistics'
       end
       resources :categories
       resources :products
       resources :vouchers
       resources :statistics_products, only: :index
+      resources :statistics_revenue, only: :index
     end
 
     namespace :api, default: {format: :json} do

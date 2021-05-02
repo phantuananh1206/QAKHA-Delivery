@@ -1,0 +1,1 @@
+<%= column_chart $orders.group("QUARTER(delivery_time)").sum('subtotal') %>
