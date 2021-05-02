@@ -11,7 +11,6 @@
     <%= link_to "", partners_voucher_status_path(voucher.id, status: :void), method: :patch, remote: true, class:"play active" if voucher.effective? %>
     <%= link_to "", partners_voucher_status_path(voucher.id, status: :effective), method: :patch, remote: true, class:"play" if voucher.void? && (Time.zone.now < voucher.expiry_date) %>
     <%= link_to "", partners_voucher_status_path(voucher.id, status: :void), method: :patch, remote: true, class:"" if (voucher.void? && (Time.zone.now >= voucher.expiry_date) ) %>
-
   </td>
 
   <td>

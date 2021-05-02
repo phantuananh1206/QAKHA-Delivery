@@ -439,3 +439,27 @@ $transition-time:0.3s;
     }
   }
 }
+
+.btn-open {
+  background-color: #04b121 !important;
+  border-radius: 50px !important;
+  border-color: #04b121 !important;
+  width: 120px;
+  height: 40px;
+}
+
+.btn-close {
+  background-color: #91200c !important;
+  border-radius: 50px !important;
+  border-color: #91200c !important;
+  width: 120px;
+  height: 40px;
+}
+.name-custom, .name-custom:hover  {
+  text-decoration: none;
+  color: #FFFF;
+}
+
+.order-detail-custom {
+  padding: 0 10px;
+}

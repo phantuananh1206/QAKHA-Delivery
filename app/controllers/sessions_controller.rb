@@ -13,9 +13,14 @@ class SessionsController < ApplicationController
   def create
     if @partner.present?
       if @partner.valid_password? params[:partner][:password]
-        if sign_in @partner
-          flash[:success] = "Sign in successfuly"
-          redirect_to partners_partners_path
+        if @partner.open? || @partner.close?
+          if sign_in @partner
+            flash[:success] = "Sign in successfuly"
+            redirect_to partners_partners_path
+          end
+        else
+          flash[:danger] = "Fail. Account has not been confirmed. Please contact QAKHA's management team to become our partner."
+          render :new
         end
       else
         flash[:danger] = "Sign in fail"

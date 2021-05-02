@@ -1,0 +1,47 @@
+<% provide(:title, 'Orders') %>
+<div class="p-4">
+  <h1><%= "Management Orders" %></h1>
+  <h3><%= "Total of orders" %>: <%= @orders.total_count %></h3>
+  <br>
+  <%= search_form_for @search, url: partners_orders_path do |f|%>
+    <%= f.condition_fields do |c| %>
+      <%= c.attribute_fields do |a| %>
+        <%= a.attribute_select %>
+      <% end %>
+      <%= c.predicate_select %>
+      <%= c.value_fields do |v| %>
+        <%= v.text_field :value %>
+      <% end %>
+    <% end %>
+    <%= f.submit 'Search', class: "btn btn-outline-info" %>
+  <% end %>
+  <br>
+  <table class="table table-striped track_tbl">
+    <thead>
+      <tr>
+        <th><%= sort_link(@search, :id, 'ID') %></th>
+        <th><%= sort_link(@search, :name, 'Name') %></th>
+        <th><%= sort_link(@search, :phone_number, 'Phone number') %></th>
+        <th><%= sort_link(@search, :address, 'Address') %></th>
+        <th><%= sort_link(@search, :delivery_time, 'Delivery time') %></th>
+        <th><%= sort_link(@search, :subtotal, 'Subtotal') %></th>
+        <th><%= sort_link(@search, :discount, 'Discount') %></th>
+        <th><%= sort_link(@search, :shipping_fee, 'Shipping fee') %></th>
+        <th><%= sort_link(@search, :total, 'Total') %></th>
+        <th><%= sort_link(@search, :status, 'Status') %></th>
+        <th><%= sort_link(@search, :type_checkout, 'Type checkout') %></th>
+        <th><%= sort_link(@search, :rate_status, 'Rate status') %></th>
+        <th><%= sort_link(@search, :user_id, 'User name') %></th>
+        <th><%= sort_link(@search, :driver_id, 'Driver name') %></th>
+        <th><%= "Show detail" %></th>
+        <th><%= "Management status" %></th>
+      </tr>
+    </thead>
+    <tbody id="orders">
+      <%= render @orders %>
+    </tbody>
+  </table>
+  <div id="paginate">
+    <%= paginate @orders, theme: 'twitter-bootstrap-4', remote: true %>
+  </div>
+</div>

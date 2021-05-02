@@ -22,13 +22,14 @@ Rails.application.routes.draw do
         get "/revenue/statistics", to: 'statistics_revenue#statistics'
         patch "products/status/:id", to: 'products#update_status', as: :product_status
         patch "vouchers/status/:id", to: 'vouchers#update_status', as: :voucher_status
-
+        patch "partners/status/:id", to: 'partners#update_status', as: :partner_status
       end
       resources :categories
       resources :products
       resources :vouchers
       resources :statistics_products, only: :index
       resources :statistics_revenue, only: :index
+      resources :orders
     end
 
     namespace :api, default: {format: :json} do
