@@ -20,7 +20,7 @@
 
   <div class="form-group">
      <%= f.label :expiry_date, "Expiry date: ", class:"delivery" %>
-    <%= f.date_field(:expiry_date, {min: Time.now}) %>
+    <%= f.date_field(:expiry_date, {min: Date.today + 1}) %>
   </div>
 
   <div class="form-group">

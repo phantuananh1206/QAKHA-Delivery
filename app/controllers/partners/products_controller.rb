@@ -1,5 +1,5 @@
 class Partners::ProductsController < Partners::PartnersController
-  before_action :load_product, only: %i(edit update destroy)
+  before_action :load_product, only: %i(edit update destroy update_status)
 
   def index
     @search = current_partner.products.includes(:category).search(params[:q])
@@ -45,6 +45,16 @@ class Partners::ProductsController < Partners::PartnersController
     else
       flash[:danger] = "Delete product fail. This products is shipping !!"
     end
+    redirect_to partners_products_path
+  end
+
+  def update_status
+    # byebug
+    @product.send("#{params[:status]}!")
+    flash[:success] = "Update status #{params[:status]} success"
+  rescue StandardError
+    flash[:danger] = "Update status failed"
+  ensure
     redirect_to partners_products_path
   end
 

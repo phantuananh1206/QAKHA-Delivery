@@ -7,6 +7,11 @@
   <td><%= product.category_name %></td>
   <td><%= product.quantity_sold %></td>
 
+  <td >
+    <%= link_to "", partners_product_status_path(product.id, status: :out_of_stock), method: :patch, remote: true, class:"play active" if product.in_stock? %>
+    <%= link_to "", partners_product_status_path(product.id, status: :in_stock), method: :patch, remote: true, class:"play" if product.out_of_stock? %>
+  </td>
+
   <td>
     <span><%= link_to t(".edit"), edit_partners_product_path(product),
                                   class: "btn btn-success glyphicon glyphicon-edit" %></span>
