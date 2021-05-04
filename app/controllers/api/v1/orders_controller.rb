@@ -98,9 +98,10 @@ class Api::V1::OrdersController < Api::V1::ApplicationController
   end
 
   def load_cart
-    return if @carts = Cart.where(user_id: @current_user.id, partner_id: params[:partner_id])
+    @carts = Cart.where(user_id: @current_user.id, partner_id: params[:partner_id])
+    return if @carts.present?
 
-    render json: { message: 'Cart is empty' }, status: :bad_request
+    render json: { message: 'The cart has been changed' }, status: :bad_request
   end
 
   def remove_voucher

@@ -48,6 +48,7 @@ gem "redis"
 gem "redis-namespace"
 gem "redis-rails"
 gem "redis-rack-cache"
+gem "sidekiq"
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -29,6 +29,7 @@ class User < ApplicationRecord
             numericality: { greater_than_or_equal_to: Settings.validation.number.zero }
 
   before_save :downcase_email
+  after_commit :send_pending_devise_notifications
 
   scope :_role_admin, -> { where(role: :admin)}
   scope :_not_role_block, ->{where.not(role: :block)}
@@ -90,6 +91,16 @@ class User < ApplicationRecord
     self.update_columns(confirmed_at: Time.now.utc)
   end
 
+  protected
+
+  def send_devise_notification(notification, *args)
+    if new_record? || changed?
+      pending_devise_notifications << [notification, args]
+    else
+      render_and_send_devise_message(notification, *args)
+    end
+  end
+
   private
 
   def downcase_email
@@ -98,5 +109,20 @@ class User < ApplicationRecord
 
   def generate_token
     SecureRandom.base36(5)
+  end
+
+  def send_pending_devise_notifications
+    pending_devise_notifications.each do |notification, args|
+      render_and_send_devise_message(notification, *args)
+    end
+    pending_devise_notifications.clear
+  end
+
+  def pending_devise_notifications
+    @pending_devise_notifications ||= []
+  end
+
+  def render_and_send_devise_message(notification, *args)
+    message = devise_mailer.send(notification, self, *args).deliver_later
   end
 end

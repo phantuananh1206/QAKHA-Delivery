@@ -67,14 +67,13 @@ class Api::V1::DriversController < Api::V1::ApplicationController
   def update_profile
     if params[:image].blank?
       params.delete(:image)
+    elsif params[:image].present?
+      @current_driver.save_image!(params[:image])
     end
     if @current_driver.update(driver_params)
-      if params[:image].present?
-        @current_driver.save_image!(params[:image])
-      end
       render json: @current_driver.as_json(except: [:password]), status: :ok
     else
-      render json: { errors: @current_driver.errors.full_messages }, status: :bad_request
+      render json: { message: @current_driver.errors.full_messages }, status: :bad_request
     end
   end
 
@@ -83,7 +82,7 @@ class Api::V1::DriversController < Api::V1::ApplicationController
       if @current_driver.update(password_params)
         render json: @current_driver.as_json(except: [:password]), status: :ok
       else
-        render json: { errors: @current_driver.errors.full_messages }, status: :bad_request
+        render json: { message: @current_driver.errors.full_messages }, status: :bad_request
       end
     else
       render json: { message: "Current password don't match" }, status: :bad_request
