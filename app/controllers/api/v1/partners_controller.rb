@@ -5,7 +5,7 @@ class Api::V1::PartnersController < Api::V1::ApplicationController
   end
 
   def show_partner
-    @partner = Partner.find_by(id: params[:id])
+    @partner = Partner.includes(categories: [:products]).find_by(id: params[:id])
     if @partner.present?
       render json: { partner: @partner.as_json(except: [:password], include: [:categories => { :include => :products }]),
                      avg_point: @partner.avg_point_feedback_partner,

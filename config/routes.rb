@@ -80,6 +80,7 @@ Rails.application.routes.draw do
           patch "/user/change_password", to: "users#change_password"
           patch "/driver/update_profile", to: "drivers#update_profile"
           patch "/driver/change_password", to: "drivers#change_password"
+          patch "user/change_email", to: 'users#change_email'
         end
         resources :users, only: :index
         resources :types, only: %i(index show)

@@ -14,6 +14,7 @@ module QAKHADelivery
     config.i18n.default_locale = :en
     config.time_zone = 'Asia/Bangkok'
     config.active_record.default_timezone = :local
+    config.active_job.queue_adapter = :sidekiq
     Rails.application.config.session_store :active_record_store
     Rails.application.config.middleware.insert_before 0, Rack::Cors do
       allow do
