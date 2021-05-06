@@ -17,29 +17,29 @@ class Admin::ProductsController < Admin::BaseController
   def create
     @product = Product.new(product_params)
     if @product.save
-      flash[:success] = 'Create product success'
+      flash[:success] = t('admin.product.create_success')
       redirect_to admin_products_path
     else
-      flash.now[:danger] = 'Create product failed'
+      flash.now[:danger] = t('admin.product.create_failed')
       render :new
     end
   end
 
   def update
     if @product.update(product_params)
-      flash[:success] = 'Update product success'
+      flash[:success] = t('admin.product.update_success')
       redirect_to admin_products_path
     else
-      flash.now[:danger] = 'Update product failed'
+      flash.now[:danger] = t('admin.product.update_failed')
       render :edit
     end
   end
 
   def destroy
     if @product.destroy
-      flash[:success] = 'Delete product success'
+      flash[:success] = t('admin.product.delete_success')
     else
-      flash[:danger] = 'Delete product failed'
+      flash[:danger] = t('admin.product.delete_failed')
     end
     redirect_to admin_products_path
   end
@@ -65,7 +65,7 @@ class Admin::ProductsController < Admin::BaseController
   def load_product
     return if @product = Product.find_by(id: params[:id])
 
-    flash[:danger] = 'product not found'
+    flash[:danger] = t('admin.product.not_found')
     redirect_to admin_products_path
   end
 
@@ -79,9 +79,9 @@ class Admin::ProductsController < Admin::BaseController
 
   def update_status_product
     @product.send("#{params[:status]}!")
-    flash[:success] = "Update status #{params[:status]} success"
+    flash[:success] = t('admin.product.update_status_success', status: "#{params[:status]}")
   rescue StandardError
-    flash[:danger] = "Update status failed"
+    flash[:danger] = t('admin.product.update_status_failed')
   ensure
     redirect_to admin_products_path
   end

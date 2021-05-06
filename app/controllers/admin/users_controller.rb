@@ -15,10 +15,10 @@ class Admin::UsersController < Admin::BaseController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = 'Create user success'
+      flash[:success] = t('admin.user.create_success')
       redirect_to admin_users_path
     else
-      flash.now[:danger] = 'Create user failed'
+      flash.now[:danger] = t('admin.user.create_failed')
       render :new
     end
   end
@@ -29,19 +29,19 @@ class Admin::UsersController < Admin::BaseController
       params[:user].delete(:password_confirmation)
     end
     if @user.update(user_params)
-      flash[:success] = 'Update user success'
+      flash[:success] = t('admin.user.update_success')
       redirect_to admin_users_path
     else
-      flash.now[:danger] = 'Update user failed'
+      flash.now[:danger] = t('admin.user.update_failed')
       render :edit
     end
   end
 
   def destroy
     if @user.destroy
-      flash[:success] = 'Delete user success'
+      flash[:success] = t('admin.user.delete_success')
     else
-      flash[:danger] = 'Delete user failed'
+      flash[:danger] = t('admin.user.delete_failed')
     end
     redirect_to admin_users_path
   end
@@ -69,15 +69,15 @@ class Admin::UsersController < Admin::BaseController
   def load_user
     return if @user = User.find_by(id: params[:id])
 
-    flash[:danger] = 'user not found'
+    flash[:danger] = t('admin.user.not_found')
     redirect_to admin_users_path
   end
 
   def update_status_user
     @user.send("#{params[:role]}!")
-    flash[:success] = "Update status #{params[:role]} success"
+    flash[:success] = t('admin.user.update_status_success', status: "#{params[:status]}")
   rescue StandardError
-    flash[:danger] = "Update status failed"
+    flash[:danger] = t('admin.user.update_status_failed')
   ensure
     redirect_to admin_users_path
   end

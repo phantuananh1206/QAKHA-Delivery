@@ -1,10 +1,10 @@
-<%= provide :title, "Edit Type"%>
-<%= provide :button, "Edit Type"%>
+<%= provide :title, t('admin.type.edit_type') %>
+<%= provide :button, t('admin.type.edit_type') %>
 <%= provide :url, admin_type_path(@type)%>
 
 <div class="">
   <div class="col-md-6 col-md-offset-3">
-    <h1><%= "Edit type" %></h1>
+    <h1><%= t('admin.type.edit_type') %></h1>
     <%= render "form" %>
   </div>
 </div>

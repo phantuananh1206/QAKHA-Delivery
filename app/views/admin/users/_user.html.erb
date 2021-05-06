@@ -8,15 +8,15 @@
   <td><%= user.role %></td>
   <td>
     <% if user.member? %>
-      <%= link_to 'Lock user', admin_user_status_path(id: user.id, role: :block),
-                               method: :patch,
-                               remote: true,
-                               class: "btn btn-secondary glyphicon glyphicon-lock" %>
+      <%= link_to t('admin.user.lock_user'), admin_user_status_path(id: user.id, role: :block),
+                                             method: :patch,
+                                             remote: true,
+                                             class: "btn btn-secondary glyphicon glyphicon-lock" %>
     <% elsif user.block? %>
-      <%= link_to 'Unlock user', admin_user_status_path(id: user.id, role: :member),
-                                 method: :patch,
-                                 remote: true,
-                                 class: "btn btn-secondary glyphicon glyphicon-ok" %>
+      <%= link_to t('admin.user.unlock_user'), admin_user_status_path(id: user.id, role: :member),
+                                               method: :patch,
+                                               remote: true,
+                                               class: "btn btn-secondary glyphicon glyphicon-ok" %>
     <% end %>
   </td>
   <td>

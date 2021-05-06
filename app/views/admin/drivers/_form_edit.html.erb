@@ -1,31 +1,31 @@
 <%= form_for @driver, url: yield(:url) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="form-group">
-    <%= f.text_field :name, placeholder: "Name" +" (*)", class: "form-control" %>
+    <%= f.text_field :name, placeholder: t('admin.driver.name'), class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.email_field :email, placeholder: "Email" +" (*)", class: "form-control", disabled: true %>
+    <%= f.email_field :email, placeholder: t('admin.driver.email'), class: "form-control", disabled: true %>
   </div>
   <div class="form-group">
-    <%= f.text_field :address, placeholder: "Address", class: "form-control" %>
+    <%= f.text_field :address, placeholder: t('admin.driver.address'), class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.text_field :id_card, placeholder: "ID card" +" (*)", class: "form-control" %>
+    <%= f.text_field :id_card, placeholder: t('admin.driver.id_card'), class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.text_field :phone_number, placeholder: "Phone number" +" (*)", class: "form-control" %>
+    <%= f.text_field :phone_number, placeholder: t('admin.driver.phone_number'), class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+    <%= f.password_field :password, placeholder: t('admin.driver.password_edit'), class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.password_field :password_confirmation, placeholder: "Password confirmation", class: "form-control" %>
+    <%= f.password_field :password_confirmation, placeholder: t('admin.driver.password_confirmation_edit'), class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.text_field :license_plate, placeholder: "License plate" +" (*)", class: "form-control" %>
+    <%= f.text_field :license_plate, placeholder: t('admin.driver.license_plate'), class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.text_field :coins, placeholder: "Coins", class: "form-control" %>
+    <%= f.text_field :coins, placeholder: t('admin.driver.coins'), class: "form-control" %>
   </div>
   <div class="form-group">
     <%= image_tag @driver.image.url , class: "img-product" %>

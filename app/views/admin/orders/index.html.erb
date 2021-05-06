@@ -1,8 +1,8 @@
-<% provide(:title, 'Orders') %>
+<% provide(:title, t('admin.order.title')) %>
 <div class="p-4">
-  <h1><%= "Management Orders" %></h1>
-  <h3><%= "Total of orders" %>: <%= @orders.total_count %></h3>
-  <%= link_to "Export list orders to excel", export_admin_orders_path(format: :xls) %>
+  <h1><%= t('admin.order.order_management') %></h1>
+  <h3><%= t('admin.order.total_of_orders') %>: <%= @orders.total_count %></h3>
+  <%= link_to t('admin.order.export'), export_admin_orders_path(format: :xls) %>
   <br>
   <%= search_form_for @search, url: admin_orders_path do |f|%>
     <%= f.condition_fields do |c| %>
@@ -14,28 +14,28 @@
         <%= v.text_field :value %>
       <% end %>
     <% end %>
-    <%= f.submit 'Search', class: "btn btn-outline-info" %>
+    <%= f.submit t('admin.order.search'), class: "btn btn-outline-info" %>
   <% end %>
   <br>
   <table class="table table-striped track_tbl">
     <thead>
       <tr>
-        <th><%= sort_link(@search, :id, 'ID') %></th>
-        <th><%= sort_link(@search, :name, 'Name') %></th>
-        <th><%= sort_link(@search, :phone_number, 'Phone number') %></th>
-        <th><%= sort_link(@search, :address, 'Address') %></th>
-        <th><%= sort_link(@search, :delivery_time, 'Delivery time') %></th>
-        <th><%= sort_link(@search, :subtotal, 'Subtotal') %></th>
-        <th><%= sort_link(@search, :discount, 'Discount') %></th>
-        <th><%= sort_link(@search, :shipping_fee, 'Shipping fee') %></th>
-        <th><%= sort_link(@search, :total, 'Total') %></th>
-        <th><%= sort_link(@search, :status, 'Status') %></th>
-        <th><%= sort_link(@search, :type_checkout, 'Type checkout') %></th>
-        <th><%= sort_link(@search, :user_id, 'User name') %></th>
-        <th><%= sort_link(@search, :driver_id, 'Driver name') %></th>
-        <th><%= sort_link(@search, :partner_id, 'Partner name') %></th>
-        <th><%= "Show detail" %></th>
-        <th><%= "Management status" %></th>
+        <th><%= sort_link(@search, :id, t('admin.order.id')) %></th>
+        <th><%= sort_link(@search, :name, t('admin.order.name')) %></th>
+        <th><%= sort_link(@search, :phone_number, t('admin.order.phone_number')) %></th>
+        <th><%= sort_link(@search, :address, t('admin.order.address')) %></th>
+        <th><%= sort_link(@search, :delivery_time, t('admin.order.delivery_time')) %></th>
+        <th><%= sort_link(@search, :subtotal, t('admin.order.subtotal')) %></th>
+        <th><%= sort_link(@search, :discount, t('admin.order.discount')) %></th>
+        <th><%= sort_link(@search, :shipping_fee, t('admin.order.shipping_fee')) %></th>
+        <th><%= sort_link(@search, :total, t('admin.order.total')) %></th>
+        <th><%= sort_link(@search, :status, t('admin.order.status')) %></th>
+        <th><%= sort_link(@search, :type_checkout, t('admin.order.type_checkout')) %></th>
+        <th><%= sort_link(@search, :user_id, t('admin.order.user_name')) %></th>
+        <th><%= sort_link(@search, :driver_id, t('admin.order.driver_name')) %></th>
+        <th><%= sort_link(@search, :partner_id, t('admin.order.partner_name')) %></th>
+        <th><%= t('admin.order.view_detail') %></th>
+        <th><%= t('admin.order.status_management') %></th>
       </tr>
     </thead>
     <tbody id="orders">

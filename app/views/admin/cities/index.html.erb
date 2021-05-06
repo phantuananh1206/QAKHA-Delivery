@@ -1,8 +1,8 @@
-<% provide(:title, 'Cities') %>
+<% provide(:title, t('admin.city.title')) %>
 <div class="p-4">
-  <h1><%= "Management Cities" %></h1>
-  <h3><%= "Total of cities" %>: <%= @cities.total_count %></h3>
-  <%= link_to "Export list cities to excel", export_admin_cities_path(format: :xls) %>
+  <h1><%= t('admin.city.city_management') %></h1>
+  <h3><%= t('admin.city.total_of_cities') %>: <%= @cities.total_count %></h3>
+  <%= link_to t('admin.city.export'), export_admin_cities_path(format: :xls) %>
   <br>
   <%= search_form_for @search, url: admin_cities_path do |f|%>
     <%= f.condition_fields do |c| %>
@@ -14,16 +14,16 @@
         <%= v.text_field :value %>
       <% end %>
     <% end %>
-    <%= f.submit 'Search', class: "btn btn-outline-info" %>
+    <%= f.submit t('admin.city.search'), class: "btn btn-outline-info" %>
   <% end %>
   <br>
-  <%= link_to " New City", new_admin_city_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+  <%= link_to t('admin.city.new_city'), new_admin_city_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
   <table class="table table-striped track_tbl">
     <thead>
       <tr>
-        <th><%= sort_link(@search, :id, 'ID') %></th>
-        <th><%= sort_link(@search, :name, 'Name') %></th>
-        <th><%= "Control" %></th>
+        <th><%= sort_link(@search, :id, t('admin.city.infor.id')) %></th>
+        <th><%= sort_link(@search, :name, t('admin.city.infor.name')) %></th>
+        <th><%= t('admin.city.infor.control') %></th>
       </tr>
     </thead>
     <tbody id="cities">

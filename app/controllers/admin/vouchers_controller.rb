@@ -16,29 +16,29 @@ class Admin::VouchersController < Admin::BaseController
   def create
     @voucher = Voucher.new(voucher_params)
     if @voucher.save
-      flash[:success] = 'Create voucher success'
+      flash[:success] = t('admin.voucher.create_success')
       redirect_to admin_vouchers_path
     else
-      flash.now[:danger] = 'Create voucher failed'
+      flash.now[:danger] = t('admin.voucher.create_failed')
       render :new
     end
   end
 
   def update
     if @voucher.update(voucher_params)
-      flash[:success] = 'Update voucher success'
+      flash[:success] = t('admin.voucher.update_success')
       redirect_to admin_vouchers_path
     else
-      flash.now[:danger] = 'Update voucher failed'
+      flash.now[:danger] = t('admin.voucher.update_failed')
       render :edit
     end
   end
 
   def destroy
     if @voucher.destroy
-      flash[:success] = 'Delete voucher success'
+      flash[:success] = t('admin.voucher.delete_success')
     else
-      flash[:danger] = 'Delete voucher failed'
+      flash[:danger] = t('admin.voucher.delete_failed')
     end
     redirect_to admin_vouchers_path
   end
@@ -65,7 +65,7 @@ class Admin::VouchersController < Admin::BaseController
   def load_voucher
     return if @voucher = Voucher.find_by(id: params[:id])
 
-    flash[:danger] = 'Voucher not found'
+    flash[:danger] = t('admin.voucher.not_found')
     redirect_to admin_vouchers_path
   end
 
@@ -75,9 +75,9 @@ class Admin::VouchersController < Admin::BaseController
 
   def update_status_voucher
     @voucher.send("#{params[:status]}!")
-    flash[:success] = "Update status #{params[:status]} success"
+    flash[:success] = t('admin.voucher.update_status_success', status: "#{params[:status]}")
   rescue StandardError
-    flash[:danger] = "Update status failed"
+    flash[:danger] = t('admin.voucher.update_status_failed')
   ensure
     redirect_to admin_vouchers_path
   end

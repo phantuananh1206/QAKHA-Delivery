@@ -28,15 +28,15 @@ class Admin::OrdersController < Admin::BaseController
   def load_order
     return if @order = Order.find_by(id: params[:id])
 
-    flash[:danger] = 'Order not found'
+    flash[:danger] = t('admin.order.not_found')
     redirect_to admin_orders_path
   end
 
   def update_status_order
     @order.send("#{params[:status]}!")
-    flash[:success] = "Update status #{params[:status]} success"
+    flash[:success] = t('admin.order.update_status_success', status: "#{params[:status]}")
   rescue StandardError
-    flash[:danger] = "Update status failed"
+    flash[:danger] = t('admin.order.update_status_failed')
   ensure
     redirect_to admin_orders_path
   end

@@ -1,7 +1,7 @@
 <%= form_for @type, url: yield(:url) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="form-group">
-    <%= f.text_field :name, placeholder: "Name" +" (*)", class: "form-control" %>
+    <%= f.text_field :name, placeholder: t('admin.type.name'), class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.submit yield(:button), class: "btn btn-info form-control" %>
