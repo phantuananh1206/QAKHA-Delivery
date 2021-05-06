@@ -10,20 +10,20 @@
   <td><%= voucher.partner_name %></td>
   <td>
     <% if voucher.not_activated? %>
-      <%= link_to 'Active voucher', admin_voucher_status_path(id: voucher.id, status: :effective),
-                                    method: :patch,
-                                    remote: true,
-                                    class: "btn btn-secondary glyphicon glyphicon-lock" %>
+      <%= link_to t('admin.voucher.activate_voucher'), admin_voucher_status_path(id: voucher.id, status: :effective),
+                                                       method: :patch,
+                                                       remote: true,
+                                                       class: "btn btn-secondary glyphicon glyphicon-lock" %>
     <% elsif voucher.effective? %>
-      <%= link_to 'Disable voucher', admin_voucher_status_path(id: voucher.id, status: :void),
-                                     method: :patch,
-                                     remote: true,
-                                     class: "btn btn-secondary glyphicon glyphicon-ok" %>
+      <%= link_to t('admin.voucher.disable_voucher'), admin_voucher_status_path(id: voucher.id, status: :void),
+                                                      method: :patch,
+                                                      remote: true,
+                                                      class: "btn btn-secondary glyphicon glyphicon-ok" %>
     <% elsif voucher.void? %>
-      <%= link_to 'Enable voucher', admin_voucher_status_path(id: voucher.id, status: :effective),
-                                    method: :patch,
-                                    remote: true,
-                                    class: "btn btn-secondary glyphicon glyphicon-ok" %>
+      <%= link_to t('admin.voucher.enable_voucher'), admin_voucher_status_path(id: voucher.id, status: :effective),
+                                                     method: :patch,
+                                                     remote: true,
+                                                     class: "btn btn-secondary glyphicon glyphicon-ok" %>
     <% end %>
   </td>
   <td>

@@ -1,37 +1,37 @@
 <%= form_for @partner, url: yield(:url) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="form-group">
-    <%= f.text_field :name, placeholder: "Name" +" (*)", class: "form-control" %>
+    <%= f.text_field :name, placeholder: t('admin.partner.name'), class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.email_field :email, placeholder: "Email" +" (*)", class: "form-control" %>
+    <%= f.email_field :email, placeholder: t('admin.partner.email'), class: "form-control", disabled: true %>
   </div>
   <div class="form-group">
-    <%= f.text_field :address, placeholder: "Address", class: "form-control" %>
+    <%= f.text_field :address, placeholder: t('admin.partner.address'), class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.text_field :phone_number, placeholder: "Phone number" +" (*)", class: "form-control" %>
+    <%= f.text_field :phone_number, placeholder: t('admin.partner.phone_number'), class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.password_field :password, placeholder: "Password" +" (*)", class: "form-control" %>
+    <%= f.password_field :password, placeholder: t('admin.partner.password'), class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.password_field :password_confirmation, placeholder: "Password confirmation" +" (*)", class: "form-control" %>
+    <%= f.password_field :password_confirmation, placeholder: t('admin.partner.password_confirmation'), class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :time_open %>
+    <%= f.label t('admin.partner.time_open') %>
     <%= f.time_field :time_open, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :time_close %>
+    <%= f.label t('admin.partner.time_close') %>
     <%= f.time_field :time_close, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :city_id %>
+    <%= f.label t('admin.partner.city_name') %>
     <%= f.collection_select(:city_id, @cities, :id, :name) %>
   </div>
   <div class="form-group">
-    <%= f.label :type_id %>
+    <%= f.label t('admin.partner.type_name') %>
     <%= f.collection_select(:type_id, @types, :id, :name) %>
   </div>
   <div class="form-group">

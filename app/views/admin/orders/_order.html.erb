@@ -19,14 +19,14 @@
   </td>
   <td>
     <% if order.shipping? %>
-      <%= link_to 'Complete order', admin_order_path(id: order.id, status: :complete),
-                                    method: :patch,
-                                    remote: true,
-                                    class: "btn btn-primary glyphicon glyphicon-ok" %>
-      <%= link_to 'Cancel order', admin_order_path(id: order.id, status: :cancel),
-                                  method: :patch,
-                                  remote: true,
-                                  class: "btn btn-secondary glyphicon glyphicon-remove" %>
+      <%= link_to t('admin.order.complete_order'), admin_order_path(id: order.id, status: :complete),
+                                                   method: :patch,
+                                                   remote: true,
+                                                   class: "btn btn-primary glyphicon glyphicon-ok" %>
+      <%= link_to t('admin.order.cancel_order'), admin_order_path(id: order.id, status: :cancel),
+                                                 method: :patch,
+                                                 remote: true,
+                                                 class: "btn btn-secondary glyphicon glyphicon-remove" %>
     <% end %>
   </td>
 </tr>

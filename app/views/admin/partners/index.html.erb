@@ -1,8 +1,8 @@
-<% provide(:title, 'partners') %>
+<% provide(:title, t('admin.partner.title')) %>
 <div class="p-4">
-  <h1><%= "Management partners" %></h1>
-  <h3><%= "Total of partners" %>: <%= @partners.total_count %></h3>
-  <%= link_to "Export list partners to excel", export_admin_partners_path(format: :xls) %>
+  <h1><%= t('admin.partner.partner_management') %></h1>
+  <h3><%= t('admin.partner.total_of_partners') %>: <%= @partners.total_count %></h3>
+  <%= link_to t('admin.partner.export'), export_admin_partners_path(format: :xls) %>
   <br>
   <%= search_form_for @search, url: admin_partners_path do |f|%>
     <%= f.condition_fields do |c| %>
@@ -14,26 +14,26 @@
         <%= v.text_field :value %>
       <% end %>
     <% end %>
-    <%= f.submit 'Search', class: "btn btn-outline-info" %>
+    <%= f.submit t('admin.partner.search'), class: "btn btn-outline-info" %>
   <% end %>
   <br>
-  <%= link_to " New partner", new_admin_partner_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+  <%= link_to t('admin.partner.new_partner'), new_admin_partner_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
   <table class="table table-striped track_tbl">
     <thead>
       <tr>
-        <th><%= sort_link(@search, :id, 'ID') %></th>
-        <th><%= "Image" %></th>
-        <th><%= sort_link(@search, :name, 'Name') %></th>
-        <th><%= sort_link(@search, :email, 'Email') %></th>
-        <th><%= "Address" %></th>
-        <th><%= "Phone number" %></th>
-        <th><%= "Time open" %></th>
-        <th><%= "Time close" %></th>
-        <th><%= sort_link(@search, :status, 'Status') %></th>
-        <th><%= "Latitude" %></th>
-        <th><%= "Longitude" %></th>
-        <th><%= "Management status" %></th>
-        <th><%= "Control" %></th>
+        <th><%= sort_link(@search, :id, t('admin.partner.infor.id')) %></th>
+        <th><%= t('admin.partner.infor.image') %></th>
+        <th><%= sort_link(@search, :name, t('admin.partner.infor.name')) %></th>
+        <th><%= sort_link(@search, :email, t('admin.partner.infor.email')) %></th>
+        <th><%= t('admin.partner.infor.address') %></th>
+        <th><%= t('admin.partner.infor.phone_number') %></th>
+        <th><%= t('admin.partner.infor.time_open') %></th>
+        <th><%= t('admin.partner.infor.time_close') %></th>
+        <th><%= sort_link(@search, :status, t('admin.partner.infor.status')) %></th>
+        <th><%= t('admin.partner.infor.latitude') %></th>
+        <th><%= t('admin.partner.infor.longitude') %></th>
+        <th><%= t('admin.partner.infor.status_management') %></th>
+        <th><%= t('admin.partner.infor.control') %></th>
       </tr>
     </thead>
     <tbody id="partners">

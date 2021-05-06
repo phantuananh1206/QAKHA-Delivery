@@ -115,7 +115,7 @@ class Api::V1::OrdersController < Api::V1::ApplicationController
     params.permit(:name, :phone_number, :address)
           .merge(subtotal: total_price_cart, discount: $current_voucher[:discount],
                  shipping_fee: params[:shipping_fee].to_f, total: total_order,
-                 type_checkout: params[:type_checkout].to_i,
+                 type_checkout: Order.type_checkouts[params[:type_checkout]],
                  driver_id: find_driver_nearest['id'], voucher_id: $current_voucher[:id],
                  partner_id: @partner.id)
   end

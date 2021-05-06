@@ -16,29 +16,29 @@ class Admin::CategoriesController < Admin::BaseController
   def create
     @category = Category.new(category_params)
     if @category.save
-      flash[:success] = 'Create category success'
+      flash[:success] = t('admin.category.create_success')
       redirect_to admin_categories_path
     else
-      flash.now[:danger] = 'Create category failed'
+      flash.now[:danger] = t('admin.category.create_failed')
       render :new
     end
   end
 
   def update
     if @category.update(category_params)
-      flash[:success] = 'Update category success'
+      flash[:success] = t('admin.category.update_success')
       redirect_to admin_categories_path
     else
-      flash.now[:danger] = 'Update category failed'
+      flash.now[:danger] = t('admin.category.update_failed')
       render :edit
     end
   end
 
   def destroy
     if @category.destroy
-      flash[:success] = 'Delete category success'
+      flash[:success] = t('admin.category.delete_success')
     else
-      flash[:danger] = 'Delete category failed'
+      flash[:danger] = t('admin.category.delete_failed')
     end
     redirect_to admin_categories_path
   end
@@ -59,7 +59,7 @@ class Admin::CategoriesController < Admin::BaseController
   def load_category
     return if @category = Category.find_by(id: params[:id])
 
-    flash[:danger] = 'Category not found'
+    flash[:danger] = t('admin.category.not_found')
     redirect_to admin_categories_path
   end
 

@@ -16,29 +16,29 @@ class Admin::AddressesController < Admin::BaseController
   def create
     @address = Address.new(address_params)
     if @address.save
-      flash[:success] = 'Create address success'
+      flash[:success] = t('admin.address.create_success')
       redirect_to admin_addresses_path
     else
-      flash.now[:danger] = 'Create address failed'
+      flash.now[:danger] = t('admin.address.create_failed')
       render :new
     end
   end
 
   def update
     if @address.update(address_params)
-      flash[:success] = 'Update address success'
+      flash[:success] = t('admin.address.update_success')
       redirect_to admin_addresses_path
     else
-      flash.now[:danger] = 'Update address failed'
+      flash.now[:danger] = t('admin.address.update_failed')
       render :edit
     end
   end
 
   def destroy
     if @address.destroy
-      flash[:success] = 'Delete address success'
+      flash[:success] = t('admin.address.delete_success')
     else
-      flash[:danger] = 'Delete address failed'
+      flash[:danger] = t('admin.address.delete_failed')
     end
     redirect_to admin_addresses_path
   end
@@ -59,7 +59,7 @@ class Admin::AddressesController < Admin::BaseController
   def load_address
     return if @address = Address.find_by(id: params[:id])
 
-    flash[:danger] = 'address not found'
+    flash[:danger] = t('admin.address.not_found')
     redirect_to admin_addresses_path
   end
 

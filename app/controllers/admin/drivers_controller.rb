@@ -15,10 +15,10 @@ class Admin::DriversController < Admin::BaseController
   def create
     @driver = Driver.new(driver_params)
     if @driver.save
-      flash[:success] = 'Create driver success'
+      flash[:success] = t('admin.driver.create_success')
       redirect_to admin_drivers_path
     else
-      flash.now[:danger] = 'Create driver failed'
+      flash.now[:danger] = t('admin.driver.create_failed')
       render :new
     end
   end
@@ -29,19 +29,19 @@ class Admin::DriversController < Admin::BaseController
       params[:driver].delete(:password_confirmation)
     end
     if @driver.update(driver_params)
-      flash[:success] = 'Update driver success'
+      flash[:success] = t('admin.driver.update_success')
       redirect_to admin_drivers_path
     else
-      flash.now[:danger] = 'Update driver failed'
+      flash.now[:danger] = t('admin.driver.update_failed')
       render :edit
     end
   end
 
   def destroy
     if @driver.destroy
-      flash[:success] = 'Delete driver success'
+      flash[:success] = t('admin.driver.delete_success')
     else
-      flash[:danger] = 'Delete driver failed'
+      flash[:danger] = t('admin.driver.delete_failed')
     end
     redirect_to admin_drivers_path
   end
@@ -68,15 +68,15 @@ class Admin::DriversController < Admin::BaseController
   def load_driver
     return if @driver = Driver.find_by(id: params[:id])
 
-    flash[:danger] = 'Driver not found'
+    flash[:danger] = t('admin.driver.not_found')
     redirect_to admin_drivers_path
   end
 
   def update_status_driver
     @driver.send("#{params[:status]}!")
-    flash[:success] = "Update status #{params[:status]} success"
+    flash[:success] = t('admin.driver.update_status_success', status: "#{params[:status]}")
   rescue StandardError
-    flash[:danger] = "Update status failed"
+  flash[:danger] = t('admin.driver.update_status_failed')
   ensure
     redirect_to admin_drivers_path
   end
