@@ -2,7 +2,6 @@
 <div class="p-4">
   <h1><%= t('admin.category.category_management') %></h1>
   <h3><%= t('admin.category.total_of_categories') %>: <%= @categories.total_count %></h3>
-  <%= link_to t('admin.category.export'), export_admin_categories_path(format: :xls) %>
   <br>
   <%= search_form_for @search, url: admin_categories_path do |f|%>
     <%= f.condition_fields do |c| %>
@@ -17,9 +16,13 @@
     <%= f.submit t('admin.category.search'), class: "btn btn-outline-info" %>
   <% end %>
   <br>
-  <%= link_to t('admin.category.new_category'), new_admin_category_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
-  <table class="table table-striped track_tbl">
-    <thead>
+  <div class="btn-custom">
+    <%= link_to t('admin.category.new_category'), new_admin_category_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+    <%= link_to t('admin.category.export'), export_admin_categories_path(format: :xls), class: "btn btn-info btn-export" %>
+  </div>
+
+  <table class="table table-striped track_tbl table-bordered">
+    <thead class="text-center">
       <tr>
         <th><%= sort_link(@search, :id, t('admin.category.infor.id')) %></th>
         <th><%= sort_link(@search, :name, t('admin.category.infor.name_category')) %></th>

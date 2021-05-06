@@ -1,4 +1,4 @@
-<tr>
+<tr class="text-center">
   <td><%= voucher.id %></td>
   <td><%= link_to voucher.code, "#" %></td>
   <td><%= number_to_currency_vnd voucher.discount %></td>
@@ -13,10 +13,10 @@
     <%= link_to "", partners_voucher_status_path(voucher.id, status: :void), method: :patch, remote: true, class:"" if (voucher.void? && (Time.zone.now >= voucher.expiry_date) ) %>
   </td>
 
-  <td>
-    <span><%= link_to t(".edit"), edit_partners_voucher_path(voucher) ,
+  <td class="control-custom">
+    <span><%= link_to "", edit_partners_voucher_path(voucher) ,
     class: "btn btn-success glyphicon glyphicon-edit" %></span>
-    <span><%= link_to t(".delete"), partners_voucher_path(voucher),
+    <span><%= link_to "", partners_voucher_path(voucher),
                                     data: { confirm: 'Are you sure you want to delete?' },
                                     method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
   </td>

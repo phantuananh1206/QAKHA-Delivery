@@ -1,21 +1,22 @@
-<tr>
+<tr class="text-center">
   <td class="admin_product_images">
     <%= image_tag product.image.url.to_s, class: "img-product"%>
   </td>
   <td><%= link_to product.name, "#" %></td>
   <td><%= number_to_currency_vnd product.price %></td>
-  <td><%= product.category_name %></td>
+  <td ><%= product.category_name %></td>
   <td><%= product.quantity_sold %></td>
+  <td><%= product.description %></td>
 
   <td >
     <%= link_to "", partners_product_status_path(product.id, status: :out_of_stock), method: :patch, remote: true, class:"play active" if product.in_stock? %>
     <%= link_to "", partners_product_status_path(product.id, status: :in_stock), method: :patch, remote: true, class:"play" if product.out_of_stock? %>
   </td>
 
-  <td>
-    <span><%= link_to t(".edit"), edit_partners_product_path(product),
-                                  class: "btn btn-success glyphicon glyphicon-edit" %></span>
-    <span><%= link_to t(".delete"), partners_product_path(product),
+  <td class="control-custom">
+    <span><%= link_to "", edit_partners_product_path(product),
+                                  class: "btn btn-success glyphicon glyphicon-edit control-custom" %></span>
+    <span><%= link_to "", partners_product_path(product),
                                     data: { confirm: 'Are you sure you want to delete?' },
                                     method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
   </td>

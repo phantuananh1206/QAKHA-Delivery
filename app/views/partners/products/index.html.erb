@@ -14,14 +14,15 @@
     <%= f.submit 'Search', class: "btn btn-outline-info" %>
   <% end %>
   <%= link_to "New", new_partners_product_path , class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
-  <table class="table table-striped">
+  <table class="table table-striped track_tbl table-bordered">
     <thead>
-      <tr>
+      <tr class="text-center">
         <th><%= "Image" %></th>
         <th><%= sort_link(@search, :name,"Name of product") %></th>
         <th><%= sort_link(@search, :price, "Price") %></th>
         <th><%= sort_link(@search, :category_id, "Category name") %></th>
         <th><%= sort_link(@search, :quantity_sold,"Quantity sold") %></th>
+        <th><%= sort_link(@search, :description, "Description") %></th>
 
         <th><%= "Out of stock" %></th>
         <th><%= "Control" %></th>

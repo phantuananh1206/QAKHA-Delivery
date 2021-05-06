@@ -1,4 +1,4 @@
-<tr>
+<tr class="text-center">
   <td><%= voucher.id %></td>
   <td><%= voucher.code %></td>
   <td><%= voucher.discount %></td>
@@ -26,11 +26,11 @@
                                                      class: "btn btn-secondary glyphicon glyphicon-ok" %>
     <% end %>
   </td>
-  <td>
-    <span><%= link_to "Edit", edit_admin_voucher_path(voucher),
+  <td class="control-custom">
+    <span><%= link_to "", edit_admin_voucher_path(voucher),
                               class: "btn btn-success glyphicon glyphicon-edit" %></span>
-    <span><%= link_to "Delete", admin_voucher_path(voucher),
-                                data: { confirm: 'Are you sure you want to delete?' },
+    <span><%= link_to "", admin_voucher_path(voucher),
+                                data: { confirm: t('admin.control.confirm_delete') },
                                 method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
   </td>
 </tr>

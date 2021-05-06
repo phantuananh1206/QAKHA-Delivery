@@ -2,7 +2,6 @@
 <div class="p-4">
   <h1><%= t('admin.type.type_management') %></h1>
   <h3><%= t('admin.type.total_of_types') %>: <%= @types.total_count %></h3>
-  <%= link_to t('admin.type.export'), export_admin_types_path(format: :xls) %>
   <br>
   <%= search_form_for @search, url: admin_types_path do |f|%>
     <%= f.condition_fields do |c| %>
@@ -17,9 +16,12 @@
     <%= f.submit t('admin.type.search'), class: "btn btn-outline-info" %>
   <% end %>
   <br>
-  <%= link_to t('admin.type.new_type'), new_admin_type_path, class: "btn btn-info glyphicon glyphicon-plus" %>
-  <table class="table table-striped track_tbl">
-    <thead>
+  <div class="btn-custom">
+    <%= link_to t('admin.type.new_type'), new_admin_type_path, class: "btn btn-info glyphicon glyphicon-plus" %>
+    <%= link_to t('admin.type.export'), export_admin_types_path(format: :xls) %>
+  </div>
+  <table class="table table-striped track_tbl table-bordered">
+    <thead class="text-center">
       <tr>
         <th><%= sort_link(@search, :id, t('admin.type.infor.id')) %></th>
         <th><%= sort_link(@search, :name, t('admin.type.infor.name')) %></th>
