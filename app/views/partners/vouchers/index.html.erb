@@ -14,8 +14,8 @@
     <%= f.submit 'Search', class: "btn btn-outline-info" %>
   <% end %>
   <%= link_to "New", new_partners_voucher_path , class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
-  <table class="table table-striped">
-    <thead>
+  <table class="table table-striped track-tbl table-bordered">
+    <thead class="text-center">
       <tr>
         <th><%= "No" %></th>
         <th><%= sort_link(@search, :code,"Code of voucher") %></th>

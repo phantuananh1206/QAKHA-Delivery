@@ -5,6 +5,8 @@ en:
       - :month
       - :year
   admin:
+    cotrol:
+      confirm_delete: 'Are you sure you want to delete?'
     address:
       create_success: 'Create address success'
       create_failed: 'Create address failed'
@@ -15,7 +17,6 @@ en:
       not_found: 'Address not found'
       edit: 'Edit'
       delete: 'Delete'
-      confirm_delete: 'Are you sure you want to delete?'
       name: 'Name (*)'
       latitude: 'Latitude'
       longitude: 'Longitude'
@@ -51,7 +52,6 @@ en:
       not_found: 'Category not found'
       edit: 'Edit'
       delete: 'Delete'
-      confirm_delete: 'Are you sure you want to delete?'
       name: 'Name (*)'
       edit_category: 'Edit category'
       title: 'Categories'

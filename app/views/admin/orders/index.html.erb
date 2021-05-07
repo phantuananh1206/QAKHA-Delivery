@@ -2,7 +2,6 @@
 <div class="p-4">
   <h1><%= t('admin.order.order_management') %></h1>
   <h3><%= t('admin.order.total_of_orders') %>: <%= @orders.total_count %></h3>
-  <%= link_to t('admin.order.export'), export_admin_orders_path(format: :xls) %>
   <br>
   <%= search_form_for @search, url: admin_orders_path do |f|%>
     <%= f.condition_fields do |c| %>
@@ -17,8 +16,11 @@
     <%= f.submit t('admin.order.search'), class: "btn btn-outline-info" %>
   <% end %>
   <br>
-  <table class="table table-striped track_tbl">
-    <thead>
+  <div class="btn-custom">
+    <%= link_to t('admin.order.export'), export_admin_orders_path(format: :xls) %>
+  </div>
+  <table class="table table-striped track_tbl table-bordered">
+    <thead class="text-center">
       <tr>
         <th><%= sort_link(@search, :id, t('admin.order.id')) %></th>
         <th><%= sort_link(@search, :name, t('admin.order.name')) %></th>

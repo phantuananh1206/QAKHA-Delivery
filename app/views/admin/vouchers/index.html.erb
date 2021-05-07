@@ -2,7 +2,6 @@
 <div class="p-4">
   <h1><%= t('admin.voucher.voucher_management') %></h1>
   <h3><%= t('admin.voucher.total_of_vouchers') %>: <%= @vouchers.total_count %></h3>
-  <%= link_to t('admin.voucher.export'), export_admin_vouchers_path(format: :xls) %>
   <br>
   <%= search_form_for @search, url: admin_vouchers_path do |f|%>
     <%= f.condition_fields do |c| %>
@@ -16,10 +15,13 @@
     <% end %>
     <%= f.submit t('admin.voucher.search'), class: "btn btn-outline-info" %>
   <% end %>
-  <br>
-  <%= link_to t('admin.voucher.new_voucher'), new_admin_voucher_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
-  <table class="table table-striped track_tbl">
-    <thead>
+  <br/>
+  <div class="btn-custom">
+    <%= link_to t('admin.voucher.new_voucher'), new_admin_voucher_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+    <%= link_to t('admin.voucher.export'), export_admin_vouchers_path(format: :xls) %>
+  </div>
+  <table class="table table-striped track_tbl table-bordered">
+    <thead class="text-center">
       <tr>
         <th><%= sort_link(@search, :id, t('admin.voucher.infor.id')) %></th>
         <th><%= sort_link(@search, :code, t('admin.voucher.infor.code')) %></th>

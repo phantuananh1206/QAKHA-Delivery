@@ -14,7 +14,6 @@ class Partners::VouchersController < Partners::PartnersController
 
   def create
     @voucher = Voucher.new voucher_params.merge(partner_id: current_partner.id)
-    # byebug
     if @voucher.save
       flash[:success] = "Creat new voucher successful"
       redirect_to partners_vouchers_path
@@ -43,7 +42,6 @@ class Partners::VouchersController < Partners::PartnersController
   end
 
   def update_status
-    # byebug
     @voucher.send("#{params[:status]}!")
     flash[:success] = "Update status #{params[:status]} success"
   rescue StandardError

@@ -2,7 +2,6 @@
 <div class="p-4">
   <h1><%= t('admin.user.user_management') %></h1>
   <h3><%= t('admin.user.total_of_users') %>: <%= @users.total_count %></h3>
-  <%= link_to t('admin.user.export'), export_admin_users_path(format: :xls) %>
   <br>
   <%= search_form_for @search, url: admin_users_path do |f|%>
     <%= f.condition_fields do |c| %>
@@ -16,10 +15,13 @@
     <% end %>
     <%= f.submit t('admin.user.search'), class: "btn btn-outline-info" %>
   <% end %>
-  <br>
-  <%= link_to t('admin.user.new_user'), new_admin_user_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
-  <table class="table table-striped track_tbl">
-    <thead>
+  <br/>
+  <div class="btn-custom">
+    <%= link_to t('admin.user.new_user'), new_admin_user_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+    <%= link_to t('admin.user.export'), export_admin_users_path(format: :xls) %>
+  </div>
+  <table class="table table-striped track_tbl table-bordered">
+    <thead class="text-center">
       <tr>
         <th><%= sort_link(@search, :id, t('admin.user.infor.id')) %></th>
         <th><%= t('admin.user.infor.image') %></th>

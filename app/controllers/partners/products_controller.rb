@@ -25,7 +25,6 @@ class Partners::ProductsController < Partners::PartnersController
 
   def update
     if @product.update_attributes product_params
-      # byebug
       flash[:success] = "Update product successful"
       redirect_to partners_products_path
     else
@@ -35,7 +34,6 @@ class Partners::ProductsController < Partners::PartnersController
 
   def destroy
     product_ordering = @product.orders.where(status: "shipping")
-    # byebug
     if product_ordering.blank?
       if @product.destroy
         flash[:success] = "Delete product successful"
@@ -49,7 +47,6 @@ class Partners::ProductsController < Partners::PartnersController
   end
 
   def update_status
-    # byebug
     @product.send("#{params[:status]}!")
     flash[:success] = "Update status #{params[:status]} success"
   rescue StandardError

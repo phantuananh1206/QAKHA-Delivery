@@ -1,13 +1,13 @@
-<div class=" border-right " id="sidebar-wrapper">
+<div class=" border-right sidebar-custom" id="sidebar-wrapper">
   <aside>
     <div class="sidebar ">
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="http://via.placeholder.com/160x160" class="rounded-circle" alt="User Image">
+          <%= image_tag current_admin.image.url , class: "rounded-circle" %>
         </div>
         <div class="pull-left info">
-          <p>Admin Dashboard</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <p><%= link_to current_admin.name, admin_root_path, class: "name-custom" %></p>
+          <a href="#"><i class="fa fa-circle text-success"> </i><%= current_admin.role %></a>
         </div>
       </div>
       <ul class="list-sidebar bg-defoult">

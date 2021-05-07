@@ -17,9 +17,12 @@
     <%= f.submit t('admin.driver.search'), class: "btn btn-outline-info" %>
   <% end %>
   <br>
-  <%= link_to t('admin.driver.new_driver'), new_admin_driver_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
-  <table class="table table-striped track_tbl">
-    <thead>
+  <div class="btn-custom">
+    <%= link_to t('admin.driver.new_driver'), new_admin_driver_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+    <%= link_to "Export excel", export_admin_drivers_path(format: :xls), class: "btn btn-info btn-export" %>
+  </div>
+  <table class="table table-striped track_tbl table-bordered">
+    <thead class="text-center">
       <tr>
         <th><%= sort_link(@search, :id, t('admin.driver.infor.id')) %></th>
         <th><%= t('admin.driver.infor.image') %></th>

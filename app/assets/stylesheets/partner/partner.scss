@@ -318,23 +318,26 @@ $black_color: black;
   padding: 0 !important;
 }
 
-.layout-custom {
-  background-color: rgba(251, 231, 231, 0.685);
-  height: 100vh;
-}
+// .layout-custom {
+//   // background-color: rgba(251, 231, 231, 0.685);
+//   // height: 100vh;
+//   // width: 100vh;
+// }
 
 .login-custom-form {
-  width: 1000px;
-  height: 400px;
+  width: 1200px;
+  height: 380px;
   font-weight: 600;
-  background-color: rgb(236, 225, 225);
+  background-color: rgba(245, 245, 245, 0.979);
   display: block;
   justify-content: center;
-  padding: 20px !important;
-  top: 80px !important;
-  left: 55vh;
+  padding: 30px !important;
+  top: calc(100vh - 80vh) !important;
+  left: calc(100vh - 40vh);
+  align-items: center;
   border-radius: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.22);
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.22);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.514);
 }
 
 .title-login {
@@ -345,12 +348,17 @@ $black_color: black;
 }
 
 .btn-login-custom {
-  width: 120px;
-  height: 40px;
+  width: 140px;
+  height: 50px;
   background-color: rgb(194, 75, 75);
   border-style: none;
   float: right;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1.4em;
+
 }
+
 .btn-login-custom:hover {
   color: #fff;
   background-color: rgb(104, 33, 33);
@@ -462,4 +470,18 @@ $transition-time:0.3s;
 
 .order-detail-custom {
   padding: 0 10px;
+}
+
+.control-custom{
+  display: flex;
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.sidebar-custom {
+  height: 100vh;
+  background-color: #111;
 }

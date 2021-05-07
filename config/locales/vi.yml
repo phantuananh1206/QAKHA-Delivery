@@ -5,6 +5,8 @@ vi:
       - :month
       - :year
   admin:
+    control:
+      confirm_delete: 'Bạn có chắc chắn muốn xóa không?'
     address:
       create_success: 'Tạo địa chỉ thành công'
       create_failed: 'Tạo địa chỉ thất bại'
@@ -13,7 +15,6 @@ vi:
       delete_success: 'Xóa địa chỉ thành công'
       delete_failed: 'Xóa địa chỉ thất bại'
       not_found: 'Không tìm thấy địa chỉ'
-      confirm_delete: 'Bạn có chắc chắn muốn xóa không?'
       name: 'Tên (*)'
       latitude: 'Vĩ độ'
       longitude: 'Kinh độ'
@@ -47,7 +48,6 @@ vi:
       delete_success: 'Xóa danh mục thành công'
       delete_failed: 'Xóa danh mục thất bại'
       not_found: 'Không tìm thấy danh mục'
-      confirm_delete: 'Bạn có chắc chắn muốn xóa không?'
       name: 'Tên (*)'
       edit_category: 'Chỉnh sửa danh mục'
       title: 'Danh mục'

@@ -15,8 +15,8 @@
   <% end %>
   <br>
   <%= link_to "New", new_partners_category_path , class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
-  <table class="table table-striped track_tbl">
-    <thead>
+  <table class="table table-striped track_tbl table-bordered">
+    <thead class="text-center">
       <tr>
         <th><%= sort_link(@search, :id, 'ID') %></th>
         <th><%= sort_link(@search, :name, "Name of categories") %></th>
