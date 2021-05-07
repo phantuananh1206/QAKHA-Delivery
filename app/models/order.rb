@@ -9,8 +9,8 @@ class Order < ApplicationRecord
   belongs_to :partner
 
   has_many :feedbacks, dependent: :restrict_with_error
-  has_many :products, through: :order_details
   has_many :order_details, dependent: :restrict_with_error
+  has_many :products, through: :order_details
 
   enum type_checkout: { cash: 0, coins: 1, paypal: 2 }
   enum status: { shipping: 0, completed: 1, canceled: 2 }

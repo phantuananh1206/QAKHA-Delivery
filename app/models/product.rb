@@ -1,11 +1,10 @@
 class Product < ApplicationRecord
   belongs_to :category
-  has_many :orders, through: :order_details
-  has_many :order_details, dependent: :restrict_with_error
-  mount_uploader :image, ImageUploader
   has_many :order_details, dependent: :restrict_with_error
   has_many :orders, through: :order_details
   has_many :carts, dependent: :destroy
+
+  mount_uploader :image, ImageUploader
 
   enum status: { in_stock: 0, out_of_stock: 1 }
 
