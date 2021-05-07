@@ -7,7 +7,6 @@ class Voucher < ApplicationRecord
 
   validates :code, presence: true, uniqueness: true
   validates :discount, presence: true
-  validates :condition, presence: true
   validates :expiry_date, presence: true
   validates :usage_limit, presence: true,
             numericality: {only_integer: true,
@@ -18,6 +17,12 @@ class Voucher < ApplicationRecord
 
   def order_valid_voucher(order_total)
     order_total >= condition &&
+      expiry_date >= Time.zone.now &&
+      usage_limit >= 1
+  end
+
+  def order_valid_voucher_distance(distance)
+    distance <= distance_condition &&
       expiry_date >= Time.zone.now &&
       usage_limit >= 1
   end

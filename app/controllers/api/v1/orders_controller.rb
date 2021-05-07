@@ -8,7 +8,7 @@ class Api::V1::OrdersController < Api::V1::ApplicationController
   before_action :load_voucher, only: :apply_voucher
   before_action :remove_voucher, only: :cancel_voucher
   before_action :current_voucher, except: %i(coins_user index)
-  before_action :find_driver_nearest, only: :create
+  before_action :check_coins_user, :find_driver_nearest, only: :create
 
   def create
     @order = @current_user.orders.new(order_params)
@@ -49,12 +49,33 @@ class Api::V1::OrdersController < Api::V1::ApplicationController
   end
 
   def apply_voucher
-    if @voucher.effective? && @voucher.order_valid_voucher(total_price_cart)
-      $current_voucher = @voucher
-      render json: { voucher: @voucher, subtotal: total_price_cart, total_after_discount: total_after_discount }, status: :ok
+    if params[:distance].blank?
+      if @voucher.effective? && @voucher.order_valid_voucher(total_price_cart)
+        $current_voucher = @voucher
+        render json: { voucher: @voucher, subtotal: total_price_cart, total_after_discount: total_after_discount }, status: :ok
+      else
+        render json: { message: 'Voucher not valid' }, status: :bad_request
+      end
     else
-      render json: { message: 'Voucher not valid' }, status: :bad_request
+      $distance = params[:distance].to_f
+      if @voucher.condition.blank?
+        if @voucher.effective? && @voucher.order_valid_voucher_distance($distance)
+          $current_voucher = @voucher
+          render json: { voucher: @voucher, subtotal: total_price_cart, total_after_discount: total_after_discount }, status: :ok
+        else
+          render json: { message: 'Voucher not valid' }, status: :bad_request
+        end
+      else
+        if @voucher.effective? && @voucher.order_valid_voucher_distance($distance) && @voucher.order_valid_voucher(total_price_cart)
+          $current_voucher = @voucher
+          render json: { voucher: @voucher, subtotal: total_price_cart, total_after_discount: total_after_discount }, status: :ok
+        else
+          render json: { message: 'Voucher not valid' }, status: :bad_request
+        end
+      end
     end
+  rescue StandardError
+    render json: { message: 'Voucher not valid' }, status: :bad_request
   end
 
   def cancel_voucher
@@ -79,7 +100,14 @@ class Api::V1::OrdersController < Api::V1::ApplicationController
   def valid_voucher?
     return unless $current_voucher
 
-    Voucher.find_by(id: $current_voucher.id, partner_id: params[:partner_id].to_i)&.order_valid_voucher(total_price_cart)
+    if $current_voucher.distance_condition.blank?
+      Voucher.find_by(id: $current_voucher.id, partner_id: params[:partner_id].to_i)&.order_valid_voucher(total_price_cart)
+    elsif $current_voucher.condition.blank?
+      Voucher.find_by(id: $current_voucher.id, partner_id: params[:partner_id].to_i)&.order_valid_voucher_distance($distance)
+    elsif $current_voucher.distance_condition.present? && $current_voucher.condition.present?
+      voucher = Voucher.find_by(id: $current_voucher.id, partner_id: params[:partner_id].to_i)
+      return voucher if voucher.order_valid_voucher_distance($distance) && voucher.order_valid_voucher(total_price_cart)
+    end
   end
 
   def load_voucher
@@ -113,10 +141,10 @@ class Api::V1::OrdersController < Api::V1::ApplicationController
 
   def order_params
     params.permit(:name, :phone_number, :address)
-          .merge(subtotal: total_price_cart, discount: $current_voucher[:discount],
+          .merge(subtotal: total_price_cart, discount: params[:discount],
                  shipping_fee: params[:shipping_fee].to_f, total: total_order,
                  type_checkout: Order.type_checkouts[params[:type_checkout]],
-                 driver_id: find_driver_nearest['id'], voucher_id: $current_voucher[:id],
+                 driver_id: find_driver_nearest['id'], voucher_id: params[:voucher_id],
                  partner_id: @partner.id)
   end
 
@@ -157,8 +185,8 @@ class Api::V1::OrdersController < Api::V1::ApplicationController
         product = @products.find { |product| product.id == cart.product_id }
         if product
           @order.order_details.new(product_id: product.id,
-                                   quantity: cart.quantity,
-                                   price: product.price)
+                                  quantity: cart.quantity,
+                                  price: product.price)
         else
           @carts.delete(cart.id)
         end
@@ -207,5 +235,13 @@ class Api::V1::OrdersController < Api::V1::ApplicationController
     end
   rescue
     render json: { message: 'Sorry, the drivers are busy, please try again later.'}, status: :not_found
+  end
+
+  def check_coins_user
+    if params[:type_checkout] == 'coins'
+      return if @current_user.coins >= total_after_discount
+
+      render json: { message: 'The coin in the current wallet is not enough to pay the order' }, status: :bad_request
+    end
   end
 end

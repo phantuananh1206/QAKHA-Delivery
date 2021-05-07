@@ -133,7 +133,6 @@ Category.create!(
     name: "CƠM GÀ XÉ",
     description: "Gà ta luộc xé thơm ngon. Kèm dưa cà muối.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618160194/Partner1/gaxe_zikn1u.jpg")
 end
@@ -144,7 +143,6 @@ end
     name: "CƠM ĐÙI GÀ XỐI MỠ",
     description: "Gà ta xối mỡ giòn tan, thơm ngon. Kèm dưa rau.",
     price: 40000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618160724/Partner1/duiga_nagbfo.jpg")
 end
@@ -155,7 +153,6 @@ end
     name: "CƠM SƯỜN + TRỨNG ỐP LA",
     description: "Sườn non nướng, trứng ốp la nóng. Kèm rau quả tạo nên buổi cơm thật ngon miệng.",
     price: 40000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618161305/Partner1/suon_d7lqqf.jpg")
 end
@@ -166,7 +163,6 @@ end
     name: "CƠM THỊT XÍU MẠI",
     description: "Cơm nóng cùng với thịt heo 3 chỉ xíu mềm, thơm. Ăn kèm rau quả cho thêm phần hấp dẫn.",
     price: 35000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618160146/Partner1/thitxaxiu_fbbd7b.jpg")
 end
@@ -177,7 +173,6 @@ end
     name: "CƠM THÊM",
     description: "Cơm nóng cùng với thịt heo 3 chỉ xíu mềm, thơm. Ăn kèm rau quả cho thêm phần hấp dẫn.",
     price: 5000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618160182/Partner1/comthem_sjcygg.jpg")
 end
@@ -188,7 +183,6 @@ end
     name: "NƯỚC NGỌT COCA",
     description: "Thêm hương vị giải khác coca cho bữa cơm thêm đậm đà và hấp dẫn.",
     price: 15000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618161677/Partner1/cocaa_a3hgzm.jpg")
 end
@@ -199,7 +193,6 @@ end
     name: "NƯỚC CAM ÉP",
     description: "Nạp thêm một chút vitamin C cho cơ thể được tươi mát nha.",
     price: 15000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618161820/Partner1/camep_l8duoc.jpg")
 end
@@ -210,7 +203,6 @@ end
     name: "NƯỚC MÍA",
     description: "Mía tự nhiên nguyên chất, thơm ngon, bổ dưỡng. Nên dùng kèm với cơm để tăng thêm độ ngon của bữa cơm.",
     price: 5000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618161686/Partner1/mia_sny1tr.jpg")
 end
@@ -262,7 +254,6 @@ Category.create!(
     name: "Cơm sườn nướng",
     description: "1 lát sườn + 1 ốp la (hoặc 1 tàu hủ nhồi thịt, ram chả, cà tím, chả cá, tôm rim trứng cút) + món xào + xà lách lồng, dưa leo + canh.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618164422/Partner2/com1989_lnrvef.jpg")
 end
@@ -272,7 +263,6 @@ end
     name: "Cơm cá kho tộ",
     description: "1 phần cá kho tộ+1 ốp la ( hoặc 1 tàu hủ nhồi thịt, ram chả,cà tím, chả cá , tôm rim trứng cút),món xào,xà lách lồng,dưa leo,canh",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618164422/Partner2/com1989_lnrvef.jpg")
 end
@@ -282,7 +272,6 @@ end
     name: "Cơm gà xé",
     description: "Sử dụng nước luộc gà để nấu cơm siêu ngon, gà thả vườn thịt dai ngọt , bóp trộn cùng rau răm hành tây",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618164764/Partner2/gaxe_zhhpvd.jpg")
 end
@@ -292,7 +281,6 @@ end
     name: "Cơm thịt xíu",
     description: "Thịt ba chỉ xíu giòn + ốp la + rau xào + canh.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618164927/Partner2/xaxiu_hk5xpr.jpg")
 end
@@ -302,7 +290,6 @@ end
     name: "Cơm đùi gà quay",
     description: "Đùi gà chiên + opla( hoặc tàu hủ nhồi thịt, ram chả, cà tím v.v) + món xào + canh.",
     price: 35000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618165149/Partner2/gatrung_mmbbec.jpg")
 end
@@ -312,7 +299,6 @@ end
     name: "Cơm thịt heo kho tàu",
     description: "Thịt heo kho trứng kèm( tàu hủ nhồi thịt, ram chả, cà tím v.v) + món xào + canh.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618160146/Partner1/thitkho_mm0cyq.jpg")
 end
@@ -322,7 +308,6 @@ end
     name: "Cơm thêm",
     description: "1 Chén cơm thêm.",
     price: 5000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618160182/Partner1/comthem_sjcygg.jpg")
 end
@@ -332,7 +317,6 @@ end
     name: "Thịt heo kho trứng thêm",
     description: "1 Chén thịt.",
     price: 10000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618160146/Partner1/thitkho_mm0cyq.jpg")
 end
@@ -342,7 +326,6 @@ end
     name: "Canh khổ qua nhồi thịt",
     description: "1 tô canh ổ qua gồm 3 cục thơm ngon.",
     price: 10000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618165670/Partner2/khoqua_kqupvd.jpg")
 end
@@ -352,7 +335,6 @@ end
     name: "Đậu khuôn nhồi thịt",
     description: "Đậu khuôn nhồi thịt thơm ngon, hấp dẫn, đậm đà.",
     price: 7000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618165671/Partner2/daukhuon_z5azec.jpg")
 end
@@ -362,7 +344,6 @@ end
     name: "Sườn nướng thêm",
     description: "Sườn non nướng gia vị thấm đậm đà, thơm ngon.",
     price: 20000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618164404/Partner2/suonthem_j0fdni.jpg")
 end
@@ -372,7 +353,6 @@ end
     name: "Cà tím",
     description: "Cà tím chiên dầm mắm tỏi.",
     price: 5000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618165706/Partner2/catim_lv19gc.jpg")
 end
@@ -382,7 +362,6 @@ end
     name: "Cá kho tộ thêm",
     description: "1 cá kho tộ (tùy cá mỗi ngày).",
     price: 12000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618164300/Partner2/ca1989_jsglqw.jpg")
 end
@@ -392,7 +371,6 @@ end
     name: "Combo 2 người",
     description: "Gồm 2 suất cơm (Sườn nướng + trứng ốp la) và (Cá kho tộ + cà tím). Thêm rau xào, canh,.v.v.",
     price: 65000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618166334/Partner2/combo_maofow.gif")
 end
@@ -403,7 +381,6 @@ end
     name: "Combo đặc biệt",
     description: "Gồm 3 suất cơm (Sườn nướng + trứng ốp la) và (Cá kho tộ + cà tím) + gà xé bóp hành tây (Canh khổ qua nhồi thịt). Thêm rau xào, canh,.v.v.",
     price: 99000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618166334/Partner2/combo_maofow.gif")
 end
@@ -413,7 +390,6 @@ end
     name: "Trà bí đao hạt chia nhà làm",
     description: "Trà bí đao hạt chia nhà làm thơm ngon bổ dưỡng có lợi cho sức khoẻ.",
     price: 9000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618166529/Partner2/trabidao_imnesv.jpg")
 end
@@ -423,7 +399,6 @@ end
     name: "Nước chanh dây",
     description: "Nước chanh dây nhà làm thơm ngon bổ dưỡng có lợi cho sức khoẻ.",
     price: 9000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618166528/Partner2/chanhday_gk2j84.jpg")
 end
@@ -433,7 +408,6 @@ end
     name: "Nước nha đam hạt chia",
     description: "Nước nha đam hạt chia nhà làm thơm ngon bổ dưỡng có lợi cho sức khoẻ.",
     price: 9000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618166528/Partner2/chanhday_gk2j84.jpg")
 end
@@ -474,7 +448,6 @@ Category.create!(
     name: "Cơm ba chỉ giòn giòn",
     description: "Thịt ba chỉ quay giòn da, đậm đà thấm vị.",
     price: 25000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618232818/Partner%203/heogionda_mxu6hv.jpg")
 end
@@ -485,7 +458,6 @@ end
     name: "Cơm thố xá xíu",
     description: "Thịt heo xá xíu, đậm đà thấm vị.",
     price: 25000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618160159/Partner1/bokho_zeyvjd.jpg")
 end
@@ -496,7 +468,6 @@ end
     name: "Cơm thố gà xé",
     description: "Thịt gà thả vừa luộc xé bóp hành tây, rau răm đậm đà thơm ngon.",
     price: 25000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618232485/Partner%203/thoga_fvrekj.jpg")
 end
@@ -507,7 +478,6 @@ end
     name: "Cơm thố bò",
     description: "Thịt bò được hầm mềm vớ rau củ đậm đà thơm ngon.",
     price: 25000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618232483/Partner%203/thobo_jlpktz.jpg")
 end
@@ -518,7 +488,6 @@ end
     name: "Cơm thố gà quay",
     description: "Thịt gà thả vườn quay giòn, đậm đà thơm ngon.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618232484/Partner%203/thogaquay_dsxi9s.jpg")
 end
@@ -528,7 +497,6 @@ end
     name: "Cơm thố sườn",
     description: "Thịt sườn kho mềm, đậm đà thơm ngon.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618232486/Partner%203/thoheo_nn8wkt.jpg")
 end
@@ -539,7 +507,6 @@ end
     name: "Cơm Thố xíu Mại Vip",
     description: "Thịt heo xíu mại + trứng ốp la.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618232617/Partner%203/xiumai_jsrvmw.jpg")
 end
@@ -551,7 +518,6 @@ end
     name: "Cơm thêm",
     description: "1 chén cơm thêm.",
     price: 5000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618160182/Partner1/comthem_sjcygg.jpg")
 end
@@ -562,7 +528,6 @@ end
     name: "Cơm chiên dương châu (nhỏ)",
     description: "Cơm chiên dương châu dĩa nhỏ.",
     price: 15000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618160158/Partner1/chienduongchau_yaf3dq.jpg")
 end
@@ -574,7 +539,6 @@ end
     name: "Ba chỉ thêm",
     description: "1 chén ba chỉ thêm.",
     price: 10000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618233438/Partner%203/heobachi_hlee3a.jpg")
 end
@@ -586,7 +550,6 @@ end
     name: "Combo 1 (4 người)",
     description: "2 Cơm thố gà quay, 1 Cơm ba chỉ giòn giòn, 1 Cơm thố bò.",
     price: 95000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618232616/Partner%203/combo1_e8swdr.jpg")
 end
@@ -596,7 +559,6 @@ end
     name: "Combo 3 (6 người)",
     description: "2 Cơm thố gà quay, 2 Cơm thố bò, 2 Cơm thố xá xíu.",
     price: 140000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618232614/Partner%203/combo2_g5bwrq.jpg")
 end
@@ -606,7 +568,6 @@ end
     name: "Combo 2 (5 người)",
     description: "2 Cơm ba chỉ giòn giòn, 2 Cơm thố bò, 1 Cơm thố gà xé.",
     price: 125000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618233690/Partner%203/combo3_svqxlw.jpg")
 end
@@ -650,7 +611,6 @@ Category.create!(
     name: "Cơm sườn nướng sa tế",
     description: "Món ăn phụ thay đổi hằng ngày.",
     price: 35000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618234543/Partner%203/suonvp_ngesdc.jpg")
 end
@@ -661,7 +621,6 @@ end
     name: "Cơm ba chỉ giòn da mắm nước",
     description: "Món ăn phụ thay đổi hằng ngày.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618234517/Partner%203/bachi_bviimt.jpg")
 end
@@ -671,7 +630,6 @@ end
     name: "Cơm ba chỉ rim lá chanh",
     description: "Món ăn phụ thay đổi hằng ngày.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618234801/Partner%203/ba-chi-chien-la-chanh_zi7kdf.jpg")
 end
@@ -681,7 +639,6 @@ end
     name: "Cơm cá chiên mắm xoài",
     description: "Món ăn phụ thay đổi hằng ngày.",
     price: 25000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618234805/Partner%203/camamxoai_ls9i3w.jpg")
 end
@@ -691,7 +648,6 @@ end
     name: "Cơm ếch xào sả ớt",
     description: "Món ăn phụ thay đổi hằng ngày.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618234807/Partner%203/ech_sdg9dp.jpg")
 end
@@ -701,7 +657,6 @@ end
     name: "Cơm gà kho sả ớt",
     description: "Món ăn phụ thay đổi hằng ngày.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618234808/Partner%203/gakho_y3dqo4.jpg")
 end
@@ -711,7 +666,6 @@ end
     name: "Cơm thịt heo kho măng",
     description: "Món ăn phụ thay đổi hằng ngày.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618235097/Partner%203/heomang_bqrbun.jpg")
 end
@@ -721,7 +675,6 @@ end
     name: "Cơm cá sốt cà",
     description: "Món ăn phụ thay đổi hằng ngày.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618235300/Partner%203/ca_sykzr7.jpg")
 end
@@ -731,7 +684,6 @@ end
     name: "Cơm thịt heo luộc",
     description: "Món ăn phụ thay đổi hằng ngày.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618235301/Partner%203/heoluoc_fyo5gp.jpg")
 end
@@ -741,7 +693,6 @@ end
     name: "Cơm mực chiên mắm tỏi ớt",
     description: "Món ăn phụ thay đổi hằng ngày.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618235301/Partner%203/muc_txlqt1.jpg")
 end
@@ -751,7 +702,6 @@ end
     name: "Cơm đậu khuôn độn thịt sốt cà chua",
     description: "Món ăn phụ thay đổi hằng ngày.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618165671/Partner2/daukhuon_z5azec.jpg")
 end
@@ -761,7 +711,6 @@ end
     name: "Cơm cá kho xì dầu",
     description: "Món ăn phụ thay đổi hằng ngày.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618235304/Partner%203/cakho_hs9yzv.jpg")
 end
@@ -771,7 +720,6 @@ end
     name: "Cơm sườn non rim mặn ngọt",
     description: "Món ăn phụ thay đổi hằng ngày.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618235589/Partner%203/suon_jyh8g5.jpg")
 end
@@ -781,7 +729,6 @@ end
     name: "Nước chanh",
     description: "Mát lạnh cho bữa trưa ngon miệng.",
     price: 15000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618235954/Partner%203/nuocchanh_v3cy2l.jpg")
 end
@@ -791,7 +738,6 @@ end
     name: "Nước Cocacola",
     description: "Mát lạnh cho bữa trưa ngon miệng.",
     price: 12000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618235915/Partner%203/cocaa_k4ppye.jpg")
 end
@@ -802,7 +748,6 @@ end
     name: "Nước Sprite",
     description: "Mát lạnh cho bữa trưa ngon miệng.",
     price: 12000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618235917/Partner%203/sprite_poju9r.jpg")
 end
@@ -813,7 +758,6 @@ end
     name: "Trứng ốp la",
     description: "Thêm trứng thêm vị thêm ngon cơm hơn.",
     price: 5000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618236180/Partner%203/opla_ky4h9k.jpg")
 end
@@ -823,7 +767,6 @@ end
     name: "Đậu khuôn nhồi thịt",
     description: "Thêm món, thêm vị, thêm ngon cơm hơn.",
     price: 7000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618165671/Partner2/daukhuon_z5azec.jpg")
 end
@@ -834,7 +777,6 @@ end
     name: "Ba chỉ giòn da",
     description: "Thêm món, thêm vị, thêm ngon cơm hơn.",
     price: 15000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618233438/Partner%203/heobachi_hlee3a.jpg")
 end
@@ -844,7 +786,6 @@ end
     name: "Cơm thêm",
     description: "Thêm cơm để no bụng hơn nè.",
     price: 5000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618160182/Partner1/comthem_sjcygg.jpg")
 end
@@ -884,7 +825,6 @@ Category.create!(
     name: "Cơm gà xối mỡ",
     description: "Ngẫu nhiên đùi hoặc má đùi (Quý khách có thể “ghi chú“ yêu cầu theo ý) ăn kèm canh rong biển. ",
     price: 27000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618156841/comga_fp4iab.jpg")
 end
@@ -895,7 +835,6 @@ end
     name: "Cơm gà xối mỡ - Đùi lớn",
     description: "Đùi lớn hoặc ghép từ đùi + má đùi (đùi lớn cắt đôi) trong trường hợp tại quán HẾT đùi lớn .",
     price: 45000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618236819/Partner1/com-ga-xoi-mo_b5ktsx.jpg")
 end
@@ -906,7 +845,6 @@ end
     name: "Cơm thêm",
     description: "1 chén cơm thêm.",
     price: 5000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618236955/Partner1/themcom_ftixly.jpg")
 end
@@ -917,7 +855,6 @@ end
     name: "Combo 1: 5 cơm gà xối mỡ ( 27k) + 2 cơm thêm",
     description: "Gọi combo ăn cùng nhau để tiện lợi và vui vẻ hơn nhé.",
     price: 140000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618166334/Partner2/combo_maofow.gif")
 end
@@ -927,7 +864,6 @@ end
     name: "Combo 2: 3 Cơm gà xối mỡ - đùi lớn ( 45k ) + 2 cơm thêm",
     description: "Gọi combo ăn cùng nhau để tiện lợi và vui vẻ hơn nhé.",
     price: 140000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618166334/Partner2/combo_maofow.gif")
 end
@@ -937,7 +873,6 @@ end
     name: "Combo 3: 2 cơm gà xối mỡ ( 27k) + 2 Cơm gà xối mỡ - đùi lớn ( 45k )",
     description: "Gọi combo ăn cùng nhau để tiện lợi và vui vẻ hơn nhé.",
     price: 140000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618166334/Partner2/combo_maofow.gif")
 end
@@ -948,7 +883,6 @@ end
     name: "Combo: 7 phần Cơm Gà Xối Mỡ",
     description: "Gọi combo ăn cùng nhau để tiện lợi và vui vẻ hơn nhé.",
     price: 140000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618166334/Partner2/combo_maofow.gif")
 end
@@ -1008,7 +942,6 @@ Category.create!(
     name: "Cacao Nóng Kem Bơ Trứng",
     description: "Chưa bao gồm thạch.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238016/MONEY/cacaotrung_tahd6q.jpg")
 end
@@ -1018,7 +951,6 @@ end
     name: "Trà sữa Olong Kem Sữa Trân Châu Mini",
     description: "Chưa bao gồm thạch.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238015/MONEY/olongmilo_ejtidj.jpg")
 end
@@ -1028,7 +960,6 @@ end
     name: "Cacao Nóng Kem Sữa",
     description: "Chưa bao gồm thạch.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238013/MONEY/cacaokemsua_wzkgxb.jpg")
 end
@@ -1038,7 +969,6 @@ end
     name: "Trà sữa truyền thống (500ml)",
     description: "Chưa bao gồm thạch.",
     price: 50000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238176/MONEY/trasuanuong_zeqixg.jpg")
 end
@@ -1048,7 +978,6 @@ end
     name: "Trà sữa nướng (500ml)",
     description: "Chưa bao gồm thạch.",
     price: 65000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238176/MONEY/trasuanuong_zeqixg.jpg")
 end
@@ -1058,7 +987,6 @@ end
     name: "Trà thái xanh(500ml)",
     description: "Chưa bao gồm thạch.",
     price: 50000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238176/MONEY/trasuanuong_zeqixg.jpg")
 end
@@ -1069,7 +997,6 @@ end
     name: "Trà sữa nướng full thạch",
     description: "Best seller.",
     price: 37000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238364/MONEY/TSFull_dc4azb.jpg")
 end
@@ -1079,7 +1006,6 @@ end
     name: "Milo dầm flan",
     description: "Best seller! Thơm ngon vị béo flan trứng. Hãy thử ngay đi nào.",
     price: 28000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238362/MONEY/milodam_oe4ffi.jpg")
 end
@@ -1089,7 +1015,6 @@ end
     name: "Sữa tươi trân châu đường đen kem bơ trứng",
     description: "Best seller! Thơm ngon vị béo flan trứng. Hãy thử ngay đi nào.",
     price: 38000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238361/MONEY/tckemtrung_jtvlgx.jpg")
 end
@@ -1099,7 +1024,6 @@ end
     name: "Milo dầm đặc biệt (size L)",
     description: "Best seller! Thơm ngon vị béo milo. Hãy thử ngay đi nào.",
     price: 40000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238393/MONEY/milosizeL_kdhmfw.jpg")
 end
@@ -1109,7 +1033,6 @@ end
     name: "Ca cao kem bơ trứng",
     description: "Best seller! Thơm ngon của cacao. Hãy thử ngay đi nào.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618239436/MONEY/cacaokem_iwdxgn.jpg")
 end
@@ -1119,7 +1042,6 @@ end
     name: "Trà sữa (full thạch)",
     description: "Best seller! Hãy thử ngay đi nào.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238554/MONEY/ts_ocpeaq.jpg")
 end
@@ -1129,7 +1051,6 @@ end
     name: "Trà sữa nướng",
     description: "Best seller! Chưa bao gồm thạch.",
     price: 20000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238550/MONEY/tsnuong_znxlb6.jpg")
 end
@@ -1139,7 +1060,6 @@ end
     name: "Trà sữa full thạch + trân châu trắng",
     description: "Best seller!",
     price: 35000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238546/MONEY/thaixanh_pd1dxz.jpg")
 end
@@ -1149,7 +1069,6 @@ end
     name: "Trà đào kem sữa",
     description: "Chưa bao gồm thạch",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238545/MONEY/tradao_mhxam9.jpg")
 end
@@ -1159,7 +1078,6 @@ end
     name: "Trà đào tươi",
     description: "Không thay đổi topping",
     price: 28000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238637/MONEY/daotuoi_imfrxc.jpg")
 end
@@ -1169,7 +1087,6 @@ end
     name: "Trà vải",
     description: "Không thay đổi topping",
     price: 28000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238635/MONEY/travai_stleuc.jpg")
 end
@@ -1179,7 +1096,6 @@ end
     name: "Trà táo tươi",
     description: "Không thay đổi topping",
     price: 28000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238633/MONEY/taotuoi_ohobqv.jpg")
 end
@@ -1189,7 +1105,6 @@ end
     name: "Trà hoa hồng ổi",
     description: "Không thay đổi topping",
     price: 28000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238671/MONEY/hoahongoi_jdacht.jpg")
 end
@@ -1199,7 +1114,6 @@ end
     name: "Trà hoa hồng việt quốc",
     description: "Không thay đổi topping",
     price: 28000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238671/MONEY/hoahongoi_jdacht.jpg")
 end
@@ -1209,7 +1123,6 @@ end
     name: "Sữa tươi trân châu đường đen",
     description: "Best seller! Bán từ 10h sáng",
     price: 28000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238672/MONEY/suattc_gpydwh.jpg")
 end
@@ -1219,7 +1132,6 @@ end
     name: "Sữa tươi trân châu đường đen kem sữa",
     description: "Best seller! Bán từ 10h sáng",
     price: 38000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618240306/MONEY/tckemsua_fnswzf.jpg")
 end
@@ -1229,7 +1141,6 @@ end
     name: "Khúc bạch phô mai",
     description: "",
     price: 7000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618240465/MONEY/khucbach_fbit5h.jpg")
 end
@@ -1239,7 +1150,6 @@ end
     name: "Flan",
     description: "",
     price: 8000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238792/MONEY/flan_nploow.jpg")
 end
@@ -1249,7 +1159,6 @@ end
     name: "Trân châu trắng",
     description: "",
     price: 7000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238789/MONEY/ttctrang_mmuht5.jpg")
 end
@@ -1259,7 +1168,6 @@ end
     name: "Rau câu phô mai",
     description: "",
     price: 7000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238788/MONEY/pmraucau_aez2rj.jpg")
 end
@@ -1269,7 +1177,6 @@ end
     name: "Trân châu đen",
     description: "",
     price: 7000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238786/MONEY/tcden_kwdcla.jpg")
 end
@@ -1279,7 +1186,6 @@ end
     name: "Khúc bạch trà xanh",
     description: "",
     price: 7000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238838/MONEY/kbxanh_yffpfg.jpg")
 end
@@ -1289,7 +1195,6 @@ end
     name: "Thạch nhà làm (pudding - rau câu - khúc bạch)",
     description: "",
     price: 17000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238834/MONEY/fullthach_ieyca1.jpg")
 end
@@ -1299,7 +1204,6 @@ end
     name: "Khúc bạch socola",
     description: "",
     price: 7000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238833/MONEY/kbachsocola_trhdjw.jpg")
 end
@@ -1309,7 +1213,6 @@ end
     name: "Thạch jelly táo",
     description: "",
     price: 7000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618241447/MONEY/thach_mi3c1y.jpg")
 end
@@ -1319,7 +1222,6 @@ end
     name: "Nem chua rán",
     description: "Bán từ 13h",
     price: 25000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618241433/MONEY/nem_tc1toq.jpg")
 end
@@ -1329,7 +1231,6 @@ end
     name: "Phô mai que",
     description: "Bán từ 13h",
     price: 10000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618241550/MONEY/pmque_mncse0.jpg")
 end
@@ -1339,7 +1240,6 @@ end
     name: "Xúc xích",
     description: "Bán từ 13h",
     price: 10000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618241404/MONEY/xucxich_tulvtp.jpg")
 end
@@ -1349,7 +1249,6 @@ end
     name: "Hồ lô",
     description: "Bán từ 13h",
     price: 10000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618241402/MONEY/H%E1%BB%93-L%C3%B4_yhbux4.jpg")
 end
@@ -1359,7 +1258,6 @@ end
     name: "Khô gà",
     description: "Bán từ 13h",
     price: 35000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618241401/MONEY/khoga_pxxyqf.jpg")
 end
@@ -1411,7 +1309,6 @@ Category.create!(
     name: "Cacao Nóng Kem Bơ Trứng",
     description: "Chưa bao gồm thạch.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238016/MONEY/cacaotrung_tahd6q.jpg")
 end
@@ -1421,7 +1318,6 @@ end
     name: "Trà sữa Olong Kem Sữa Trân Châu Mini",
     description: "Chưa bao gồm thạch.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238015/MONEY/olongmilo_ejtidj.jpg")
 end
@@ -1431,7 +1327,6 @@ end
     name: "Cacao Nóng Kem Sữa",
     description: "Chưa bao gồm thạch.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238013/MONEY/cacaokemsua_wzkgxb.jpg")
 end
@@ -1441,7 +1336,6 @@ end
     name: "Trà sữa truyền thống (500ml)",
     description: "Chưa bao gồm thạch.",
     price: 50000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238176/MONEY/trasuanuong_zeqixg.jpg")
 end
@@ -1451,7 +1345,6 @@ end
     name: "Trà sữa nướng (500ml)",
     description: "Chưa bao gồm thạch.",
     price: 65000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238176/MONEY/trasuanuong_zeqixg.jpg")
 end
@@ -1461,7 +1354,6 @@ end
     name: "Trà thái xanh(500ml)",
     description: "Chưa bao gồm thạch.",
     price: 50000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238176/MONEY/trasuanuong_zeqixg.jpg")
 end
@@ -1472,7 +1364,6 @@ end
     name: "Trà sữa nướng full thạch",
     description: "Best seller.",
     price: 37000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238364/MONEY/TSFull_dc4azb.jpg")
 end
@@ -1482,7 +1373,6 @@ end
     name: "Milo dầm flan",
     description: "Best seller! Thơm ngon vị béo flan trứng. Hãy thử ngay đi nào.",
     price: 28000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238362/MONEY/milodam_oe4ffi.jpg")
 end
@@ -1492,7 +1382,6 @@ end
     name: "Sữa tươi trân châu đường đen kem bơ trứng",
     description: "Best seller! Thơm ngon vị béo flan trứng. Hãy thử ngay đi nào.",
     price: 38000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238361/MONEY/tckemtrung_jtvlgx.jpg")
 end
@@ -1502,7 +1391,6 @@ end
     name: "Milo dầm đặc biệt (size L)",
     description: "Best seller! Thơm ngon vị béo milo. Hãy thử ngay đi nào.",
     price: 40000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238393/MONEY/milosizeL_kdhmfw.jpg")
 end
@@ -1512,7 +1400,6 @@ end
     name: "Ca cao kem bơ trứng",
     description: "Best seller! Thơm ngon của cacao. Hãy thử ngay đi nào.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618239436/MONEY/cacaokem_iwdxgn.jpg")
 end
@@ -1522,7 +1409,6 @@ end
     name: "Trà sữa (full thạch)",
     description: "Best seller! Hãy thử ngay đi nào.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238554/MONEY/ts_ocpeaq.jpg")
 end
@@ -1532,7 +1418,6 @@ end
     name: "Trà sữa nướng",
     description: "Best seller! Chưa bao gồm thạch.",
     price: 20000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238550/MONEY/tsnuong_znxlb6.jpg")
 end
@@ -1542,7 +1427,6 @@ end
     name: "Trà sữa full thạch + trân châu trắng",
     description: "Best seller!",
     price: 35000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238546/MONEY/thaixanh_pd1dxz.jpg")
 end
@@ -1552,7 +1436,6 @@ end
     name: "Sữa tươi trân châu đường đen",
     description: "Best seller! Bán từ 10h sáng",
     price: 28000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238672/MONEY/suattc_gpydwh.jpg")
 end
@@ -1562,7 +1445,6 @@ end
     name: "Sữa tươi trân châu đường đen kem sữa",
     description: "Best seller! Bán từ 10h sáng",
     price: 38000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618240306/MONEY/tckemsua_fnswzf.jpg")
 end
@@ -1572,7 +1454,6 @@ end
     name: "Khúc bạch phô mai",
     description: "",
     price: 7000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618240465/MONEY/khucbach_fbit5h.jpg")
 end
@@ -1582,7 +1463,6 @@ end
     name: "Flan",
     description: "",
     price: 8000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238792/MONEY/flan_nploow.jpg")
 end
@@ -1592,7 +1472,6 @@ end
     name: "Trân châu trắng",
     description: "",
     price: 7000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238789/MONEY/ttctrang_mmuht5.jpg")
 end
@@ -1602,7 +1481,6 @@ end
     name: "Rau câu phô mai",
     description: "",
     price: 7000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238788/MONEY/pmraucau_aez2rj.jpg")
 end
@@ -1612,7 +1490,6 @@ end
     name: "Trân châu đen",
     description: "",
     price: 7000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238786/MONEY/tcden_kwdcla.jpg")
 end
@@ -1622,7 +1499,6 @@ end
     name: "Khúc bạch trà xanh",
     description: "",
     price: 7000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618238838/MONEY/kbxanh_yffpfg.jpg")
 end
@@ -1688,7 +1564,6 @@ Category.create!(
     name: "Trà Alisan trái cây",
     description: "",
     price: 49000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247376/GONGCHA/tratc_wdgfgk.jpg")
 end
@@ -1698,7 +1573,6 @@ end
     name: "QQ Trà xanh trái cây",
     description: "",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247374/GONGCHA/traicay_cfpt2j.jpg")
 end
@@ -1708,7 +1582,6 @@ end
     name: "Trà xanh sữa khoai môn (M)",
     description: "Chỉ có thức uống lạnh Khuyến khích không kết hợp với các loại Topping: Sương sáo, Đậu đỏ",
     price: 59000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247275/GONGCHA/sd_rhfbwc.jpg")
 end
@@ -1718,7 +1591,6 @@ end
     name: "Fresh Taro Latte",
     description: "Chỉ có thức uống lạnh Khuyến khích không kết hợp với các loại Topping: Sương sáo, Đậu đỏ",
     price: 59000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247278/GONGCHA/sdf_aj0tdn.jpg")
 end
@@ -1728,7 +1600,6 @@ end
     name: "Okinawa Oreo Cream Milk Tea",
     description: "Lắc đều thức uống trước khi dùng. Thức uống sẽ ngọt hơn nếu order thêm topping.",
     price: 57000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247191/GONGCHA/hsd_ciy8gi.jpg")
 end
@@ -1738,7 +1609,6 @@ end
     name: "Okinawa Milk Foam Smoothie",
     description: "Lắc đều thức uống trước khi dùng. Thức uống sẽ ngọt hơn nếu order thêm topping.",
     price: 63000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247188/GONGCHA/shdf_gmcca4.jpg")
 end
@@ -1748,7 +1618,6 @@ end
     name: "Trà Xanh Đào",
     description: "Ngon hơn khi uống lạnh.",
     price: 44000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247047/GONGCHA/xanhdao_j808zw.jpg")
 end
@@ -1758,7 +1627,6 @@ end
     name: "Đào Hồng Mận và Hột É",
     description: "Ngon hơn khi uống lạnh.",
     price: 47000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247048/GONGCHA/hongdao_wz1xty.jpg")
 end
@@ -1768,7 +1636,6 @@ end
     name: "Chanh Ai-Yu và Trân Châu Trắng",
     description: "Ngon hơn khi uống lạnh.",
     price: 47000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247049/GONGCHA/sdh_ka9aj6.jpg")
 end
@@ -1778,7 +1645,6 @@ end
     name: "QQ Chanh Dây Trà Xanh",
     description: "Ngon hơn khi uống lạnh.",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247192/GONGCHA/chanhday_mmfedk.jpg")
 end
@@ -1788,7 +1654,6 @@ end
     name: "QQ Chanh Dây Trà Xanh",
     description: "Ngon hơn khi uống lạnh.",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247192/GONGCHA/chanhday_mmfedk.jpg")
 end
@@ -1798,7 +1663,6 @@ end
     name: "Trà Alisan Gong Cha",
     description: "Ngon hơn khi uống lạnh.",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618248519/GONGCHA/hihi_cnzwcg.jpg")
 end
@@ -1808,7 +1672,6 @@ end
     name: "Trà Earl Grey Gong Cha",
     description: "Ngon hơn khi uống lạnh.",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618248464/GONGCHA/tradenmil_gq3854.jpg")
 end
@@ -1818,7 +1681,6 @@ end
     name: "Trà Đen Gong Cha",
     description: "Ngon hơn khi uống lạnh.",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618248464/GONGCHA/tradenmil_gq3854.jpg")
 end
@@ -1828,7 +1690,6 @@ end
     name: "Trà sữa xoài trân châu đen",
     description: "Ngon hơn khi uống lạnh.",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247125/GONGCHA/tchau_dh5l3z.jpg")
 end
@@ -1838,7 +1699,6 @@ end
     name: "Mango Matcha Latte",
     description: "Ngon hơn khi uống lạnh.",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618248700/GONGCHA/mago_jb4lum.jpg")
 end
@@ -1848,7 +1708,6 @@ end
     name: "Sữa tươi Okinawa",
     description: "Có sẵn trân châu đen. Ngon hơn khi uống lạnh.",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247188/GONGCHA/shdf_gmcca4.jpg")
 end
@@ -1858,7 +1717,6 @@ end
     name: "Okinawa latte",
     description: "Có sẵn trân châu đen. Ngon hơn khi uống lạnh.",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247191/GONGCHA/hsd_ciy8gi.jpg")
 end
@@ -1868,7 +1726,6 @@ end
     name: "Strawberry Oreo Smoothie",
     description: "Ngon hơn khi uống lạnh.",
     price: 65000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247373/GONGCHA/kem_znqu3c.jpg")
 end
@@ -1878,7 +1735,6 @@ end
     name: "Trà Bí Đao",
     description: "Ngon hơn khi uống lạnh.",
     price: 40000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618246509/GONGCHA/bidao_ag6vvw.jpg")
 end
@@ -1888,7 +1744,6 @@ end
     name: "Trà Alisan",
     description: "Ngon hơn khi uống lạnh.",
     price: 40000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247047/GONGCHA/xanhdao_j808zw.jpg")
 end
@@ -1898,7 +1753,6 @@ end
     name: "Trà Bí Đao Alisan",
     description: "Ngon hơn khi uống lạnh.",
     price: 40000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247047/GONGCHA/xanhdao_j808zw.jpg")
 end
@@ -1908,7 +1762,6 @@ end
     name: "Xoài đá xay",
     description: "Ngon hơn khi uống lạnh.",
     price: 58000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618246519/GONGCHA/xoaidaxay_jtz7dc.jpg")
 end
@@ -1919,7 +1772,6 @@ end
     name: "Socola Đá Xay",
     description: "Ngon hơn khi uống lạnh.",
     price: 58000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618246512/GONGCHA/soccola_r0pggw.jpg")
 end
@@ -1930,7 +1782,6 @@ end
     name: "Matcha Đá Xay",
     description: "Ngon hơn khi uống lạnh.",
     price: 58000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618246511/GONGCHA/matchaxay_tuvxiw.jpg")
 end
@@ -1940,7 +1791,6 @@ end
     name: "Khoai Môn Đá Xay",
     description: "Ngon hơn khi uống lạnh.",
     price: 58000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618246510/GONGCHA/khoaimon_kesrpv.jpg")
 end
@@ -2004,7 +1854,6 @@ Category.create!(
     name: "Trà Alisan trái cây",
     description: "",
     price: 49000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247376/GONGCHA/tratc_wdgfgk.jpg")
 end
@@ -2014,7 +1863,6 @@ end
     name: "QQ Trà xanh trái cây",
     description: "",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247374/GONGCHA/traicay_cfpt2j.jpg")
 end
@@ -2024,7 +1872,6 @@ end
     name: "Trà xanh sữa khoai môn (M)",
     description: "Chỉ có thức uống lạnh Khuyến khích không kết hợp với các loại Topping: Sương sáo, Đậu đỏ",
     price: 59000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247275/GONGCHA/sd_rhfbwc.jpg")
 end
@@ -2034,7 +1881,6 @@ end
     name: "Fresh Taro Latte",
     description: "Chỉ có thức uống lạnh Khuyến khích không kết hợp với các loại Topping: Sương sáo, Đậu đỏ",
     price: 59000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247278/GONGCHA/sdf_aj0tdn.jpg")
 end
@@ -2044,7 +1890,6 @@ end
     name: "Okinawa Oreo Cream Milk Tea",
     description: "Lắc đều thức uống trước khi dùng. Thức uống sẽ ngọt hơn nếu order thêm topping.",
     price: 57000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247191/GONGCHA/hsd_ciy8gi.jpg")
 end
@@ -2054,7 +1899,6 @@ end
     name: "Okinawa Milk Foam Smoothie",
     description: "Lắc đều thức uống trước khi dùng. Thức uống sẽ ngọt hơn nếu order thêm topping.",
     price: 63000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247188/GONGCHA/shdf_gmcca4.jpg")
 end
@@ -2064,7 +1908,6 @@ end
     name: "Trà Xanh Đào",
     description: "Ngon hơn khi uống lạnh.",
     price: 44000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247047/GONGCHA/xanhdao_j808zw.jpg")
 end
@@ -2074,7 +1917,6 @@ end
     name: "Đào Hồng Mận và Hột É",
     description: "Ngon hơn khi uống lạnh.",
     price: 47000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247048/GONGCHA/hongdao_wz1xty.jpg")
 end
@@ -2084,7 +1926,6 @@ end
     name: "Chanh Ai-Yu và Trân Châu Trắng",
     description: "Ngon hơn khi uống lạnh.",
     price: 47000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247049/GONGCHA/sdh_ka9aj6.jpg")
 end
@@ -2094,7 +1935,6 @@ end
     name: "QQ Chanh Dây Trà Xanh",
     description: "Ngon hơn khi uống lạnh.",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247192/GONGCHA/chanhday_mmfedk.jpg")
 end
@@ -2104,7 +1944,6 @@ end
     name: "QQ Chanh Dây Trà Xanh",
     description: "Ngon hơn khi uống lạnh.",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247192/GONGCHA/chanhday_mmfedk.jpg")
 end
@@ -2114,7 +1953,6 @@ end
     name: "Trà Alisan Gong Cha",
     description: "Ngon hơn khi uống lạnh.",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618248519/GONGCHA/hihi_cnzwcg.jpg")
 end
@@ -2124,7 +1962,6 @@ end
     name: "Trà Earl Grey Gong Cha",
     description: "Ngon hơn khi uống lạnh.",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618248464/GONGCHA/tradenmil_gq3854.jpg")
 end
@@ -2134,7 +1971,6 @@ end
     name: "Trà Đen Gong Cha",
     description: "Ngon hơn khi uống lạnh.",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618248464/GONGCHA/tradenmil_gq3854.jpg")
 end
@@ -2144,7 +1980,6 @@ end
     name: "Trà sữa xoài trân châu đen",
     description: "Ngon hơn khi uống lạnh.",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247125/GONGCHA/tchau_dh5l3z.jpg")
 end
@@ -2154,7 +1989,6 @@ end
     name: "Mango Matcha Latte",
     description: "Ngon hơn khi uống lạnh.",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618248700/GONGCHA/mago_jb4lum.jpg")
 end
@@ -2164,7 +1998,6 @@ end
     name: "Sữa tươi Okinawa",
     description: "Có sẵn trân châu đen. Ngon hơn khi uống lạnh.",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247188/GONGCHA/shdf_gmcca4.jpg")
 end
@@ -2174,7 +2007,6 @@ end
     name: "Okinawa latte",
     description: "Có sẵn trân châu đen. Ngon hơn khi uống lạnh.",
     price: 51000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247191/GONGCHA/hsd_ciy8gi.jpg")
 end
@@ -2184,7 +2016,6 @@ end
     name: "Strawberry Oreo Smoothie",
     description: "Ngon hơn khi uống lạnh.",
     price: 65000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247373/GONGCHA/kem_znqu3c.jpg")
 end
@@ -2194,7 +2025,6 @@ end
     name: "Trà Bí Đao",
     description: "Ngon hơn khi uống lạnh.",
     price: 40000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618246509/GONGCHA/bidao_ag6vvw.jpg")
 end
@@ -2204,7 +2034,6 @@ end
     name: "Trà Alisan",
     description: "Ngon hơn khi uống lạnh.",
     price: 40000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247047/GONGCHA/xanhdao_j808zw.jpg")
 end
@@ -2214,7 +2043,6 @@ end
     name: "Trà Bí Đao Alisan",
     description: "Ngon hơn khi uống lạnh.",
     price: 40000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618247047/GONGCHA/xanhdao_j808zw.jpg")
 end
@@ -2224,7 +2052,6 @@ end
     name: "Xoài đá xay",
     description: "Ngon hơn khi uống lạnh.",
     price: 58000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618246519/GONGCHA/xoaidaxay_jtz7dc.jpg")
 end
@@ -2235,7 +2062,6 @@ end
     name: "Socola Đá Xay",
     description: "Ngon hơn khi uống lạnh.",
     price: 58000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618246512/GONGCHA/soccola_r0pggw.jpg")
 end
@@ -2246,7 +2072,6 @@ end
     name: "Matcha Đá Xay",
     description: "Ngon hơn khi uống lạnh.",
     price: 58000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618246511/GONGCHA/matchaxay_tuvxiw.jpg")
 end
@@ -2256,7 +2081,6 @@ end
     name: "Khoai Môn Đá Xay",
     description: "Ngon hơn khi uống lạnh.",
     price: 58000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618246510/GONGCHA/khoaimon_kesrpv.jpg")
 end
@@ -2312,7 +2136,6 @@ Category.create!(
     name: "Trà sữa đặc biệt",
     description: "Thạch nhà làm, flan, popping.",
     price: 23000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618323849/B%C3%94NG/ts_jvluq5.jpg")
 end
@@ -2322,7 +2145,6 @@ end
     name: "Thái xanh đặc biệt",
     description: "Thạch nhà làm, flan, popping.",
     price: 23000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618323847/B%C3%94NG/tx_msggyj.jpg")
 end
@@ -2332,7 +2154,6 @@ end
     name: "Trà sữa BÔNG",
     description: "Thạch nhà làm, flan, popping, milkfoam.",
     price: 29000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618323845/B%C3%94NG/bong_wqupae.jpg")
 end
@@ -2342,7 +2163,6 @@ end
     name: "Trà sữa củ năng",
     description: "Thạch nhà làm, flan, popping, milkfoam.",
     price: 29000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618325582/B%C3%94NG/nag_dq3yck.jpg")
 end
@@ -2352,7 +2172,6 @@ end
     name: "Ô long sữa đường đen đặc biệt",
     description: "Thạch nhà làm, flan, popping, milkfoam.",
     price: 29000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618325642/B%C3%94NG/olong_hbutxr.jpg")
 end
@@ -2362,7 +2181,6 @@ end
     name: "Trà sữa Rainbow",
     description: "Thạch nhà làm, flan, popping, milkfoam.",
     price: 25000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618325641/B%C3%94NG/rainbow_eowvok.jpg")
 end
@@ -2372,7 +2190,6 @@ end
     name: "Sữa tươi trân châu đường đen",
     description: "Thạch nhà làm, flan, popping, milkfoam.",
     price: 25000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618323960/B%C3%94NG/trachau_mjw4ry.jpg")
 end
@@ -2382,7 +2199,6 @@ end
     name: "Milo cốt dừa trân châu đường đen",
     description: "Mặc định đá chung.",
     price: 29000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618323961/B%C3%94NG/milo_qpqrua.jpg")
 end
@@ -2392,7 +2208,6 @@ end
     name: "Milo dằm trân châu đường đen đặc biệt",
     description: "Mặc định đá chung.",
     price: 34000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618323962/B%C3%94NG/milot_z3arpp.jpg")
 end
@@ -2402,7 +2217,6 @@ end
     name: "Matcha latte trân châu đường đen",
     description: "Mặc định đá chung.",
     price: 27000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618325964/B%C3%94NG/suongsao_nj5phy.jpg")
 end
@@ -2412,7 +2226,6 @@ end
     name: "Sữa tươi sương sáo đường đen",
     description: "Mặc định đá chung.",
     price: 23000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618325965/B%C3%94NG/ssduongden_bk3v4c.jpg")
 end
@@ -2422,7 +2235,6 @@ end
     name: "Chocolate latte trân châu đường đen",
     description: "Mặc định đá chung.",
     price: 28000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618324401/B%C3%94NG/chocola_wblsgj.jpg")
 end
@@ -2432,7 +2244,6 @@ end
     name: "Latter đào",
     description: "Mặc định đá chung.",
     price: 25000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618324400/B%C3%94NG/latterdao_rkv0m8.jpg")
 end
@@ -2442,7 +2253,6 @@ end
     name: "Ô long sữa sương sáo đường đen",
     description: "Mặc định đá chung.",
     price: 27000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618324399/B%C3%94NG/dden_l2a09k.jpg")
 end
@@ -2452,7 +2262,6 @@ end
     name: "Trà xoài nha đam",
     description: "Mặc định đá chung.",
     price: 23000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618324479/B%C3%94NG/cam_mfecis.jpg")
 end
@@ -2462,7 +2271,6 @@ end
     name: "Trà kiwi nha đam",
     description: "Mặc định đá chung.",
     price: 23000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618324477/B%C3%94NG/kiwi_df8vsp.jpg")
 end
@@ -2472,7 +2280,6 @@ end
     name: "Trà chanh xí muội",
     description: "Mặc định đá chung.",
     price: 19000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618324476/B%C3%94NG/chanh_boukgj.jpg")
 end
@@ -2482,7 +2289,6 @@ end
     name: "Trà việt quất nha đam",
     description: "Mặc định đá chung.",
     price: 22000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618324630/B%C3%94NG/dao_dfd0xn.jpg")
 end
@@ -2492,7 +2298,6 @@ end
     name: "Socola đá xay",
     description: "Mát lạnh thơm ngon.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618324627/B%C3%94NG/trasuadao_matdff.jpg")
 end
@@ -2502,7 +2307,6 @@ end
     name: "Matcha đá xay",
     description: "Mát lạnh thơm ngon.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618326526/B%C3%94NG/daxay_fker74.jpg")
 end
@@ -2512,7 +2316,6 @@ end
     name: "Cookie bạc hà đá xay",
     description: "Mát lạnh thơm ngon.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618325065/B%C3%94NG/cmarrem_cjcdqr.jpg")
 end
@@ -2522,7 +2325,6 @@ end
     name: "Yaourt thạch đặc biệt",
     description: "Mát lạnh thơm ngon.",
     price: 29000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618325058/B%C3%94NG/yout_aybiln.jpg")
 end
@@ -2532,7 +2334,6 @@ end
     name: "Yaourt nha đam mứt việt quất",
     description: "Mát lạnh thơm ngon.",
     price: 29000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618325057/B%C3%94NG/youtnhadam_rm7mih.jpg")
 end
@@ -2542,7 +2343,6 @@ end
     name: "Yaourt đào tươi",
     description: "Mát lạnh thơm ngon.",
     price: 29000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618325056/B%C3%94NG/daotuoi_gx4rxi.jpg")
 end
@@ -2552,7 +2352,6 @@ end
     name: "Soda việt quất",
     description: "Mát lạnh thơm ngon.",
     price: 19000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618326928/B%C3%94NG/soda_ds4sbo.jpg")
 end
@@ -2562,7 +2361,6 @@ end
     name: "Soda táo",
     description: "Mát lạnh thơm ngon.",
     price: 19000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618326927/B%C3%94NG/soda3_m5hs7s.jpg")
 end
@@ -2572,7 +2370,6 @@ end
     name: "Soda dâu",
     description: "Mát lạnh thơm ngon.",
     price: 19000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618326927/B%C3%94NG/soda2_c7yy8j.jpg")
 end
@@ -2582,7 +2379,6 @@ end
     name: "Soda chanh dây",
     description: "Mát lạnh thơm ngon.",
     price: 19000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618327042/B%C3%94NG/chanhday_shqlb8.jpg")
 end
@@ -2592,7 +2388,6 @@ end
     name: "Soda vải",
     description: "Mát lạnh thơm ngon.",
     price: 19000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618326927/B%C3%94NG/soda3_m5hs7s.jpg")
 end
@@ -2649,7 +2444,6 @@ Category.create!(
     name: "Trà sữa đặc biệt",
     description: "Thạch nhà làm, flan, popping.",
     price: 23000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618323849/B%C3%94NG/ts_jvluq5.jpg")
 end
@@ -2659,7 +2453,6 @@ end
     name: "Thái xanh đặc biệt",
     description: "Thạch nhà làm, flan, popping.",
     price: 23000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618323847/B%C3%94NG/tx_msggyj.jpg")
 end
@@ -2669,7 +2462,6 @@ end
     name: "Trà sữa BÔNG",
     description: "Thạch nhà làm, flan, popping, milkfoam.",
     price: 29000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618323845/B%C3%94NG/bong_wqupae.jpg")
 end
@@ -2679,7 +2471,6 @@ end
     name: "Trà sữa củ năng",
     description: "Thạch nhà làm, flan, popping, milkfoam.",
     price: 29000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618325582/B%C3%94NG/nag_dq3yck.jpg")
 end
@@ -2689,7 +2480,6 @@ end
     name: "Ô long sữa đường đen đặc biệt",
     description: "Thạch nhà làm, flan, popping, milkfoam.",
     price: 29000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618325642/B%C3%94NG/olong_hbutxr.jpg")
 end
@@ -2699,7 +2489,6 @@ end
     name: "Trà sữa Rainbow",
     description: "Thạch nhà làm, flan, popping, milkfoam.",
     price: 25000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618325641/B%C3%94NG/rainbow_eowvok.jpg")
 end
@@ -2709,7 +2498,6 @@ end
     name: "Sữa tươi trân châu đường đen",
     description: "Thạch nhà làm, flan, popping, milkfoam.",
     price: 25000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618323960/B%C3%94NG/trachau_mjw4ry.jpg")
 end
@@ -2719,7 +2507,6 @@ end
     name: "Milo cốt dừa trân châu đường đen",
     description: "Mặc định đá chung.",
     price: 29000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618323961/B%C3%94NG/milo_qpqrua.jpg")
 end
@@ -2729,7 +2516,6 @@ end
     name: "Milo dằm trân châu đường đen đặc biệt",
     description: "Mặc định đá chung.",
     price: 34000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618323962/B%C3%94NG/milot_z3arpp.jpg")
 end
@@ -2739,7 +2525,6 @@ end
     name: "Matcha latte trân châu đường đen",
     description: "Mặc định đá chung.",
     price: 27000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618325964/B%C3%94NG/suongsao_nj5phy.jpg")
 end
@@ -2749,7 +2534,6 @@ end
     name: "Sữa tươi sương sáo đường đen",
     description: "Mặc định đá chung.",
     price: 23000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618325965/B%C3%94NG/ssduongden_bk3v4c.jpg")
 end
@@ -2759,7 +2543,6 @@ end
     name: "Chocolate latte trân châu đường đen",
     description: "Mặc định đá chung.",
     price: 28000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618324401/B%C3%94NG/chocola_wblsgj.jpg")
 end
@@ -2769,7 +2552,6 @@ end
     name: "Latter đào",
     description: "Mặc định đá chung.",
     price: 25000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618324400/B%C3%94NG/latterdao_rkv0m8.jpg")
 end
@@ -2779,7 +2561,6 @@ end
     name: "Ô long sữa sương sáo đường đen",
     description: "Mặc định đá chung.",
     price: 27000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618324399/B%C3%94NG/dden_l2a09k.jpg")
 end
@@ -2789,7 +2570,6 @@ end
     name: "Trà xoài nha đam",
     description: "Mặc định đá chung.",
     price: 23000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618324479/B%C3%94NG/cam_mfecis.jpg")
 end
@@ -2799,7 +2579,6 @@ end
     name: "Trà kiwi nha đam",
     description: "Mặc định đá chung.",
     price: 23000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618324477/B%C3%94NG/kiwi_df8vsp.jpg")
 end
@@ -2809,7 +2588,6 @@ end
     name: "Trà chanh xí muội",
     description: "Mặc định đá chung.",
     price: 19000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618324476/B%C3%94NG/chanh_boukgj.jpg")
 end
@@ -2819,7 +2597,6 @@ end
     name: "Trà việt quất nha đam",
     description: "Mặc định đá chung.",
     price: 22000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618324630/B%C3%94NG/dao_dfd0xn.jpg")
 end
@@ -2829,7 +2606,6 @@ end
     name: "Socola đá xay",
     description: "Mát lạnh thơm ngon.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618324627/B%C3%94NG/trasuadao_matdff.jpg")
 end
@@ -2839,7 +2615,6 @@ end
     name: "Matcha đá xay",
     description: "Mát lạnh thơm ngon.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618326526/B%C3%94NG/daxay_fker74.jpg")
 end
@@ -2849,7 +2624,6 @@ end
     name: "Cookie bạc hà đá xay",
     description: "Mát lạnh thơm ngon.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618325065/B%C3%94NG/cmarrem_cjcdqr.jpg")
 end
@@ -2859,7 +2633,6 @@ end
     name: "Yaourt thạch đặc biệt",
     description: "Mát lạnh thơm ngon.",
     price: 29000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618325058/B%C3%94NG/yout_aybiln.jpg")
 end
@@ -2869,7 +2642,6 @@ end
     name: "Yaourt nha đam mứt việt quất",
     description: "Mát lạnh thơm ngon.",
     price: 29000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618325057/B%C3%94NG/youtnhadam_rm7mih.jpg")
 end
@@ -2879,7 +2651,6 @@ end
     name: "Yaourt đào tươi",
     description: "Mát lạnh thơm ngon.",
     price: 29000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618325056/B%C3%94NG/daotuoi_gx4rxi.jpg")
 end
@@ -2889,7 +2660,6 @@ end
     name: "Soda việt quất",
     description: "Mát lạnh thơm ngon.",
     price: 19000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618326928/B%C3%94NG/soda_ds4sbo.jpg")
 end
@@ -2899,7 +2669,6 @@ end
     name: "Soda táo",
     description: "Mát lạnh thơm ngon.",
     price: 19000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618326927/B%C3%94NG/soda3_m5hs7s.jpg")
 end
@@ -2909,7 +2678,6 @@ end
     name: "Soda dâu",
     description: "Mát lạnh thơm ngon.",
     price: 19000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618326927/B%C3%94NG/soda2_c7yy8j.jpg")
 end
@@ -2919,7 +2687,6 @@ end
     name: "Soda chanh dây",
     description: "Mát lạnh thơm ngon.",
     price: 19000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618327042/B%C3%94NG/chanhday_shqlb8.jpg")
 end
@@ -2929,7 +2696,6 @@ end
     name: "Soda vải",
     description: "Mát lạnh thơm ngon.",
     price: 19000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618326927/B%C3%94NG/soda3_m5hs7s.jpg")
 end
@@ -2972,7 +2738,6 @@ Category.create!(
     name: "Matcha latte trân châu đường đen",
     description: "Bán từ 10h30.",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618331005/CLOUDY/lattertxanh_kr9xv7.jpg")
 end
@@ -2982,7 +2747,6 @@ end
     name: "Ca cao sữa tươi trân châu đường đen Cream Cheese",
     description: "Bán từ 10h30.",
     price: 40000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618331006/CLOUDY/ccbanh_eshkmf.jpg")
 end
@@ -2992,7 +2756,6 @@ end
     name: "Sữa tươi sương sáo trân châu đường đen",
     description: "Bán từ 10h30.",
     price: 34000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618331141/CLOUDY/ssdden_pwum8l.jpg")
 end
@@ -3002,7 +2765,6 @@ end
     name: "Trà Sữa Thái Xanh full thạch",
     description: "Bán từ 10h30.",
     price: 24000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618331139/CLOUDY/tstt_zegrbw.jpg")
 end
@@ -3012,7 +2774,6 @@ end
     name: "Trà Sữa Socola ",
     description: "Chưa có thạch.",
     price: 19000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618331137/CLOUDY/socola_gk7mhu.jpg")
 end
@@ -3023,7 +2784,6 @@ end
     name: "Trà sữa khoai môn ",
     description: "Chưa có thạch.",
     price: 20000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618331135/CLOUDY/khoaimon_oydxzh.jpg")
 end
@@ -3033,7 +2793,6 @@ end
     name: "Trà Đào Sữa",
     description: "Chưa có thạch.",
     price: 20000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618331135/CLOUDY/khoaimon_oydxzh.jpg")
 end
@@ -3043,7 +2802,6 @@ end
     name: "Trà sữa thạch phô mai",
     description: "Thơm ngon ngọt ngào",
     price: 24000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618331218/CLOUDY/thachpm_qtte6e.jpg")
 end
@@ -3053,7 +2811,6 @@ end
     name: "Trà sữa khúc bạch phô mai",
     description: "Thơm ngon ngọt ngào",
     price: 24000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618331219/CLOUDY/tskhucbach_uecvrk.jpg")
 end
@@ -3063,7 +2820,6 @@ end
     name: "Trà Sữa Truyền Thống (đặc biệt)",
     description: "Thêm thạch thêm bánh flan. Thơm ngon ngọt ngào",
     price: 30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618331255/CLOUDY/tsfthach_bkr45g.jpg")
 end
@@ -3073,7 +2829,6 @@ end
     name: "Milo Dino Flan",
     description: "Đã bao gồm topping : Flan , kem sữa , bánh milo , bột milo Mặc định : không làm thức uống nóng hoặc không đá.",
     price: 38000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618330114/CLOUDY/milodam_puqpiu.jpg")
 end
@@ -3083,7 +2838,6 @@ end
     name: "Milo Dino Trân Châu Đường đen",
     description: "Đã bao gồm topping : Trân châu đường đen , kem sữa , bánh milo , bột milo. Mặc định : không làm thức uống nóng hoặc không đá.",
     price: 38000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618330113/CLOUDY/milotcdd_y3livz.jpg")
 end
@@ -3093,7 +2847,6 @@ end
     name: "Milo Dino Original",
     description: "Đã bao gồm topping : Trân châu đường đen , kem sữa , bánh milo , bột milo. Mặc định : không làm thức uống nóng hoặc không đá.",
     price: 38000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618330130/CLOUDY/miloorgin_jfho7t.jpg")
 end
@@ -3103,7 +2856,6 @@ end
     name: "Milo Dino Creamcheese",
     description: "Đã bao gồm topping : Trân châu đường đen , kem sữa , bánh milo , bột milo. Mặc định : không làm thức uống nóng hoặc không đá.",
     price: 38000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618330112/CLOUDY/milocream_gudxvi.jpg")
 end
@@ -3113,7 +2865,6 @@ end
     name: "Trà sữa Hoa Nhài nóng",
     description: "Thơm ngon ngọt ngào.",
     price: 25000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618330064/CLOUDY/hoanhai_k0yxjk.jpg")
 end
@@ -3123,7 +2874,6 @@ end
     name: "Hồng trà sữa nóng",
     description: "Thơm ngon ngọt ngào.",
     price: 25000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618330064/CLOUDY/hoanhai_k0yxjk.jpg")
 end
@@ -3133,7 +2883,6 @@ end
     name: "Trà sữa Olong nóng",
     description: "Thơm ngon ngọt ngào.",
     price: 25000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618330064/CLOUDY/hoanhai_k0yxjk.jpg")
 end
@@ -3176,7 +2925,6 @@ Category.create!(
     name: "Sushi bò mỹ BBQ",
     description: "Thịt bò mỹ thơm ngon, mềm ngọt.",
     price: 29000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618335756/SUSHI/SUSHI_rlbwp8.jpg")
 end
@@ -3186,7 +2934,6 @@ end
     name: "Sushi thanh cua",
     description: "Thanh cua thơm ngon, mềm ngọt.",
     price: 29000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618335758/SUSHI/CUA_bu2dof.jpg")
 end
@@ -3196,7 +2943,6 @@ end
     name: "Sushi trứng",
     description: "",
     price:18000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618335758/SUSHI/CUA_bu2dof.jpg")
 end
@@ -3206,7 +2952,6 @@ end
     name: "Sushi trứng cá chuồn",
     description: "",
     price:30000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618335760/SUSHI/cachuong_uqowhg.jpg")
 end
@@ -3216,7 +2961,6 @@ end
     name: "HỘP SUSHI F.A",
     description: "",
     price:99000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618335826/SUSHI/ss2_a77klv.jpg")
 end
@@ -3226,7 +2970,6 @@ end
     name: "HỘP SUSHI F.A",
     description: "",
     price:99000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618335826/SUSHI/ss2_a77klv.jpg")
 end
@@ -3236,7 +2979,6 @@ end
     name: "SET TAKE AWAY B",
     description: "Maki trứng tôm 8 viên, sushi trứng tôm 4 viên, sushi cá hồi 9 sốt cay",
     price:85000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618335824/SUSHI/ss3_q8qtrb.jpg")
 end
@@ -3246,7 +2988,6 @@ end
     name: "Set cá hồi vs lươn tươi ngon",
     description: "Sushi cá hồi 5 viên Sushi cá hồi 9 4 viên Sushi lươn 5 viên",
     price: 149000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618335823/SUSHI/susica_klk2ma.jpg")
 end
@@ -3256,7 +2997,6 @@ end
     name: "Set cá hồi vs lươn tươi ngon",
     description: "Sushi cá hồi 5 viên Sushi cá hồi 9 4 viên Sushi lươn 5 viên",
     price: 149000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618335823/SUSHI/susica_klk2ma.jpg")
 end
@@ -3267,7 +3007,6 @@ end
     name: "Sashimi 3 loại",
     description: "",
     price: 149000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618336063/SUSHI/ssmbt_ln2miv.jpg")
 end
@@ -3277,7 +3016,6 @@ end
     name: "Sashimi Bạch Tuộc",
     description: "",
     price: 149000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618336063/SUSHI/ssmbt_ln2miv.jpg")
 end
@@ -3287,7 +3025,6 @@ end
     name: "Salad cá hồi chiên giòn",
     description: "Salmon Furai salad",
     price: 79000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618336064/SUSHI/salad_aowtw8.jpg")
 end
@@ -3297,7 +3034,6 @@ end
     name: "Salad Cá Hồi vs Bơ",
     description: "Salmon Furai salad",
     price: 99000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618336135/SUSHI/slboca_chfgyd.jpg")
 end
@@ -3307,7 +3043,6 @@ end
     name: "Salad Thanh Cua",
     description: "Salmon Furai salad",
     price: 99000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618336137/SUSHI/slcomcuon_mttyam.jpg")
 end
@@ -3317,7 +3052,6 @@ end
     name: "Rong biển trộn mè",
     description: "Salmon Furai salad",
     price: 59000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618336065/SUSHI/rongbien_fgajt7.jpg")
 end
@@ -3327,7 +3061,6 @@ end
     name: "Cuốn thập cẩm chiên",
     description: "",
     price: 79000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618336138/SUSHI/kimbap_ofmma6.jpg")
 end
@@ -3337,7 +3070,6 @@ end
     name: "Bạch tuộc xào cay",
     description: "",
     price: 89000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618405677/SUSHI/btxao_k2wswr.jpg")
 end
@@ -3347,7 +3079,6 @@ end
     name: "Bánh gạo xúc xích",
     description: "",
     price: 69000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618405677/SUSHI/banhgao_xnk8bb.jpg")
 end
@@ -3357,7 +3088,6 @@ end
     name: "Chân gà xào cay Hàn Quốc",
     description: "ĐỪNG BỎ LỠ MÓN CHÂN GÀ XÀO CAY TUYỆT ĐỈNH VỊ HÀN TẠI #PHIPHISUSHI Chân gà tươi ngon, được tẩm sốt ướp đậm đà, cái cảm giác mùa đông mà ăn cay xé từ miệng cho đến bao tử, ngon đến xuýt xoa lắm !!!",
     price: 89000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618405677/SUSHI/banhgao_xnk8bb.jpg")
 end
@@ -3367,7 +3097,6 @@ end
     name: "COMBO Đặc biệt",
     description: "Set thuyền 1 Salad da cá hoặc cá hồi chiên Bánh gạo xúc xích Cơm cuộn thanh cua chiên phomai Lẫu thái nhỏ 2 ly ép cocs",
     price: 489000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618406001/SUSHI/csdf_xkihgo.jpg")
 end
@@ -3377,7 +3106,6 @@ end
     name: "COMBO Đặc biệt 2",
     description: "Set thuyền 6 Salad da cá hồi hoặc cá hồi chiên Cơm bạch tuộc xào cay 2 miso soup 2 cóc ép.",
     price: 479000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618336361/SUSHI/cb1_yhrtw8.jpg")
 end
@@ -3387,7 +3115,6 @@ end
     name: "COMBO Đặc biệt 2",
     description: "Set thuyền 5 Salad da cá hồi hoặc cá hồi chiên Lẫu thái nhỏ 2 ly ép cóc.",
     price: 499000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618336360/SUSHI/cb2_qzdpm3.jpg")
 end
@@ -3430,7 +3157,6 @@ Category.create!(
     name: "Sashimi cá hồi",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 96000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618406350/SUSHI/ss5_ctjwtx.jpg")
 end
@@ -3440,7 +3166,6 @@ end
     name: "Sashimi cá trích vàng",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 96000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618406352/SUSHI/tt_kwo2fv.jpg")
 end
@@ -3450,7 +3175,6 @@ end
     name: "Sashimi cá trích đỏ",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 96000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618406353/SUSHI/ttdo_fklzkw.jpg")
 end
@@ -3460,7 +3184,6 @@ end
     name: "Sashimi bạch tuộc",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 96000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618406355/SUSHI/ssbtuoc_if3u2a.jpg")
 end
@@ -3470,7 +3193,6 @@ end
     name: "Sashimi 5 Loại",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 96000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618406430/SUSHI/ssdb_slz2qe.jpg")
 end
@@ -3480,7 +3202,6 @@ end
     name: "Sushi Trứng Tôm",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 29000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618335760/SUSHI/cachuong_uqowhg.jpg")
 end
@@ -3490,7 +3211,6 @@ end
     name: "Sushi thanh cua",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 28000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618335756/SUSHI/SUSHI_rlbwp8.jpg")
 end
@@ -3500,7 +3220,6 @@ end
     name: "SALAD THANH CUA",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 79000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618406428/SUSHI/bo_urbbro.jpg")
 end
@@ -3510,7 +3229,6 @@ end
     name: "RONG BIỂN MUỐI",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 28000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618336065/SUSHI/rongbien_fgajt7.jpg")
 end
@@ -3520,7 +3238,6 @@ end
     name: "CƠM CUỘN TRỨNG",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 28000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618406427/SUSHI/comcuon_rfssj4.jpg")
 end
@@ -3530,7 +3247,6 @@ end
     name: "CƠM CUỘN CÁ HỒI",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 49000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618406427/SUSHI/comcuon_rfssj4.jpg")
 end
@@ -3540,7 +3256,6 @@ end
     name: "COMBO HANA 2",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 423000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618406426/SUSHI/hanacb1_yqohuw.jpg")
 end
@@ -3550,7 +3265,6 @@ end
     name: "COMBO HANA 1",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 359000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618406446/SUSHI/hanacb2_szazdh.jpg")
 end
@@ -3588,7 +3302,6 @@ Category.create!(
     name: "Sashimi cá hồi",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 96000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618406350/SUSHI/ss5_ctjwtx.jpg")
 end
@@ -3598,7 +3311,6 @@ end
     name: "Sashimi cá trích vàng",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 96000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618406352/SUSHI/tt_kwo2fv.jpg")
 end
@@ -3608,7 +3320,6 @@ end
     name: "Sashimi cá trích đỏ",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 96000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618406353/SUSHI/ttdo_fklzkw.jpg")
 end
@@ -3618,7 +3329,6 @@ end
     name: "Sashimi bạch tuộc",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 96000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618406355/SUSHI/ssbtuoc_if3u2a.jpg")
 end
@@ -3628,7 +3338,6 @@ end
     name: "Sashimi 5 Loại",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 96000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618406430/SUSHI/ssdb_slz2qe.jpg")
 end
@@ -3638,7 +3347,6 @@ end
     name: "Sushi Trứng Tôm",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 29000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618335760/SUSHI/cachuong_uqowhg.jpg")
 end
@@ -3648,7 +3356,6 @@ end
     name: "Sushi thanh cua",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 28000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618335756/SUSHI/SUSHI_rlbwp8.jpg")
 end
@@ -3658,7 +3365,6 @@ end
     name: "SALAD THANH CUA",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 79000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618406428/SUSHI/bo_urbbro.jpg")
 end
@@ -3668,7 +3374,6 @@ end
     name: "RONG BIỂN MUỐI",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 28000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618336065/SUSHI/rongbien_fgajt7.jpg")
 end
@@ -3678,7 +3383,6 @@ end
     name: "CƠM CUỘN TRỨNG",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 28000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618406427/SUSHI/comcuon_rfssj4.jpg")
 end
@@ -3688,7 +3392,6 @@ end
     name: "CƠM CUỘN CÁ HỒI",
     description: "Sashimi, sushi, cơm cuộn thơm ngon, tươi sống, bổ dưỡng. Thực phẩm đảm bảo chất lượng 100%.",
     price: 49000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618406427/SUSHI/comcuon_rfssj4.jpg")
 end
@@ -3731,7 +3434,6 @@ Category.create!(
     name: "Nem chua rán lớn",
     description: "1 dĩa/ 8 xiên.",
     price: 49000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408598/STREETFOOD/nemchua_r3orgy.jpg")
 end
@@ -3741,7 +3443,6 @@ end
     name: "Hotdog phô mai Hàn Quốc",
     description: "1 cuộn 6-7 miếng.",
     price: 25000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618409314/STREETFOOD/pmhq_wqum4p.jpg")
 end
@@ -3751,7 +3452,6 @@ end
     name: "Bánh gạo sốt cay",
     description: "Bánh gạo dai mềm, thơm ngon, cay nồng đậm chất Hàn Quốc.",
     price: 22000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618409312/STREETFOOD/banhgao_dcau8n.jpg")
 end
@@ -3761,7 +3461,6 @@ end
     name: "Tokbokki nhân phô mai sốt cay",
     description: "Bánh gạo bên trong có phô mai thơm ngon, cay nồng đậm chất Hàn Quốc.",
     price: 35000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618409310/STREETFOOD/banhgaosotcay_ycwjtc.jpg")
 end
@@ -3771,7 +3470,6 @@ end
     name: "Phô mai que",
     description: "1 xiên.",
     price: 8000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408597/STREETFOOD/phomai_a81sog.jpg")
 end
@@ -3781,7 +3479,6 @@ end
     name: "Hồ lô",
     description: "1 xiên.",
     price: 10000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408598/STREETFOOD/holo_fttp4x.jpg")
 end
@@ -3791,7 +3488,6 @@ end
     name: "Cá viên Singapore",
     description: "1 xiên.",
     price: 7000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408599/STREETFOOD/cavien_yectvk.jpg")
 end
@@ -3801,7 +3497,6 @@ end
     name: "Hải sản viên Hàn Quốc",
     description: "1 xiên.",
     price: 10000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408599/STREETFOOD/cavienhq_noh6zc.jpg")
 end
@@ -3811,7 +3506,6 @@ end
     name: "Khoai Tây chiên",
     description: "1 dĩa.",
     price: 15000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408598/STREETFOOD/khoaitaychien_g3joi6.jpg")
 end
@@ -3822,7 +3516,6 @@ end
     name: "Khoai tây lắc phomai",
     description: "",
     price: 20000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618409307/STREETFOOD/khoailang_lbz41a.jpg")
 end
@@ -3832,7 +3525,6 @@ end
     name: "Mì Cay Trộn Hàn Quốc",
     description: "Có topping cá viên, mực xoắn.",
     price: 25000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618409644/STREETFOOD/mitron_a7g6np.jpg")
 end
@@ -3842,7 +3534,6 @@ end
     name: "Tokbokki thập cẩm",
     description: "Có topping cá viên, mực xoắn.",
     price: 40000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618409647/STREETFOOD/toboki_zm4ymd.jpg")
 end
@@ -3852,7 +3543,6 @@ end
     name: "Combo 1",
     description: "Nem nhỏ, Xúc xích Đức, 2 hải sản viên Hàn Quốc, 2 cá viên Singapore.",
     price: 66000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618409884/STREETFOOD/combo_ixrm8c.jpg")
 end
@@ -3862,7 +3552,6 @@ end
     name: "Combo 2",
     description: "Nem lớn, 2 phô mai que, 2 cá viên Singapore, 2 hải sản viên Hà Quốc, 1 hồ lô.",
     price: 106000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618409884/STREETFOOD/combo_ixrm8c.jpg")
 end
@@ -3872,7 +3561,6 @@ end
     name: "Combo 3",
     description: "Nem lớn, Khoai tây chiên, 2 hồ lô, 2 ốc nhồi, 2 hải sản viên Hàn Quốc, 2 cá viên Singapore, 1 xúc xích Đức.",
     price: 138000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618409884/STREETFOOD/combo_ixrm8c.jpg")
 end
@@ -3882,7 +3570,6 @@ end
     name: "Sữa chua nếp cẩm",
     description: "1 ly",
     price: 14000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408596/STREETFOOD/suachuanep_raltki.jpg")
 end
@@ -3892,7 +3579,6 @@ end
     name: "Trà chanh",
     description: "1 ly",
     price: 8000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408596/STREETFOOD/trachanh_wcjlgh.jpg")
 end
@@ -3902,7 +3588,6 @@ end
     name: "Mơ đá Hà Nội",
     description: "1 ly",
     price: 10000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408598/STREETFOOD/moda_vxobe3.jpg")
 end
@@ -3912,7 +3597,6 @@ end
     name: "Sữa chua đá",
     description: "1 ly",
     price: 10000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408597/STREETFOOD/suachuada_yviba9.jpg")
 end
@@ -3952,7 +3636,6 @@ Category.create!(
     name: "Nem chua rán lớn",
     description: "1 dĩa/ 8 xiên.",
     price: 49000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408598/STREETFOOD/nemchua_r3orgy.jpg")
 end
@@ -3962,7 +3645,6 @@ end
     name: "Phô mai que",
     description: "1 xiên.",
     price: 8000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408597/STREETFOOD/phomai_a81sog.jpg")
 end
@@ -3972,7 +3654,6 @@ end
     name: "Hồ lô",
     description: "1 xiên.",
     price: 10000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408598/STREETFOOD/holo_fttp4x.jpg")
 end
@@ -3982,7 +3663,6 @@ end
     name: "Cá viên Singapore",
     description: "1 xiên.",
     price: 7000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408599/STREETFOOD/cavien_yectvk.jpg")
 end
@@ -3992,7 +3672,6 @@ end
     name: "Hotdog phô mai Hàn Quốc",
     description: "1 cuộn 6-7 miếng.",
     price: 25000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618409314/STREETFOOD/pmhq_wqum4p.jpg")
 end
@@ -4002,7 +3681,6 @@ end
     name: "Bánh gạo sốt cay",
     description: "Bánh gạo dai mềm, thơm ngon, cay nồng đậm chất Hàn Quốc.",
     price: 22000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618409312/STREETFOOD/banhgao_dcau8n.jpg")
 end
@@ -4012,7 +3690,6 @@ end
     name: "Tokbokki nhân phô mai sốt cay",
     description: "Bánh gạo bên trong có phô mai thơm ngon, cay nồng đậm chất Hàn Quốc.",
     price: 35000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618409310/STREETFOOD/banhgaosotcay_ycwjtc.jpg")
 end
@@ -4022,7 +3699,6 @@ end
     name: "Khoai tây lắc phomai",
     description: "",
     price: 20000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618409307/STREETFOOD/khoailang_lbz41a.jpg")
 end
@@ -4032,7 +3708,6 @@ end
     name: "Sữa chua nếp cẩm",
     description: "1 ly",
     price: 14000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408596/STREETFOOD/suachuanep_raltki.jpg")
 end
@@ -4042,7 +3717,6 @@ end
     name: "Trà chanh",
     description: "1 ly",
     price: 8000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408596/STREETFOOD/trachanh_wcjlgh.jpg")
 end
@@ -4052,7 +3726,6 @@ end
     name: "Mơ đá Hà Nội",
     description: "1 ly",
     price: 10000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408598/STREETFOOD/moda_vxobe3.jpg")
 end
@@ -4062,7 +3735,6 @@ end
     name: "Sữa chua đá",
     description: "1 ly",
     price: 10000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408597/STREETFOOD/suachuada_yviba9.jpg")
 end
@@ -4102,7 +3774,6 @@ Category.create!(
     name: "Nem chua rán lớn",
     description: "1 dĩa/ 8 xiên.",
     price: 49000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408598/STREETFOOD/nemchua_r3orgy.jpg")
 end
@@ -4112,7 +3783,6 @@ end
     name: "Phô mai que",
     description: "1 xiên.",
     price: 8000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408597/STREETFOOD/phomai_a81sog.jpg")
 end
@@ -4123,7 +3793,6 @@ end
     name: "Hồ lô",
     description: "1 xiên.",
     price: 10000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408598/STREETFOOD/holo_fttp4x.jpg")
 end
@@ -4133,7 +3802,6 @@ end
     name: "Cá viên Singapore",
     description: "1 xiên.",
     price: 7000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408599/STREETFOOD/cavien_yectvk.jpg")
 end
@@ -4143,7 +3811,6 @@ end
     name: "Hotdog phô mai Hàn Quốc",
     description: "1 cuộn 6-7 miếng.",
     price: 25000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618409314/STREETFOOD/pmhq_wqum4p.jpg")
 end
@@ -4153,7 +3820,6 @@ end
     name: "Bánh gạo sốt cay",
     description: "Bánh gạo dai mềm, thơm ngon, cay nồng đậm chất Hàn Quốc.",
     price: 22000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618409312/STREETFOOD/banhgao_dcau8n.jpg")
 end
@@ -4163,7 +3829,6 @@ end
     name: "Tokbokki nhân phô mai sốt cay",
     description: "Bánh gạo bên trong có phô mai thơm ngon, cay nồng đậm chất Hàn Quốc.",
     price: 35000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618409310/STREETFOOD/banhgaosotcay_ycwjtc.jpg")
 end
@@ -4173,7 +3838,6 @@ end
     name: "Khoai tây lắc phomai",
     description: "",
     price: 20000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618409307/STREETFOOD/khoailang_lbz41a.jpg")
 end
@@ -4183,7 +3847,6 @@ end
     name: "Sữa chua nếp cẩm",
     description: "1 ly",
     price: 14000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408596/STREETFOOD/suachuanep_raltki.jpg")
 end
@@ -4193,7 +3856,6 @@ end
     name: "Trà chanh",
     description: "1 ly",
     price: 8000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408596/STREETFOOD/trachanh_wcjlgh.jpg")
 end
@@ -4203,7 +3865,6 @@ end
     name: "Mơ đá Hà Nội",
     description: "1 ly",
     price: 10000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408598/STREETFOOD/moda_vxobe3.jpg")
 end
@@ -4213,7 +3874,6 @@ end
     name: "Sữa chua đá",
     description: "1 ly",
     price: 10000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618408597/STREETFOOD/suachuada_yviba9.jpg")
 end
@@ -4256,7 +3916,6 @@ Category.create!(
     name: "Cơm chiên nấm",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 45000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412473/VEGA/comnam_xlasdj.jpg")
 end
@@ -4266,7 +3925,6 @@ end
     name: "Cơm chiên rong biển",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 45000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412950/VEGA/comb_ot8ovc.png")
 end
@@ -4276,7 +3934,6 @@ end
     name: "Cơm chiên Hàn Quốc",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 50000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412474/VEGA/comhq_cfndri.jpg")
 end
@@ -4286,7 +3943,6 @@ end
     name: "Cơm rang muối sả",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 45000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412475/VEGA/comrang_mpw3uk.jpg")
 end
@@ -4296,7 +3952,6 @@ end
     name: "Gỏi Thái",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 40000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412622/VEGA/goithai_luk9cj.jpg")
 end
@@ -4306,7 +3961,6 @@ end
     name: "Tảo xoắn chile sả ớt",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 55000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412621/VEGA/taoxoan_ec0vgz.jpg")
 end
@@ -4316,7 +3970,6 @@ end
     name: "Pizza rau củ (lớn)",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 155000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412619/VEGA/piza_kizj13.jpg")
 end
@@ -4326,7 +3979,6 @@ end
     name: "Đậu hủ Nhật sốt nấm",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 55000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412618/VEGA/daukhuon_suqdsb.jpg")
 end
@@ -4336,7 +3988,6 @@ end
     name: "Nấm nữ hoàng sốt hoa tiêu",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 65000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412724/VEGA/cachua_vsxqgb.jpg")
 end
@@ -4346,7 +3997,6 @@ end
     name: "Lẩu Thái (nhỏ)",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 99000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412738/VEGA/lau_uolk1q.jpg")
 end
@@ -4356,7 +4006,6 @@ end
     name: "Lẩu Thái (lớn)",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 139000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412738/VEGA/lau_uolk1q.jpg")
 end
@@ -4366,7 +4015,6 @@ end
     name: "Lẩu Nấm (nhỏ)",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 119000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412738/VEGA/lau_uolk1q.jpg")
 end
@@ -4376,7 +4024,6 @@ end
     name: "Lẩu Nấm (lớn)",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 149000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412738/VEGA/lau_uolk1q.jpg")
 end
@@ -4420,7 +4067,6 @@ Category.create!(
     name: "Cơm chiên nấm",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 45000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412473/VEGA/comnam_xlasdj.jpg")
 end
@@ -4430,7 +4076,6 @@ end
     name: "Cơm chiên rong biển",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 45000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412950/VEGA/comb_ot8ovc.png")
 end
@@ -4440,7 +4085,6 @@ end
     name: "Cơm chiên Hàn Quốc",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 50000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412474/VEGA/comhq_cfndri.jpg")
 end
@@ -4450,7 +4094,6 @@ end
     name: "Cơm rang muối sả",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 45000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412475/VEGA/comrang_mpw3uk.jpg")
 end
@@ -4460,7 +4103,6 @@ end
     name: "Gỏi Thái",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 40000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412622/VEGA/goithai_luk9cj.jpg")
 end
@@ -4470,7 +4112,6 @@ end
     name: "Tảo xoắn chile sả ớt",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 55000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412621/VEGA/taoxoan_ec0vgz.jpg")
 end
@@ -4480,7 +4121,6 @@ end
     name: "Pizza rau củ (lớn)",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 155000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412619/VEGA/piza_kizj13.jpg")
 end
@@ -4490,7 +4130,6 @@ end
     name: "Đậu hủ Nhật sốt nấm",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 55000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412618/VEGA/daukhuon_suqdsb.jpg")
 end
@@ -4500,7 +4139,6 @@ end
     name: "Nấm nữ hoàng sốt hoa tiêu",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 65000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412724/VEGA/cachua_vsxqgb.jpg")
 end
@@ -4510,7 +4148,6 @@ end
     name: "Lẩu Thái (nhỏ)",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 99000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412738/VEGA/lau_uolk1q.jpg")
 end
@@ -4520,7 +4157,6 @@ end
     name: "Lẩu Thái (lớn)",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 139000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412738/VEGA/lau_uolk1q.jpg")
 end
@@ -4530,7 +4166,6 @@ end
     name: "Lẩu Nấm (nhỏ)",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 119000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412738/VEGA/lau_uolk1q.jpg")
 end
@@ -4540,7 +4175,6 @@ end
     name: "Lẩu Nấm (lớn)",
     description: "Các món ăn được làm từ những nguyên liệu tươi sạch, thơm ngon, đảm bảo chất lượng cho mọi người.",
     price: 149000,
-    quantity_sold: Faker::Number.non_zero_digit,
   )
   p.save_image!("https://res.cloudinary.com/qakhadelivery/image/upload/v1618412738/VEGA/lau_uolk1q.jpg")
 end
@@ -4562,6 +4196,17 @@ Voucher.create!(
   discount: 15000,
   condition: 40000,
   description: 'Code 15k off, min order 40k',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: Partner.pluck(:id).sample
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
   expiry_date: Time.new(2021, 8, 30),
   usage_limit: 20,
   status: 1,
