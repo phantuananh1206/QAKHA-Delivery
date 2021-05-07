@@ -4,6 +4,7 @@ class CreateVouchers < ActiveRecord::Migration[6.0]
       t.string :code
       t.float :discount
       t.float :condition
+      t.float :distance_condition
       t.integer :status, default: 0
       t.datetime :expiry_date
       t.integer :usage_limit

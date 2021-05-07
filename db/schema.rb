@@ -249,6 +249,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_144041) do
     t.string "code"
     t.float "discount"
     t.float "condition"
+    t.float "distance_condition"
     t.integer "status", default: 0
     t.datetime "expiry_date"
     t.integer "usage_limit"

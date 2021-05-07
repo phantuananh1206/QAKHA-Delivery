@@ -27,6 +27,7 @@ class User < ApplicationRecord
             length: {minimum: Settings.validation.password_min}
   validates :coins, allow_nil: true,
             numericality: { greater_than_or_equal_to: Settings.validation.number.zero }
+  validate
 
   before_save :downcase_email
   after_commit :send_pending_devise_notifications
