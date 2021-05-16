@@ -115,6 +115,11 @@ Rails.application.routes.draw do
       get "/products/statistics/quarter", to: 'statistics_products#statistics_by_quarter'
       get "/products/statistics/year", to: 'statistics_products#statistics_by_year'
       get "/products/statistics", to: 'statistics_products#statistics'
+      get "/users/addresses/:id", to: 'users#new_address', as: :new_users_addresses
+      post "/users/addresses", to: 'users#create_address'
+      get "/users/addresses/:id/edit_address", to: 'users#edit_address', as: :edit_users_addresses
+      patch "/users/addresses/:id", to: 'users#update_address'
+      delete "/users/addresses/:id", to: 'users#delete_address'
       resources :drivers, except: :show do
         collection { get :export }
       end
@@ -133,7 +138,7 @@ Rails.application.routes.draw do
       resources :products, except: :show do
         collection { get :export }
       end
-      resources :users, except: :show do
+      resources :users do
         collection { get :export }
       end
       resources :addresses, except: :show do

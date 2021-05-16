@@ -46,7 +46,7 @@ class Api::V1::SessionsController < Devise::SessionsController
   private
 
   def load_user_authentication
-    @user = User._not_role_block.find_by_email params[:email]
+    @user = User._not_role_locked.find_by_email params[:email]
 
     render json: {message: "Email is not exists. Please sign up !!"}, status: :bad_request unless @user
   end

@@ -5,7 +5,7 @@ en:
       - :month
       - :year
   admin:
-    cotrol:
+    control:
       confirm_delete: 'Are you sure you want to delete?'
     address:
       create_success: 'Create address success'
@@ -95,7 +95,7 @@ en:
       delete_success: 'Delete driver success'
       delete_failed: 'Delete driver failed'
       not_found: 'Driver not found'
-      update_status_success: 'Update status %{status} success'
+      update_status_success: '%{status} the driver success'
       update_status_failed: 'Update status failed'
       activate_driver: 'Activate driver'
       create_city: 'Create city'
@@ -170,7 +170,7 @@ en:
       delete_success: 'Delete partner success'
       delete_failed: 'Delete partner failed'
       not_found: 'Partner not found'
-      update_status_success: 'Update status %{status} success'
+      update_status_success: '%{status} the partner success'
       update_status_failed: 'Update status failed'
       name: 'Name (*)'
       email: 'Email (*)'
@@ -273,7 +273,7 @@ en:
       delete_success: 'Delete user success'
       delete_failed: 'Delete user failed'
       not_found: 'User not found'
-      update_status_success: 'Update status %{status} success'
+      update_status_success: '%{status} the user success'
       update_status_failed: 'Update status failed'
       name: 'Name (*)'
       email: 'Email (*)'
@@ -281,6 +281,9 @@ en:
       password_edit: 'Password'
       password_confirmation_edit: 'Passsword confirmation'
       coins: 'Coins'
+      role: 'Role'
+      image: 'Image'
+      show_address: 'Show address'
       password: 'Password (*)'
       password_confirmation: 'Passsword confirmation (*)'
       lock_user: 'Lock user'
@@ -301,6 +304,7 @@ en:
         phone_number: 'Phone number'
         coins: 'Coins'
         role: 'Role'
+        address: 'Address'
         role_management: 'Role management'
         control: 'Control'
     voucher:

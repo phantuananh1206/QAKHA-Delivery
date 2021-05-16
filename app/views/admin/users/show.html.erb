@@ -1,0 +1,27 @@
+<% provide(:title, t('admin.address.title')) %>
+<div class="p-4">
+  <h1><%= t('admin.address.address_management') %></h1>
+  <h3><%= t('admin.address.total_of_addresses') %>: <%= @addresses.total_count %></h3>
+  <br>
+  <div class="btn-custom">
+    <%= link_to t('admin.address.new_address'), admin_new_users_addresses_path($user), class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+  </div>
+  <table class="table table-striped track_tbl table-bordered">
+    <thead class="text-center">
+      <tr>
+        <th><%= t('admin.address.infor.id') %></th>
+        <th><%= t('admin.address.infor.name_address') %></th>
+        <th><%= t('admin.address.infor.latitude') %></th>
+        <th><%= t('admin.address.infor.longitude') %></th>
+        <th><%= t('admin.address.infor.user_name') %></th>
+        <th><%= t('admin.address.infor.control') %></th>
+      </tr>
+    </thead>
+    <tbody id="addresses">
+      <%= render partial: 'admin/users/address', collection: @addresses %>
+    </tbody>
+  </table>
+  <div id="paginate">
+    <%= paginate @addresses, theme: 'twitter-bootstrap-4', remote: true %>
+  </div>
+</div>

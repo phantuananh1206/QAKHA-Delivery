@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include AASM
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :trackable, :timeoutable, :confirmable,
@@ -13,7 +14,7 @@ class User < ApplicationRecord
   has_many :feedbacks, dependent: :restrict_with_error
   has_many :addresses, dependent: :restrict_with_error
 
-  enum role: { admin: 0, member: 1, block: 2 }
+  enum role: { admin: 0, member: 1, locked: 2 }
 
   validates :name, presence: true,
             length: {maximum: Settings.validation.name_max}
@@ -29,11 +30,24 @@ class User < ApplicationRecord
             numericality: { greater_than_or_equal_to: Settings.validation.number.zero }
   validate
 
+  aasm column: :role, enum: true do
+    state :member, initial: true
+    state :admin, :locked
+
+    event :lock do
+      transitions from: :member, to: :locked
+    end
+
+    event :unlock do
+      transitions from: :locked, to: :member
+    end
+  end
+
   before_save :downcase_email
   after_commit :send_pending_devise_notifications
 
   scope :_role_admin, -> { where(role: :admin)}
-  scope :_not_role_block, ->{where.not(role: :block)}
+  scope :_not_role_locked, ->{where.not(role: :locked)}
 
   def self.from_omniauth(auth)
     user_with_provider = find_by(provider: auth.provider, uid: auth.uid)
