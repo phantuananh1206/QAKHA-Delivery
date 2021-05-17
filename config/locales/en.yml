@@ -28,6 +28,7 @@ en:
       search: 'Search'
       new_address: ' New address'
       create_address: 'Create address'
+      empty: 'Addresses empty'
       infor:
         id: 'ID'
         name_address: 'Name'
@@ -61,6 +62,7 @@ en:
       search: 'Search'
       new_category: ' New category'
       create_category: 'Create category'
+      empty: 'Categories empty'
       infor:
         id: 'ID'
         name_category: 'Name'
@@ -83,6 +85,7 @@ en:
       search: 'Search'
       new_city: ' New city'
       create_city: 'Create city'
+      empty: 'Cities empty'
       infor:
         id: 'ID'
         name: 'Name'
@@ -122,6 +125,7 @@ en:
       search: 'Search'
       new_driver: ' New driver'
       create_driver: 'Create driver'
+      empty: 'Drivers empty'
       infor:
         id: 'ID'
         image: 'Image'
@@ -162,6 +166,8 @@ en:
       partner_name: 'Partner name'
       view_detail: 'View detail'
       status_management: 'Status management'
+      empty: 'Orders empty'
+      search: 'Search'
     partner:
       create_success: 'Create partner success'
       create_failed: 'Create partner failed'
@@ -197,6 +203,7 @@ en:
       search: 'Search'
       new_partner: ' New partner'
       create_partner: 'Create partner'
+      empty: 'Partners empty'
       infor:
         id: 'ID'
         image: 'Image'
@@ -233,6 +240,7 @@ en:
       search: 'Search'
       new_product: ' New product'
       create_product: 'Create product'
+      empty: 'Products empty'
       infor:
         id: 'ID'
         image: 'Image'
@@ -261,6 +269,7 @@ en:
       search: 'Search'
       new_type: ' New type'
       create_type: 'Create type'
+      empty: 'Types empty'
       infor:
         id: 'ID'
         name: 'Name'
@@ -296,6 +305,7 @@ en:
       search: 'Search'
       new_user: ' New user'
       create_user: 'Create user'
+      empty: 'Users empty'
       infor:
         id: 'ID'
         image: 'Image'
@@ -336,6 +346,7 @@ en:
       search: 'Search'
       new_voucher: ' New voucher'
       create_voucher: 'Create voucher'
+      empty: 'Vouchers empty'
       infor:
         id: 'ID'
         code: 'Code'
@@ -348,6 +359,36 @@ en:
         partner_name: 'Partner name'
         status: 'Status'
         status_management: 'Status management'
+        control: 'Control'
+    feedback:
+      create_success: 'Create feedback success'
+      create_failed: 'Create feedback failed'
+      update_success: 'Update feedback success'
+      update_failed: 'Update feedback failed'
+      delete_success: 'Delete feedback success'
+      delete_failed: 'Delete feedback failed'
+      not_found: 'Feedback not found'
+      content: 'Content'
+      title: 'Feedbacks'
+      feedback_management: 'Feedback management'
+      total_of_feedbacks: 'Total of feedbacks'
+      export: 'Export excel'
+      search: 'Search'
+      new_feedback: ' New feedback'
+      create_feedback: 'Create feedback'
+      edit_feedback: 'Edit feedback'
+      min: '0'
+      max: '/ 5'
+      empty: 'Feedbacks empty'
+      infor:
+        id: 'ID'
+        content: 'Content'
+        image: 'Image'
+        point: 'Point'
+        order_id: 'Order id'
+        user_name: 'User name'
+        driver_name: 'Driver name'
+        partner_name: 'Partner name'
         control: 'Control'
     statistics:
       by_month: 'Statistics by month'

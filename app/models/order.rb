@@ -92,6 +92,7 @@ class Order < ApplicationRecord
       user.update(coins: (user.coins + total))
       driver.update(coins: (driver.coins - shipping_fee.to_f))
     end
+    driver.update(status: :online)
     order_details.each do |order_detail|
       order_detail.restock_product
     end

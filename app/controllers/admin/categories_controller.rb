@@ -45,9 +45,14 @@ class Admin::CategoriesController < Admin::BaseController
 
   def export
     @categories = Category.order(:name)
-    respond_to do |format|
-	    format.xls { send_data @categories.to_xls }
-	  end
+    if @categories.present?
+      respond_to do |format|
+        format.xls { send_data @categories.to_xls }
+      end
+    else
+      flash[:danger] = t('admin.category.empty')
+      redirect_to admin_categories_path
+    end
   end
 
   private

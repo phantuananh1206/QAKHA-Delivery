@@ -17,7 +17,7 @@
   <br/>
   <div class="btn-custom">
     <%= link_to t('admin.product.new_product'), new_admin_product_path , class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
-    <%= link_to t('admin.product.export'), export_admin_products_path(format: :xls) %>
+    <%= link_to t('admin.product.export'), export_admin_products_path(format: :xls), class: "btn btn-info btn-export" %>
   </div>
   <table class="table table-striped track-tbl table-bordered">
     <thead class="text-center">

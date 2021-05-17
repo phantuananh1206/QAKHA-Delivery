@@ -18,9 +18,14 @@ class Admin::OrdersController < Admin::BaseController
 
   def export
     @orders = Order._created_at_desc
-    respond_to do |format|
-	    format.xls { send_data @orders.to_xls }
-	  end
+    if @orders.present?
+      respond_to do |format|
+        format.xls { send_data @orders.to_xls }
+      end
+    else
+      flash[:danger] = t('admin.order.empty')
+      redirect_to admin_orders_path
+    end
   end
 
   private

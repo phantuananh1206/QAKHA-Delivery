@@ -44,9 +44,14 @@ class Admin::CitiesController < Admin::BaseController
 
   def export
     @cities = City.order(:name)
-    respond_to do |format|
-	    format.xls { send_data @cities.to_xls }
-	  end
+    if @cities.present?
+      respond_to do |format|
+        format.xls { send_data @cities.to_xls }
+      end
+    else
+      flash[:danger] = t('admin.city.empty')
+      redirect_to admin_cities_path
+    end
   end
 
   private

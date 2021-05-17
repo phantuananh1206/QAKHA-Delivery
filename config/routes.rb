@@ -150,6 +150,9 @@ Rails.application.routes.draw do
       resources :orders, only: %i(index show update) do
         collection { get :export }
       end
+      resources :feedbacks, except: :show do
+        collection { get :export }
+      end
       resources :statistics_partners, only: :index
       resources :statistics_drivers, only: :index
       resources :statistics_products, only: :index

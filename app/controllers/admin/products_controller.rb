@@ -46,9 +46,14 @@ class Admin::ProductsController < Admin::BaseController
 
   def export
     @products = Product.order(:name)
-    respond_to do |format|
-	    format.xls { send_data @products.to_xls }
-	  end
+    if @products.present?
+      respond_to do |format|
+        format.xls { send_data @products.to_xls }
+      end
+    else
+      flash[:danger] = t('admin.product.empty')
+      redirect_to admin_products_path
+    end
   end
 
   def update_status

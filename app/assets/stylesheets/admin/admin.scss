@@ -408,3 +408,48 @@ $black_color: black;
   display: flex;
   float: right;
 }
+
+/* Rating */
+.rating-box .ratings .fa{
+  font-size: 30px;
+  color: #ff9f1a;
+  cursor: pointer;
+}
+
+.main-rating {
+  display: flex;
+}
+
+.rating-value-display {
+  font-size: 20px;
+}
+
+.star-rating {
+  position: relative;
+  width: 5em;
+  height: 1em;
+  font-size: 25px;
+  margin-top: 5px;
+}
+.star-rating-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  color: #ff9f1a;
+}
+.star-rating-back {
+  color: #bbb;
+}
+
+.average-score {
+  display: flex;
+}
+.average-score-display {
+  font-size: 16px;
+}
+
+.textarea{
+  width: 250px;
+  height: 70px;
+}

@@ -45,9 +45,14 @@ class Admin::AddressesController < Admin::BaseController
 
   def export
     @addresses = Address.order(:name)
-    respond_to do |format|
-	    format.xls { send_data @addresses.to_xls }
-	  end
+    if @addresses.present?
+      respond_to do |format|
+        format.xls { send_data @addresses.to_xls }
+      end
+    else
+      flash[:danger] = t('admin.address.empty')
+      redirect_to admin_addresses_path
+    end
   end
 
   private

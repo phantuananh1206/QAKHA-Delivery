@@ -1,0 +1,17 @@
+<tr class="text-center">
+  <td><%= feedback.id %></td>
+  <td><%= feedback.content %></td>
+  <td><%= image_tag feedback.image.url.to_s, class: "img-product"%></td>
+  <td><%= feedback.point %></td>
+  <td><%= feedback.order_id %></td>
+  <td><%= feedback.user.name %></td>
+  <td><%= feedback.driver.name if feedback.driver_id %></td>
+  <td><%= feedback.partner.name if feedback.partner_id %></td>
+  <td class="control-custom">
+    <span><%= link_to "", edit_admin_feedback_path(feedback),
+                              class: "btn btn-success glyphicon glyphicon-edit" %></span>
+    <span><%= link_to "", admin_feedback_path(feedback),
+                                data: { confirm: t('admin.control.confirm_delete') },
+                                method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
+  </td>
+</tr>
