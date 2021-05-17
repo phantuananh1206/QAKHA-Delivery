@@ -18,7 +18,7 @@
   <br/>
   <div class="btn-custom">
     <%= link_to t('admin.user.new_user'), new_admin_user_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
-    <%= link_to t('admin.user.export'), export_admin_users_path(format: :xls) %>
+    <%= link_to t('admin.user.export'), export_admin_users_path(format: :xls), class: "btn btn-info btn-export" %>
   </div>
   <table class="table table-striped track_tbl table-bordered">
     <thead class="text-center">
@@ -30,6 +30,7 @@
         <th><%= t('admin.user.infor.phone_number') %></th>
         <th><%= sort_link(@search, :coins, t('admin.user.infor.coins')) %></th>
         <th><%= sort_link(@search, :role, t('admin.user.infor.role')) %></th>
+        <th><%= t('admin.user.infor.address') %></th>
         <th><%= t('admin.user.infor.role_management') %></th>
         <th><%= t('admin.user.infor.control') %></th>
       </tr>

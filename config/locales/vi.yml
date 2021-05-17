@@ -276,6 +276,9 @@ vi:
       password_edit: 'Mật khẩu'
       password_confirmation_edit: 'Xác nhận mật khẩu'
       coins: 'Đồng tiền'
+      role: 'Vai trò'
+      image: 'Hình ảnh'
+      show_address: 'Xem địa chỉ'
       password: 'Mật khẩu (*)'
       password_confirmation: 'Xác nhận mật khẩu (*)'
       lock_user: 'Khóa người dùng'
@@ -296,6 +299,7 @@ vi:
         phone_number: 'Số điện thoại'
         coins: 'Đồng tiền'
         role: 'Vai trò'
+        address: 'Địa chỉ'
         role_management: 'Quản lý vai trò'
         control: 'Điều khiển'
     voucher:

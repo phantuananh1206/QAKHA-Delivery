@@ -62,7 +62,7 @@ class Driver < ApplicationRecord
     end
 
     event :unlock do
-      transitions from: :lock, to: :offline
+      transitions from: :locked, to: :offline
     end
   end
 

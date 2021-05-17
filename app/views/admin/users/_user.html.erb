@@ -7,13 +7,17 @@
   <td><%= user.coins %></td>
   <td><%= user.role %></td>
   <td>
-    <% if user.member? %>
-      <%= link_to t('admin.user.lock_user'), admin_user_status_path(id: user.id, role: :block),
+    <%= link_to t('admin.user.show_address'), admin_user_path(id: user.id),
+                                              class: 'btn btn-info btn-md' %>
+  </td>
+  <td>
+    <% if user.may_lock? %>
+      <%= link_to t('admin.user.lock_user'), admin_user_status_path(id: user.id, role: :lock),
                                              method: :patch,
                                              remote: true,
                                              class: "btn btn-secondary glyphicon glyphicon-lock" %>
-    <% elsif user.block? %>
-      <%= link_to t('admin.user.unlock_user'), admin_user_status_path(id: user.id, role: :member),
+    <% elsif user.may_unlock? %>
+      <%= link_to t('admin.user.unlock_user'), admin_user_status_path(id: user.id, role: :unlock),
                                                method: :patch,
                                                remote: true,
                                                class: "btn btn-secondary glyphicon glyphicon-ok" %>

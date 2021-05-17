@@ -2,7 +2,6 @@
 <div class="p-4">
   <h1><%= t('admin.driver.driver_management') %></h1>
   <h3><%= t('admin.driver.total_of_drivers') %>: <%= @drivers.total_count %></h3>
-  <%= link_to t('admin.driver.export'), export_admin_drivers_path(format: :xls) %>
   <br>
   <%= search_form_for @search, url: admin_drivers_path do |f|%>
     <%= f.condition_fields do |c| %>
