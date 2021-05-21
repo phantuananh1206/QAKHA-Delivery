@@ -1,10 +1,10 @@
-<%= provide :title, "New Type"%>
-<%= provide :button, "Create Type"%>
+<%= provide :title, t('admin.type.create_type') %>
+<%= provide :button, t('admin.type.create_type') %>
 <%= provide :url, admin_types_path(@type)%>
 
 <div class="">
   <div class="col-md-6 col-md-offset-3">
-    <h1><%= "Create new type" %></h1>
+    <h1><%= t('admin.type.create_type') %></h1>
     <%= render "form" %>
   </div>
 </div>

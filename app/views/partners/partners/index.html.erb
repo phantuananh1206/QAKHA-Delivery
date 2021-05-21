@@ -1,0 +1,11 @@
+<% if current_partner.open? %>
+  <%= link_to 'Close store', partners_partner_status_path(id: current_partner.id, status: :close),
+                            method: :patch,
+                            remote: true,
+                            class: "btn btn-primary glyphicon btn-close" %>
+<% else %>
+  <%= link_to 'Open store', partners_partner_status_path(id: current_partner.id, status: :open),
+                              method: :patch,
+                              remote: true,
+                              class: "btn btn-primary glyphicon btn-open" %>
+<% end %>

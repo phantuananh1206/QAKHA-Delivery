@@ -1,8 +1,5 @@
-class Partners::ProductsController < ApplicationController
-  layout "layouts/partner"
-  # before_action :authenticate_partner!
-  before_action :check_sign_in
-  before_action :load_product, only: %i(edit update destroy)
+class Partners::ProductsController < Partners::PartnersController
+  before_action :load_product, only: %i(edit update destroy update_status)
 
   def index
     @search = current_partner.products.includes(:category).search(params[:q])
@@ -28,7 +25,6 @@ class Partners::ProductsController < ApplicationController
 
   def update
     if @product.update_attributes product_params
-      # byebug
       flash[:success] = "Update product successful"
       redirect_to partners_products_path
     else
@@ -38,7 +34,6 @@ class Partners::ProductsController < ApplicationController
 
   def destroy
     product_ordering = @product.orders.where(status: "shipping")
-    # byebug
     if product_ordering.blank?
       if @product.destroy
         flash[:success] = "Delete product successful"
@@ -48,6 +43,15 @@ class Partners::ProductsController < ApplicationController
     else
       flash[:danger] = "Delete product fail. This products is shipping !!"
     end
+    redirect_to partners_products_path
+  end
+
+  def update_status
+    @product.send("#{params[:status]}!")
+    flash[:success] = "Update status #{params[:status]} success"
+  rescue StandardError
+    flash[:danger] = "Update status failed"
+  ensure
     redirect_to partners_products_path
   end
 

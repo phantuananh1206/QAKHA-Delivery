@@ -13,7 +13,7 @@ class Admin::SessionsController < ApplicationController
       log_in(@admin)
       redirect_to admin_root_path
     else
-      flash.now[:danger] = 'You are not an admin, please leave!'
+      flash.now[:danger] = t('admin.session.log_in_failed')
       render :new
     end
   end

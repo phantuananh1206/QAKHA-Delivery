@@ -12,7 +12,7 @@ class Admin::BaseController < ApplicationController
   def logged_in_admin
     return if logged_in?
 
-    flash[:danger] = 'Please log in to continue'
+    flash[:danger] = t('admin.session.please_log_in')
     redirect_to admin_sign_in_path
   end
 end

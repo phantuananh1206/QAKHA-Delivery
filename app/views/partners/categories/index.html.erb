@@ -14,9 +14,9 @@
     <%= f.submit 'Search', class: "btn btn-outline-info" %>
   <% end %>
   <br>
-  <%= link_to "New", new_partners_category_path , class: "btn btn-info btn-new glyphicon glyphicon-plus" %>
-  <table class="table table-striped track_tbl">
-    <thead>
+  <%= link_to "New", new_partners_category_path , class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+  <table class="table table-striped track_tbl table-bordered">
+    <thead class="text-center">
       <tr>
         <th><%= sort_link(@search, :id, 'ID') %></th>
         <th><%= sort_link(@search, :name, "Name of categories") %></th>

@@ -1,8 +1,7 @@
-<% provide(:title, 'Users') %>
+<% provide(:title, t('admin.user.title')) %>
 <div class="p-4">
-  <h1><%= "Management Users" %></h1>
-  <h3><%= "Total of users" %>: <%= @users.total_count %></h3>
-  <%= link_to "Export list users to excel", export_admin_users_path(format: :xls) %>
+  <h1><%= t('admin.user.user_management') %></h1>
+  <h3><%= t('admin.user.total_of_users') %>: <%= @users.total_count %></h3>
   <br>
   <%= search_form_for @search, url: admin_users_path do |f|%>
     <%= f.condition_fields do |c| %>
@@ -14,22 +13,26 @@
         <%= v.text_field :value %>
       <% end %>
     <% end %>
-    <%= f.submit 'Search', class: "btn btn-outline-info" %>
+    <%= f.submit t('admin.user.search'), class: "btn btn-outline-info" %>
   <% end %>
-  <br>
-  <%= link_to " New User", new_admin_user_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
-  <table class="table table-striped track_tbl">
-    <thead>
+  <br/>
+  <div class="btn-custom">
+    <%= link_to t('admin.user.new_user'), new_admin_user_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+    <%= link_to t('admin.user.export'), export_admin_users_path(format: :xls), class: "btn btn-info btn-export" %>
+  </div>
+  <table class="table table-striped track_tbl table-bordered">
+    <thead class="text-center">
       <tr>
-        <th><%= sort_link(@search, :id, 'ID') %></th>
-        <th><%= "Image" %></th>
-        <th><%= sort_link(@search, :name, 'Name') %></th>
-        <th><%= sort_link(@search, :email, 'Email') %></th>
-        <th><%= "Phone number" %></th>
-        <th><%= sort_link(@search, :coins, 'Coins') %></th>
-        <th><%= sort_link(@search, :role, 'Role') %></th>
-        <th><%= "Management role" %></th>
-        <th><%= "Control" %></th>
+        <th><%= sort_link(@search, :id, t('admin.user.infor.id')) %></th>
+        <th><%= t('admin.user.infor.image') %></th>
+        <th><%= sort_link(@search, :name, t('admin.user.infor.name')) %></th>
+        <th><%= sort_link(@search, :email, t('admin.user.infor.email')) %></th>
+        <th><%= t('admin.user.infor.phone_number') %></th>
+        <th><%= sort_link(@search, :coins, t('admin.user.infor.coins')) %></th>
+        <th><%= sort_link(@search, :role, t('admin.user.infor.role')) %></th>
+        <th><%= t('admin.user.infor.address') %></th>
+        <th><%= t('admin.user.infor.role_management') %></th>
+        <th><%= t('admin.user.infor.control') %></th>
       </tr>
     </thead>
     <tbody id="users">

@@ -1,20 +1,20 @@
-<div class="container layout-custom">
+<div class="layout-custom">
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4 login-custom-form">
       <div class="login-form">
         <h2 class="title-login">SIGN-IN</h2>
         <%= form_for :session, url: admin_sign_in_path do |f| %>
           <div class="form-group">
-            <%= f.label :email %><br />
+            <%= f.label t('admin.session.email') %><br />
             <%= f.text_field :email, autofocus: true, class: "form-control" %>
           </div>
 
           <div class="form-group">
-            <%= f.label :password %><br />
+            <%= f.label t('admin.session.password') %><br />
             <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
           </div>
           <div class="actions">
-            <%= f.submit "Sign-In", class: "btn btn-primary btn-login-custom" %>
+            <%= f.submit t('admin.session.sign_in'), class: "btn btn-primary btn-login-custom" %>
           </div>
         <% end %>
       </div>

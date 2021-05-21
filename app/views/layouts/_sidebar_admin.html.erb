@@ -1,13 +1,13 @@
-<div class=" border-right " id="sidebar-wrapper">
+<div class=" border-right sidebar-custom" id="sidebar-wrapper">
   <aside>
     <div class="sidebar ">
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="http://via.placeholder.com/160x160" class="rounded-circle" alt="User Image">
+          <%= image_tag current_admin.image.url , class: "rounded-circle" %>
         </div>
         <div class="pull-left info">
-          <p>Admin Dashboard</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <p><%= link_to current_admin.name, admin_root_path, class: "name-custom" %></p>
+          <a href="#"><i class="fa fa-circle text-success"> </i><%= current_admin.role %></a>
         </div>
       </div>
       <ul class="list-sidebar bg-defoult">
@@ -17,12 +17,8 @@
             <li class="active"><%= link_to "Management Partners", admin_partners_path %></li>
             <li class="active"><%= link_to "Management Cities", admin_cities_path %></li>
             <li class="active"><%= link_to "Management Types", admin_types_path %></li>
-            <li class="active"><%= link_to "Management Categories", admin_categories_path %></li>
-            <li class="active"><%= link_to "Management Products", admin_products_path %></li>
             <li class="active"><%= link_to "Management Users", admin_users_path %></li>
             <li class="active"><%= link_to "Management Addresses", admin_addresses_path %></li>
-            <li class="active"><%= link_to "Management Vouchers", admin_vouchers_path %></li>
-            <li class="active"><%= link_to "Management Orders", admin_orders_path %></li>
           </ul>
         </li>
         <li> <a href="#" data-toggle="collapse" data-target="#products" class="collapsed active" > <i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span> <span class="fa fa-chevron-left pull-right"></span> </a>
@@ -36,10 +32,11 @@
         <li> <a href="#"><i class="fa fa-laptop"></i> <span class="nav-label">Grid options</span></a> </li>
         <li> <a href="#" data-toggle="collapse" data-target="#e-commerce" class="collapsed active" ><i class="fa fa-shopping-cart"></i> <span class="nav-label">E-commerce</span><span class="fa fa-chevron-left pull-right"></span></a>
           <ul  class="sub-menu collapse" id="e-commerce" >
-            <li><%= link_to "Management Products", "#" %></li>
-            <li><%= link_to "Management Categories", "#" %></li>
-            <li><%= link_to "Management Vouchers", "model" %></li>
-            <li><%= link_to "Management Orders", "model" %></li>
+            <li class="active"><%= link_to "Management Categories", admin_categories_path %></li>
+            <li class="active"><%= link_to "Management Products", admin_products_path %></li>
+            <li class="active"><%= link_to "Management Vouchers", admin_vouchers_path %></li>
+            <li class="active"><%= link_to "Management Orders", admin_orders_path %></li>
+            <li class="active"><%= link_to "Management Feedbacks", admin_feedbacks_path %></li>
           </ul>
         </li>
         <li> <a href="#" data-toggle="collapse" data-target="#tables" class="collapsed active" ><i class="fa fa-table"></i> <span class="nav-label">Report & Statistics</span><span class="fa fa-chevron-left pull-right"></span></a>

@@ -1,9 +1,12 @@
-<tr>
+<tr class="text-center">
   <td><%= category.id %></td>
   <td><%= link_to category.name, "#" %></td>
   <td><%= category.created_at %></td>
-  <td>
-    <span><%= link_to "Delete", partners_category_path(category), method: :delete, class: "btn btn-danger" %></span>
-    <span><%= link_to "Edit", edit_partners_category_path(category), class: "btn btn-success" %></span>
+  <td class="control-custom">
+    <span><%= link_to "", edit_partners_category_path(category),
+                              class: "btn btn-success glyphicon glyphicon-edit" %></span>
+    <span><%= link_to "", partners_category_path(category),
+                                data: { confirm: 'Are you sure you want to delete?' },
+                                method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
   </td>
 </tr>

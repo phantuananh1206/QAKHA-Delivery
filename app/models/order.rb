@@ -9,8 +9,8 @@ class Order < ApplicationRecord
   belongs_to :partner
 
   has_many :feedbacks, dependent: :restrict_with_error
-  has_many :products, through: :order_details
   has_many :order_details, dependent: :restrict_with_error
+  has_many :products, through: :order_details
 
   enum type_checkout: { cash: 0, coins: 1, paypal: 2 }
   enum status: { shipping: 0, completed: 1, canceled: 2 }
@@ -92,6 +92,7 @@ class Order < ApplicationRecord
       user.update(coins: (user.coins + total))
       driver.update(coins: (driver.coins - shipping_fee.to_f))
     end
+    driver.update(status: :online)
     order_details.each do |order_detail|
       order_detail.restock_product
     end

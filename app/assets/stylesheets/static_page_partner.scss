@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:700");
 
-// .image-custom {
-//   // height: 100vh;
-//   // width: auto;
-// }
+.image-custom {
+  height: auto;
+  width: 100%;
+}
 
 .sign-in-custom {
   font-size: 2rem;
@@ -14,8 +14,8 @@
   text-decoration: none;
   padding: 5px 5px !important;
   width: 250px !important;
-  left: 38% !important;
-  bottom: 40px !important;
+  left: 42% !important;
+  bottom: calc(100vh - 86vh) !important;
   color: #fff(167, 167, 167, 0.863) !important;
   font-weight: 800;
 }
@@ -40,13 +40,14 @@
   font-family: 'Open Sans', Helvetica, sans-serif;
   font-weight: 800;
   font-size: calc( 100vw / 24 );
+  
   position: relative;
   padding: 0.4em 0;
   overflow: hidden;
   margin: 0;
   color: #fff !important;
-  bottom: 100px !important;
-  left: 5% !important;
+  bottom: calc(100vh - 80vh) !important;
+  left: 8% !important;
 }
 .alrazy-title:after {
   content: '';

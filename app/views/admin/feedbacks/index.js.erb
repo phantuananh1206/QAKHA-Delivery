@@ -1,0 +1,2 @@
+$('#feedbacks').html('<%= j render(@feedbacks) %>');
+$('#paginate').html('<%= j paginate(@feedbacks, theme: 'twitter-bootstrap-4', remote: true) %>');

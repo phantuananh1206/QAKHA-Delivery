@@ -30,7 +30,7 @@ class Partner < ApplicationRecord
   validates :password, presence: true,
             length: {minimum: Settings.validation.password_min},
             allow_nil: true
-  validate :time_close_valid
+  validate :time_close_valid, on: :create
 
   aasm column: :status, enum: true do
     state :not_activated, initial: true
@@ -115,7 +115,7 @@ class Partner < ApplicationRecord
   def clear_cache_partners
     $redis.del 'partners'
   end
-  
+
   private
 
   def downcase_email

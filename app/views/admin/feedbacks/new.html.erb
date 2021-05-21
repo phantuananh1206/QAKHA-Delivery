@@ -1,0 +1,10 @@
+<%= provide :title, t('admin.feedback.create_feedback') %>
+<%= provide :button, t('admin.feedback.create_feedback') %>
+<%= provide :url, admin_feedbacks_path(@feedback)%>
+
+<div class="">
+  <div class="col-md-6 col-md-offset-3">
+    <h1><%= t('admin.feedback.create_feedback') %></h1>
+    <%= render "form" %>
+  </div>
+</div>

@@ -43,11 +43,11 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
 gem "webpacker", "~> 4.0"
-gem 'bullet', group: 'development'
 gem "redis"
 gem "redis-namespace"
 gem "redis-rails"
 gem "redis-rack-cache"
+gem "sidekiq"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -58,6 +58,13 @@ end
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem "rspec-rails", "~> 4.0.1"
+  gem 'database_cleaner-active_record'
+  gem 'database_cleaner-redis'
+  gem "factory_bot_rails"
+  gem "simplecov", require:  false
+  gem "simplecov-rcov"
+  gem "shoulda-matchers", "~> 4.0"
 end
 
 group :test do

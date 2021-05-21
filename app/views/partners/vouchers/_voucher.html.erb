@@ -1,13 +1,23 @@
-<tr>
+<tr class="text-center">
   <td><%= voucher.id %></td>
   <td><%= link_to voucher.code, "#" %></td>
   <td><%= number_to_currency_vnd voucher.discount %></td>
   <td><%= voucher.expiry_date.strftime('%d-%m-%Y %H:%M:%S') %></td>
   <td><%= voucher.usage_limit %></td>
   <td><%= voucher.orders.size %></td>
-  <td><%= voucher.update_status_voucher %></td>
-  <td>
-    <span><%= link_to t(".delete"), partners_voucher_path(voucher), method: :delete, class: "btn btn-danger" %></span>
-    <span><%= link_to t(".edit"), edit_partners_voucher_path(voucher) , class: "btn btn-success" %></span>
+  <td><%= voucher.status %></td>
+
+  <td >
+    <%= link_to "", partners_voucher_status_path(voucher.id, status: :void), method: :patch, remote: true, class:"play active" if voucher.effective? %>
+    <%= link_to "", partners_voucher_status_path(voucher.id, status: :effective), method: :patch, remote: true, class:"play" if voucher.void? && (Time.zone.now < voucher.expiry_date) %>
+    <%= link_to "", partners_voucher_status_path(voucher.id, status: :void), method: :patch, remote: true, class:"" if (voucher.void? && (Time.zone.now >= voucher.expiry_date) ) %>
+  </td>
+
+  <td class="control-custom">
+    <span><%= link_to "", edit_partners_voucher_path(voucher) ,
+    class: "btn btn-success glyphicon glyphicon-edit" %></span>
+    <span><%= link_to "", partners_voucher_path(voucher),
+                                    data: { confirm: 'Are you sure you want to delete?' },
+                                    method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
   </td>
 </tr>

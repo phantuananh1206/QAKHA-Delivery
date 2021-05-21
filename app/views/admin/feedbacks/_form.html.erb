@@ -1,0 +1,48 @@
+<%= form_for @feedback, url: yield(:url) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="form-group">
+    <%= f.text_field :content, placeholder: t('admin.feedback.content'), class: "form-control" %>
+  </div>
+  <div class='main-rating'>
+    <%= f.label :point %>
+    <div class='ratings mb-3'>
+      <span class='fa fa-star-o' id='star'></span>
+      <span class='fa fa-star-o' id='star'></span>
+      <span class='fa fa-star-o' id='star'></span>
+      <span class='fa fa-star-o' id='star'></span>
+      <span class='fa fa-star-o' id='star'></span>
+    </div>
+    <div class='ml-3 rating-value-display'>
+      <span id='rating-value-display'><%= t('admin.feedback.min') %></span>
+      <%= t('admin.feedback.max') %>
+    </div>
+    <%= f.hidden_field :point, id: 'rating-value' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :order_id %>
+    <%= f.collection_select(:order_id, @orders, :id, :name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :user_id %>
+    <%= f.collection_select(:user_id, @users, :id, :name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :driver_id %>
+    <%= f.collection_select(:driver_id, @drivers, :id, :name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :partner_id %>
+    <%= f.collection_select(:partner_id, @partners, :id, :name) %>
+  </div>
+  <div class="form-group">
+    <%= image_tag @feedback.image.url , class: "img-product" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit yield(:button), class: "btn btn-info form-control" %>
+  </div>
+<% end %>
+<%= javascript_pack_tag 'rating' %>

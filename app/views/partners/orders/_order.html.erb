@@ -1,0 +1,32 @@
+<tr class="text-center">
+  <td><%= order.id %></td>
+  <td><%= order.name %></td>
+  <td><%= order.phone_number %></td>
+  <td><%= order.address %></td>
+  <td><%= order.delivery_time %></td>
+  <td><%= order.subtotal %></td>
+  <td><%= order.discount %></td>
+  <td><%= order.shipping_fee %></td>
+  <td><%= order.total %></td>
+  <td><%= order.status %></td>
+  <td><%= order.type_checkout %></td>
+  <td><%= order.rate_status %></td>
+  <td><%= order.user.name %></td>
+  <td><%= order.driver.name %></td>
+  <td>
+    <%= link_to t('admin.order.view_detail'), partners_order_path(id: order.id),
+                                              class: 'btn btn-info btn-md' %>
+  </td>
+  <td>
+    <% if order.shipping? %>
+      <%= link_to 'Complete order', partners_order_path(id: order.id, status: :complete),
+                                    method: :patch,
+                                    remote: true,
+                                    class: "btn btn-primary glyphicon glyphicon-ok" %>
+      <%= link_to 'Cancel order', partners_order_path(id: order.id, status: :cancel),
+                                  method: :patch,
+                                  remote: true,
+                                  class: "btn btn-secondary glyphicon glyphicon-remove" %>
+    <% end %>
+  </td>
+</tr>

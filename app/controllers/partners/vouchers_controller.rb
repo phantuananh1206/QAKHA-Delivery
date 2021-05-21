@@ -1,7 +1,5 @@
-class Partners::VouchersController < ApplicationController
-  layout "layouts/partner"
-  before_action :check_sign_in
-  before_action :load_voucher, only: %i(show update edit destroy)
+class Partners::VouchersController < Partners::PartnersController
+  before_action :load_voucher, only: %i(show update edit destroy update_status)
 
   def index
     @search = current_partner.vouchers.search(params[:q])
@@ -16,7 +14,6 @@ class Partners::VouchersController < ApplicationController
 
   def create
     @voucher = Voucher.new voucher_params.merge(partner_id: current_partner.id)
-    # byebug
     if @voucher.save
       flash[:success] = "Creat new voucher successful"
       redirect_to partners_vouchers_path
@@ -41,6 +38,15 @@ class Partners::VouchersController < ApplicationController
     else
       flash[:danger] = "You cannot delete this voucher. If you delete it, it will affect the store's statistics."
     end
+    redirect_to partners_vouchers_path
+  end
+
+  def update_status
+    @voucher.send("#{params[:status]}!")
+    flash[:success] = "Update status #{params[:status]} success"
+  rescue StandardError
+    flash[:danger] = "Update status failed"
+  ensure
     redirect_to partners_vouchers_path
   end
 

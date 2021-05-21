@@ -172,9 +172,9 @@ a.navbar-brand {
     float: left;
 }
 .user-panel>.image>img {
-    width: 100%;
-    max-width: 45px;
-    height: auto;
+  width: 100%;
+  max-width: 50px;
+  height: 50px;
 }
 .user-panel>.info,  .user-panel>.info>a {
     color: #fff;
@@ -296,10 +296,10 @@ $black_color: black;
 // MANAGEMENT
 
 .btn-new {
-  width: 150px;
-  margin-right: 80px;
+  width: 170px;
+  margin-right: 32px;
   margin-bottom: 10px;
-  float: right;
+  font-size: 1.2em !important;
 }
 
 
@@ -319,23 +319,25 @@ $black_color: black;
   padding: 0 !important;
 }
 
-.layout-custom {
-  background-color: rgba(251, 231, 231, 0.685);
-  height: 100vh;
-}
+// .layout-custom {
+//   background-color: rgba(251, 231, 231, 0.685);
+//   height: 100vh;
+// }
 
 .login-custom-form {
-  width: 1000px;
-  height: 400px;
+  width: 1200px;
+  height: 450px;
   font-weight: 600;
-  background-color: rgb(236, 225, 225);
+  background-color: rgba(245, 245, 245, 0.979);
   display: block;
   justify-content: center;
-  padding: 20px !important;
-  top: 80px !important;
-  left: 55vh;
+  padding: 30px !important;
+  top: calc(100vh - 80vh) !important;
+  left: calc(100vh - 40vh);
+  align-items: center;
   border-radius: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.22);
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.22);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.514);
 }
 
 .title-login {
@@ -346,11 +348,14 @@ $black_color: black;
 }
 
 .btn-login-custom {
-  width: 120px;
-  height: 40px;
+  width: 140px;
+  height: 50px;
   background-color: rgb(194, 75, 75);
   border-style: none;
   float: right;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1.4em;
 }
 .btn-login-custom:hover {
   color: #fff;
@@ -364,4 +369,87 @@ $black_color: black;
 
 .logo-custom {
   width: 95%;
+}
+
+.control-custom{
+  display: flex;
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.sidebar-custom {
+  height: 100vh;
+  background-color: #111;
+}
+
+.name-custom, .name-custom:hover  {
+  text-decoration: none;
+  color: #FFFF;
+}
+
+.btn-export {
+  width: 150px;
+  margin-right: 0px;
+  margin-bottom: 10px;
+  background-color: #f7941d !important;
+  border-color: #f7941d !important;
+  font-size: 1.2em !important;
+}
+
+.btn-export:hover {
+  background-color: #f7941d !important;
+  border-color: #f7941d !important;
+}
+
+.btn-custom {
+  display: flex;
+  float: right;
+}
+
+/* Rating */
+.rating-box .ratings .fa{
+  font-size: 30px;
+  color: #ff9f1a;
+  cursor: pointer;
+}
+
+.main-rating {
+  display: flex;
+}
+
+.rating-value-display {
+  font-size: 20px;
+}
+
+.star-rating {
+  position: relative;
+  width: 5em;
+  height: 1em;
+  font-size: 25px;
+  margin-top: 5px;
+}
+.star-rating-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  color: #ff9f1a;
+}
+.star-rating-back {
+  color: #bbb;
+}
+
+.average-score {
+  display: flex;
+}
+.average-score-display {
+  font-size: 16px;
+}
+
+.textarea{
+  width: 250px;
+  height: 70px;
 }

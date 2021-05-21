@@ -1,8 +1,7 @@
-<% provide(:title, 'Addresses') %>
+<% provide(:title, t('admin.address.title')) %>
 <div class="p-4">
-  <h1><%= "Management Addresses" %></h1>
-  <h3><%= "Total of addresses" %>: <%= @addresses.total_count %></h3>
-  <%= link_to "Export list addresses to excel", export_admin_addresses_path(format: :xls) %>
+  <h1><%= t('admin.address.address_management') %></h1>
+  <h3><%= t('admin.address.total_of_addresses') %>: <%= @addresses.total_count %></h3>
   <br>
   <%= search_form_for @search, url: admin_addresses_path do |f|%>
     <%= f.condition_fields do |c| %>
@@ -14,19 +13,22 @@
         <%= v.text_field :value %>
       <% end %>
     <% end %>
-    <%= f.submit 'Search', class: "btn btn-outline-info" %>
+    <%= f.submit t('admin.address.search'), class: "btn btn-outline-info" %>
   <% end %>
   <br>
-  <%= link_to " New Address", new_admin_address_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
-  <table class="table table-striped track_tbl">
-    <thead>
+  <div class="btn-custom">
+    <%= link_to t('admin.address.new_address'), new_admin_address_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+    <%= link_to t('admin.address.export'), export_admin_addresses_path(format: :xls), class: "btn btn-info btn-export" %>
+  </div>
+  <table class="table table-striped track_tbl table-bordered">
+    <thead class="text-center">
       <tr>
-        <th><%= sort_link(@search, :id, 'ID') %></th>
-        <th><%= sort_link(@search, :name, 'Name') %></th>
-        <th><%= sort_link(@search, :latitude, 'Latitude') %></th>
-        <th><%= sort_link(@search, :longitude, 'Longitude') %></th>
-        <th><%= sort_link(@search, :user_id, 'User name') %></th>
-        <th><%= "Control" %></th>
+        <th><%= sort_link(@search, :id, t('admin.address.infor.id')) %></th>
+        <th><%= sort_link(@search, :name, t('admin.address.infor.name_address')) %></th>
+        <th><%= sort_link(@search, :latitude, t('admin.address.infor.latitude')) %></th>
+        <th><%= sort_link(@search, :longitude, t('admin.address.infor.longitude')) %></th>
+        <th><%= sort_link(@search, :user_id, t('admin.address.infor.user_name')) %></th>
+        <th><%= t('admin.address.infor.control') %></th>
       </tr>
     </thead>
     <tbody id="addresses">

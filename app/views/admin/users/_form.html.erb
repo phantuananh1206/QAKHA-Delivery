@@ -1,32 +1,32 @@
 <%= form_for @user, url: yield(:url) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="form-group">
-    <%= f.text_field :name, placeholder: "Name" +" (*)", class: "form-control" %>
+    <%= f.text_field :name, placeholder: t('admin.user.name'), class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.email_field :email, placeholder: "Email" +" (*)", class: "form-control" %>
+    <%= f.email_field :email, placeholder: t('admin.user.email'), class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.text_field :phone_number, placeholder: "Phone number" +" (*)", class: "form-control" %>
+    <%= f.text_field :phone_number, placeholder: t('admin.user.phone_number'), class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.password_field :password, placeholder: "Password" +" (*)", class: "form-control" %>
+    <%= f.password_field :password, placeholder: t('admin.user.password'), class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.password_field :password_confirmation, placeholder: "Password confirmation" +" (*)", class: "form-control" %>
+    <%= f.password_field :password_confirmation, placeholder: t('admin.user.password_confirmation'), class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.text_field :coins, placeholder: "Coins", class: "form-control" %>
+    <%= f.text_field :coins, placeholder: t('admin.user.coins'), class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :role %>
+    <%= f.label I18n.t('admin.user.role') %>
     <%= f.select(:role, User.roles) %>
   </div>
   <div class="form-group">
     <%= image_tag @user.image.url , class: "img-product" %>
   </div>
   <div class="form-group">
-    <%= f.label :image %>
+    <%= f.label I18n.t('admin.user.image') %>
     <%= f.file_field :image, class: "form-control" %>
   </div>
   <div class="form-group">

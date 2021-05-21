@@ -16,10 +16,10 @@ class Admin::PartnersController < Admin::BaseController
   def create
     @partner = Partner.new(partner_params)
     if @partner.save
-      flash[:success] = 'Create partner success'
+      flash[:success] = t('admin.partner.create_success')
       redirect_to admin_partners_path
     else
-      flash.now[:danger] = 'Create partner failed'
+      flash.now[:danger] = t('admin.partner.create_failed')
       render :new
     end
   end
@@ -30,19 +30,19 @@ class Admin::PartnersController < Admin::BaseController
       params[:partner].delete(:password_confirmation)
     end
     if @partner.update(partner_params)
-      flash[:success] = 'Update partner success'
+      flash[:success] = t('admin.partner.update_success')
       redirect_to admin_partners_path
     else
-      flash.now[:danger] = 'Update partner failed'
+      flash.now[:danger] = t('admin.partner.update_failed')
       render :edit
     end
   end
 
   def destroy
     if @partner.destroy
-      flash[:success] = 'Delete partner success'
+      flash[:success] = t('admin.partner.delete_success')
     else
-      flash[:danger] = 'Delete partner failed'
+      flash[:danger] = t('admin.partner.delete_failed')
     end
     redirect_to admin_partners_path
   end
@@ -53,9 +53,14 @@ class Admin::PartnersController < Admin::BaseController
 
   def export
     @partners = Partner.order(:name)
-    respond_to do |format|
-	    format.xls { send_data @partners.to_xls }
-	  end
+    if @partners.present?
+      respond_to do |format|
+        format.xls { send_data @partners.to_xls }
+      end
+    else
+      flash[:danger] = t('admin.partner.empty')
+      redirect_to admin_partners_path
+    end
   end
 
   private
@@ -70,15 +75,15 @@ class Admin::PartnersController < Admin::BaseController
   def load_partner
     return if @partner = Partner.find_by(id: params[:id])
 
-    flash[:danger] = 'Partner not found'
+    flash[:danger] = t('admin.partner.not_found')
     redirect_to admin_partners_path
   end
 
   def update_status_partner
     @partner.send("#{params[:status]}!")
-    flash[:success] = "Update status #{params[:status]} success"
+    flash[:success] = t('admin.partner.update_status_success', status: "#{params[:status]}")
   rescue StandardError
-    flash[:danger] = "Update status failed"
+    flash[:danger] = t('admin.partner.update_status_failed')
   ensure
     redirect_to admin_partners_path
   end

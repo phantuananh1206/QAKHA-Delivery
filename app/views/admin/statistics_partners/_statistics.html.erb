@@ -1,7 +1,7 @@
-<h1>Driver revenue statistics for <%= params[:delivery_time]["statistics(1i)"].to_i%></h1>
-<%= link_to 'Statistics by month', admin_partners_statistics_month_path, remote: true %>
-<%= link_to 'Statistics by quarter', admin_partners_statistics_quarter_path, remote: true %>
-<%= link_to 'Statistics by year', admin_partners_statistics_year_path, remote: true %>
+<h1> <%= t('admin.statistics.partner') %> <%= params[:delivery_time]["statistics(1i)"].to_i%></h1>
+<%= link_to t('admin.statistics.by_month'), admin_partners_statistics_month_path, remote: true %>
+<%= link_to t('admin.statistics.by_quarter'), admin_partners_statistics_quarter_path, remote: true %>
+<%= link_to t('admin.statistics.by_year'), admin_partners_statistics_year_path, remote: true %>
 <div class="statistics_by_month">
 </div>
 <div class="statistics_by_quarter">

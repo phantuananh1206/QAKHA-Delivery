@@ -1,6 +1,7 @@
 @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700');
 @import "font-awesome";
+@import 'bootstrap/glyphicons';
 
 body{ font-size: 14px; color: #333; list-style: 26px;font-family: 'Roboto', sans-serif; }
 
@@ -317,23 +318,26 @@ $black_color: black;
   padding: 0 !important;
 }
 
-.layout-custom {
-  background-color: rgba(251, 231, 231, 0.685);
-  height: 100vh;
-}
+// .layout-custom {
+//   // background-color: rgba(251, 231, 231, 0.685);
+//   // height: 100vh;
+//   // width: 100vh;
+// }
 
 .login-custom-form {
-  width: 1000px;
-  height: 400px;
+  width: 1200px;
+  height: 380px;
   font-weight: 600;
-  background-color: rgb(236, 225, 225);
+  background-color: rgba(245, 245, 245, 0.979);
   display: block;
   justify-content: center;
-  padding: 20px !important;
-  top: 80px !important;
-  left: 55vh;
+  padding: 30px !important;
+  top: calc(100vh - 80vh) !important;
+  left: calc(100vh - 40vh);
+  align-items: center;
   border-radius: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.22);
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.22);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.514);
 }
 
 .title-login {
@@ -344,12 +348,17 @@ $black_color: black;
 }
 
 .btn-login-custom {
-  width: 120px;
-  height: 40px;
+  width: 140px;
+  height: 50px;
   background-color: rgb(194, 75, 75);
   border-style: none;
   float: right;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1.4em;
+
 }
+
 .btn-login-custom:hover {
   color: #fff;
   background-color: rgb(104, 33, 33);
@@ -362,4 +371,117 @@ $black_color: black;
 
 .logo-custom {
   width: 95%;
+}
+
+
+$background:#f9f9f9;
+$foreground:#2c3e50;
+
+$foreground-light:#34495e;
+
+
+$size:10px;
+$ratio:1.2;
+
+$transition-time:0.3s;
+
+.play {
+  display:block;
+  width: 0;
+	height: 0;
+	border-top: $size solid transparent;
+	border-bottom: $size solid transparent;
+	border-left: ($size*$ratio) solid $foreground;
+  margin: ($size * 2) auto $size auto;
+  position:relative;
+  z-index:1;
+  transition: all $transition-time;
+  -webkit-transition: all $transition-time;
+  -moz-transition: all $transition-time;
+  left:($size*0.2);
+
+  &:before {
+    content:'';
+    position:absolute;
+    top:($size*-1.5);
+    left:($size*-2.3);
+    bottom:($size*-1.5);
+    right:($size*-0.7);
+    border-radius:50%;
+    border: ($size*0.2) solid $foreground;
+    z-index:2;
+    transition: all $transition-time;
+    -webkit-transition: all $transition-time;
+    -moz-transition: all $transition-time;
+  }
+  &:after {
+    content:'';
+    opacity:0;
+    transition: opacity ($transition-time * 2);
+    -webkit-transition: opacity ($transition-time * 2);
+    -moz-transition: opacity ($transition-time * 2);
+  }
+
+  &:hover, &:focus {
+    &:before {
+       transform: scale(1.1);
+       -webkit-transform: scale(1.1);
+       -moz-transform: scale(1.1);
+    }
+  }
+
+  &.active {
+	  border-color:transparent;
+    &:after {
+      content:'';
+      opacity:1;
+      width:($size);
+      height:($size*1.6);
+      background:$foreground;
+      position:absolute;
+      right: ($size*0.4);
+      top: ($size*-0.8);
+      border-left:($size*0.3) solid $foreground;
+      box-shadow:inset ($size*0.6) 0 0 0 $background;
+      border-right:($size*0.3) solid $foreground;
+    }
+  }
+}
+
+.btn-open {
+  background-color: #04b121 !important;
+  border-radius: 50px !important;
+  border-color: #04b121 !important;
+  width: 120px;
+  height: 40px;
+}
+
+.btn-close {
+  background-color: #91200c !important;
+  border-radius: 50px !important;
+  border-color: #91200c !important;
+  width: 120px;
+  height: 40px;
+}
+.name-custom, .name-custom:hover  {
+  text-decoration: none;
+  color: #FFFF;
+}
+
+.order-detail-custom {
+  padding: 0 10px;
+}
+
+.control-custom{
+  display: flex;
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.sidebar-custom {
+  height: 100vh;
+  background-color: #111;
 }

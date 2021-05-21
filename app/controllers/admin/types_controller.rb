@@ -15,38 +15,43 @@ class Admin::TypesController < Admin::BaseController
   def create
     @type = Type.new(type_params)
     if @type.save
-      flash[:success] = 'Create type success'
+      flash[:success] = t('admin.type.create_success')
       redirect_to admin_types_path
     else
-      flash.now[:danger] = 'Create type failed'
+      flash.now[:danger] = t('admin.type.create_failed')
       render :new
     end
   end
 
   def update
     if @type.update(type_params)
-      flash[:success] = 'Update type success'
+      flash[:success] = t('admin.type.update_success')
       redirect_to admin_types_path
     else
-      flash.now[:danger] = 'Update type failed'
+      flash.now[:danger] = t('admin.type.update_failed')
       render :edit
     end
   end
 
   def destroy
     if @type.destroy
-      flash[:success] = 'Delete type success'
+      flash[:success] = t('admin.type.delete_success')
     else
-      flash[:danger] = 'Delete type failed'
+      flash[:danger] = t('admin.type.delete_failed')
     end
     redirect_to admin_types_path
   end
 
   def export
     @types = Type.order(:name)
-    respond_to do |format|
-	    format.xls { send_data @types.to_xls }
-	  end
+    if @types.present?
+      respond_to do |format|
+        format.xls { send_data @types.to_xls }
+      end
+    else
+      flash[:danger] = t('admin.type.empty')
+      redirect_to admin_types_path
+    end
   end
 
   private
@@ -58,7 +63,7 @@ class Admin::TypesController < Admin::BaseController
   def load_type
     return if @type = Type.find_by(id: params[:id])
 
-    flash[:danger] = 'Type not found'
+    flash[:danger] = t('admin.type.not_found')
     redirect_to admin_types_path
   end
 end

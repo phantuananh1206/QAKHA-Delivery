@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include AASM
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :trackable, :timeoutable, :confirmable,
@@ -13,7 +14,7 @@ class User < ApplicationRecord
   has_many :feedbacks, dependent: :restrict_with_error
   has_many :addresses, dependent: :restrict_with_error
 
-  enum role: { admin: 0, member: 1, block: 2 }
+  enum role: { admin: 0, member: 1, locked: 2 }
 
   validates :name, presence: true,
             length: {maximum: Settings.validation.name_max}
@@ -27,11 +28,26 @@ class User < ApplicationRecord
             length: {minimum: Settings.validation.password_min}
   validates :coins, allow_nil: true,
             numericality: { greater_than_or_equal_to: Settings.validation.number.zero }
+  validate
+
+  aasm column: :role, enum: true do
+    state :member, initial: true
+    state :admin, :locked
+
+    event :lock do
+      transitions from: :member, to: :locked
+    end
+
+    event :unlock do
+      transitions from: :locked, to: :member
+    end
+  end
 
   before_save :downcase_email
+  after_commit :send_pending_devise_notifications
 
   scope :_role_admin, -> { where(role: :admin)}
-  scope :_not_role_block, ->{where.not(role: :block)}
+  scope :_not_role_locked, ->{where.not(role: :locked)}
 
   def self.from_omniauth(auth)
     user_with_provider = find_by(provider: auth.provider, uid: auth.uid)
@@ -90,6 +106,16 @@ class User < ApplicationRecord
     self.update_columns(confirmed_at: Time.now.utc)
   end
 
+  protected
+
+  def send_devise_notification(notification, *args)
+    if new_record? || changed?
+      pending_devise_notifications << [notification, args]
+    else
+      render_and_send_devise_message(notification, *args)
+    end
+  end
+
   private
 
   def downcase_email
@@ -98,5 +124,20 @@ class User < ApplicationRecord
 
   def generate_token
     SecureRandom.base36(5)
+  end
+
+  def send_pending_devise_notifications
+    pending_devise_notifications.each do |notification, args|
+      render_and_send_devise_message(notification, *args)
+    end
+    pending_devise_notifications.clear
+  end
+
+  def pending_devise_notifications
+    @pending_devise_notifications ||= []
+  end
+
+  def render_and_send_devise_message(notification, *args)
+    message = devise_mailer.send(notification, self, *args).deliver_later
   end
 end

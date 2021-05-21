@@ -1,0 +1,28 @@
+<section class="container">
+  <div class="row bootstrap snippets bootdey">
+    <div class="col-md-8 col-xs-12">
+      <div class="panel" id="followers">
+        <div class="panel-body">
+          <ul class="list-group list-group-dividered list-group-full">
+            <li class="list-group-item">
+              <div class="media">
+                <div class="media-left">
+                  <%= image_tag order_detail.product.image.url.to_s, class: 'img-product' %>
+                </div>
+                <div class="media-body order-detail-custom">
+                  <div>
+                    <h5><%= order_detail.product.name %></h5>
+                    <label><%= "Quantity: " %></label>
+                    <%= order_detail.quantity %><br/>
+                    <label><%= "Price: " %></label>
+                    <%= number_to_currency_vnd(order_detail.price) %>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

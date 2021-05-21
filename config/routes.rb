@@ -12,10 +12,24 @@ Rails.application.routes.draw do
       devise_scope :partner do
         get "/sign_in", to: "sessions#new"
         post "/sign_in", to: "sessions#create"
+        get "/products/statistics/month", to: 'statistics_products#statistics_by_month'
+        get "/products/statistics/quarter", to: 'statistics_products#statistics_by_quarter'
+        get "/products/statistics/year", to: 'statistics_products#statistics_by_year'
+        get "/products/statistics", to: 'statistics_products#statistics'
+        get "/revenue/statistics/month", to: 'statistics_revenue#statistics_by_month'
+        get "/revenue/statistics/quarter", to: 'statistics_revenue#statistics_by_quarter'
+        get "/revenue/statistics/year", to: 'statistics_revenue#statistics_by_year'
+        get "/revenue/statistics", to: 'statistics_revenue#statistics'
+        patch "products/status/:id", to: 'products#update_status', as: :product_status
+        patch "vouchers/status/:id", to: 'vouchers#update_status', as: :voucher_status
+        patch "partners/status/:id", to: 'partners#update_status', as: :partner_status
       end
       resources :categories
       resources :products
       resources :vouchers
+      resources :statistics_products, only: :index
+      resources :statistics_revenue, only: :index
+      resources :orders
     end
 
     namespace :api, default: {format: :json} do
@@ -66,6 +80,7 @@ Rails.application.routes.draw do
           patch "/user/change_password", to: "users#change_password"
           patch "/driver/update_profile", to: "drivers#update_profile"
           patch "/driver/change_password", to: "drivers#change_password"
+          patch "user/change_email", to: 'users#change_email'
         end
         resources :users, only: :index
         resources :types, only: %i(index show)
@@ -100,6 +115,11 @@ Rails.application.routes.draw do
       get "/products/statistics/quarter", to: 'statistics_products#statistics_by_quarter'
       get "/products/statistics/year", to: 'statistics_products#statistics_by_year'
       get "/products/statistics", to: 'statistics_products#statistics'
+      get "/users/addresses/:id", to: 'users#new_address', as: :new_users_addresses
+      post "/users/addresses", to: 'users#create_address'
+      get "/users/addresses/:id/edit_address", to: 'users#edit_address', as: :edit_users_addresses
+      patch "/users/addresses/:id", to: 'users#update_address'
+      delete "/users/addresses/:id", to: 'users#delete_address'
       resources :drivers, except: :show do
         collection { get :export }
       end
@@ -118,7 +138,7 @@ Rails.application.routes.draw do
       resources :products, except: :show do
         collection { get :export }
       end
-      resources :users, except: :show do
+      resources :users do
         collection { get :export }
       end
       resources :addresses, except: :show do
@@ -128,6 +148,9 @@ Rails.application.routes.draw do
         collection { get :export }
       end
       resources :orders, only: %i(index show update) do
+        collection { get :export }
+      end
+      resources :feedbacks, except: :show do
         collection { get :export }
       end
       resources :statistics_partners, only: :index

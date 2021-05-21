@@ -1,14 +1,14 @@
-<tr>
+<tr class="text-center">
   <td><%= address.id %></td>
   <td><%= address.name %></td>
   <td><%= address.latitude %></td>
   <td><%= address.longitude %></td>
   <td><%= address.user_name %></td>
-  <td>
-    <span><%= link_to "Edit", edit_admin_address_path(address),
-                              class: "btn btn-success glyphicon glyphicon-edit" %></span>
-    <span><%= link_to "Delete", admin_address_path(address),
-                                data: { confirm: 'Are you sure you want to delete?' },
-                                method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
+  <td class="control-custom">
+    <span><%= link_to "", edit_admin_address_path(address),
+                          class: "btn btn-success glyphicon glyphicon-edit" %></span>
+    <span><%= link_to "", admin_address_path(address),
+                          data: { confirm: t('admin.control.confirm_delete') },
+                          method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
   </td>
 </tr>

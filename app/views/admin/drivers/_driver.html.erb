@@ -1,4 +1,4 @@
-<tr>
+<tr class="text-center">
   <td><%= driver.id %></td>
   <td><%= image_tag driver.image.url.to_s, class: "img-product"%></td>
   <td><%= driver.name %></td>
@@ -11,39 +11,39 @@
   <td><%= driver.status %></td>
   <td>
     <% if driver.may_active? %>
-      <%= link_to 'Activate driver', admin_driver_status_path(id: driver.id, status: :active),
+      <%= link_to t('admin.driver.activate_driver'), admin_driver_status_path(id: driver.id, status: :active),
                                      method: :patch,
                                      remote: true,
                                      class: "btn btn-primary glyphicon glyphicon-ok" %>
     <% elsif driver.may_lock? %>
-      <%= link_to 'Lock driver', admin_driver_status_path(id: driver.id, status: :lock),
+      <%= link_to t('admin.driver.lock_driver'), admin_driver_status_path(id: driver.id, status: :lock),
                                  method: :patch,
                                  remote: true,
                                  class: "btn btn-secondary glyphicon glyphicon-lock" %>
     <% elsif driver.may_unlock? %>
-      <%= link_to 'Unlock driver', admin_driver_status_path(id: driver.id, status: :unlock),
+      <%= link_to t('admin.driver.unlock_driver'), admin_driver_status_path(id: driver.id, status: :unlock),
                                  method: :patch,
                                  remote: true,
                                  class: "btn btn-primary glyphicon glyphicon-ok" %>
     <% end %>
     <hr>
     <% if driver.may_online? %>
-      <%= link_to 'Online', admin_driver_status_path(id: driver.id, status: :online),
+      <%= link_to t('admin.driver.online'), admin_driver_status_path(id: driver.id, status: :online),
                             method: :patch,
                             remote: true,
                             class: "btn btn-primary glyphicon glyphicon-eye-open" %>
     <% elsif driver.may_offline? %>
-      <%= link_to 'Offline', admin_driver_status_path(id: driver.id, status: :offline),
+      <%= link_to t('admin.driver.offline'), admin_driver_status_path(id: driver.id, status: :offline),
                              method: :patch,
                              remote: true,
                              class: "btn btn-outline-secondary glyphicon glyphicon-eye-close" %>
     <% end %>
   </td>
-  <td>
-    <span><%= link_to "Edit", edit_admin_driver_path(driver),
+  <td class="control-custom">
+    <span><%= link_to "", edit_admin_driver_path(driver),
                               class: "btn btn-success glyphicon glyphicon-edit" %></span>
-    <span><%= link_to "Delete", admin_driver_path(driver),
-                                data: { confirm: 'Are you sure you want to delete?' },
+    <span><%= link_to "", admin_driver_path(driver),
+                                data: { confirm: t('admin.control.confirm_delete') },
                                 method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
   </td>
 </tr>

@@ -1,10 +1,10 @@
-<%= provide :title, "New Driver"%>
-<%= provide :button, "Create driver"%>
+<%= provide :title, t('admin.driver.create_driver') %>
+<%= provide :button, t('admin.driver.create_driver') %>
 <%= provide :url, admin_drivers_path(@driver)%>
 
 <div class="">
   <div class="col-md-6 col-md-offset-3">
-    <h1><%= "Create new driver" %></h1>
+    <h1><%= t('admin.driver.create_driver') %></h1>
     <%= render "form" %>
   </div>
 </div>

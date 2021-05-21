@@ -13,9 +13,9 @@
     <% end %>
     <%= f.submit 'Search', class: "btn btn-outline-info" %>
   <% end %>
-  <%= link_to "New", new_partners_voucher_path , class: "btn btn-info btn-new" %>
-  <table class="table table-striped">
-    <thead>
+  <%= link_to "New", new_partners_voucher_path , class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+  <table class="table table-striped track-tbl table-bordered">
+    <thead class="text-center">
       <tr>
         <th><%= "No" %></th>
         <th><%= sort_link(@search, :code,"Code of voucher") %></th>
@@ -24,6 +24,7 @@
         <th><%= sort_link(@search, :usage_limit, "Usage limit") %></th>
         <th><%= sort_link(@search, :number_of_uses, "Number of uses") %></th>
         <th><%= sort_link(@search, :status,"Status") %></th>
+        <th><%= "Enable/Disable" %></th>
 
         <th><%= "Control" %></th>
       </tr>

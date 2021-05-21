@@ -1,8 +1,7 @@
-<% provide(:title, 'Vouchers') %>
+<% provide(:title, t('admin.voucher.title')) %>
 <div class="p-4">
-  <h1><%= "Management Vouchers" %></h1>
-  <h3><%= "Total of vouchers" %>: <%= @vouchers.total_count %></h3>
-  <%= link_to "Export list vouchers to excel", export_admin_vouchers_path(format: :xls) %>
+  <h1><%= t('admin.voucher.voucher_management') %></h1>
+  <h3><%= t('admin.voucher.total_of_vouchers') %>: <%= @vouchers.total_count %></h3>
   <br>
   <%= search_form_for @search, url: admin_vouchers_path do |f|%>
     <%= f.condition_fields do |c| %>
@@ -14,24 +13,28 @@
         <%= v.text_field :value %>
       <% end %>
     <% end %>
-    <%= f.submit 'Search', class: "btn btn-outline-info" %>
+    <%= f.submit t('admin.voucher.search'), class: "btn btn-outline-info" %>
   <% end %>
-  <br>
-  <%= link_to " New Voucher", new_admin_voucher_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
-  <table class="table table-striped track_tbl">
-    <thead>
+  <br/>
+  <div class="btn-custom">
+    <%= link_to t('admin.voucher.new_voucher'), new_admin_voucher_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+    <%= link_to t('admin.voucher.export'), export_admin_vouchers_path(format: :xls), class: "btn btn-info btn-export" %>
+  </div>
+  <table class="table table-striped track_tbl table-bordered">
+    <thead class="text-center">
       <tr>
-        <th><%= sort_link(@search, :id, 'ID') %></th>
-        <th><%= sort_link(@search, :code, 'Code') %></th>
-        <th><%= sort_link(@search, :discount, 'Discount') %></th>
-        <th><%= sort_link(@search, :condition, 'Condition') %></th>
-        <th><%= sort_link(@search, :status, 'Status') %></th>
-        <th><%= sort_link(@search, :expiry_date, 'Expiry date') %></th>
-        <th><%= sort_link(@search, :usage_limit, 'Usage limit') %></th>
-        <th><%= "Description" %></th>
-        <th><%= sort_link(@search, :partner_id, 'Partner name') %></th>
-        <th><%= "Management status" %></th>
-        <th><%= "Control" %></th>
+        <th><%= sort_link(@search, :id, t('admin.voucher.infor.id')) %></th>
+        <th><%= sort_link(@search, :code, t('admin.voucher.infor.code')) %></th>
+        <th><%= sort_link(@search, :discount, t('admin.voucher.infor.discount')) %></th>
+        <th><%= sort_link(@search, :condition, t('admin.voucher.infor.condition')) %></th>
+        <th><%= sort_link(@search, :condition_distance, t('admin.voucher.infor.distance_condition')) %></th>
+        <th><%= sort_link(@search, :expiry_date, t('admin.voucher.infor.expiry_date')) %></th>
+        <th><%= sort_link(@search, :usage_limit, t('admin.voucher.infor.usage_limit')) %></th>
+        <th><%= t('admin.voucher.infor.description') %></th>
+        <th><%= sort_link(@search, :partner_id, t('admin.voucher.infor.partner_name')) %></th>
+        <th><%= sort_link(@search, :status, t('admin.voucher.infor.status')) %></th>
+        <th><%= t('admin.voucher.infor.status_management') %></th>
+        <th><%= t('admin.voucher.infor.control') %></th>
       </tr>
     </thead>
     <tbody id="vouchers">

@@ -1,6 +1,4 @@
-class Partners::CategoriesController < ApplicationController
-  layout "layouts/partner"
-  # before_action :authenticate_partner!
+class Partners::CategoriesController < Partners::PartnersController
   before_action :check_sign_in
   before_action :load_category, only: %i(edit update destroy)
 
@@ -21,7 +19,7 @@ class Partners::CategoriesController < ApplicationController
       flash[:success] = "Creat new category successful"
       redirect_to partners_categories_path
     else
-      flash.now[:danger] = "Fail"
+      flash.now[:danger] = "Create new category fail"
       render :new
     end
   end

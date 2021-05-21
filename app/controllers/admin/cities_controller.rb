@@ -15,38 +15,43 @@ class Admin::CitiesController < Admin::BaseController
   def create
     @city = City.new(city_params)
     if @city.save
-      flash[:success] = 'Create city success'
+      flash[:success] = t('admin.city.create_success')
       redirect_to admin_cities_path
     else
-      flash.now[:danger] = 'Create city failed'
+      flash.now[:danger] = t('admin.city.create_failed')
       render :new
     end
   end
 
   def update
     if @city.update(city_params)
-      flash[:success] = 'Update city success'
+      flash[:success] = t('admin.city.update_success')
       redirect_to admin_cities_path
     else
-      flash.now[:danger] = 'Update city failed'
+      flash.now[:danger] = t('admin.city.update_failed')
       render :edit
     end
   end
 
   def destroy
     if @city.destroy
-      flash[:success] = 'Delete city success'
+      flash[:success] = t('admin.city.delete_success')
     else
-      flash[:danger] = 'Delete city failed'
+      flash[:danger] = t('admin.city.delete_failed')
     end
     redirect_to admin_cities_path
   end
 
   def export
     @cities = City.order(:name)
-    respond_to do |format|
-	    format.xls { send_data @cities.to_xls }
-	  end
+    if @cities.present?
+      respond_to do |format|
+        format.xls { send_data @cities.to_xls }
+      end
+    else
+      flash[:danger] = t('admin.city.empty')
+      redirect_to admin_cities_path
+    end
   end
 
   private
@@ -54,7 +59,7 @@ class Admin::CitiesController < Admin::BaseController
   def load_city
     return if @city = City.find_by(id: params[:id])
 
-    flash[:danger] = 'City not found'
+    flash[:danger] = t('admin.city.not_found')
     redirect_to admin_cities_path
   end
 

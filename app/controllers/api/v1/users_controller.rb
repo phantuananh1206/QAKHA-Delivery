@@ -14,14 +14,13 @@ class Api::V1::UsersController < Api::V1::ApplicationController
   def update
     if params[:image].blank?
       params.delete(:image)
+    elsif params[:image].present?
+      @current_user.save_image!(params[:image])
     end
     if @current_user.update(user_params)
-      if params[:image].present?
-        @current_user.save_image!(params[:image])
-      end
       render json: @current_user.as_json(except: [:password]), status: :ok
     else
-      render json: { errors: @current_user.errors.full_messages }, status: :bad_request
+      render json: { message: @current_user.errors.full_messages }, status: :bad_request
     end
   end
 
@@ -48,10 +47,19 @@ class Api::V1::UsersController < Api::V1::ApplicationController
       if @current_user.update(password_params)
         render json: @current_user.as_json(except: [:password]), status: :ok
       else
-        render json: { errors: @current_user.errors.full_messages }, status: :bad_request
+        render json: { message: @current_user.errors.full_messages }, status: :bad_request
       end
     else
       render json: { message: "Current password don't match" }, status: :bad_request
+    end
+  end
+
+  def change_email
+    if @current_user.confirmation_token == params[:code_activate]
+      @current_user.update_columns(email: params[:new_email], confirmed_at: Time.zone.now)
+      render json: {message: 'Change email successfully'}, status: :ok
+    else
+      render json: {message: 'The activation code is invalid. Please check and try again.'}, status: :not_found
     end
   end
 
