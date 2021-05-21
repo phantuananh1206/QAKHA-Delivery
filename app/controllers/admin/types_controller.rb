@@ -44,9 +44,14 @@ class Admin::TypesController < Admin::BaseController
 
   def export
     @types = Type.order(:name)
-    respond_to do |format|
-	    format.xls { send_data @types.to_xls }
-	  end
+    if @types.present?
+      respond_to do |format|
+        format.xls { send_data @types.to_xls }
+      end
+    else
+      flash[:danger] = t('admin.type.empty')
+      redirect_to admin_types_path
+    end
   end
 
   private

@@ -26,6 +26,7 @@ vi:
       search: 'Tìm kiếm'
       new_address: 'Thêm mới địa chỉ'
       create_address: 'Tạo địa chỉ'
+      empty: 'Danh sách địa chỉ trống'
       infor:
         id: 'ID'
         name_address: 'Tên'
@@ -57,6 +58,7 @@ vi:
       search: 'Tìm kiếm'
       new_category: 'Thêm mới danh mục'
       create_category: 'Tạo danh mục'
+      empty: 'Danh sách danh mục trống'
       infor:
         id: 'ID'
         name_category: 'Tên'
@@ -79,6 +81,7 @@ vi:
       search: 'Tìm kiếm'
       new_city: 'Thêm mới thành phố'
       create_city: 'Tạo thành phố'
+      empty: 'Danh sách thành phố trống'
       infor:
         id: 'ID'
         name: 'Tên'
@@ -117,6 +120,7 @@ vi:
       search: 'Tìm kiếm'
       new_driver: 'Thêm mới người giao hàng'
       create_driver: 'Tạo người giao hàng'
+      empty: 'Danh sách người giao hàng trống'
       infor:
         id: 'ID'
         image: 'Hình ảnh'
@@ -157,6 +161,8 @@ vi:
       partner_name: 'Tên đối tác'
       view_detail: 'Xem chi tiết'
       status_management: 'Quản lý trạng thái'
+      empty: 'Danh sách đơn đặt hàng trống'
+      search: 'Tìm kiếm'
     partner:
       create_success: 'Tạo đối tác thành công'
       create_failed: 'Tạo đối tác thất bại'
@@ -192,6 +198,7 @@ vi:
       search: 'Tìm kiếm'
       new_partner: 'Thêm mới đối tác'
       create_partner: 'Tạo đối tác'
+      empty: 'Danh sách đối tác trống'
       infor:
         id: 'ID'
         image: 'Hình ảnh'
@@ -228,6 +235,7 @@ vi:
       search: 'Tìm kiếm'
       new_product: 'Thêm mới sản phẩm'
       create_product: 'Tạo sản phẩm'
+      empty: 'Danh sách sản phẩm trống'
       infor:
         id: 'ID'
         image: 'Hình ảnh'
@@ -256,6 +264,7 @@ vi:
       search: 'Tìm kiếm'
       new_type: 'Thêm mới loại'
       create_type: 'Tạo loại'
+      empty: 'Danh sách loại trống'
       infor:
         id: 'ID'
         name: 'Tên'
@@ -291,6 +300,7 @@ vi:
       search: 'Tìm kiếm'
       new_user: 'Thêm mới người dùng'
       create_user: 'Tạo người dùng'
+      empty: 'Danh sách người dùng trống'
       infor:
         id: 'ID'
         image: 'Hình ảnh'
@@ -331,6 +341,7 @@ vi:
       search: 'Tìm kiếm'
       new_voucher: 'Thêm mới voucher'
       create_voucher: 'Tạo voucher'
+      empty: 'Danh sách voucher trống'
       infor:
         id: 'ID'
         code: 'Mã'
@@ -340,9 +351,39 @@ vi:
         expiry_date: 'Ngày hết hạn'
         usage_limit: 'Giới hạn sử dụng'
         description: 'Mô tả'
-        partner_name: 'Đối tác name'
+        partner_name: 'Tên đối tác'
         status: 'Trạng thái'
         status_management: 'Quản lý trạng thái'
+        control: 'Điều khiển'
+    feedback:
+      create_success: 'Tạo đánh giá thành công'
+      create_failed: 'Tạo đánh giá thất bại'
+      update_success: 'Cập nhật đánh giá thành công'
+      update_failed: 'Cập nhật đánh giá thất bại'
+      delete_success: 'Xóa đánh giá thành công'
+      delete_failed: 'Xóa đánh giá thất bại'
+      not_found: 'Không tìm thấy đánh giá'
+      content: 'Nội dung'
+      title: 'Đánh giá'
+      feedback_management: 'Quản lý đánh giá'
+      total_of_feedbacks: 'Tổng số đánh giá'
+      export: 'Xuất excel'
+      search: 'Tìm kiếm'
+      new_feedback: ' Thêm mới đánh giá'
+      create_feedback: 'Tạo đánh giá'
+      edit_feedback: 'Chỉnh sửa đánh giá'
+      min: '0'
+      max: '/ 5'
+      empty: 'Danh sách đánh giá trống'
+      infor:
+        id: 'ID'
+        content: 'Nội dung'
+        image: 'Hình ảnh'
+        point: 'Điểm'
+        order_id: 'ID đơn đặt hàng'
+        user_name: 'Tên người dùng'
+        driver_name: 'Tên người giao hàng'
+        partner_name: 'Tên đối tác'
         control: 'Điều khiển'
     statistics:
       by_month: 'Thống kê theo tháng'

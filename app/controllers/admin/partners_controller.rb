@@ -53,9 +53,14 @@ class Admin::PartnersController < Admin::BaseController
 
   def export
     @partners = Partner.order(:name)
-    respond_to do |format|
-	    format.xls { send_data @partners.to_xls }
-	  end
+    if @partners.present?
+      respond_to do |format|
+        format.xls { send_data @partners.to_xls }
+      end
+    else
+      flash[:danger] = t('admin.partner.empty')
+      redirect_to admin_partners_path
+    end
   end
 
   private

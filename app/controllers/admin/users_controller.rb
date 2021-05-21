@@ -92,9 +92,14 @@ class Admin::UsersController < Admin::BaseController
 
   def export
     @users = User.order(:name)
-    respond_to do |format|
-	    format.xls { send_data @users.to_xls }
-	  end
+    if @users.present?
+      respond_to do |format|
+        format.xls { send_data @users.to_xls }
+      end
+    else
+      flash[:danger] = t('admin.user.empty')
+      redirect_to admin_users_path
+    end
   end
 
   private

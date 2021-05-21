@@ -52,9 +52,14 @@ class Admin::DriversController < Admin::BaseController
 
   def export
     @drivers = Driver.order(:name)
-    respond_to do |format|
-	    format.xls { send_data @drivers.to_xls }
-	  end
+    if @drivers.present?
+      respond_to do |format|
+        format.xls { send_data @drivers.to_xls }
+      end
+    else
+      flash[:danger] = t('admin.driver.empty')
+      redirect_to admin_drivers_path
+    end
   end
 
   private

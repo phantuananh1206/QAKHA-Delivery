@@ -49,9 +49,14 @@ class Admin::VouchersController < Admin::BaseController
 
   def export
     @vouchers = Voucher.order(:code)
-    respond_to do |format|
-	    format.xls { send_data @vouchers.to_xls }
-	  end
+    if @vouchers.present?
+      respond_to do |format|
+        format.xls { send_data @vouchers.to_xls }
+      end
+    else
+      flash[:danger] = t('admin.voucher.empty')
+      redirect_to admin_vouchers_path
+    end
   end
 
   private

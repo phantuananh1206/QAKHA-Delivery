@@ -18,7 +18,7 @@
   <br>
   <div class="btn-custom">
     <%= link_to t('admin.type.new_type'), new_admin_type_path, class: "btn btn-info glyphicon glyphicon-plus" %>
-    <%= link_to t('admin.type.export'), export_admin_types_path(format: :xls) %>
+    <%= link_to t('admin.type.export'), export_admin_types_path(format: :xls), class: "btn btn-info btn-export" %>
   </div>
   <table class="table table-striped track_tbl table-bordered">
     <thead class="text-center">

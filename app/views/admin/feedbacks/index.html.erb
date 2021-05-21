@@ -1,0 +1,44 @@
+<% provide(:title, t('admin.feedback.title')) %>
+<div class="p-4">
+  <h1><%= t('admin.feedback.feedback_management') %></h1>
+  <h3><%= t('admin.feedback.total_of_feedbacks') %>: <%= @feedbacks.total_count %></h3>
+  <br>
+  <%= search_form_for @search, url: admin_feedbacks_path do |f|%>
+    <%= f.condition_fields do |c| %>
+      <%= c.attribute_fields do |a| %>
+        <%= a.attribute_select %>
+      <% end %>
+      <%= c.predicate_select %>
+      <%= c.value_fields do |v| %>
+        <%= v.text_field :value %>
+      <% end %>
+    <% end %>
+    <%= f.submit t('admin.feedback.search'), class: "btn btn-outline-info" %>
+  <% end %>
+  <br>
+  <div class="btn-custom">
+    <%= link_to t('admin.feedback.new_feedback'), new_admin_feedback_path, class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+    <%= link_to t('admin.feedback.export'), export_admin_feedbacks_path(format: :xls), class: "btn btn-info btn-export" %>
+  </div>
+  <table class="table table-striped track_tbl table-bordered">
+    <thead class="text-center">
+      <tr>
+        <th><%= sort_link(@search, :id, t('admin.feedback.infor.id')) %></th>
+        <th><%= sort_link(@search, :content, t('admin.feedback.infor.content')) %></th>
+        <th><%= t('admin.feedback.infor.image') %></th>
+        <th><%= sort_link(@search, :point, t('admin.feedback.infor.point')) %></th>
+        <th><%= sort_link(@search, :order_id, t('admin.feedback.infor.order_id')) %></th>
+        <th><%= sort_link(@search, :user_id, t('admin.feedback.infor.user_name')) %></th>
+        <th><%= sort_link(@search, :driver_id, t('admin.feedback.infor.driver_name')) %></th>
+        <th><%= sort_link(@search, :partner_id, t('admin.feedback.infor.partner_name')) %></th>
+        <th><%= t('admin.feedback.infor.control') %></th>
+      </tr>
+    </thead>
+    <tbody id="feedbacks">
+      <%= render @feedbacks %>
+    </tbody>
+  </table>
+  <div id="paginate">
+    <%= paginate @feedbacks, theme: 'twitter-bootstrap-4', remote: true %>
+  </div>
+</div>
