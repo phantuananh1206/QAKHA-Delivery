@@ -63,7 +63,9 @@ class Order < ApplicationRecord
   end
 
   def update_coins_user
-    if user.coins >= total
+    if refund_coins
+      user.update(coins: (user.coins - total + refund_coins))
+    else
       user.update(coins: (user.coins - total))
     end
   end

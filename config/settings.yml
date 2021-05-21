@@ -10,6 +10,7 @@ validation:
   address_max: 255
   min_point: 0
   max_point: 6
+  loading_max: 100
 product:
   min_quantity: 1
 show_limit:
