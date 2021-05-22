@@ -1,7 +1,10 @@
 <h1>statistics on the number of best-selling products in <%= params[:delivery_time]["statistics(1i)"].to_i%></h1>
 <%= link_to 'Statistics by month', partners_products_statistics_month_path, remote: true %>
+<br>
 <%= link_to 'Statistics by quarter', partners_products_statistics_quarter_path, remote: true %>
+<br>
 <%= link_to 'Statistics by year', partners_products_statistics_year_path, remote: true %>
+<br>
 <div class="statistics_by_month">
 </div>
 <div class="statistics_by_quarter">

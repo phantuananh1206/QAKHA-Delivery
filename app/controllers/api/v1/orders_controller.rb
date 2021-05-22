@@ -144,8 +144,8 @@ class Api::V1::OrdersController < Api::V1::ApplicationController
           .merge(subtotal: total_price_cart, discount: params[:discount],
                  shipping_fee: params[:shipping_fee].to_f, total: total_order,
                  type_checkout: Order.type_checkouts[params[:type_checkout]],
-                 driver_id: find_driver_nearest['id'], voucher_id: params[:voucher_id],
-                 partner_id: @partner.id)
+                 refund_coins: order_refund_coins, driver_id: find_driver_nearest['id'],
+                 voucher_id: params[:voucher_id], partner_id: @partner.id)
   end
 
   def calculate_distance
@@ -214,8 +214,7 @@ class Api::V1::OrdersController < Api::V1::ApplicationController
     else
       @drivers = @drivers2
     end
-    @list_drivers = Driver.by_ids(@drivers.pluck('id'))
-    @drivers_can_ship = @list_drivers._can_ship
+    @drivers_can_ship = Driver.by_ids(@drivers.pluck('id'))._can_ship
     if @drivers_can_ship.present?
       driver_first = @drivers_can_ship.first
       min_driver = @drivers.find { |driver_fb| driver_fb['id'].to_i == driver_first.id }
@@ -229,7 +228,11 @@ class Api::V1::OrdersController < Api::V1::ApplicationController
           @driver = driver_loop
         end
       end
-      @driver
+      if nearest <= 10.00
+        @driver
+      else
+        render json: { message: 'Sorry, the drivers are busy, please try again later.'}, status: :not_found
+      end
     else
       render json: { message: 'Sorry, the drivers are busy, please try again later.'}, status: :not_found
     end
@@ -242,6 +245,12 @@ class Api::V1::OrdersController < Api::V1::ApplicationController
       return if @current_user.coins >= total_after_discount
 
       render json: { message: 'The coin in the current wallet is not enough to pay the order' }, status: :bad_request
+    end
+  end
+
+  def order_refund_coins
+    if params[:type_checkout] == 'coins' && total_after_discount >= 50000
+      refund_coins = total_after_discount * 1 / 100
     end
   end
 end

@@ -9,6 +9,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.float :discount
       t.float :shipping_fee
       t.float :total
+      t.float :refund_coins
       t.integer :status, default: 0
       t.integer :type_checkout
       t.integer :rate_status, default: 0

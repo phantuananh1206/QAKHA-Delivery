@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_02_144041) do
+ActiveRecord::Schema.define(version: 2021_05_21_180009) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(version: 2021_04_02_144041) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "coins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.float "coins_loaded"
+    t.string "loading_form"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_coins_on_user_id"
   end
 
   create_table "drivers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -137,6 +146,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_144041) do
     t.float "discount"
     t.float "shipping_fee"
     t.float "total"
+    t.float "refund_coins"
     t.integer "status", default: 0
     t.integer "type_checkout"
     t.integer "rate_status", default: 0
@@ -266,6 +276,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_144041) do
   add_foreign_key "carts", "products"
   add_foreign_key "carts", "users"
   add_foreign_key "categories", "partners"
+  add_foreign_key "coins", "users"
   add_foreign_key "feedbacks", "drivers"
   add_foreign_key "feedbacks", "orders"
   add_foreign_key "feedbacks", "partners"

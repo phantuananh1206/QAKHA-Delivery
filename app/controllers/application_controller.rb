@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
   # before_action :load_partners, :load_voucher
+  before_action :clear_cart
   include SessionsHelper
 
   private
@@ -42,5 +43,9 @@ class ApplicationController < ActionController::Base
         voucher.update_columns(status: :effective)
       end
     end
+  end
+
+  def clear_cart
+    HardWorker.perform_at(Time.now)
   end
 end
