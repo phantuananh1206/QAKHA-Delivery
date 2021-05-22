@@ -25,4 +25,8 @@ class Category < ApplicationRecord
   def clear_cache_partners
     $redis.del 'partners'
   end
+
+  def categories_by_partner
+    "#{name} - #{partner.name}"
+  end
 end
