@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #content {
+        font-weight: normal;
+      }
+    </style>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= t('mailer.inform.title') %></h1>
+    <h2><%= t('mailer.inform.hi') %> <%= @name %></h2>
+    <h3 id="content"><%= t('mailer.inform.content') %></h3>
+  </body>
+</html>
