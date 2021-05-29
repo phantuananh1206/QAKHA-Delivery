@@ -16,10 +16,10 @@
             <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= t "header.language" %>
             </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownId">
-              <a class="dropdown-item" href="#"><%= link_to t("vietnamese"), locale: :vi %></a>
-              <a class="dropdown-item" href="#"><%= link_to t("english"), locale: :en %></a>
-            </div>
+            <ul class="dropdown-menu" aria-labelledby="dropdownId">
+              <li class="dropdown-item language" href="#"><%= link_to t("header.vietnamese"), locale: :vi %></li>
+              <li class="dropdown-item language" href="#"><%= link_to t("header.english"), locale: :en %></li>
+            </ul>
           </li>
           <li class="dropdown nav-item">
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">

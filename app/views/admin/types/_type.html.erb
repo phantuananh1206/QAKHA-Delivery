@@ -1,11 +1,13 @@
 <tr class="text-center">
   <td><%= type.id %></td>
   <td><%= type.name %></td>
-  <td class="control-custom">
-    <span><%= link_to "", edit_admin_type_path(type),
-                              class: "btn btn-success glyphicon glyphicon-edit" %></span>
-    <span><%= link_to "", admin_type_path(type),
-                                data: { confirm: t('admin.control.confirm_delete') },
-                                method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
+  <td>
+    <div class="action-btn">
+      <span><%= link_to "", edit_admin_type_path(type),
+                            class: "btn btn-success glyphicon glyphicon-edit" %></span>
+      <span><%= link_to "", admin_type_path(type),
+                            data: { confirm: t('admin.control.confirm_delete') },
+                            method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
+    </div>
   </td>
 </tr>

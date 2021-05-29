@@ -1,10 +1,37 @@
 vi:
+  header:
+    home: 'Trang chủ'
+    language: 'Ngôn ngữ'
+    vietnamese: 'Tiếng Việt'
+    english: 'Tiếng Anh'
+    account: 'Tài khoản'
+    log_out: 'Đăng xuất'
   date:
     order:
       - :day
       - :month
       - :year
   admin:
+    sidebar:
+      dashboard: 'Bảng điều khiển'
+      ecommerce: 'Thương mại điện tử'
+      statistics: 'Thống kê'
+    management:
+      driver: 'Quản lý người giao hàng'
+      partner: 'Quản lý đối tác'
+      city: 'Quản lý thành phố'
+      type: 'Quản lý loại'
+      user: 'Quản lý người dùng'
+      address: 'Quản lý địa chỉ'
+      category: 'Quản lý danh mục'
+      product: 'Quản lý sản phẩm'
+      voucher: 'Quản lý khuyến mãi'
+      order: 'Quản lý đơn đặt hàng'
+      feedback: 'Quản lý đánh giá'
+    statistics:
+      partner: 'Thống kê doanh thu đối tác'
+      driver: 'Thống kê doanh thu người giao hàng'
+      product: 'Thống kê doanh thu số lượng sản phẩm'
     control:
       confirm_delete: 'Bạn có chắc chắn muốn xóa không?'
     address:
@@ -24,7 +51,7 @@ vi:
       total_of_addresses: 'Tổng số địa chỉ'
       export: 'Xuất excel'
       search: 'Tìm kiếm'
-      new_address: 'Thêm mới địa chỉ'
+      new_address: 'Thêm mới'
       create_address: 'Tạo địa chỉ'
       empty: 'Danh sách địa chỉ trống'
       infor:
@@ -56,7 +83,7 @@ vi:
       total_of_categories: 'Tổng số categories'
       export: 'Xuất excel'
       search: 'Tìm kiếm'
-      new_category: 'Thêm mới danh mục'
+      new_category: 'Thêm mới'
       create_category: 'Tạo danh mục'
       empty: 'Danh sách danh mục trống'
       infor:
@@ -75,11 +102,11 @@ vi:
       name: 'Tên (*)'
       edit_city: 'Chỉnh sửa thành phố'
       title: 'Thành phố'
-      city_management: 'Quản lý hành phố'
+      city_management: 'Quản lý thành phố'
       total_of_cities: 'Tổng số thành phố'
       export: 'Xuất excel'
       search: 'Tìm kiếm'
-      new_city: 'Thêm mới thành phố'
+      new_city: 'Thêm mới'
       create_city: 'Tạo thành phố'
       empty: 'Danh sách thành phố trống'
       infor:
@@ -118,7 +145,7 @@ vi:
       total_of_drivers: 'Tổng số người giao hàng'
       export: 'Xuất excel'
       search: 'Tìm kiếm'
-      new_driver: 'Thêm mới người giao hàng'
+      new_driver: 'Thêm mới'
       create_driver: 'Tạo người giao hàng'
       empty: 'Danh sách người giao hàng trống'
       infor:
@@ -196,7 +223,7 @@ vi:
       total_of_partners: 'Tổng số đối tác'
       export: 'Xuất excel'
       search: 'Tìm kiếm'
-      new_partner: 'Thêm mới đối tác'
+      new_partner: 'Thêm mới'
       create_partner: 'Tạo đối tác'
       empty: 'Danh sách đối tác trống'
       infor:
@@ -233,7 +260,7 @@ vi:
       total_of_products: 'Tổng số sản phẩm'
       export: 'Xuất excel'
       search: 'Tìm kiếm'
-      new_product: 'Thêm mới sản phẩm'
+      new_product: 'Thêm mới'
       create_product: 'Tạo sản phẩm'
       empty: 'Danh sách sản phẩm trống'
       infor:
@@ -262,7 +289,7 @@ vi:
       total_of_types: 'Tổng số loại'
       export: 'Xuất excel'
       search: 'Tìm kiếm'
-      new_type: 'Thêm mới loại'
+      new_type: 'Thêm mới'
       create_type: 'Tạo loại'
       empty: 'Danh sách loại trống'
       infor:
@@ -298,7 +325,7 @@ vi:
       total_of_users: 'Tổng số người dùng'
       export: 'Xuất excel'
       search: 'Tìm kiếm'
-      new_user: 'Thêm mới người dùng'
+      new_user: 'Thêm mới'
       create_user: 'Tạo người dùng'
       empty: 'Danh sách người dùng trống'
       infor:
@@ -339,7 +366,7 @@ vi:
       total_of_vouchers: 'Tổng số vouchers'
       export: 'Xuất excel'
       search: 'Tìm kiếm'
-      new_voucher: 'Thêm mới voucher'
+      new_voucher: 'Thêm mới'
       create_voucher: 'Tạo voucher'
       empty: 'Danh sách voucher trống'
       infor:
@@ -369,7 +396,7 @@ vi:
       total_of_feedbacks: 'Tổng số đánh giá'
       export: 'Xuất excel'
       search: 'Tìm kiếm'
-      new_feedback: ' Thêm mới đánh giá'
+      new_feedback: ' Thêm mới'
       create_feedback: 'Tạo đánh giá'
       edit_feedback: 'Chỉnh sửa đánh giá'
       min: '0'
@@ -393,6 +420,18 @@ vi:
       driver: 'Thống kê doanh thu của người giao hàng trong năm'
       partner: 'Thống kê doanh thu của đối tác trong năm'
       product: 'Thống kê số lượng sản phẩm bán chạy trong năm'
+    file_name:
+      address: 'danh_sach_dia_chi '
+      category: 'danh_sach_danh_muc'
+      city: 'danh_sach_thanh_pho'
+      driver: 'danh_sach_nguoi_giao_hang'
+      feedback: 'danh_sach_danh_gia'
+      order: 'danh_sach_don_dat_hang'
+      partner: 'danh_sach_doi_tac'
+      product: 'danh_sach_san_pham'
+      type: 'danh_sach_loai'
+      user: 'danh_sach_nguoi_dung'
+      voucher: 'danh_sach_khuyen_mai'
   mailer:
     contact:
       subject: 'Thư điện tử liên hệ'

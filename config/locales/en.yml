@@ -1,10 +1,37 @@
 en:
+  header:
+    home: 'Home'
+    language: 'Language'
+    vietnamese: 'Vietnamese'
+    english: 'English'
+    account: 'Account'
+    log_out: 'Log out'
   date:
     order:
       - :day
       - :month
       - :year
   admin:
+    sidebar:
+      dashboard: 'Dashboard'
+      ecommerce: 'E-commerce'
+      statistics: 'Statistics'
+    management:
+      driver: 'Driver Management'
+      partner: 'Partner Management'
+      city: 'City Management'
+      type: 'Type Management'
+      user: 'User Management'
+      address: 'Address Management'
+      category: 'Category Management'
+      product: 'Product Management'
+      voucher: 'Voucher Management'
+      order: 'Order Management'
+      feedback: 'Feedback Management'
+    statistics:
+      partner: 'Partner revenue statistics'
+      driver: 'Driver revenue statistics'
+      product: 'Product quantity revenue statistics'
     control:
       confirm_delete: 'Are you sure you want to delete?'
     address:
@@ -398,6 +425,18 @@ en:
       driver: 'Driver revenue statistics for'
       partner: 'Partner revenue statistics for'
       product: 'Statistics on the number of best-selling products in'
+    file_name:
+      address: 'list_of_addresses'
+      category: 'list_of_categories'
+      city: 'list_of_cities'
+      driver: 'list_of_drivers'
+      feedback: 'list_of_feedbacks'
+      order: 'list_of_orders'
+      partner: 'list_of_partners'
+      product: 'list_of_products'
+      type: 'list_of_types'
+      user: 'list_of_users'
+      voucher: 'list_of_vouchers'
   mailer:
     contact:
       subject: 'Contact email'
