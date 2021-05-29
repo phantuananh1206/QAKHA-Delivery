@@ -393,3 +393,19 @@ vi:
       driver: 'Thống kê doanh thu của người giao hàng trong năm'
       partner: 'Thống kê doanh thu của đối tác trong năm'
       product: 'Thống kê số lượng sản phẩm bán chạy trong năm'
+  mailer:
+    contact:
+      subject: 'Thư điện tử liên hệ'
+      title: 'Thông tin thư điện tử liên hệ'
+      name: 'Tên: '
+      content: 'Nội dung: '
+      email: 'Email: '
+    inform:
+      subject: 'Yêu cầu hỗ trợ'
+      title: 'Yêu cầu hỗ trợ'
+      hi: 'Xin chào'
+      content: 'Cảm ơn bạn đã gửi yêu cầu cho chúng tôi, chúng tôi sẽ xem xét và phản hồi cho bạn trong thời gian nhanh nhất. '
+    forgot_password:
+      hi: 'Xin chào'
+      content: 'Vui lòng nhập mã xác nhận này để lấy lại mật khẩu của bạn.'
+      code: 'Mã:'

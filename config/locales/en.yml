@@ -398,3 +398,19 @@ en:
       driver: 'Driver revenue statistics for'
       partner: 'Partner revenue statistics for'
       product: 'Statistics on the number of best-selling products in'
+  mailer:
+    contact:
+      subject: 'Contact email'
+      title: 'Contact email information'
+      name: 'Name: '
+      content: 'Content: '
+      email: 'Email: '
+    inform:
+      subject: 'Request support'
+      title: 'Request support'
+      hi: 'Hi'
+      content: 'Thank you for submitting your request to us, we will review and respond to you as soon as possible.'
+    forgot_password:
+      hi: 'Hi'
+      content: 'Please enter this confirmation code to retrieve your password.'
+      code: 'Code: '
