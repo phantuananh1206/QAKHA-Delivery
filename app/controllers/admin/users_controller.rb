@@ -94,7 +94,7 @@ class Admin::UsersController < Admin::BaseController
     @users = User.order(:name)
     if @users.present?
       respond_to do |format|
-        format.xls { send_data @users.to_xls }
+        format.xls { send_data(@users.to_xls, filename: filename_excel(t('admin.file_name.user'), Time.now)) }
       end
     else
       flash[:danger] = t('admin.user.empty')

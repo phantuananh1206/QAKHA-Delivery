@@ -371,9 +371,13 @@ $black_color: black;
   width: 95%;
 }
 
-.control-custom{
+.action-btn{
   display: flex;
   justify-content: center;
+
+  span {
+    margin-right: 5px;
+  }
 }
 
 .text-center {
@@ -452,4 +456,39 @@ $black_color: black;
 .textarea{
   width: 250px;
   height: 70px;
+}
+
+/* Fix CSS */
+.table thead th {
+  vertical-align: middle !important;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table td, .table th {
+  padding: .75rem;
+  vertical-align: middle !important;
+  border-top: 1px solid #dee2e6;
+}
+
+
+.language {
+  padding: 0 !important;
+  a {
+    color: #696969;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.language:hover {
+  background-color: #e1e1e1 !important;
+  a {
+    color: #0056b3;
+  }
 }

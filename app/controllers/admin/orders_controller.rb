@@ -20,7 +20,7 @@ class Admin::OrdersController < Admin::BaseController
     @orders = Order._created_at_desc
     if @orders.present?
       respond_to do |format|
-        format.xls { send_data @orders.to_xls }
+        format.xls { send_data(@orders.to_xls, filename: filename_excel(t('admin.file_name.order'), Time.now)) }
       end
     else
       flash[:danger] = t('admin.order.empty')

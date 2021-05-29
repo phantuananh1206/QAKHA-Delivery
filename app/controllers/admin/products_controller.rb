@@ -48,7 +48,7 @@ class Admin::ProductsController < Admin::BaseController
     @products = Product.order(:name)
     if @products.present?
       respond_to do |format|
-        format.xls { send_data @products.to_xls }
+        format.xls { send_data(@products.to_xls, filename: filename_excel(t('admin.file_name.product'), Time.now)) }
       end
     else
       flash[:danger] = t('admin.product.empty')

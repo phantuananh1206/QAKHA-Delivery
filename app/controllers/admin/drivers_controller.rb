@@ -54,7 +54,7 @@ class Admin::DriversController < Admin::BaseController
     @drivers = Driver.order(:name)
     if @drivers.present?
       respond_to do |format|
-        format.xls { send_data @drivers.to_xls }
+        format.xls { send_data(@drivers.to_xls, filename: filename_excel(t('admin.file_name.driver'), Time.now)) }
       end
     else
       flash[:danger] = t('admin.driver.empty')

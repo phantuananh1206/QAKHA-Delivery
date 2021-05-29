@@ -46,7 +46,7 @@ class Admin::CitiesController < Admin::BaseController
     @cities = City.order(:name)
     if @cities.present?
       respond_to do |format|
-        format.xls { send_data @cities.to_xls }
+        format.xls { send_data(@cities.to_xls, filename: filename_excel(t('admin.file_name.city'), Time.now)) }
       end
     else
       flash[:danger] = t('admin.city.empty')

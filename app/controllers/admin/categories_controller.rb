@@ -47,7 +47,7 @@ class Admin::CategoriesController < Admin::BaseController
     @categories = Category.order(:name)
     if @categories.present?
       respond_to do |format|
-        format.xls { send_data @categories.to_xls }
+        format.xls { send_data(@categories.to_xls, filename: filename_excel(t('admin.file_name.category'), Time.now)) }
       end
     else
       flash[:danger] = t('admin.category.empty')

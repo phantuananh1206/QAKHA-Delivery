@@ -48,4 +48,12 @@ class ApplicationController < ActionController::Base
   def clear_cart
     HardWorker.perform_at(Time.now)
   end
+
+  def filename_excel(filename, export_date)
+    "#{filename}_#{format_date_export_excel(export_date)}.xls"
+  end
+
+  def format_date_export_excel(date)
+    date.strftime('%Y%m%d')
+  end
 end

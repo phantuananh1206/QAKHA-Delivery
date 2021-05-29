@@ -4,11 +4,11 @@
   <td><%= voucher.discount %></td>
   <td><%= voucher.condition %></td>
   <td><%= voucher.distance_condition %></td>
-  <td><%= voucher.status %></td>
   <td><%= voucher.expiry_date.strftime('%d-%m-%Y %H:%M:%S') %></td>
   <td><%= voucher.usage_limit %></td>
   <td><%= voucher.description %></td>
   <td><%= voucher.partner_name %></td>
+  <td><%= voucher.status %></td>
   <td>
     <% if voucher.not_activated? %>
       <%= link_to t('admin.voucher.activate_voucher'), admin_voucher_status_path(id: voucher.id, status: :effective),
@@ -27,11 +27,13 @@
                                                      class: "btn btn-secondary glyphicon glyphicon-ok" %>
     <% end %>
   </td>
-  <td class="control-custom">
-    <span><%= link_to "", edit_admin_voucher_path(voucher),
-                              class: "btn btn-success glyphicon glyphicon-edit" %></span>
-    <span><%= link_to "", admin_voucher_path(voucher),
-                                data: { confirm: t('admin.control.confirm_delete') },
-                                method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
+  <td>
+    <div class="action-btn">
+      <span><%= link_to "", edit_admin_voucher_path(voucher),
+                            class: "btn btn-success glyphicon glyphicon-edit" %></span>
+      <span><%= link_to "", admin_voucher_path(voucher),
+                            data: { confirm: t('admin.control.confirm_delete') },
+                            method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
+    </div>
   </td>
 </tr>

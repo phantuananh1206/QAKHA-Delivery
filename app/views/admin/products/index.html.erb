@@ -22,16 +22,16 @@
   <table class="table table-striped track-tbl table-bordered">
     <thead class="text-center">
       <tr>
-        <th><%= sort_link(@search, :id, t('admin.product.id')) %></th>
-        <th><%= t('admin.product.image') %></th>
-        <th><%= sort_link(@search, :name, t('admin.product.name')) %></th>
-        <th><%= sort_link(@search, :quantity_sold, t('admin.product.quantity_sold')) %></th>
-        <th><%= sort_link(@search, :price, t('admin.product.price')) %></th>
-        <th><%= sort_link(@search, :status, t('admin.product.status')) %></th>
-        <th><%= sort_link(@search, :category_id, t('admin.product.category_name')) %></th>
-        <th><%= sort_link(@p, :partner_id, t('admin.product.partner_name')) %></th>
-        <th><%= t('admin.product.status_management') %></th>
-        <th><%= t('admin.product.control') %></th>
+        <th><%= sort_link(@search, :id, t('admin.product.infor.id')) %></th>
+        <th><%= t('admin.product.infor.image') %></th>
+        <th><%= sort_link(@search, :name, t('admin.product.infor.name')) %></th>
+        <th><%= sort_link(@search, :quantity_sold, t('admin.product.infor.quantity_sold')) %></th>
+        <th><%= sort_link(@search, :price, t('admin.product.infor.price')) %></th>
+        <th><%= sort_link(@search, :status, t('admin.product.infor.status')) %></th>
+        <th><%= sort_link(@search, :category_id, t('admin.product.infor.category_name')) %></th>
+        <th><%= sort_link(@p, :partner_id, t('admin.product.infor.partner_name')) %></th>
+        <th><%= t('admin.product.infor.status_management') %></th>
+        <th><%= t('admin.product.infor.control') %></th>
       </tr>
     </thead>
     <tbody id="product">

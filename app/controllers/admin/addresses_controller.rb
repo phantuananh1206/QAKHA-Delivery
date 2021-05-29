@@ -47,7 +47,7 @@ class Admin::AddressesController < Admin::BaseController
     @addresses = Address.order(:name)
     if @addresses.present?
       respond_to do |format|
-        format.xls { send_data @addresses.to_xls }
+        format.xls { send_data(@addresses.to_xls, filename: filename_excel(t('admin.file_name.address'), Time.now)) }
       end
     else
       flash[:danger] = t('admin.address.empty')
