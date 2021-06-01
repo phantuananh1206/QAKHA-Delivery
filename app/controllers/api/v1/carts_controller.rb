@@ -46,7 +46,7 @@ class Api::V1::CartsController < Api::V1::ApplicationController
 
   def load_product
     @product = Product.find_by(id: params[:product_id])
-    return if @product && @product.category.partner_id == params[:partner_id].to_i
+    return if @product && @product.category.partner_id == params[:partner_id].to_i && @product.status == "in_stock"
 
     render json: { message: 'Product not found!' }, status: :not_found
   end
