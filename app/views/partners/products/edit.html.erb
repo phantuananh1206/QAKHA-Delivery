@@ -1,9 +1,10 @@
 <%= provide :title, "Update Product"%>
 <%= provide :button, "Update"%>
 <%= provide :url, partners_product_path(@product)%>
-<div class="">
+<div class="custom-form">
   <div class="col-md-6 col-md-offset-3">
     <h1><%= "Update product" %></h1>
     <%= render "form" %>
   </div>
 </div>
+<%= link_to t('back'), partners_products_path, class:'btn btn-secondary glyphicon glyphicon-arrow-left' %>

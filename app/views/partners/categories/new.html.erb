@@ -2,10 +2,11 @@
 <%= provide :button, "Create"%>
 <%= provide :url, partners_categories_path(@category)%>
 
-<div class="">
+<div class="custom-form">
   <div class="col-md-6 col-md-offset-3">
     <h1><%= "Create new category" %></h1>
 
     <%= render "form" %>
   </div>
 </div>
+<%= link_to t('back'), partners_categories_path, class:'btn btn-secondary glyphicon glyphicon-arrow-left' %>

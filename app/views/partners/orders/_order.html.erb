@@ -21,10 +21,12 @@
     <% if order.shipping? %>
       <%= link_to 'Complete order', partners_order_path(id: order.id, status: :complete),
                                     method: :patch,
+                                    data: { confirm: 'Are you sure you want to complete the order?' },
                                     remote: true,
                                     class: "btn btn-primary glyphicon glyphicon-ok" %>
       <%= link_to 'Cancel order', partners_order_path(id: order.id, status: :cancel),
                                   method: :patch,
+                                  data: { confirm: 'Are you sure you want to cancel the order?' },
                                   remote: true,
                                   class: "btn btn-secondary glyphicon glyphicon-remove" %>
     <% end %>
