@@ -2,9 +2,9 @@
 <%= provide :button, t('admin.address.create_address')%>
 <%= provide :url, admin_users_addresses_path(@address)%>
 
-<div class="">
+<div class="custom-form">
   <div class="col-md-6 col-md-offset-3">
-    <h1><%= t('admin.address.create_address') %></h1>
+    <h1 class="text-center"><%= t('admin.address.create_address') %></h1>
     <%= render "admin/users/form_address" %>
   </div>
 </div>
