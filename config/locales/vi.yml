@@ -190,6 +190,7 @@ vi:
       status_management: 'Quản lý trạng thái'
       empty: 'Danh sách đơn đặt hàng trống'
       search: 'Tìm kiếm'
+      order_detail: 'Chi tiết đơn đặt hàng'
     partner:
       create_success: 'Tạo đối tác thành công'
       create_failed: 'Tạo đối tác thất bại'
