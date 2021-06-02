@@ -7,7 +7,6 @@ class Partners::OrdersController < ApplicationController
     @orders = @search.result.page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort
-    # @orders = current_partner.orders.all.page(params[:page]).per(5)
   end
 
   def show
@@ -24,7 +23,7 @@ class Partners::OrdersController < ApplicationController
     return if @order = Order.find_by(id: params[:id])
 
     flash[:danger] = 'Order not found'
-    redirect_to admin_orders_path
+    redirect_to partners_orders_path
   end
 
   def update_status_order
@@ -33,6 +32,6 @@ class Partners::OrdersController < ApplicationController
   rescue StandardError
     flash[:danger] = "Update status failed"
   ensure
-    redirect_to admin_orders_path
+    redirect_to partners_orders_path
   end
 end
