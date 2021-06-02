@@ -98,6 +98,7 @@ class Order < ApplicationRecord
     order_details.each do |order_detail|
       order_detail.restock_product
     end
+    delete_driver_fb
   end
 
   def self.to_xls
@@ -105,6 +106,22 @@ class Order < ApplicationRecord
       csv << column_names
       all.each do |order|
         csv << order.attributes.values_at(*column_names)
+      end
+    end
+  end
+
+  def delete_driver_fb
+    @drivers2_fb = FireBase.new.get('drivers').body['shipping']['order'].compact!
+    if @drivers2_fb.blank?
+      @drivers_fb = FireBase.new.get('drivers').body['shipping']['order'].values
+    else
+      @drivers_fb = @drivers2_fb
+    end
+    @drivers = Driver.by_ids(@drivers_fb.pluck('driver_id'))
+    @drivers.each do |driver_loop|
+      if driver_loop.id == driver.id
+        FireBase.new.delete("drivers/shipping/order/#{driver.id}")
+        break
       end
     end
   end

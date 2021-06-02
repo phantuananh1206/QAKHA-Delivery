@@ -43,7 +43,7 @@ class Api::V1::DriversController < Api::V1::ApplicationController
       ActiveRecord::Base.transaction do
         @order.update(status: :completed, rate_status: :rate, delivery_time: Time.zone.now)
         @current_driver.delivered!
-        FireBase.new.delete('drivers/shipping')
+        delete_driver_fb
       end
       render json: { order: @order.as_json(only: [:delivery_time, :status, :rate_status]),
         status_driver: @current_driver.status }, status: :ok
@@ -103,5 +103,21 @@ class Api::V1::DriversController < Api::V1::ApplicationController
 
   def password_params
     params.permit(:password, :password_confirmation)
+  end
+
+  def delete_driver_fb
+    @drivers2_fb = FireBase.new.get('drivers').body['shipping']['order'].compact!
+    if @drivers2_fb.blank?
+      @drivers_fb = FireBase.new.get('drivers').body['shipping']['order'].values
+    else
+      @drivers_fb = @drivers2_fb
+    end
+    @drivers = Driver.by_ids(@drivers_fb.pluck('driver_id'))
+    @drivers.each do |driver|
+      if driver.id == @current_driver.id
+        FireBase.new.delete("drivers/shipping/order/#{@current_driver.id}")
+        break
+      end
+    end
   end
 end

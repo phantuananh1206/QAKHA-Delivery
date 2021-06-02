@@ -195,7 +195,7 @@ class Api::V1::OrdersController < Api::V1::ApplicationController
   end
 
   def save_success
-    order = FireBase.new.push("drivers/shipping/#{@driver['id']}/order", { driver_id: @driver['id'], order_id: @order.id })
+    order = FireBase.new.update("drivers/shipping/order/#{@driver['id']}", { driver_id: @driver['id'], order_id: @order.id })
     driver = Driver.find_by(id: @driver['id'])
     driver.ship!
     render json: { order: @order.as_json(include: [user: { only: [:name, :image] }]),
