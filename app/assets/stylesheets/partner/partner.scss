@@ -460,7 +460,7 @@ $transition-time:0.3s;
   background-color: #91200c !important;
   border-radius: 50px !important;
   border-color: #91200c !important;
-  width: 120px;
+  width: 160px;
   height: 40px;
 }
 .name-custom, .name-custom:hover  {
@@ -509,4 +509,27 @@ $transition-time:0.3s;
 .btn-custom {
   display: flex;
   float: right;
+}
+
+
+.language {
+  padding: 0 !important;
+  a {
+    color: #696969;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.language:hover {
+  background-color: #e1e1e1 !important;
+  a {
+    color: #0056b3;
+  }
 }

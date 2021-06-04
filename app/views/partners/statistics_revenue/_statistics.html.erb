@@ -1,9 +1,9 @@
-<h1>statistics on revenue in <%= params[:delivery_time]["statistics(1i)"].to_i%></h1>
-<%= link_to 'Statistics by month', partners_revenue_statistics_month_path, remote: true %>
+<h1> <%= t('partner.statistics.revenue') %> <%= params[:delivery_time]["statistics(1i)"].to_i%></h1>
+<%= link_to t('admin.statistics.by_month'), partners_revenue_statistics_month_path, remote: true %>
 <br>
-<%= link_to 'Statistics by quarter', partners_revenue_statistics_quarter_path, remote: true %>
+<%= link_to t('admin.statistics.by_quarter'), partners_revenue_statistics_quarter_path, remote: true %>
 <br>
-<%= link_to 'Statistics by year', partners_revenue_statistics_year_path, remote: true %>
+<%= link_to t('admin.statistics.by_year'), partners_revenue_statistics_year_path, remote: true %>
 <br>
 <div class="statistics_by_month">
 </div>

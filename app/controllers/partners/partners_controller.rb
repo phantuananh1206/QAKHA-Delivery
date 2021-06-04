@@ -8,12 +8,10 @@ class Partners::PartnersController < ApplicationController
 
   def update_status
     current_partner.send("#{params[:status]}!")
-    flash[:success] = "Update status #{params[:status]} success"
+    flash[:success] = t('partner.close_store', status: "#{params[:status]}")
   rescue StandardError
-    flash[:danger] = "Update status failed"
+    flash[:danger] = t('partner.close_fail', status: "#{params[:status]}")
   ensure
     redirect_to partners_partners_path
   end
-
-
 end

@@ -1,9 +1,9 @@
-<%= provide :title, "Update Product"%>
-<%= provide :button, "Update"%>
+<%= provide :title, t('admin.product.edit_product') %>
+<%= provide :button, t('admin.product.edit_product') %>
 <%= provide :url, partners_product_path(@product)%>
 <div class="custom-form">
   <div class="col-md-6 col-md-offset-3">
-    <h1><%= "Update product" %></h1>
+    <h1 class="text-center"><%= t('admin.product.edit_product') %></h1>
     <%= render "form" %>
   </div>
 </div>

@@ -12,9 +12,9 @@
                 <div class="media-body order-detail-custom">
                   <div>
                     <h5><%= order_detail.product.name %></h5>
-                    <label><%= "Quantity: " %></label>
+                    <label><%= t('admin.order.quantity') %></label>
                     <%= order_detail.quantity %><br/>
-                    <label><%= "Price: " %></label>
+                    <label><%= t('admin.order.price') %></label>
                     <%= number_to_currency_vnd(order_detail.price) %>
                   </div>
                 </div>
@@ -26,4 +26,3 @@
     </div>
   </div>
 </section>
-<%= link_to t('back'), partners_orders_path, class:'btn btn-secondary glyphicon glyphicon-arrow-left' %>

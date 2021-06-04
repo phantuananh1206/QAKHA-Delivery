@@ -15,19 +15,19 @@ class SessionsController < ApplicationController
       if @partner.valid_password? params[:partner][:password]
         if @partner.open? || @partner.close?
           if sign_in @partner
-            flash[:success] = "Sign in successfuly"
+            flash[:success] = t('partner.session.sign_in_success')
             redirect_to partners_partners_path
           end
         else
-          flash[:danger] = "Fail. Account has not been confirmed. Please contact QAKHA's management team to become our partner."
+          flash[:danger] =  t('partner.session.acc_not_activate')
           render :new
         end
       else
-        flash[:danger] = "Sign in fail"
+        flash[:danger] = t('partner.session.sign_in_fail')
         render :new
       end
     else
-      flash[:danger] = "Please sign up"
+      flash[:danger] = t('partner.session.please_log_in')
     end
   end
 
@@ -43,7 +43,7 @@ class SessionsController < ApplicationController
     if @partner.present?
       return @partner
     else
-      flash.now[:danger] = " Please check your account !!"
+      flash.now[:danger] = t('partner.session.authen')
       render :new
     end
   end
