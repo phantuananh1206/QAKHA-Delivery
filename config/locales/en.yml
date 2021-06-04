@@ -6,6 +6,8 @@ en:
     english: 'English'
     account: 'Account'
     log_out: 'Log out'
+    profile: 'Profile'
+    settings: 'Settings'
   date:
     order:
       - :day
@@ -192,6 +194,8 @@ en:
       empty: 'Orders empty'
       search: 'Search'
       order_detail: 'Order detail'
+      order_management: 'Order Management'
+      total_of_orders: 'Total of orders'
     partner:
       create_success: 'Create partner success'
       create_failed: 'Create partner failed'
@@ -269,7 +273,7 @@ en:
         id: 'ID'
         image: 'Image'
         name: 'Name'
-        quantity: 'Quantity'
+        quantity: 'Quantity sold'
         price: 'Price'
         status: 'Status'
         category_name: 'Category name'
@@ -451,3 +455,47 @@ en:
       content: 'Please enter this confirmation code to retrieve your password.'
       code: 'Code: '
   back: ' Back'
+  partner:
+    sidebar:
+      close: 'Close store'
+      open: 'Open store'
+      dashboard: 'Dashboard'
+      ecommerce: 'E-commerce'
+      statistics: 'Statistics'
+    management:
+      category: 'Category Management'
+      product: 'Product Management'
+      voucher: 'Voucher Management'
+      order: 'Order Management'
+    statistics:
+      revenue: 'Revenue statistics'
+      product: 'Product statistics'
+      voucher: 'Voucher statistics'
+    control:
+      confirm_delete: 'Are you sure you want to delete?'
+    session:
+      please_log_in: 'Please log in to continue'
+      log_in_failed: 'We could not verify your credentials. Please double-check and try again.'
+      acc_not_activate: "Log in failed. The account has not been confirmed. Please contact QAKHA's management team to become our partner."
+      title: 'PARTNER'
+      email: 'Email'
+      password: 'Password'
+      sign_in: 'Sign in'
+      sign_in_success: 'Sign in successfuly'
+      sign_in_fail: 'Sign in fail'
+      authen: 'Please check your account !!'
+    product:
+      delete_f: "You cannot delete this product. If you delete it, it will affect the store's statistics."
+      description: 'Description'
+      out_of_stock: 'Out of stock'
+      create_at: "Create at"
+    order:
+      complete: 'Are you sure you want to complete the order?'
+      cancel: Are you sure you want to cancel the order?
+    voucher:
+      number_use_voucher: 'Number of uses'
+      ena_disable: 'Enable / Disable'
+    close_store: 'The store has %{status}'
+    close_fail: '% status the store failed.'
+    statistics:
+      revenue: 'Revenue statistics for store '

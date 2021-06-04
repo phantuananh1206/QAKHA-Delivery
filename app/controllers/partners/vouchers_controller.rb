@@ -15,37 +15,38 @@ class Partners::VouchersController < Partners::PartnersController
   def create
     @voucher = Voucher.new voucher_params.merge(partner_id: current_partner.id)
     if @voucher.save
-      flash[:success] = "Creat new voucher successful"
+      flash[:success] = t('admin.voucher.create_success')
       redirect_to partners_vouchers_path
     else
-      flash.now[:danger] = "Creat new voucher fail"
+      flash.now[:danger] = t('admin.voucher.create_failed')
       render :new
     end
   end
 
   def update
     if @voucher.update_attributes voucher_params
-      flash[:success] = "Update voucher successful"
+      flash[:success] = t('admin.voucher.update_success')
       redirect_to partners_vouchers_path
     else
+      flash.now[:danger] = t('admin.voucher.update_failed')
       render :edit
     end
   end
 
   def destroy
     if @voucher.destroy
-      flash[:success] = "Delete voucher successful"
+      flash[:success] = t('admin.voucher.delete_success')
     else
-      flash[:danger] = "You cannot delete this voucher. If you delete it, it will affect the store's statistics."
+      flash[:danger] = t('admin.voucher.delete_failed')
     end
     redirect_to partners_vouchers_path
   end
 
   def update_status
     @voucher.send("#{params[:status]}!")
-    flash[:success] = "Update status #{params[:status]} success"
+    flash[:success] = t('admin.voucher.update_status_success', status: "#{params[:status]}")
   rescue StandardError
-    flash[:danger] = "Update status failed"
+    flash[:danger] = t('admin.voucher.update_status_failed')
   ensure
     redirect_to partners_vouchers_path
   end
@@ -59,7 +60,7 @@ class Partners::VouchersController < Partners::PartnersController
   def load_voucher
     return if @voucher = current_partner.vouchers.find_by(id: params[:id])
 
-    flash[:info] = "Voucher is empty"
+    flash[:info] = t('admin.voucher.not_found')
     redirect_to partners_vouchers_path
   end
 end

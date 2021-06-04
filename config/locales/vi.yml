@@ -6,6 +6,8 @@ vi:
     english: 'Tiếng Anh'
     account: 'Tài khoản'
     log_out: 'Đăng xuất'
+    profile: 'Thông tin cá nhân'
+    settings: 'Cài đặt'
   date:
     order:
       - :day
@@ -80,7 +82,7 @@ vi:
       edit_category: 'Chỉnh sửa danh mục'
       title: 'Danh mục'
       category_management: 'Quản lý danh mục'
-      total_of_categories: 'Tổng số categories'
+      total_of_categories: 'Tổng số danh mục'
       export: 'Xuất excel'
       search: 'Tìm kiếm'
       new_category: 'Thêm mới'
@@ -191,6 +193,8 @@ vi:
       empty: 'Danh sách đơn đặt hàng trống'
       search: 'Tìm kiếm'
       order_detail: 'Chi tiết đơn đặt hàng'
+      order_management: 'Quản lý đơn hàng'
+      total_of_orders: 'Tổng số đơn hàng  '
     partner:
       create_success: 'Tạo đối tác thành công'
       create_failed: 'Tạo đối tác thất bại'
@@ -268,7 +272,7 @@ vi:
         id: 'ID'
         image: 'Hình ảnh'
         name: 'Tên'
-        quantity: 'Số lượng'
+        quantity: 'Số lượng bán'
         price: 'Giá'
         status: 'Trạng thái'
         category_name: 'Tên danh mục'
@@ -450,3 +454,47 @@ vi:
       content: 'Vui lòng nhập mã xác nhận này để lấy lại mật khẩu của bạn.'
       code: 'Mã:'
   back: ' Trở về'
+  partner:
+    sidebar:
+      close: "Đóng cửa hàng"
+      open: "Mở cửa hàng"
+      dashboard: 'Bảng điều khiển'
+      ecommerce: 'Thương mại điện tử'
+      statistics: 'Thống kê'
+    management:
+      category: 'Quản lý danh mục'
+      product: 'Quản lý sản phẩm'
+      voucher: 'Quản lý khuyến mãi'
+      order: 'Quản lý đơn hàng'
+    statistics:
+      revenue: 'Thống kê doanh thu'
+      product: 'Thống kê sản phẩm'
+      voucher: 'Thống kê khuyến mãi'
+    control:
+      confirm_delete: 'Bạn có chắc chắn muốn xóa không ?'
+    session:
+      please_log_in: 'Vui lòng đăng nhập.'
+      log_in_failed: 'We could not verify your credentials. Please double-check and try again.'
+      acc_not_activate: 'Đăng nhập không thành công. Tài khoản chưa được xác nhận. Hãy liên hệ với đội ngũ quản lý của QAKHA để trở thành đối tác của chúng tôi.'
+      title: 'ĐỐI TÁC'
+      email: 'Email'
+      password: 'Mật khẩu'
+      sign_in: 'Đăng nhập'
+      sign_in_success: 'Đăng nhập thành công'
+      sign_in_fail: 'Đăng nhập thất bại'
+      authen: 'Vui lòng kiểm tra tài khoản'
+    product:
+      delete_f: "Bạn không thể xóa sản phẩm này. Nếu bạn xóa nó sẽ ảnh hưởng đến số liệu thống kê của cửa hàng."
+      description: "Mô tả sản phẩm"
+      out_of_stock: 'Hết hàng'
+      create_at: "Ngày tạo"
+    order:
+      complete: 'Bạn có chắc hoàn thành đơn hàng này không ?'
+      cancel: 'Bạn có chắc chắn hủy đơn hàng này không ?'
+    voucher:
+      number_use_voucher: 'Số lượt sử dụng'
+      ena_disable: 'Kích hoạt / Vô hiệu hóa'
+    close_store: 'Cửa hàng đã %{status}'
+    close_fail: '% status cửa hàng không thành công'
+    statistics:
+      revenue: 'Thống kê doanh thu của cửa hàng trong năm'
