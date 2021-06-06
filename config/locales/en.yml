@@ -445,6 +445,27 @@ en:
       revenue_by_month: 'revenue_by_month'
       revenue_by_year: 'revenue_by_year'
   mailer:
+    password_reset_title: 'Password reset'
+    forgot_password_title: 'Forgot password'
+    confirm:
+      welcome: 'Welcome '
+      to: ' to QAKHA Delivery!'
+      content: 'You can confirm your account email through the activation code below:'
+      code: 'Code: '
+      thank_you: 'Thank you,'
+      team_qakha: 'Team QAKHA.'
+    email_change:
+      hello: 'Hello '
+      notice1: "We're contacting you to notify you that your email is being changed to "
+      notice2: "We're contacting you to notify you that your email has been changed to "
+    password_change:
+      hello: 'Hello '
+      content: "We're contacting you to notify you that your password has been changed."
+    reset_password:
+      hello: 'Hello '
+      content1: 'Someone has requested a link to change your password. You can do this through the link below.'
+      content2: "If you didn't request this, please ignore this email."
+      content3: "Your password won't change until you access the link above and create a new one."
     contact:
       subject: 'Contact email'
       title: 'Contact email information'

@@ -1,9 +1,9 @@
 <div>
-  <h2>Welcome <%= @email %> to QAKHA Delivery!</h2>
+  <h2><%= t('mailer.confirm.welcome')%> <%= @email %> <%= t('mailer.confirm.to')%></h2>
 
-  <p>You can confirm your account email through the activation code below:</p>
+  <p><%= t('mailer.confirm.content')%></p>
 
-  <h2>Code: <%= @resource.confirmation_token %></h2>
-  <h4>Thank you,</h4>
-  <h4>Team QAKHA.</h4>
+  <h2><%= t('mailer.confirm.code')%><%= @resource.confirmation_token %></h2>
+  <h4><%= t('mailer.confirm.thank_you')%></h4>
+  <h4><%= t('mailer.confirm.team_qakha')%></h4>
 </div>

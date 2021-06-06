@@ -444,6 +444,27 @@ vi:
       revenue_by_month: 'doanh_thu_theo_thang'
       revenue_by_year: 'doanh_thu_theo_nam'
   mailer:
+    password_reset_title: 'Đặt lại mật khẩu'
+    forgot_password_title: 'Quên mật khẩu'
+    confirm:
+      welcome: 'Xin chào '
+      to: ' đến với QAKHA Delivery!'
+      content: 'Bạn có thể xác nhận email tài khoản của mình thông qua mã kích hoạt bên dưới:'
+      code: 'Mã: '
+      thank_you: 'Cảm ơn,'
+      team_qakha: 'Đội ngũ QAKHA.'
+    email_change:
+      hello: 'Xin chào '
+      notice1: "Chúng tôi đang liên hệ với bạn để thông báo rằng email của bạn đang được thay đổi thành "
+      notice2: "Chúng tôi đang liên hệ với bạn để thông báo rằng email của bạn đã được thay đổi thành "
+    password_change:
+      hello: 'Xin chào '
+      content: "Chúng tôi đang liên hệ với bạn để thông báo rằng mật khẩu của bạn đã được thay đổi."
+    reset_password:
+      hello: 'Xin chào '
+      content1: 'Ai đó đã yêu cầu một liên kết để thay đổi mật khẩu của bạn. Bạn có thể làm điều này thông qua liên kết dưới đây.'
+      content2: "Nếu bạn không yêu cầu điều này, vui lòng bỏ qua email này."
+      content3: "Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy cập vào liên kết ở trên và tạo một mật khẩu mới."
     contact:
       subject: 'Thư điện tử liên hệ'
       title: 'Thông tin thư điện tử liên hệ'

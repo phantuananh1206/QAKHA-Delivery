@@ -155,6 +155,9 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   def check_activate ob
     if ob.present?
       ob.activated
+      if User.all.size <= 100
+        ob.update_columns(coins: 20000)
+      end
       render json: {message: 'This account has been activated. You can sign-in in QAKHA Delivery.'}, status: :ok
     else
       render json: {message: 'The activation code is invalid. Please check and try again.'}, status: :not_found
