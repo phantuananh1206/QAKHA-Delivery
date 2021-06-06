@@ -2,7 +2,7 @@ class Api::V1::ApplicationController < ActionController::API
   respond_to :json
 
   before_action :load_partners, :load_voucher
-  before_action :clear_cart
+  before_action :auto_clear_cart
 
   def load_partners
     @partners = Partner.all
@@ -26,7 +26,7 @@ class Api::V1::ApplicationController < ActionController::API
     end
   end
 
-  def clear_cart
+  def auto_clear_cart
     HardWorker.perform_at(Time.now)
   end
 end

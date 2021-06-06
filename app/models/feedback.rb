@@ -22,6 +22,6 @@ class Feedback < ApplicationRecord
   end
 
   def update_coins_user
-    user.update(coins: (user.coins + 500))
+    user.update(coins: (user.coins + 1000))
   end
 end
