@@ -8,6 +8,7 @@ en:
     log_out: 'Log out'
     profile: 'Profile'
     settings: 'Settings'
+    change_pw: "Change password"
   date:
     order:
       - :day
@@ -526,6 +527,23 @@ en:
       number_use_voucher: 'Number of uses'
       ena_disable: 'Enable / Disable'
     close_store: 'The store has %{status}'
-    close_fail: '% status the store failed.'
+    close_fail: '%{status} the store failed.'
     statistics:
       revenue: 'Revenue statistics for store '
+    profile: 'Profile'
+    name: 'Name'
+    phone: 'Phone number'
+    address: 'Address store'
+    email: 'Email'
+    status: 'Status'
+    type: 'Business type'
+    time_close: 'Time close'
+    time_open: 'Time open'
+    edit: 'Edit'
+    save: 'Save change'
+    title_edit: "Edit profile store"
+    old_pw: 'Password current'
+    title_pw: "Change password"
+    old_pw_incorrect: "Current password incorrect"
+    edit_pw_success: 'Change password success'
+    edit_pw_failed: 'Change password failed'

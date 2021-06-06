@@ -34,7 +34,7 @@ class Partner < ApplicationRecord
   validates :longitude, presence: true
   validates :time_open, presence: true
   validates :time_close, presence: true
-  validate :time_close_valid, on: :create
+  validate :time_close_valid, on: %i(create update)
 
   aasm column: :status, enum: true do
     state :not_activated, initial: true

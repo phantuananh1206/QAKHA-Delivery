@@ -17,6 +17,18 @@ class Partners::OrdersController < ApplicationController
     update_status_order
   end
 
+  def export
+    @orders = current_partner.orders._created_at_desc
+    if @orders.present?
+      respond_to do |format|
+        format.xls { send_data(@orders.to_xls, filename: filename_excel(t('admin.file_name.order'), Time.now)) }
+      end
+    else
+      flash[:danger] = t('admin.order.empty')
+      redirect_to partners_orders_path
+    end
+  end
+
   private
 
   def load_order

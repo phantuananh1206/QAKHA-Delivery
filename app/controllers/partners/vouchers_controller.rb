@@ -51,6 +51,18 @@ class Partners::VouchersController < Partners::PartnersController
     redirect_to partners_vouchers_path
   end
 
+  def export
+    @vouchers = current_partner.vouchers.order(:code)
+    if @vouchers.present?
+      respond_to do |format|
+        format.xls { send_data(@vouchers.to_xls, filename: filename_excel(t('admin.file_name.voucher'), Time.now)) }
+      end
+    else
+      flash[:danger] = t('admin.voucher.empty')
+      redirect_to partners_vouchers_path
+    end
+  end
+
   private
 
   def voucher_params

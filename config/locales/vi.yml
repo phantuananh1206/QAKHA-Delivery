@@ -8,6 +8,7 @@ vi:
     log_out: 'Đăng xuất'
     profile: 'Thông tin cá nhân'
     settings: 'Cài đặt'
+    change_pw: 'Đổi mật khẩu'
   date:
     order:
       - :day
@@ -525,6 +526,23 @@ vi:
       number_use_voucher: 'Số lượt sử dụng'
       ena_disable: 'Kích hoạt / Vô hiệu hóa'
     close_store: 'Cửa hàng đã %{status}'
-    close_fail: '% status cửa hàng không thành công'
+    close_fail: '%{status} cửa hàng không thành công'
     statistics:
       revenue: 'Thống kê doanh thu của cửa hàng trong năm'
+    profile: 'Thông tin cá nhân'
+    name: 'Tên'
+    phone: 'Số điện thoại'
+    address: 'Địa chỉ cửa hàng'
+    email: 'Email'
+    status: 'Trạng thái'
+    type: 'Loại hình kinh doanh'
+    time_close: 'Giờ mở cửa'
+    time_open: 'Giờ đóng cửa'
+    edit: 'Chỉnh sửa'
+    save: 'Lưu thay đổi'
+    title_edit: "Chỉnh sửa thông tin cửa hàng"
+    old_pw: 'Mật khẩu hiện tại'
+    title_pw: "Thay đổi mật khẩu"
+    old_pw_incorrect: 'Mật khẩu hiện tại không đúng'
+    edit_pw_success: 'Thay đổi mật khẩu thành công'
+    edit_pw_failed: 'Thay đổi mật khẩu thất bại'
