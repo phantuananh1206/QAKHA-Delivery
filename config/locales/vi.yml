@@ -425,6 +425,10 @@ vi:
       driver: 'Thống kê doanh thu của người giao hàng trong năm'
       partner: 'Thống kê doanh thu của đối tác trong năm'
       product: 'Thống kê số lượng sản phẩm bán chạy trong năm'
+    report:
+      revenue: 'Báo cáo doanh thu'
+      revenue_by_month: 'Xuất doanh thu theo tháng'
+      revenue_by_year: 'Xuất doanh thu theo năm'
     file_name:
       address: 'danh_sach_dia_chi '
       category: 'danh_sach_danh_muc'
@@ -437,6 +441,8 @@ vi:
       type: 'danh_sach_loai'
       user: 'danh_sach_nguoi_dung'
       voucher: 'danh_sach_khuyen_mai'
+      revenue_by_month: 'doanh_thu_theo_thang'
+      revenue_by_year: 'doanh_thu_theo_nam'
   mailer:
     contact:
       subject: 'Thư điện tử liên hệ'

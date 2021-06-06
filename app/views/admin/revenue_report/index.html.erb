@@ -1,0 +1,8 @@
+<%= form_tag admin_revenue_month_path(format: :xls), method: :get do %>
+  <%= date_select(:delivery_time, :report, use_month_numbers: true, order: [:month, :year], start_year: 2020, end_year: 2021, discard_day: true)%>
+  <%= submit_tag t('admin.report.revenue_by_month'), class: "btn btn-info btn-export-revenue" %>
+<% end %>
+<%= form_tag admin_revenue_year_path(format: :xls), method: :get do %>
+  <%= date_select(:delivery_time, :report, use_month_numbers: true, order: [:year], start_year: 2020, end_year: 2021, discard_day: true, discard_month: true)%>
+  <%= submit_tag t('admin.report.revenue_by_year'), class: "btn btn-info btn-export-revenue" %>
+<% end %>

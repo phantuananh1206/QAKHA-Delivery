@@ -426,6 +426,10 @@ en:
       driver: 'Driver revenue statistics for'
       partner: 'Partner revenue statistics for'
       product: 'Statistics on the number of best-selling products in'
+    report:
+      revenue: 'Revenue report'
+      revenue_by_month: 'Export revenue by month'
+      revenue_by_year: 'Export revenue by year'
     file_name:
       address: 'list_of_addresses'
       category: 'list_of_categories'
@@ -438,6 +442,8 @@ en:
       type: 'list_of_types'
       user: 'list_of_users'
       voucher: 'list_of_vouchers'
+      revenue_by_month: 'revenue_by_month'
+      revenue_by_year: 'revenue_by_year'
   mailer:
     contact:
       subject: 'Contact email'

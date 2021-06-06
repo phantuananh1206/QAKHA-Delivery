@@ -121,6 +121,9 @@ Rails.application.routes.draw do
       get "/users/addresses/:id/edit_address", to: 'users#edit_address', as: :edit_users_addresses
       patch "/users/addresses/:id", to: 'users#update_address'
       delete "/users/addresses/:id", to: 'users#delete_address'
+      get "revenue/month", to: 'revenue_report#revenue_by_month'
+      get "revenue/year", to: 'revenue_report#revenue_by_year'
+      get "revenue", to: 'revenue_report#revenue'
       resources :drivers, except: :show do
         collection { get :export }
       end
@@ -157,6 +160,7 @@ Rails.application.routes.draw do
       resources :statistics_partners, only: :index
       resources :statistics_drivers, only: :index
       resources :statistics_products, only: :index
+      resources :revenue_report, only: :index
     end
   end
 end

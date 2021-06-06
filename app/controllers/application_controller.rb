@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
-  # before_action :load_partners, :load_voucher
+  before_action :load_partners, :load_voucher
   before_action :clear_cart
   include SessionsHelper
 
@@ -54,6 +54,14 @@ class ApplicationController < ActionController::Base
   end
 
   def format_date_export_excel(date)
-    date.strftime('%Y%m%d')
+    date.strftime('%d%m%Y')
+  end
+
+  def filename_revenue(filename, export_date)
+    "#{filename}_#{format_year_export_excel(export_date)}.xls"
+  end
+
+  def format_year_export_excel(date)
+    date.strftime('%Y')
   end
 end

@@ -51,6 +51,8 @@ class Order < ApplicationRecord
   scope :_completed_order, ->(year) { where(status: :completed).where("YEAR(delivery_time) = ?", year) }
   scope :_shipping_order, ->(id) { where(status: :shipping).where("user_id = ?", id) }
   scope :_order_completed, -> { where(status: :completed) }
+  scope :_revenue_month, ->(month) { where("MONTH(delivery_time) = ?", month) }
+  scope :_revenue_year, ->(year) { where("YEAR(delivery_time) = ?", year) }
 
   def update_quantity_sold_of_product
     order_details.each do |order_detail|
