@@ -408,6 +408,20 @@ $black_color: black;
   border-color: #f7941d !important;
 }
 
+.btn-export-revenue {
+  width: 300px;
+  margin-right: 0px;
+  margin-bottom: 10px;
+  background-color: #f7941d !important;
+  border-color: #f7941d !important;
+  font-size: 1.2em !important;
+}
+
+.btn-export-revenue:hover {
+  background-color: #f7941d !important;
+  border-color: #f7941d !important;
+}
+
 .btn-custom {
   display: flex;
   float: right;
