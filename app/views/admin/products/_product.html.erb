@@ -11,19 +11,21 @@
   <td><%= product.category.partner.name %></td>
     <td>
       <%= link_to 'Out of stock', admin_product_status_path(id: product.id, status: :out_of_stock),
-                                      method: :patch,
-                                      remote: true,
-                                      class: "btn btn-secondary glyphicon glyphicon-lock" if product.in_stock? %>
+                                  method: :patch,
+                                  remote: true,
+                                  class: "btn btn-secondary glyphicon glyphicon-lock" if product.in_stock? %>
       <%= link_to 'In stock', admin_product_status_path(id: product.id, status: :in_stock),
-                                      method: :patch,
-                                      remote: true,
-                                      class: "btn btn-secondary glyphicon glyphicon-lock" if product.out_of_stock? %>
+                              method: :patch,
+                              remote: true,
+                              class: "btn btn-secondary glyphicon glyphicon-lock" if product.out_of_stock? %>
   </td>
-  <td class="control-custom">
-    <span><%= link_to "", edit_admin_product_path(product),
-                              class: "btn btn-success glyphicon glyphicon-edit" %></span>
-    <span><%= link_to "", admin_product_path(product),
-                                data: { confirm: t('admin.control.confirm_delete') },
-                                method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
+  <td>
+    <div class="action-btn">
+      <span><%= link_to "", edit_admin_product_path(product),
+                            class: "btn btn-success glyphicon glyphicon-edit" %></span>
+      <span><%= link_to "", admin_product_path(product),
+                            data: { confirm: t('admin.control.confirm_delete') },
+                            method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
+    </div>
   </td>
 </tr>

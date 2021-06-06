@@ -8,7 +8,7 @@ class Api::V1::PasswordsController < Api::V1::ApplicationController
 
     if user.present?
       user.generate_password_token!
-      UserMailer.password_forgot(user).deliver
+      UserMailer.password_forgot(user).deliver_later
       render json: {message: 'Please check your email and received code'}, status: :ok
     else
       render json: {message: 'Email address not found. Please check and try again.'}, status: :not_found

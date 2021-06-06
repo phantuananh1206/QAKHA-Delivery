@@ -46,7 +46,7 @@ class Admin::TypesController < Admin::BaseController
     @types = Type.order(:name)
     if @types.present?
       respond_to do |format|
-        format.xls { send_data @types.to_xls }
+        format.xls { send_data(@types.to_xls, filename: filename_excel(t('admin.file_name.type'), Time.now)) }
       end
     else
       flash[:danger] = t('admin.type.empty')

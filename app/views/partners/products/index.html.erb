@@ -1,6 +1,7 @@
+<% provide(:title, t('admin.product.title')) %>
 <div class="p-4">
-  <h1><%= "Management Product of food store" %></h1>
-  <h3><%= "Total of product" %>: <%= @products.total_count %></h3>
+  <h1><%= t('admin.product.product_management')  %></h1>
+  <h3><%= t('admin.product.total_of_products') %>: <%= @products.total_count %></h3>
   <%= search_form_for @search, url: partners_products_path do |f|%>
     <%= f.condition_fields do |c| %>
       <%= c.attribute_fields do |a| %>
@@ -11,21 +12,24 @@
         <%= v.text_field :value %>
       <% end %>
     <% end %>
-    <%= f.submit 'Search', class: "btn btn-outline-info" %>
+    <%= f.submit t('admin.product.search'), class: "btn btn-outline-info" %>
   <% end %>
-  <%= link_to "New", new_partners_product_path , class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+  <div class="btn-custom">
+    <%= link_to t('admin.product.new_product'), new_partners_product_path , class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+    <%= link_to t('admin.partner.export'), "export_admin_partners_path(format: :xls)", class: "btn btn-info btn-export" %>
+  </div>
   <table class="table table-striped track_tbl table-bordered">
     <thead>
       <tr class="text-center">
-        <th><%= "Image" %></th>
-        <th><%= sort_link(@search, :name,"Name of product") %></th>
-        <th><%= sort_link(@search, :price, "Price") %></th>
-        <th><%= sort_link(@search, :category_id, "Category name") %></th>
-        <th><%= sort_link(@search, :quantity_sold,"Quantity sold") %></th>
-        <th><%= sort_link(@search, :description, "Description") %></th>
+        <th><%= t('admin.product.infor.image') %></th>
+        <th><%= sort_link(@search, :name, t('admin.product.infor.name')) %></th>
+        <th><%= sort_link(@search, :price, t('admin.product.infor.price')) %></th>
+        <th><%= sort_link(@search, :category_id, t('admin.product.infor.category_name')) %></th>
+        <th><%= sort_link(@search, :quantity_sold, t('admin.product.infor.quantity')) %></th>
+        <th><%= sort_link(@search, :description, t('partner.product.description')) %></th>
 
-        <th><%= "Out of stock" %></th>
-        <th><%= "Control" %></th>
+        <th><%= t('partner.product.out_of_stock') %></th>
+        <th><%= t('admin.product.infor.control') %></th>
       </tr>
     </thead>
     <tbody id="product">

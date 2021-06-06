@@ -1,10 +1,39 @@
 en:
+  header:
+    home: 'Home'
+    language: 'Language'
+    vietnamese: 'Vietnamese'
+    english: 'English'
+    account: 'Account'
+    log_out: 'Log out'
+    profile: 'Profile'
+    settings: 'Settings'
   date:
     order:
       - :day
       - :month
       - :year
   admin:
+    sidebar:
+      dashboard: 'Dashboard'
+      ecommerce: 'E-commerce'
+      statistics: 'Statistics'
+    management:
+      driver: 'Driver Management'
+      partner: 'Partner Management'
+      city: 'City Management'
+      type: 'Type Management'
+      user: 'User Management'
+      address: 'Address Management'
+      category: 'Category Management'
+      product: 'Product Management'
+      voucher: 'Voucher Management'
+      order: 'Order Management'
+      feedback: 'Feedback Management'
+    statistics:
+      partner: 'Partner revenue statistics'
+      driver: 'Driver revenue statistics'
+      product: 'Product quantity revenue statistics'
     control:
       confirm_delete: 'Are you sure you want to delete?'
     address:
@@ -15,8 +44,6 @@ en:
       delete_success: 'Delete address success'
       delete_failed: 'Delete address failed'
       not_found: 'Address not found'
-      edit: 'Edit'
-      delete: 'Delete'
       name: 'Name (*)'
       latitude: 'Latitude'
       longitude: 'Longitude'
@@ -51,8 +78,6 @@ en:
       delete_success: 'Delete category success'
       delete_failed: 'Delete category failed'
       not_found: 'Category not found'
-      edit: 'Edit'
-      delete: 'Delete'
       name: 'Name (*)'
       edit_category: 'Edit category'
       title: 'Categories'
@@ -168,6 +193,9 @@ en:
       status_management: 'Status management'
       empty: 'Orders empty'
       search: 'Search'
+      order_detail: 'Order detail'
+      order_management: 'Order Management'
+      total_of_orders: 'Total of orders'
     partner:
       create_success: 'Create partner success'
       create_failed: 'Create partner failed'
@@ -245,7 +273,7 @@ en:
         id: 'ID'
         image: 'Image'
         name: 'Name'
-        quantity: 'Quantity'
+        quantity: 'Quantity sold'
         price: 'Price'
         status: 'Status'
         category_name: 'Category name'
@@ -398,3 +426,82 @@ en:
       driver: 'Driver revenue statistics for'
       partner: 'Partner revenue statistics for'
       product: 'Statistics on the number of best-selling products in'
+    report:
+      revenue: 'Revenue report'
+      revenue_by_month: 'Export revenue by month'
+      revenue_by_year: 'Export revenue by year'
+    file_name:
+      address: 'list_of_addresses'
+      category: 'list_of_categories'
+      city: 'list_of_cities'
+      driver: 'list_of_drivers'
+      feedback: 'list_of_feedbacks'
+      order: 'list_of_orders'
+      partner: 'list_of_partners'
+      product: 'list_of_products'
+      type: 'list_of_types'
+      user: 'list_of_users'
+      voucher: 'list_of_vouchers'
+      revenue_by_month: 'revenue_by_month'
+      revenue_by_year: 'revenue_by_year'
+  mailer:
+    contact:
+      subject: 'Contact email'
+      title: 'Contact email information'
+      name: 'Name: '
+      content: 'Content: '
+      email: 'Email: '
+    inform:
+      subject: 'Request support'
+      title: 'Request support'
+      hi: 'Hi'
+      content: 'Thank you for submitting your request to us, we will review and respond to you as soon as possible.'
+    forgot_password:
+      hi: 'Hi'
+      content: 'Please enter this confirmation code to retrieve your password.'
+      code: 'Code: '
+  back: ' Back'
+  partner:
+    sidebar:
+      close: 'Close store'
+      open: 'Open store'
+      dashboard: 'Dashboard'
+      ecommerce: 'E-commerce'
+      statistics: 'Statistics'
+    management:
+      category: 'Category Management'
+      product: 'Product Management'
+      voucher: 'Voucher Management'
+      order: 'Order Management'
+    statistics:
+      revenue: 'Revenue statistics'
+      product: 'Product statistics'
+      voucher: 'Voucher statistics'
+    control:
+      confirm_delete: 'Are you sure you want to delete?'
+    session:
+      please_log_in: 'Please log in to continue'
+      log_in_failed: 'We could not verify your credentials. Please double-check and try again.'
+      acc_not_activate: "Log in failed. The account has not been confirmed. Please contact QAKHA's management team to become our partner."
+      title: 'PARTNER'
+      email: 'Email'
+      password: 'Password'
+      sign_in: 'Sign in'
+      sign_in_success: 'Sign in successfuly'
+      sign_in_fail: 'Sign in fail'
+      authen: 'Please check your account !!'
+    product:
+      delete_f: "You cannot delete this product. If you delete it, it will affect the store's statistics."
+      description: 'Description'
+      out_of_stock: 'Out of stock'
+      create_at: "Create at"
+    order:
+      complete: 'Are you sure you want to complete the order?'
+      cancel: Are you sure you want to cancel the order?
+    voucher:
+      number_use_voucher: 'Number of uses'
+      ena_disable: 'Enable / Disable'
+    close_store: 'The store has %{status}'
+    close_fail: '% status the store failed.'
+    statistics:
+      revenue: 'Revenue statistics for store '

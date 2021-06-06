@@ -1,6 +1,8 @@
 class HardWorker
   include Sidekiq::Worker
 
+  sidekiq_options retry: 5
+
   def perform
     @carts = Cart.all
     @carts.each do |cart|

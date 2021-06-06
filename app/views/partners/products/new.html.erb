@@ -1,9 +1,10 @@
-<%= provide :title, "New Product"%>
-<%= provide :button, "Create"%>
+<%= provide :title, t('admin.product.create_product') %>
+<%= provide :button, t('admin.product.create_product') %>
 <%= provide :url, partners_products_path(@product)%>
-<div class="">
+<div class="custom-form">
   <div class="col-md-6 col-md-offset-3">
-    <h1><%= "Create new product" %></h1>
+    <h1 class="text-center"><%= t('admin.product.create_product') %></h1>
     <%= render "form" %>
   </div>
 </div>
+<%= link_to t('back'), partners_products_path, class:'btn btn-secondary glyphicon glyphicon-arrow-left' %>

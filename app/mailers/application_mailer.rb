@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'qakhadelivery@gmail.com'
+  default from: Settings.mailer.email
   layout 'mailer'
 end

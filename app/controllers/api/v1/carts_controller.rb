@@ -2,7 +2,9 @@ class Api::V1::CartsController < Api::V1::ApplicationController
   include Api::V1::CartsHelper
 
   before_action :load_user, :load_cart, :load_partner
-  before_action :load_product, only: %i(create update destroy)
+  before_action :load_product, only: :create
+  before_action :load_product_update, only: :update
+  before_action :load_product_delete, only: :destroy
 
   def show
     load_carts
@@ -46,7 +48,7 @@ class Api::V1::CartsController < Api::V1::ApplicationController
 
   def load_product
     @product = Product.find_by(id: params[:product_id])
-    return if @product && @product.category.partner_id == params[:partner_id].to_i
+    return if @product && @product.category.partner_id == params[:partner_id].to_i && @product.status == "in_stock"
 
     render json: { message: 'Product not found!' }, status: :not_found
   end
@@ -72,5 +74,24 @@ class Api::V1::CartsController < Api::V1::ApplicationController
       @total += cart.quantity * cart.product.price
     end
     @total
+  end
+
+  def load_product_update
+    @product = Product.find_by(id: params[:product_id])
+    if @product && @product.category.partner_id == params[:partner_id].to_i
+      if @product.status == "out_of_stock"
+        load_cart
+        return Cart.destroy(@cart[0][:id].to_i)
+      end
+    else
+      render json: { message: 'Product not found!' }, status: :not_found
+    end
+  end
+
+  def load_product_delete
+    @product = Product.find_by(id: params[:product_id])
+    return if @product && @product.category.partner_id == params[:partner_id].to_i
+
+    render json: { message: 'Product not found!' }, status: :not_found
   end
 end

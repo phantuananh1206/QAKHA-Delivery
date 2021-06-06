@@ -2,9 +2,10 @@
 <%= provide :button, t('admin.city.create_city')%>
 <%= provide :url, admin_cities_path(@city)%>
 
-<div class="">
+<div class="custom-form">
   <div class="col-md-6 col-md-offset-3">
-    <h1><%= t('admin.city.create_city') %></h1>
+    <h1 class="text-center"><%= t('admin.city.create_city') %></h1>
     <%= render "form" %>
   </div>
 </div>
+<%= link_to t('back'), admin_cities_path, class:'btn btn-secondary glyphicon glyphicon-arrow-left' %>

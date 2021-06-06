@@ -1,6 +1,7 @@
+<% provide(:title, t('admin.voucher.title')) %>
 <div class="p-4">
-  <h1><%= "Management Vouchers" %></h1>
-  <h3><%= "Total" %>: <%= @vouchers.total_count %></h3>
+  <h1><%= t('admin.voucher.voucher_management') %></h1>
+  <h3><%= t('admin.voucher.total_of_vouchers') %>: <%= @vouchers.total_count %></h3>
   <%= search_form_for @search, url: partners_vouchers_path do |f|%>
     <%= f.condition_fields do |c| %>
       <%= c.attribute_fields do |a| %>
@@ -11,22 +12,25 @@
         <%= v.text_field :value %>
       <% end %>
     <% end %>
-    <%= f.submit 'Search', class: "btn btn-outline-info" %>
+    <%= f.submit t('admin.voucher.search'), class: "btn btn-outline-info" %>
   <% end %>
-  <%= link_to "New", new_partners_voucher_path , class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+  <div class="btn-custom">
+    <%= link_to t('admin.voucher.new_voucher'), new_partners_voucher_path , class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
+    <%= link_to t('admin.partner.export'), "export_admin_partners_path(format: :xls)", class: "btn btn-info btn-export" %>
+  </div>
   <table class="table table-striped track-tbl table-bordered">
     <thead class="text-center">
       <tr>
-        <th><%= "No" %></th>
-        <th><%= sort_link(@search, :code,"Code of voucher") %></th>
-        <th><%= sort_link(@search, :discount,"Discount") %></th>
-        <th><%= "Expiry date" %></th>
-        <th><%= sort_link(@search, :usage_limit, "Usage limit") %></th>
-        <th><%= sort_link(@search, :number_of_uses, "Number of uses") %></th>
-        <th><%= sort_link(@search, :status,"Status") %></th>
-        <th><%= "Enable/Disable" %></th>
+        <th><%= t('admin.voucher.infor.id') %></th>
+        <th><%= sort_link(@search, :code, t('admin.voucher.infor.code')) %></th>
+        <th><%= sort_link(@search, :discount, t('admin.voucher.infor.discount')) %></th>
+        <th><%= t('admin.voucher.infor.expiry_date') %></th>
+        <th><%= sort_link(@search, :usage_limit, t('admin.voucher.infor.usage_limit')) %></th>
+        <th><%= sort_link(@search, :number_of_uses, t('partner.voucher.number_use_voucher')) %></th>
+        <th><%= sort_link(@search, :status, t('admin.voucher.infor.status')) %></th>
+        <th><%= t('partner.voucher.ena_disable') %></th>
 
-        <th><%= "Control" %></th>
+        <th><%= t('admin.voucher.infor.control') %></th>
       </tr>
     </thead>
     <tbody id="vouchers">

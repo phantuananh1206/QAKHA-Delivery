@@ -47,7 +47,7 @@ class Admin::FeedbacksController < Admin::BaseController
     @feedbacks = Feedback.all
     if @feedbacks.present?
       respond_to do |format|
-        format.xls { send_data @feedbacks.to_xls }
+        format.xls { send_data(@feedbacks.to_xls, filename: filename_excel(t('admin.file_name.feedback'), Time.now)) }
       end
     else
       flash[:danger] = t('admin.feedback.empty')

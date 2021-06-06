@@ -10,7 +10,7 @@
       <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <%= link_to t("header.home"), "root_path", class: "nav-link" %>
+            <%= link_to t("header.home"), partners_partners_path , class: "nav-link" %>
           </li>
 
           <li class="nav-item dropdown">
@@ -18,8 +18,8 @@
               <%= t "header.language" %>
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownId">
-              <a class="dropdown-item" href="#"><%= link_to t("vietnamese"), locale: :vi %></a>
-              <a class="dropdown-item" href="#"><%= link_to t("english"), locale: :en %></a>
+              <a class="dropdown-item language" href="#"><%= link_to t("header.vietnamese"), locale: :vi %></a>
+              <a class="dropdown-item language" href="#"><%= link_to t("header.english"), locale: :en %></a>
             </div>
           </li>
           <li class="dropdown nav-item">
@@ -27,7 +27,6 @@
               <%= t "header.account" %><b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to t("header.page_admin"), "admin_root_path", class: "dropdown-item" %></li>
               <li><%= link_to t("header.profile"), "current_partner" , class: "dropdown-item" %></li>
               <li><%= link_to t("header.settings"), "#", class: "dropdown-item" %></li>
               <li class="divider"></li>

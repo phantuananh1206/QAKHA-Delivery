@@ -1,11 +1,12 @@
-<%= provide :title, "Update Category"%>
-<%= provide :button, "Update"%>
+<%= provide :title, t('admin.category.edit_category') %>
+<%= provide :button, t('admin.category.edit_category') %>
 <%= provide :url, partners_category_path(@category)%>
 
-<div class="">
+<div class="custom-form">
   <div class="col-md-6 col-md-offset-3">
-    <h1><%= "Update category" %></h1>
+    <h1 class="text-center"><%= t('admin.category.edit_category') %></h1>
 
     <%= render "form" %>
   </div>
 </div>
+<%= link_to t('back'), partners_categories_path, class:'btn btn-secondary glyphicon glyphicon-arrow-left' %>

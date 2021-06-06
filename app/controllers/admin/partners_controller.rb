@@ -55,7 +55,7 @@ class Admin::PartnersController < Admin::BaseController
     @partners = Partner.order(:name)
     if @partners.present?
       respond_to do |format|
-        format.xls { send_data @partners.to_xls }
+        format.xls { send_data(@partners.to_xls, filename: filename_excel(t('admin.file_name.partner'), Time.now)) }
       end
     else
       flash[:danger] = t('admin.partner.empty')

@@ -15,19 +15,20 @@ class Partners::ProductsController < Partners::PartnersController
   def create
     @product = Product.new product_params
     if @product.save
-      flash[:success] = "Creat new product successful"
+      flash[:success] = t('admin.product.create_success')
       redirect_to partners_products_path
     else
-      flash.now[:danger] = "Creat new product fail"
+      flash.now[:danger] = t('admin.product.create_failed')
       render :new
     end
   end
 
   def update
     if @product.update_attributes product_params
-      flash[:success] = "Update product successful"
+      flash[:success] = t('admin.product.update_success')
       redirect_to partners_products_path
     else
+      flash.now[:danger] = t('admin.product.update_failed')
       render :edit
     end
   end
@@ -36,21 +37,21 @@ class Partners::ProductsController < Partners::PartnersController
     product_ordering = @product.orders.where(status: "shipping")
     if product_ordering.blank?
       if @product.destroy
-        flash[:success] = "Delete product successful"
+        flash[:success] = t('admin.product.delete_success')
       else
-        flash[:danger] = "You cannot delete this product. If you delete it, it will affect the store's statistics."
+        flash[:danger] = t('partner.product.delete_f')
       end
     else
-      flash[:danger] = "Delete product fail. This products is shipping !!"
+      flash[:danger] = t('admin.product.delete_failed')
     end
     redirect_to partners_products_path
   end
 
   def update_status
     @product.send("#{params[:status]}!")
-    flash[:success] = "Update status #{params[:status]} success"
+    flash[:success] = t('admin.product.update_status_success', status: "#{params[:status]}")
   rescue StandardError
-    flash[:danger] = "Update status failed"
+    flash[:danger] = t('admin.product.update_status_failed')
   ensure
     redirect_to partners_products_path
   end
@@ -64,7 +65,7 @@ class Partners::ProductsController < Partners::PartnersController
   def load_product
     return if @product = current_partner.products.find_by(id: params[:id])
 
-    flash[:info] = "Product is empty"
+    flash[:info] = t('admin.product.not_found')
     redirect_to partners_products_path
   end
 end

@@ -7,53 +7,37 @@
         </div>
         <div class="pull-left info">
           <p><%= link_to current_admin.name, admin_root_path, class: "name-custom" %></p>
-          <a href="#"><i class="fa fa-circle text-success"> </i><%= current_admin.role %></a>
+          <p href="#"><i class="fa fa-circle text-success"> </i><%= current_admin.role %></p>
         </div>
       </div>
       <ul class="list-sidebar bg-defoult">
-        <li> <a href="#" data-toggle="collapse" data-target="#dashboard" class="collapsed active" > <i class="fa fa-th-large"></i> <span class="nav-label"> Dashboards </span> <span class="fa fa-chevron-left pull-right"></span> </a>
+        <li> <a href="#" data-toggle="collapse" data-target="#dashboard" class="collapsed active" > <i class="fa fa-th-large"></i> <span class="nav-label"><%= t('admin.sidebar.dashboard') %></span> <span class="fa fa-chevron-left pull-right"></span> </a>
           <ul class="sub-menu collapse" id="dashboard">
-            <li class="active"><%= link_to "Management Drivers", admin_drivers_path %></li>
-            <li class="active"><%= link_to "Management Partners", admin_partners_path %></li>
-            <li class="active"><%= link_to "Management Cities", admin_cities_path %></li>
-            <li class="active"><%= link_to "Management Types", admin_types_path %></li>
-            <li class="active"><%= link_to "Management Users", admin_users_path %></li>
-            <li class="active"><%= link_to "Management Addresses", admin_addresses_path %></li>
+            <li class="active"><%= link_to t('admin.management.driver'), admin_drivers_path %></li>
+            <li class="active"><%= link_to t('admin.management.partner'), admin_partners_path %></li>
+            <li class="active"><%= link_to t('admin.management.user'), admin_users_path %></li>
+            <li class="active"><%= link_to t('admin.management.city'), admin_cities_path %></li>
+            <li class="active"><%= link_to t('admin.management.type'), admin_types_path %></li>
+            <li class="active"><%= link_to t('admin.management.address'), admin_addresses_path %></li>
           </ul>
         </li>
-        <li> <a href="#" data-toggle="collapse" data-target="#products" class="collapsed active" > <i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span> <span class="fa fa-chevron-left pull-right"></span> </a>
-          <ul class="sub-menu collapse" id="products">
-            <li class="active"><a href="#">CSS3 Animation</a></li>
-            <li><a href="#">General</a></li>
-            <li><a href="#">Buttons</a></li>
-            <li><a href="#">Tabs & Accordions</a></li>
-          </ul>
-        </li>
-        <li> <a href="#"><i class="fa fa-laptop"></i> <span class="nav-label">Grid options</span></a> </li>
-        <li> <a href="#" data-toggle="collapse" data-target="#e-commerce" class="collapsed active" ><i class="fa fa-shopping-cart"></i> <span class="nav-label">E-commerce</span><span class="fa fa-chevron-left pull-right"></span></a>
+        <li> <a href="#" data-toggle="collapse" data-target="#e-commerce" class="collapsed active" ><i class="fa fa-shopping-cart"></i> <span class="nav-label"><%= t('admin.sidebar.ecommerce') %></span><span class="fa fa-chevron-left pull-right"></span></a>
           <ul  class="sub-menu collapse" id="e-commerce" >
-            <li class="active"><%= link_to "Management Categories", admin_categories_path %></li>
-            <li class="active"><%= link_to "Management Products", admin_products_path %></li>
-            <li class="active"><%= link_to "Management Vouchers", admin_vouchers_path %></li>
-            <li class="active"><%= link_to "Management Orders", admin_orders_path %></li>
-            <li class="active"><%= link_to "Management Feedbacks", admin_feedbacks_path %></li>
+            <li class="active"><%= link_to t('admin.management.category'), admin_categories_path %></li>
+            <li class="active"><%= link_to t('admin.management.product'), admin_products_path %></li>
+            <li class="active"><%= link_to t('admin.management.voucher'), admin_vouchers_path %></li>
+            <li class="active"><%= link_to t('admin.management.order'), admin_orders_path %></li>
+            <li class="active"><%= link_to t('admin.management.feedback'), admin_feedbacks_path %></li>
           </ul>
         </li>
-        <li> <a href="#" data-toggle="collapse" data-target="#tables" class="collapsed active" ><i class="fa fa-table"></i> <span class="nav-label">Report & Statistics</span><span class="fa fa-chevron-left pull-right"></span></a>
+        <li> <a href="#" data-toggle="collapse" data-target="#tables" class="collapsed active" ><i class="fa fa-table"></i> <span class="nav-label"><%= t('admin.sidebar.statistics') %></span><span class="fa fa-chevron-left pull-right"></span></a>
           <ul  class="sub-menu collapse" id="tables" >
-            <li class="active"><%= link_to "Statistics partners", admin_statistics_partners_path %></li>
-            <li class="active"><%= link_to "Statistics drivers", admin_statistics_drivers_path %></li>
-            <li class="active"><%= link_to "Statistics products", admin_statistics_products_path %></li>
-            <li><a href=""> Report of Revenue </a></li>
-            <li><a href=""> Report of Product</a></li>
-            <li><a href=""> Report of Voucher</a></li>
-            <li><a href=""> Report of Order</a></li>
+            <li class="active"><%= link_to t('admin.statistics.partner'), admin_statistics_partners_path %></li>
+            <li class="active"><%= link_to t('admin.statistics.driver'), admin_statistics_drivers_path %></li>
+            <li class="active"><%= link_to t('admin.statistics.product'), admin_statistics_products_path %></li>
+            <li class="active"><%= link_to t('admin.report.revenue'), admin_revenue_report_index_path %></li>
           </ul>
         </li>
-        <li> <a href=""><i class="fa fa-pie-chart"></i> <span class="nav-label">Statistics</span> </a></li>
-        <li> <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Other Pages</span></a> </li>
-        <li> <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Other Pages</span></a> </li>
-        <li> <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Other Pages</span></a> </li>
       </ul>
     </div>
   </aside>
