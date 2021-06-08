@@ -16,7 +16,11 @@
     <%= link_to t('admin.product.disable'), admin_product_status_path(id: product.id, status: :disabled),
                                             method: :patch,
                                             remote: true,
-                                            class: "btn btn-secondary glyphicon glyphicon-lock"%>
+                                            class: "btn btn-secondary glyphicon glyphicon-lock" unless product.disabled? %>
+    <%= link_to t('admin.product.enable'), admin_product_status_path(id: product.id, status: :out_of_stock),
+                                            method: :patch,
+                                            remote: true,
+                                            class: "btn btn-primary glyphicon glyphicon-ok" if product.disabled? %>
   </td>
   <td>
     <div class="action-btn">

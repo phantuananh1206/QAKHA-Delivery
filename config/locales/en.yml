@@ -269,6 +269,7 @@ en:
       create_product: 'Create product'
       empty: 'Products empty'
       disable: 'Disable'
+      enable: 'Enable'
       infor:
         id: 'ID'
         image: 'Image'
