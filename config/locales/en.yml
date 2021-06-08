@@ -231,6 +231,8 @@ en:
       new_partner: ' New partner'
       create_partner: 'Create partner'
       empty: 'Partners empty'
+      latitude: 'Latitude (*)'
+      longitude: 'Longitude (*)'
       infor:
         id: 'ID'
         image: 'Image'

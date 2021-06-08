@@ -230,6 +230,8 @@ vi:
       new_partner: 'Thêm mới'
       create_partner: 'Tạo đối tác'
       empty: 'Danh sách đối tác trống'
+      latitude: 'Vĩ độ (*)'
+      longitude: 'Kinh độ (*)'
       infor:
         id: 'ID'
         image: 'Hình ảnh'
