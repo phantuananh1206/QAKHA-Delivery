@@ -24,12 +24,14 @@
     <% end %>
   </td>
   <td>
-    <div class="action-btn">
-      <span><%= link_to "", edit_admin_user_path(user),
-                            class: "btn btn-success glyphicon glyphicon-edit" %></span>
-      <span><%= link_to "", admin_user_path(user),
-                            data: { confirm: t('admin.control.confirm_delete') },
-                            method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
-    </div>
+    <% unless user.admin? %>
+      <div class="action-btn">
+        <span><%= link_to "", edit_admin_user_path(user),
+                              class: "btn btn-success glyphicon glyphicon-edit" %></span>
+        <span><%= link_to "", admin_user_path(user),
+                              data: { confirm: t('admin.control.confirm_delete') },
+                              method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
+      </div>
+    <% end %>
   </td>
 </tr>

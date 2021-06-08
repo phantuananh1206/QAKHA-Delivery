@@ -101,4 +101,19 @@ class Driver < ApplicationRecord
   def downcase_email
     email.downcase!
   end
+
+  def send_pending_devise_notifications
+    pending_devise_notifications.each do |notification, args|
+      render_and_send_devise_message(notification, *args)
+    end
+    pending_devise_notifications.clear
+  end
+
+  def pending_devise_notifications
+    @pending_devise_notifications ||= []
+  end
+
+  def render_and_send_devise_message(notification, *args)
+    message = devise_mailer.send(notification, self, *args).deliver_later
+  end
 end
