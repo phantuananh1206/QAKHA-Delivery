@@ -6,7 +6,7 @@ class Product < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  enum status: { in_stock: 0, out_of_stock: 1 }
+  enum status: { in_stock: 0, out_of_stock: 1, disabled: 2 }
 
   validates :name, presence: true,
             length: {maximum: Settings.validation.name_max}

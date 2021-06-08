@@ -11,6 +11,11 @@
   <td >
     <%= link_to "", partners_product_status_path(product.id, status: :out_of_stock), method: :patch, remote: true, class:"play active" if product.in_stock? %>
     <%= link_to "", partners_product_status_path(product.id, status: :in_stock), method: :patch, remote: true, class:"play" if product.out_of_stock? %>
+    <hr>
+    <%= link_to t('admin.product.disable'), partners_product_status_path(id: product.id, status: :disabled),
+                                            method: :patch,
+                                            remote: true,
+                                            class: "btn btn-secondary glyphicon glyphicon-lock"%>
   </td>
 
   <td class="control-custom">

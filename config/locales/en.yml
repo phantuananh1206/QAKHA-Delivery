@@ -18,6 +18,9 @@ en:
       dashboard: 'Dashboard'
       ecommerce: 'E-commerce'
       statistics: 'Statistics'
+      partner: 'Partner revenue statistics'
+      driver: 'Driver revenue statistics'
+      product: 'Product quantity revenue statistics'
     management:
       driver: 'Driver Management'
       partner: 'Partner Management'
@@ -30,10 +33,6 @@ en:
       voucher: 'Voucher Management'
       order: 'Order Management'
       feedback: 'Feedback Management'
-    statistics:
-      partner: 'Partner revenue statistics'
-      driver: 'Driver revenue statistics'
-      product: 'Product quantity revenue statistics'
     control:
       confirm_delete: 'Are you sure you want to delete?'
     address:
@@ -269,6 +268,7 @@ en:
       new_product: ' New product'
       create_product: 'Create product'
       empty: 'Products empty'
+      disable: 'Disable'
       infor:
         id: 'ID'
         image: 'Image'
