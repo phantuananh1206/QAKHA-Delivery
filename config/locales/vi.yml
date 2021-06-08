@@ -18,6 +18,9 @@ vi:
       dashboard: 'Bảng điều khiển'
       ecommerce: 'Thương mại điện tử'
       statistics: 'Thống kê'
+      partner: 'Thống kê doanh thu đối tác'
+      driver: 'Thống kê doanh thu người giao hàng'
+      product: 'Thống kê doanh thu số lượng sản phẩm'
     management:
       driver: 'Quản lý người giao hàng'
       partner: 'Quản lý đối tác'
@@ -30,10 +33,6 @@ vi:
       voucher: 'Quản lý khuyến mãi'
       order: 'Quản lý đơn đặt hàng'
       feedback: 'Quản lý đánh giá'
-    statistics:
-      partner: 'Thống kê doanh thu đối tác'
-      driver: 'Thống kê doanh thu người giao hàng'
-      product: 'Thống kê doanh thu số lượng sản phẩm'
     control:
       confirm_delete: 'Bạn có chắc chắn muốn xóa không?'
     address:
@@ -268,6 +267,7 @@ vi:
       new_product: 'Thêm mới'
       create_product: 'Tạo sản phẩm'
       empty: 'Danh sách sản phẩm trống'
+      disable: 'Vô hiệu hóa'
       infor:
         id: 'ID'
         image: 'Hình ảnh'
