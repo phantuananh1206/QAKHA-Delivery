@@ -121,11 +121,10 @@ class Partner < ApplicationRecord
   end
 
   def send_confirmation_instructions
+    self.update_columns(confirmation_token: generate_token, confirmation_sent_at: Time.now)
     super()
-
-    self.update_columns(confirmation_sent_at: Time.now)
   end
-  
+
   private
 
   def downcase_email
