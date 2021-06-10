@@ -7,6 +7,7 @@ gem 'aasm'
 gem 'active_storage_validations', '0.8.2'
 gem 'activerecord-session_store'
 gem 'active_model_serializers'
+gem 'axlsx_rails'
 gem 'bootstrap-glyphicons'
 gem 'bootstrap4-kaminari-views'
 gem 'bootsnap', '>= 1.4.2', require: false

@@ -23,13 +23,24 @@ Rails.application.routes.draw do
         patch "products/status/:id", to: 'products#update_status', as: :product_status
         patch "vouchers/status/:id", to: 'vouchers#update_status', as: :voucher_status
         patch "partners/status/:id", to: 'partners#update_status', as: :partner_status
+        get "partners/edit_password/:id", to: 'partners#edit_password'
+        patch "partners/edit_password/:id", to: 'partners#update_password'
       end
-      resources :categories
-      resources :products
-      resources :vouchers
       resources :statistics_products, only: :index
       resources :statistics_revenue, only: :index
-      resources :orders
+      resources :partners
+      resources :categories, except: :show do
+        collection { get :export }
+      end
+      resources :products, except: :show do
+        collection { get :export }
+      end
+      resources :vouchers, except: :show do
+        collection { get :export }
+      end
+      resources :orders do
+        collection { get :export }
+      end
     end
 
     namespace :api, default: {format: :json} do

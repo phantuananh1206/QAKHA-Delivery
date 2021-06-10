@@ -242,15 +242,15 @@ class Api::V1::OrdersController < Api::V1::ApplicationController
 
   def check_coins_user
     if params[:type_checkout] == 'coins'
-      return if @current_user.coins >= total_after_discount
+      return if @current_user.coins >= total_order
 
       render json: { message: 'The coin in the current wallet is not enough to pay the order' }, status: :bad_request
     end
   end
 
   def order_refund_coins
-    if params[:type_checkout] == 'coins' && total_after_discount >= 50000
-      refund_coins = total_after_discount * 1 / 100
+    if params[:type_checkout] == 'coins' && total_order >= 50000
+      refund_coins = total_order * 1 / 100
     end
   end
 end

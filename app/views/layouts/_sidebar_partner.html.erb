@@ -9,7 +9,11 @@
           </div>
           <div class="pull-left info">
             <p><%= link_to current_partner.name, partners_partners_path, class: "name-custom" %></p>
-            <a href="#"><i class="fa fa-circle text-success"></i><%= current_partner.status %></a>
+            <% if current_partner.open? %>
+              <a href="#"><i class="fa fa-circle text-success"></i><%= current_partner.status %></a>
+            <% else %>
+              <a href="#"><i class="fa fa-circle custom-icon"></i><%= current_partner.status %></a>
+            <% end %>
           </div>
         </div>
         <ul class="list-sidebar bg-defoult">

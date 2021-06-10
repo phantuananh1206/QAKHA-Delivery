@@ -16,7 +16,7 @@
   <% end %>
   <div class="btn-custom">
     <%= link_to t('admin.voucher.new_voucher'), new_partners_voucher_path , class: "btn btn-info glyphicon glyphicon-plus btn-new" %>
-    <%= link_to t('admin.partner.export'), "export_admin_partners_path(format: :xls)", class: "btn btn-info btn-export" %>
+    <%= link_to t('admin.partner.export'), export_partners_vouchers_path(format: :xls), class: "btn btn-info btn-export" %>
   </div>
   <table class="table table-striped track-tbl table-bordered">
     <thead class="text-center">
