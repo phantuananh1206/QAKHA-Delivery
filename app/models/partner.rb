@@ -105,7 +105,7 @@ class Partner < ApplicationRecord
   end
 
   def activated
-    self.update_columns(confirmed_at: Time.now.utc)
+    self.update_columns(confirmed_at: Time.now)
   end
 
   def number_of_reviews
@@ -120,6 +120,12 @@ class Partner < ApplicationRecord
     $redis.del 'partners'
   end
 
+  def send_confirmation_instructions
+    super()
+
+    self.update_columns(confirmation_sent_at: Time.now)
+  end
+  
   private
 
   def downcase_email
