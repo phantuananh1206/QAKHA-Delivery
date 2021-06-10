@@ -13,11 +13,13 @@
     <%= link_to "", partners_voucher_status_path(voucher.id, status: :void), method: :patch, remote: true, class:"" if (voucher.void? && (Time.zone.now >= voucher.expiry_date) ) %>
   </td>
 
-  <td class="control-custom">
-    <span><%= link_to "", edit_partners_voucher_path(voucher) ,
-    class: "btn btn-success glyphicon glyphicon-edit" %></span>
-    <span><%= link_to "", partners_voucher_path(voucher),
-                                    data: { confirm: t('admin.control.confirm_delete')},
-                                    method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
+  <td>
+    <div class="action-btn">
+      <span><%= link_to "", edit_partners_voucher_path(voucher) ,
+      class: "btn btn-success glyphicon glyphicon-edit" %></span>
+      <span><%= link_to "", partners_voucher_path(voucher),
+                                      data: { confirm: t('admin.control.confirm_delete')},
+                                      method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
+    </div>
   </td>
 </tr>

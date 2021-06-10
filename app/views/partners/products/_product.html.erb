@@ -22,11 +22,13 @@
                                             class: "btn btn-primary glyphicon glyphicon-ok" if product.disabled? %>
   </td>
 
-  <td class="control-custom">
-    <span><%= link_to "", edit_partners_product_path(product),
-                                  class: "btn btn-success glyphicon glyphicon-edit control-custom" %></span>
-    <span><%= link_to "", partners_product_path(product),
-                                    data: { confirm: t('admin.control.confirm_delete') },
-                                    method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
+  <td>
+    <div class="action-btn">
+      <span><%= link_to "", edit_partners_product_path(product),
+                                    class: "btn btn-success glyphicon glyphicon-edit control-custom" %></span>
+      <span><%= link_to "", partners_product_path(product),
+                                      data: { confirm: t('admin.control.confirm_delete') },
+                                      method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
+    </div>
   </td>
 </tr>

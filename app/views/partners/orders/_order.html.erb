@@ -18,17 +18,14 @@
                                               class: 'btn btn-info btn-md' %>
   </td>
   <td>
-    <% if order.shipping? %>
-      <%= link_to t('admin.order.complete_order'), partners_order_path(id: order.id, status: :complete),
+    <div class="action-btn">
+      <% if order.shipping? %>
+        <%= link_to t('admin.order.cancel_order'), partners_order_path(id: order.id, status: :cancel),
                                     method: :patch,
-                                    data: {confirm: t('partner.order.complete') },
+                                    data: { confirm: t('partner.order.cancel') },
                                     remote: true,
-                                    class: "btn btn-primary glyphicon glyphicon-ok" %>
-      <%= link_to t('admin.order.cancel_order'), partners_order_path(id: order.id, status: :cancel),
-                                  method: :patch,
-                                  data: { confirm: t('partner.order.cancel') },
-                                  remote: true,
-                                  class: "btn btn-secondary glyphicon glyphicon-remove" %>
+                                    class: "btn btn-secondary glyphicon glyphicon-remove" %>
+    </div>
     <% end %>
   </td>
 </tr>

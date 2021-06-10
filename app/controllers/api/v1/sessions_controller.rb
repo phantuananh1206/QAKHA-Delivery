@@ -27,15 +27,19 @@ class Api::V1::SessionsController < Devise::SessionsController
   end
 
   def sign_in_driver
-    if (@driver.offline? || @driver.online? || @driver.shipping?) && @driver.valid_password?(params[:password])
+    if @driver.valid_password?(params[:password])
       if @driver.confirmed?
-        sign_in @driver, store: false
-        jwt = JWT.encode(
-          { name: @driver.name, id: @driver.id, exp: (Time.now + 2.hours).to_i },
-          Rails.application.secrets.secret_key_base,
-          'HS256'
-        )
-        render json: { message: "Log in successful", token: jwt }, status: :ok
+        if @driver.not_activated?
+          render json: { message: "Your account has not activation from admin. Please contact with QAKHA Team." }, status: :not_found
+        else
+          sign_in @driver, store: false
+          jwt = JWT.encode(
+            { name: @driver.name, id: @driver.id, exp: (Time.now + 2.hours).to_i },
+            Rails.application.secrets.secret_key_base,
+            'HS256'
+          )
+          render json: { message: "Log in successful", token: jwt }, status: :ok
+        end
       else
         @driver.send_confirmation_instructions
         render json: { message: "Your account has not been activated. Please check your email for the activation code.", active_account: false }, status: :not_found

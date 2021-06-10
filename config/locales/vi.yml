@@ -16,7 +16,7 @@ vi:
       - :year
   admin:
     sidebar:
-      dashboard: 'Bảng điều khiển'
+      dashboard: 'Nhân lực'
       ecommerce: 'Thương mại điện tử'
       statistics: 'Thống kê'
       partner: 'Thống kê doanh thu đối tác'
@@ -546,3 +546,6 @@ vi:
     old_pw_incorrect: 'Mật khẩu hiện tại không đúng'
     edit_pw_success: 'Thay đổi mật khẩu thành công'
     edit_pw_failed: 'Thay đổi mật khẩu thất bại'
+    report_order: "BIỂU ĐỒ BÁO CÁO DOANH THU"
+    product_sold: "CÁC SẢN PHẨM BÁN CHẠY TRONG CỬA HÀNG"
+    voucher_hot: "BÁO CÁO LƯỢT SỬ DỤNG CÁC MÃ KHUYẾN MÃI"

@@ -35,9 +35,49 @@ class Api::V1::PasswordsController < Api::V1::ApplicationController
     end
   end
 
+  def forgot_pw_driver
+    if params[:email].blank?
+      return render json: {message: 'Email not present'}
+    end
+
+    driver = Driver.find_by(email: params[:email].downcase)
+
+    if driver.present?
+      driver.generate_password_token!
+      UserMailer.password_forgot(driver).deliver_later
+      render json: {message: 'Please check your email and received code'}, status: :ok
+    else
+      render json: {message: 'Email address not found. Please check and try again.'}, status: :not_found
+    end
+  end
+
+  def reset_pw_driver
+    verify_code = params[:verification_code].to_s
+
+    if params[:verification_code].blank?
+      return render json: { message: 'Token not present' }, status: 404
+    end
+
+    driver = Driver.find_by(reset_password_token: verify_code)
+
+    if driver.present? && driver.password_token_valid?
+      if driver.reset_password!(params[:new_password])
+        render json: {message: 'Reset password successfully'}, status: :ok
+      else
+        render json: {message: driver.errors.full_messages}, status: :bad_request
+      end
+    else
+      render json: {message: 'Code not valid or expired. Try generating a new code.'}, status: :not_found
+    end
+  end
+
   private
 
   def user_params
+    params.permit :email, :new_password, :verification_code
+  end
+
+  def driver_params
     params.permit :email, :new_password, :verification_code
   end
 end
