@@ -93,6 +93,9 @@ Rails.application.routes.draw do
           patch "/driver/change_password", to: "drivers#change_password"
           patch "user/change_email", to: 'users#change_email'
           post "/contact", to: 'contacts#contact'
+          post "/user/confirmation", to: 'registrations#user_resend_confirmation'
+          post "/driver/confirmation", to: 'registrations#driver_resend_confirmation'
+          post "/partner/confirmation", to: 'registrations#partner_resend_confirmation'
         end
         resources :users, only: :index
         resources :types, only: %i(index show)

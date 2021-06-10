@@ -18,6 +18,7 @@ class Api::V1::SessionsController < Devise::SessionsController
         )
         render json: { role: @user[:role], token: jwt }, status: :ok
       else
+        @user.send_confirmation_instructions
         render json: { message: "Your account has not been activated. Please check your email for the activation code.", active_account: false }, status: :not_found
       end
       return
@@ -36,6 +37,7 @@ class Api::V1::SessionsController < Devise::SessionsController
         )
         render json: { message: "Log in successful", token: jwt }, status: :ok
       else
+        @driver.send_confirmation_instructions
         render json: { message: "Your account has not been activated. Please check your email for the activation code.", active_account: false }, status: :not_found
       end
       return

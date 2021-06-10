@@ -128,7 +128,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   def activated_user
     if params[:code_activate].present?
       check = User.find_by_confirmation_token(params[:code_activate])
-      check_activate check
+      check_activate_user check
     else
       render json: {message: 'Please entering the code activation in your email.'}, status: :not_found
     end
@@ -152,7 +152,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def check_activate ob
+  def check_activate_user ob
     if ob.present?
       ob.activated
       if User.all.size <= 100
@@ -161,6 +161,45 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
       render json: {message: 'This account has been activated. You can sign-in in QAKHA Delivery.'}, status: :ok
     else
       render json: {message: 'The activation code is invalid. Please check and try again.'}, status: :not_found
+    end
+  end
+
+  def check_activate ob
+    if ob.present?
+      ob.activated
+      render json: {message: 'This account has been activated. You can sign-in in QAKHA Delivery.'}, status: :ok
+    else
+      render json: {message: 'The activation code is invalid. Please check and try again.'}, status: :not_found
+    end
+  end
+
+  def user_resend_confirmation
+    @user = User.find_by(email: params[:email])
+    if @user&.confirmed_at.nil?
+      @user.send_confirmation_instructions
+      render json: { message: 'Please check your inbox in your email' }, status: :ok
+    else
+      render json: { message: "User doesn't exist"}, status: :not_found
+    end
+  end
+
+  def driver_resend_confirmation
+    @driver = Driver.find_by(email: params[:email])
+    if @driver&.confirmed_at.nil?
+      @driver.send_confirmation_instructions
+      render json: { message: 'Please check your inbox in your email' }, status: :ok
+    else
+      render json: { message: "User doesn't exist"}, status: :not_found
+    end
+  end
+
+  def partner_resend_confirmation
+    @partner = Partner.find_by(email: params[:email])
+    if @partner&.confirmed_at.nil?
+      @partner.send_confirmation_instructions
+      render json: { message: 'Please check your inbox in your email' }, status: :ok
+    else
+      render json: { message: "User doesn't exist"}, status: :not_found
     end
   end
 
@@ -214,11 +253,11 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
 
   def driver_params
     params.permit :name, :email, :id_card, :phone_number, :address,
-                  :password, :license_plate, :image
+                  :password, :password_confirmation, :license_plate, :image
   end
 
   def partner_params
-    params.permit :name, :email, :address, :phone_number, :password,
+    params.permit :name, :email, :address, :phone_number, :password, :password_confirmation,
                   :latitude, :longitude, :time_open, :time_close, :image, :city_id, :type_id
   end
 end
