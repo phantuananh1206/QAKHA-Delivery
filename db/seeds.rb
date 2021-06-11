@@ -4216,7 +4216,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
@@ -4263,7 +4263,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
@@ -4310,7 +4310,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
@@ -4357,7 +4357,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
@@ -4404,7 +4404,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
@@ -4451,7 +4451,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
@@ -4498,7 +4498,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
@@ -4545,7 +4545,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
@@ -4592,7 +4592,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
@@ -4639,7 +4639,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
@@ -4686,7 +4686,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
@@ -4733,7 +4733,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
@@ -4780,7 +4780,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
@@ -4827,7 +4827,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
@@ -4874,7 +4874,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
@@ -4921,7 +4921,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
@@ -4968,7 +4968,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
@@ -5015,7 +5015,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
@@ -5062,7 +5062,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20P",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
@@ -5109,7 +5109,7 @@ Voucher.create!(
 )
 
 Voucher.create!(
-  code: "FREESHIP",
+  code: "QAKHAGIAM20",
   discount: 20000,
   condition: 80000,
   distance_condition: 3.0,
