@@ -128,7 +128,7 @@ class User < ApplicationRecord
   end
 
   def generate_token
-    SecureRandom.base36(5)
+    SecureRandom.base36(6)
   end
 
   def send_pending_devise_notifications
