@@ -107,6 +107,10 @@ class Driver < ApplicationRecord
     email.downcase!
   end
 
+  def generate_token
+    SecureRandom.base36(6)
+  end
+
   def send_pending_devise_notifications
     pending_devise_notifications.each do |notification, args|
       render_and_send_devise_message(notification, *args)

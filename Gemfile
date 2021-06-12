@@ -7,7 +7,6 @@ gem 'aasm'
 gem 'active_storage_validations', '0.8.2'
 gem 'activerecord-session_store'
 gem 'active_model_serializers'
-gem 'axlsx_rails'
 gem 'bootstrap-glyphicons'
 gem 'bootstrap4-kaminari-views'
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -49,6 +48,9 @@ gem "redis-namespace"
 gem "redis-rails"
 gem "redis-rack-cache"
 gem "sidekiq"
+gem 'sinatra', :require => nil
+gem 'sidekiq-failures'
+gem 'sidekiq-statistic'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
