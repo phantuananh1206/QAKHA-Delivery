@@ -4,7 +4,7 @@ class Partners::OrdersController < ApplicationController
 
   def index
     @search = current_partner.orders.includes(:user, :driver).search(params[:q])
-    @orders = @search.result.page(params[:page]).per(5)
+    @orders = @search.result._created_at_desc.page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort
   end
@@ -15,6 +15,18 @@ class Partners::OrdersController < ApplicationController
 
   def update
     update_status_order
+  end
+
+  def export
+    @orders = current_partner.orders._created_at_desc
+    if @orders.present?
+      respond_to do |format|
+        format.xls { send_data(@orders.to_xls, filename: filename_excel(t('admin.file_name.order'), Time.now)) }
+      end
+    else
+      flash[:danger] = t('admin.order.empty')
+      redirect_to partners_orders_path
+    end
   end
 
   private

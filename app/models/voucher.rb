@@ -5,7 +5,7 @@ class Voucher < ApplicationRecord
 
   enum status: { not_activated: 0, effective: 1, void: 2 }
 
-  validates :code, presence: true, uniqueness: true
+  validates :code, presence: true
   validates :discount, presence: true
   validates :expiry_date, presence: true
   validates :usage_limit, presence: true,

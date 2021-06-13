@@ -48,6 +48,18 @@ class Partners::CategoriesController < Partners::PartnersController
     end
   end
 
+  def export
+    @categories = current_partner.categories.order(:id)
+    if @categories.present?
+      respond_to do |format|
+        format.xls { send_data(@categories.to_xls, filename: filename_excel(t('admin.file_name.category'), Time.now)) }
+      end
+    else
+      flash[:danger] = t('admin.category.empty')
+      redirect_to partners_categories_path
+    end
+  end
+
   private
 
   def category_params

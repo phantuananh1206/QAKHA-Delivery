@@ -48,6 +48,9 @@ gem "redis-namespace"
 gem "redis-rails"
 gem "redis-rack-cache"
 gem "sidekiq"
+gem 'sinatra', :require => nil
+gem 'sidekiq-failures'
+gem 'sidekiq-statistic'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

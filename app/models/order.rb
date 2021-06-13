@@ -73,7 +73,7 @@ class Order < ApplicationRecord
   end
 
   def update_coins_driver
-    driver.update(coins: (driver.coins + shipping_fee.to_f))
+    driver.update(coins: (driver.coins + (shipping_fee.to_f * 10 / 100)))
   end
 
   def update_usage_limit_voucher

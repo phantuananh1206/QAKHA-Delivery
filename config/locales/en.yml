@@ -8,6 +8,7 @@ en:
     log_out: 'Log out'
     profile: 'Profile'
     settings: 'Settings'
+    change_pw: "Change password"
   date:
     order:
       - :day
@@ -15,9 +16,12 @@ en:
       - :year
   admin:
     sidebar:
-      dashboard: 'Dashboard'
+      dashboard: 'Resources'
       ecommerce: 'E-commerce'
       statistics: 'Statistics'
+      partner: 'Partner revenue statistics'
+      driver: 'Driver revenue statistics'
+      product: 'Product quantity revenue statistics'
     management:
       driver: 'Driver Management'
       partner: 'Partner Management'
@@ -30,10 +34,6 @@ en:
       voucher: 'Voucher Management'
       order: 'Order Management'
       feedback: 'Feedback Management'
-    statistics:
-      partner: 'Partner revenue statistics'
-      driver: 'Driver revenue statistics'
-      product: 'Product quantity revenue statistics'
     control:
       confirm_delete: 'Are you sure you want to delete?'
     address:
@@ -232,6 +232,8 @@ en:
       new_partner: ' New partner'
       create_partner: 'Create partner'
       empty: 'Partners empty'
+      latitude: 'Latitude (*)'
+      longitude: 'Longitude (*)'
       infor:
         id: 'ID'
         image: 'Image'
@@ -269,6 +271,8 @@ en:
       new_product: ' New product'
       create_product: 'Create product'
       empty: 'Products empty'
+      disable: 'Disable'
+      enable: 'Enable'
       infor:
         id: 'ID'
         image: 'Image'
@@ -445,6 +449,27 @@ en:
       revenue_by_month: 'revenue_by_month'
       revenue_by_year: 'revenue_by_year'
   mailer:
+    password_reset_title: 'Password reset'
+    forgot_password_title: 'Forgot password'
+    confirm:
+      welcome: 'Welcome '
+      to: ' to QAKHA Delivery!'
+      content: 'You can confirm your account email through the activation code below:'
+      code: 'Code: '
+      thank_you: 'Thank you,'
+      team_qakha: 'Team QAKHA.'
+    email_change:
+      hello: 'Hello '
+      notice1: "We're contacting you to notify you that your email is being changed to "
+      notice2: "We're contacting you to notify you that your email has been changed to "
+    password_change:
+      hello: 'Hello '
+      content: "We're contacting you to notify you that your password has been changed."
+    reset_password:
+      hello: 'Hello '
+      content1: 'Someone has requested a link to change your password. You can do this through the link below.'
+      content2: "If you didn't request this, please ignore this email."
+      content3: "Your password won't change until you access the link above and create a new one."
     contact:
       subject: 'Contact email'
       title: 'Contact email information'
@@ -502,6 +527,26 @@ en:
       number_use_voucher: 'Number of uses'
       ena_disable: 'Enable / Disable'
     close_store: 'The store has %{status}'
-    close_fail: '% status the store failed.'
+    close_fail: '%{status} the store failed.'
     statistics:
       revenue: 'Revenue statistics for store '
+    profile: 'Profile'
+    name: 'Name'
+    phone: 'Phone number'
+    address: 'Address store'
+    email: 'Email'
+    status: 'Status'
+    type: 'Business type'
+    time_close: 'Time close'
+    time_open: 'Time open'
+    edit: 'Edit'
+    save: 'Save change'
+    title_edit: "Edit profile store"
+    old_pw: 'Password current'
+    title_pw: "Change password"
+    old_pw_incorrect: "Current password incorrect"
+    edit_pw_success: 'Change password success'
+    edit_pw_failed: 'Change password failed'
+    report_order: "REVENUE REPORT CHART"
+    product_sold: "HOT SELLING PRODUCTS"
+    voucher_hot: "REPORT VOUCHERS"

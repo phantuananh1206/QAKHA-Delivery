@@ -22,6 +22,8 @@ class Admin::PartnersController < Admin::BaseController
       flash.now[:danger] = t('admin.partner.create_failed')
       render :new
     end
+    rescue
+      render :new
   end
 
   def update
@@ -36,6 +38,8 @@ class Admin::PartnersController < Admin::BaseController
       flash.now[:danger] = t('admin.partner.update_failed')
       render :edit
     end
+  rescue
+    render :edit
   end
 
   def destroy
@@ -69,7 +73,7 @@ class Admin::PartnersController < Admin::BaseController
     params.require(:partner).permit(:name, :address, :phone_number,
                                     :email, :password, :password_confirmation,
                                     :time_open, :time_close, :image,
-                                    :city_id, :type_id)
+                                    :city_id, :type_id, :latitude, :longitude)
   end
 
   def load_partner

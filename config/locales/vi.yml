@@ -8,6 +8,7 @@ vi:
     log_out: 'Đăng xuất'
     profile: 'Thông tin cá nhân'
     settings: 'Cài đặt'
+    change_pw: 'Đổi mật khẩu'
   date:
     order:
       - :day
@@ -15,9 +16,12 @@ vi:
       - :year
   admin:
     sidebar:
-      dashboard: 'Bảng điều khiển'
+      dashboard: 'Nhân lực'
       ecommerce: 'Thương mại điện tử'
       statistics: 'Thống kê'
+      partner: 'Thống kê doanh thu đối tác'
+      driver: 'Thống kê doanh thu người giao hàng'
+      product: 'Thống kê doanh thu số lượng sản phẩm'
     management:
       driver: 'Quản lý người giao hàng'
       partner: 'Quản lý đối tác'
@@ -30,10 +34,6 @@ vi:
       voucher: 'Quản lý khuyến mãi'
       order: 'Quản lý đơn đặt hàng'
       feedback: 'Quản lý đánh giá'
-    statistics:
-      partner: 'Thống kê doanh thu đối tác'
-      driver: 'Thống kê doanh thu người giao hàng'
-      product: 'Thống kê doanh thu số lượng sản phẩm'
     control:
       confirm_delete: 'Bạn có chắc chắn muốn xóa không?'
     address:
@@ -231,6 +231,8 @@ vi:
       new_partner: 'Thêm mới'
       create_partner: 'Tạo đối tác'
       empty: 'Danh sách đối tác trống'
+      latitude: 'Vĩ độ (*)'
+      longitude: 'Kinh độ (*)'
       infor:
         id: 'ID'
         image: 'Hình ảnh'
@@ -268,6 +270,8 @@ vi:
       new_product: 'Thêm mới'
       create_product: 'Tạo sản phẩm'
       empty: 'Danh sách sản phẩm trống'
+      disable: 'Vô hiệu hóa'
+      enable: 'Kích hoạt'
       infor:
         id: 'ID'
         image: 'Hình ảnh'
@@ -444,6 +448,27 @@ vi:
       revenue_by_month: 'doanh_thu_theo_thang'
       revenue_by_year: 'doanh_thu_theo_nam'
   mailer:
+    password_reset_title: 'Đặt lại mật khẩu'
+    forgot_password_title: 'Quên mật khẩu'
+    confirm:
+      welcome: 'Xin chào '
+      to: ' đến với QAKHA Delivery!'
+      content: 'Bạn có thể xác nhận email tài khoản của mình thông qua mã kích hoạt bên dưới:'
+      code: 'Mã: '
+      thank_you: 'Cảm ơn,'
+      team_qakha: 'Đội ngũ QAKHA.'
+    email_change:
+      hello: 'Xin chào '
+      notice1: "Chúng tôi đang liên hệ với bạn để thông báo rằng email của bạn đang được thay đổi thành "
+      notice2: "Chúng tôi đang liên hệ với bạn để thông báo rằng email của bạn đã được thay đổi thành "
+    password_change:
+      hello: 'Xin chào '
+      content: "Chúng tôi đang liên hệ với bạn để thông báo rằng mật khẩu của bạn đã được thay đổi."
+    reset_password:
+      hello: 'Xin chào '
+      content1: 'Ai đó đã yêu cầu một liên kết để thay đổi mật khẩu của bạn. Bạn có thể làm điều này thông qua liên kết dưới đây.'
+      content2: "Nếu bạn không yêu cầu điều này, vui lòng bỏ qua email này."
+      content3: "Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy cập vào liên kết ở trên và tạo một mật khẩu mới."
     contact:
       subject: 'Thư điện tử liên hệ'
       title: 'Thông tin thư điện tử liên hệ'
@@ -501,6 +526,26 @@ vi:
       number_use_voucher: 'Số lượt sử dụng'
       ena_disable: 'Kích hoạt / Vô hiệu hóa'
     close_store: 'Cửa hàng đã %{status}'
-    close_fail: '% status cửa hàng không thành công'
+    close_fail: '%{status} cửa hàng không thành công'
     statistics:
       revenue: 'Thống kê doanh thu của cửa hàng trong năm'
+    profile: 'Thông tin cá nhân'
+    name: 'Tên'
+    phone: 'Số điện thoại'
+    address: 'Địa chỉ cửa hàng'
+    email: 'Email'
+    status: 'Trạng thái'
+    type: 'Loại hình kinh doanh'
+    time_close: 'Giờ mở cửa'
+    time_open: 'Giờ đóng cửa'
+    edit: 'Chỉnh sửa'
+    save: 'Lưu thay đổi'
+    title_edit: "Chỉnh sửa thông tin cửa hàng"
+    old_pw: 'Mật khẩu hiện tại'
+    title_pw: "Thay đổi mật khẩu"
+    old_pw_incorrect: 'Mật khẩu hiện tại không đúng'
+    edit_pw_success: 'Thay đổi mật khẩu thành công'
+    edit_pw_failed: 'Thay đổi mật khẩu thất bại'
+    report_order: "BIỂU ĐỒ BÁO CÁO DOANH THU"
+    product_sold: "CÁC SẢN PHẨM BÁN CHẠY TRONG CỬA HÀNG"
+    voucher_hot: "BÁO CÁO LƯỢT SỬ DỤNG CÁC MÃ KHUYẾN MÃI"

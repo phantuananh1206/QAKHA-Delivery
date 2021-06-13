@@ -11,13 +11,24 @@
   <td >
     <%= link_to "", partners_product_status_path(product.id, status: :out_of_stock), method: :patch, remote: true, class:"play active" if product.in_stock? %>
     <%= link_to "", partners_product_status_path(product.id, status: :in_stock), method: :patch, remote: true, class:"play" if product.out_of_stock? %>
+    <hr>
+    <%= link_to t('admin.product.disable'), partners_product_status_path(id: product.id, status: :disabled),
+                                            method: :patch,
+                                            remote: true,
+                                            class: "btn btn-secondary glyphicon glyphicon-lock" unless product.disabled? %>
+    <%= link_to t('admin.product.enable'), partners_product_status_path(id: product.id, status: :out_of_stock),
+                                            method: :patch,
+                                            remote: true,
+                                            class: "btn btn-primary glyphicon glyphicon-ok" if product.disabled? %>
   </td>
 
-  <td class="control-custom">
-    <span><%= link_to "", edit_partners_product_path(product),
-                                  class: "btn btn-success glyphicon glyphicon-edit control-custom" %></span>
-    <span><%= link_to "", partners_product_path(product),
-                                    data: { confirm: t('admin.control.confirm_delete') },
-                                    method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
+  <td>
+    <div class="action-btn">
+      <span><%= link_to "", edit_partners_product_path(product),
+                                    class: "btn btn-success glyphicon glyphicon-edit control-custom" %></span>
+      <span><%= link_to "", partners_product_path(product),
+                                      data: { confirm: t('admin.control.confirm_delete') },
+                                      method: :delete, class: "btn btn-danger glyphicon glyphicon-trash" %></span>
+    </div>
   </td>
 </tr>

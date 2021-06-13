@@ -30,7 +30,11 @@ class Partner < ApplicationRecord
   validates :password, presence: true,
             length: {minimum: Settings.validation.password_min},
             allow_nil: true
-  validate :time_close_valid, on: :create
+  validates :latitude, presence: true
+  validates :longitude, presence: true
+  validates :time_open, presence: true
+  validates :time_close, presence: true
+  validate :time_close_valid, on: %i(create update)
 
   aasm column: :status, enum: true do
     state :not_activated, initial: true
@@ -101,7 +105,7 @@ class Partner < ApplicationRecord
   end
 
   def activated
-    self.update_columns(confirmed_at: Time.now.utc)
+    self.update_columns(confirmed_at: Time.now)
   end
 
   def number_of_reviews
@@ -116,9 +120,33 @@ class Partner < ApplicationRecord
     $redis.del 'partners'
   end
 
+  def send_confirmation_instructions
+    self.update_columns(confirmation_token: generate_token, confirmation_sent_at: Time.now)
+    super()
+  end
+
   private
 
   def downcase_email
     email.downcase!
+  end
+
+  def generate_token
+    SecureRandom.base64(6)
+  end
+
+  def send_pending_devise_notifications
+    pending_devise_notifications.each do |notification, args|
+      render_and_send_devise_message(notification, *args)
+    end
+    pending_devise_notifications.clear
+  end
+
+  def pending_devise_notifications
+    @pending_devise_notifications ||= []
+  end
+
+  def render_and_send_devise_message(notification, *args)
+    message = devise_mailer.send(notification, self, *args).deliver_later
   end
 end

@@ -76,11 +76,11 @@ class User < ApplicationRecord
   def generate_password_token!
     # self.reset_password_token = generate_token
     self.update_columns(reset_password_token: generate_token)
-    self.update_columns(reset_password_sent_at: Time.now.utc )
+    self.update_columns(reset_password_sent_at: Time.now )
   end
 
   def password_token_valid?
-    (self.reset_password_sent_at + 10.minutes) > Time.now.utc
+    (self.reset_password_sent_at + 10.minutes) > Time.now
   end
 
   def reset_password!(password)
@@ -103,7 +103,12 @@ class User < ApplicationRecord
   end
 
   def activated
-    self.update_columns(confirmed_at: Time.now.utc)
+    self.update_columns(confirmed_at: Time.now)
+  end
+
+  def send_confirmation_instructions
+    self.update_columns(confirmation_token: generate_token, confirmation_sent_at: Time.now)
+    super()
   end
 
   protected
@@ -123,7 +128,7 @@ class User < ApplicationRecord
   end
 
   def generate_token
-    SecureRandom.base36(5)
+    SecureRandom.base64(6)
   end
 
   def send_pending_devise_notifications

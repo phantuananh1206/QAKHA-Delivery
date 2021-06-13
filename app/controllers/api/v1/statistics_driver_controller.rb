@@ -12,11 +12,11 @@ class Api::V1::StatisticsDriverController < Api::V1::ApplicationController
                    .where("DATE(delivery_time) = ?", params[:day].to_date)
     @orders.each do |order|
       if order.cash?
-        total_cash += order.shipping_fee.to_f
+        total_cash += (order.shipping_fee.to_f - order.shipping_fee.to_f * 10 / 100)
       elsif order.coins?
-        total_coins += order.shipping_fee.to_f
+        total_coins += (order.shipping_fee.to_f - order.shipping_fee.to_f * 10 / 100)
       elsif order.paypal?
-        total_paypal += order.shipping_fee.to_f
+        total_paypal += (order.shipping_fee.to_f - order.shipping_fee.to_f * 10 / 100)
       end
       total_daily_income = total_cash + total_coins + total_paypal
     end
@@ -33,11 +33,11 @@ class Api::V1::StatisticsDriverController < Api::V1::ApplicationController
                    .where("MONTH(delivery_time) = ?", params[:month])
     @orders.each do |order|
       if order.cash?
-        total_cash += order.shipping_fee.to_f
+        total_cash += (order.shipping_fee.to_f - order.shipping_fee.to_f * 10 / 100)
       elsif order.coins?
-        total_coins += order.shipping_fee.to_f
+        total_coins += (order.shipping_fee.to_f - order.shipping_fee.to_f * 10 / 100)
       elsif order.paypal?
-        total_paypal += order.shipping_fee.to_f
+        total_paypal += (order.shipping_fee.to_f - order.shipping_fee.to_f * 10 / 100)
       end
       total_monthly_income = total_cash + total_coins + total_paypal
     end
@@ -54,11 +54,11 @@ class Api::V1::StatisticsDriverController < Api::V1::ApplicationController
                    .where("YEAR(delivery_time) = ?", params[:year])
     @orders.each do |order|
       if order.cash?
-        total_cash += order.shipping_fee.to_f
+        total_cash += (order.shipping_fee.to_f - order.shipping_fee.to_f * 10 / 100)
       elsif order.coins?
-        total_coins += order.shipping_fee.to_f
+        total_coins += (order.shipping_fee.to_f - order.shipping_fee.to_f * 10 / 100)
       elsif order.paypal?
-        total_paypal += order.shipping_fee.to_f
+        total_paypal += (order.shipping_fee.to_f - order.shipping_fee.to_f * 10 / 100)
       end
       total_annual_income = total_cash + total_coins + total_paypal
     end

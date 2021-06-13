@@ -1,4 +1,7 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq'
   devise_for :drivers, skip: [:session, :password, :registration]
   devise_for :partners, skip: [:session, :password, :registration]
   devise_for :users, skip: [:session, :password, :registration], controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
@@ -23,13 +26,24 @@ Rails.application.routes.draw do
         patch "products/status/:id", to: 'products#update_status', as: :product_status
         patch "vouchers/status/:id", to: 'vouchers#update_status', as: :voucher_status
         patch "partners/status/:id", to: 'partners#update_status', as: :partner_status
+        get "partners/edit_password/:id", to: 'partners#edit_password'
+        patch "partners/edit_password/:id", to: 'partners#update_password'
       end
-      resources :categories
-      resources :products
-      resources :vouchers
       resources :statistics_products, only: :index
       resources :statistics_revenue, only: :index
-      resources :orders
+      resources :partners
+      resources :categories, except: :show do
+        collection { get :export }
+      end
+      resources :products, except: :show do
+        collection { get :export }
+      end
+      resources :vouchers, except: :show do
+        collection { get :export }
+      end
+      resources :orders do
+        collection { get :export }
+      end
     end
 
     namespace :api, default: {format: :json} do
@@ -82,6 +96,11 @@ Rails.application.routes.draw do
           patch "/driver/change_password", to: "drivers#change_password"
           patch "user/change_email", to: 'users#change_email'
           post "/contact", to: 'contacts#contact'
+          post "/user/confirmation", to: 'registrations#user_resend_confirmation'
+          post "/driver/confirmation", to: 'registrations#driver_resend_confirmation'
+          post "/partner/confirmation", to: 'registrations#partner_resend_confirmation'
+          post "passwords/forgot_pw_driver", to: 'passwords#forgot_pw_driver'
+          post "passwords/reset_pw_driver", to: 'passwords#reset_pw_driver'
         end
         resources :users, only: :index
         resources :types, only: %i(index show)

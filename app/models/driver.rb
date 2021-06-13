@@ -93,12 +93,51 @@ class Driver < ApplicationRecord
   end
 
   def activated
-    self.update_columns(confirmed_at: Time.now.utc)
+    self.update_columns(confirmed_at: Time.now)
+  end
+
+  def send_confirmation_instructions
+    self.update_columns(confirmation_token: generate_token, confirmation_sent_at: Time.now)
+    super()
+  end
+
+  def generate_password_token!
+    self.update_columns(reset_password_token: generate_token)
+    self.update_columns(reset_password_sent_at: Time.now.utc )
+  end
+
+  def password_token_valid?
+    (self.reset_password_sent_at + 10.minutes) > Time.now.utc
+  end
+
+  def reset_password!(password)
+    self.reset_password_token = nil
+    self.password = password
+    save
   end
 
   private
 
   def downcase_email
     email.downcase!
+  end
+
+  def generate_token
+    SecureRandom.base64(6)
+  end
+
+  def send_pending_devise_notifications
+    pending_devise_notifications.each do |notification, args|
+      render_and_send_devise_message(notification, *args)
+    end
+    pending_devise_notifications.clear
+  end
+
+  def pending_devise_notifications
+    @pending_devise_notifications ||= []
+  end
+
+  def render_and_send_devise_message(notification, *args)
+    message = devise_mailer.send(notification, self, *args).deliver_later
   end
 end

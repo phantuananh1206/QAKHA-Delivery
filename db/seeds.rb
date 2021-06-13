@@ -1,8 +1,8 @@
 1.times do
   u = User.create!(name: "Admin",
-    email: "phantuananh1206@gmail.com",
+    email: "qakhadelivery@gmail.com",
     password: "Test123@",
-    phone_number: "0905109870",
+    phone_number: "0396355253",
     coins: 500000,
     confirmed_at: Time.zone.now,
     role: 0
@@ -14,7 +14,7 @@ end
   u = User.create!(name: "TuanAnh",
     email: "phantuananhltt@gmail.com",
     password: "Test123@",
-    phone_number: "0396355253",
+    phone_number: "0905109870",
     coins: 500000,
     confirmed_at: Time.zone.now,
     role: 0
@@ -4180,26 +4180,28 @@ end
 end
 
 #Vouchers
+#Partner 1
 Voucher.create!(
   code: "FSDN",
   discount: 15000,
   condition: 60000,
   expiry_date: Time.new(2021, 7, 30),
   description: 'Code 15k off, min order 60k',
-  usage_limit: 10,
+  usage_limit: 20,
   status: 1,
-  partner_id: Partner.pluck(:id).sample
+  partner_id: 1
 )
 
 Voucher.create!(
   code: "ALLFREE",
   discount: 15000,
   condition: 40000,
-  description: 'Code 15k off, min order 40k',
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
   expiry_date: Time.new(2021, 8, 30),
   usage_limit: 20,
   status: 1,
-  partner_id: Partner.pluck(:id).sample
+  partner_id: 1
 )
 
 Voucher.create!(
@@ -4210,5 +4212,910 @@ Voucher.create!(
   expiry_date: Time.new(2021, 8, 30),
   usage_limit: 20,
   status: 1,
-  partner_id: Partner.pluck(:id).sample
+  partner_id: 1
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 1
+)
+
+#Partner 2
+Voucher.create!(
+  code: "FSDN",
+  discount: 15000,
+  condition: 60000,
+  expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
+  usage_limit: 20,
+  status: 1,
+  partner_id: 2
+)
+
+Voucher.create!(
+  code: "ALLFREE",
+  discount: 15000,
+  condition: 40000,
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 2
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 2
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 2
+)
+
+#Partner 3
+Voucher.create!(
+  code: "FSDN",
+  discount: 15000,
+  condition: 60000,
+  expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
+  usage_limit: 20,
+  status: 1,
+  partner_id: 3
+)
+
+Voucher.create!(
+  code: "ALLFREE",
+  discount: 15000,
+  condition: 40000,
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 3
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 3
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 3
+)
+
+#Partner 4
+Voucher.create!(
+  code: "FSDN",
+  discount: 15000,
+  condition: 60000,
+  expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
+  usage_limit: 20,
+  status: 1,
+  partner_id: 4
+)
+
+Voucher.create!(
+  code: "ALLFREE",
+  discount: 15000,
+  condition: 40000,
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 4
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 4
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 4
+)
+
+#Partner 5
+Voucher.create!(
+  code: "FSDN",
+  discount: 15000,
+  condition: 60000,
+  expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
+  usage_limit: 20,
+  status: 1,
+  partner_id: 5
+)
+
+Voucher.create!(
+  code: "ALLFREE",
+  discount: 15000,
+  condition: 40000,
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 5
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 5
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 5
+)
+
+#Partner 6
+Voucher.create!(
+  code: "FSDN",
+  discount: 15000,
+  condition: 60000,
+  expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
+  usage_limit: 20,
+  status: 1,
+  partner_id: 6
+)
+
+Voucher.create!(
+  code: "ALLFREE",
+  discount: 15000,
+  condition: 40000,
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 6
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 6
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 6
+)
+
+#Partner 7
+Voucher.create!(
+  code: "FSDN",
+  discount: 15000,
+  condition: 60000,
+  expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
+  usage_limit: 20,
+  status: 1,
+  partner_id: 7
+)
+
+Voucher.create!(
+  code: "ALLFREE",
+  discount: 15000,
+  condition: 40000,
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 7
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 7
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 7
+)
+
+#Partner 8
+Voucher.create!(
+  code: "FSDN",
+  discount: 15000,
+  condition: 60000,
+  expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
+  usage_limit: 20,
+  status: 1,
+  partner_id: 8
+)
+
+Voucher.create!(
+  code: "ALLFREE",
+  discount: 15000,
+  condition: 40000,
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 8
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 8
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 8
+)
+
+#Partner 9
+Voucher.create!(
+  code: "FSDN",
+  discount: 15000,
+  condition: 60000,
+  expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
+  usage_limit: 20,
+  status: 1,
+  partner_id: 9
+)
+
+Voucher.create!(
+  code: "ALLFREE",
+  discount: 15000,
+  condition: 40000,
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 9
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 9
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 9
+)
+
+#Partner 10
+Voucher.create!(
+  code: "FSDN",
+  discount: 15000,
+  condition: 60000,
+  expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
+  usage_limit: 20,
+  status: 1,
+  partner_id: 10
+)
+
+Voucher.create!(
+  code: "ALLFREE",
+  discount: 15000,
+  condition: 40000,
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 10
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 10
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 10
+)
+
+#Partner 11
+Voucher.create!(
+  code: "FSDN",
+  discount: 15000,
+  condition: 60000,
+  expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
+  usage_limit: 20,
+  status: 1,
+  partner_id: 11
+)
+
+Voucher.create!(
+  code: "ALLFREE",
+  discount: 15000,
+  condition: 40000,
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 11
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 11
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 11
+)
+
+#Partner 12
+Voucher.create!(
+  code: "FSDN",
+  discount: 15000,
+  condition: 60000,
+  expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
+  usage_limit: 20,
+  status: 1,
+  partner_id: 12
+)
+
+Voucher.create!(
+  code: "ALLFREE",
+  discount: 15000,
+  condition: 40000,
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 12
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 12
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 12
+)
+
+#Partner 13
+Voucher.create!(
+  code: "FSDN",
+  discount: 15000,
+  condition: 60000,
+  expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
+  usage_limit: 20,
+  status: 1,
+  partner_id: 13
+)
+
+Voucher.create!(
+  code: "ALLFREE",
+  discount: 15000,
+  condition: 40000,
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 13
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 13
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 13
+)
+
+#Partner 14
+Voucher.create!(
+  code: "FSDN",
+  discount: 15000,
+  condition: 60000,
+  expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
+  usage_limit: 20,
+  status: 1,
+  partner_id: 14
+)
+
+Voucher.create!(
+  code: "ALLFREE",
+  discount: 15000,
+  condition: 40000,
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 14
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 14
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 14
+)
+
+#Partner 15
+Voucher.create!(
+  code: "FSDN",
+  discount: 15000,
+  condition: 60000,
+  expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
+  usage_limit: 20,
+  status: 1,
+  partner_id: 15
+)
+
+Voucher.create!(
+  code: "ALLFREE",
+  discount: 15000,
+  condition: 40000,
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 15
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 15
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 15
+)
+
+#Partner 16
+Voucher.create!(
+  code: "FSDN",
+  discount: 15000,
+  condition: 60000,
+  expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
+  usage_limit: 20,
+  status: 1,
+  partner_id: 16
+)
+
+Voucher.create!(
+  code: "ALLFREE",
+  discount: 15000,
+  condition: 40000,
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 16
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 16
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 16
+)
+
+#Partner 17
+Voucher.create!(
+  code: "FSDN",
+  discount: 15000,
+  condition: 60000,
+  expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
+  usage_limit: 20,
+  status: 1,
+  partner_id: 17
+)
+
+Voucher.create!(
+  code: "ALLFREE",
+  discount: 15000,
+  condition: 40000,
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 17
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 17
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 17
+)
+
+#Partner 18
+Voucher.create!(
+  code: "FSDN",
+  discount: 15000,
+  condition: 60000,
+  expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
+  usage_limit: 20,
+  status: 1,
+  partner_id: 18
+)
+
+Voucher.create!(
+  code: "ALLFREE",
+  discount: 15000,
+  condition: 40000,
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 18
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 18
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 18
+)
+
+#Partner 19
+Voucher.create!(
+  code: "FSDN",
+  discount: 15000,
+  condition: 60000,
+  expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
+  usage_limit: 20,
+  status: 1,
+  partner_id: 19
+)
+
+Voucher.create!(
+  code: "ALLFREE",
+  discount: 15000,
+  condition: 40000,
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 19
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 19
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20P",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 19
+)
+
+#Partner 20
+Voucher.create!(
+  code: "FSDN",
+  discount: 15000,
+  condition: 60000,
+  expiry_date: Time.new(2021, 7, 30),
+  description: 'Code 15k off, min order 60k',
+  usage_limit: 20,
+  status: 1,
+  partner_id: 20
+)
+
+Voucher.create!(
+  code: "ALLFREE",
+  discount: 15000,
+  condition: 40000,
+  distance_condition: 3.0,
+  description: 'Code 15k off, min order 40k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 20
+)
+
+Voucher.create!(
+  code: "FREESHIP",
+  discount: 15000,
+  distance_condition: 3.0,
+  description: 'Freeship within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 20
+)
+
+Voucher.create!(
+  code: "QAKHAGIAM20",
+  discount: 20000,
+  condition: 80000,
+  distance_condition: 3.0,
+  description: 'Code 20k off, min order 80k, distance within 3km',
+  expiry_date: Time.new(2021, 8, 30),
+  usage_limit: 20,
+  status: 1,
+  partner_id: 20
 )

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :load_partners, :load_voucher
-  before_action :clear_cart
+  before_action :auto_clear_cart
   include SessionsHelper
 
   private
@@ -26,9 +26,7 @@ class ApplicationController < ActionController::Base
   def load_partners
     @partners = Partner.all
     @partners.each do |partner|
-      if Time.zone.now.strftime('%H:%M') >= partner.time_open.strftime('%H:%M') && Time.zone.now.strftime('%H:%M') <= partner.time_close.strftime('%H:%M') && partner.close?
-        partner.update_columns(status: :open)
-      elsif Time.zone.now.strftime('%H:%M') >= partner.time_close.strftime('%H:%M') && partner.open?
+      if Time.zone.now.strftime('%H:%M') >= partner.time_close.strftime('%H:%M') && partner.open?
         partner.update_columns(status: :close)
       end
     end
@@ -45,7 +43,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def clear_cart
+  def auto_clear_cart
     HardWorker.perform_at(Time.now)
   end
 
