@@ -16,7 +16,7 @@ en:
       - :year
   admin:
     sidebar:
-      dashboard: 'Dashboard'
+      dashboard: 'Resources'
       ecommerce: 'E-commerce'
       statistics: 'Statistics'
       partner: 'Partner revenue statistics'
@@ -547,3 +547,6 @@ en:
     old_pw_incorrect: "Current password incorrect"
     edit_pw_success: 'Change password success'
     edit_pw_failed: 'Change password failed'
+    report_order: "REVENUE REPORT CHART"
+    product_sold: "HOT SELLING PRODUCTS"
+    voucher_hot: "REPORT VOUCHERS"

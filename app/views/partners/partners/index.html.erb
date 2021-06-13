@@ -9,3 +9,15 @@
                               remote: true,
                               class: "btn btn-primary glyphicon btn-open" %>
 <% end %>
+<hr>
+<h1 class="text-center"><%= t('partner.report_order') %></h1><br/><br/>
+<%= line_chart @partner.orders.group("DATE(delivery_time)").sum('orders.total')%>
+<br/><br/><br/>
+<hr>
+<h1 class="text-center"><%= t('partner.product_sold') %></h1><br/><br/>
+
+<%= column_chart @partner.products.group('products.name').sum('products.quantity_sold') %><br/> <br/><br/>
+<hr>
+<h1 class="text-center"><%= t('partner.voucher_hot') %></h1><br/><br/>
+<%= pie_chart @partner.vouchers.group('vouchers.code').sum('vouchers.usage_limit') %>
+<h5 class="text-center">DVT: times</h5>

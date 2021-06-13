@@ -101,6 +101,21 @@ class Driver < ApplicationRecord
     super()
   end
 
+  def generate_password_token!
+    self.update_columns(reset_password_token: generate_token)
+    self.update_columns(reset_password_sent_at: Time.now.utc )
+  end
+
+  def password_token_valid?
+    (self.reset_password_sent_at + 10.minutes) > Time.now.utc
+  end
+
+  def reset_password!(password)
+    self.reset_password_token = nil
+    self.password = password
+    save
+  end
+
   private
 
   def downcase_email
@@ -108,7 +123,7 @@ class Driver < ApplicationRecord
   end
 
   def generate_token
-    SecureRandom.base36(6)
+    SecureRandom.base64(6)
   end
 
   def send_pending_devise_notifications

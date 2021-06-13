@@ -4,7 +4,7 @@ class Partners::OrdersController < ApplicationController
 
   def index
     @search = current_partner.orders.includes(:user, :driver).search(params[:q])
-    @orders = @search.result.page(params[:page]).per(5)
+    @orders = @search.result._created_at_desc.page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort
   end
