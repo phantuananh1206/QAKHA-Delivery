@@ -4,6 +4,8 @@ class City < ApplicationRecord
   validates :name, presence: true,
             length: {maximum: Settings.validation.name_max}
 
+  scope :_created_at_desc, -> { order(created_at: :desc) }
+
   def self.to_xls
     CSV.generate do |csv|
       csv << column_names

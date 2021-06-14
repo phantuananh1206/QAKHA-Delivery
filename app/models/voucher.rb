@@ -15,6 +15,8 @@ class Voucher < ApplicationRecord
 
   delegate :name, to: :partner, prefix: true
 
+  scope :_created_at_desc, -> { order(created_at: :desc) }
+
   def order_valid_voucher(order_total)
     order_total >= condition &&
       expiry_date >= Time.zone.now &&

@@ -7,4 +7,6 @@ class Cart < ApplicationRecord
             numericality: {only_integer: true,
                            greater_than:
                            Settings.validation.number.zero}
+
+  scope :_created_at_desc, -> { order(created_at: :desc) }
 end

@@ -2,7 +2,7 @@ class Admin::TypesController < Admin::BaseController
   before_action :load_type, except: %i(index new create export)
 
   def index
-    @search = Type.search(params[:q])
+    @search = Type._created_at_desc.search(params[:q])
     @types = @search.result.page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort

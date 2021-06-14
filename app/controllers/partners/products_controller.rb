@@ -2,7 +2,7 @@ class Partners::ProductsController < Partners::PartnersController
   before_action :load_product, only: %i(edit update destroy update_status)
 
   def index
-    @search = current_partner.products.includes(:category).search(params[:q])
+    @search = current_partner.products.includes(:category)._created_at_desc.search(params[:q])
     @products = @search.result.page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort

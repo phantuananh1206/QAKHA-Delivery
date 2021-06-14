@@ -1,9 +1,9 @@
 <div>
-  <h2><%= t('mailer.confirm.welcome')%> <%= @email %> <%= t('mailer.confirm.to')%></h2>
+  <h1><%= t('mailer.confirm.welcome')%> <%= @email %> <%= t('mailer.confirm.to')%></h1>
 
-  <p><%= t('mailer.confirm.content')%></p>
+  <p style="font-size: 20px"><%= t('mailer.confirm.content')%></p>
 
-  <h2><%= t('mailer.confirm.code')%><%= @resource.confirmation_token %></h2>
-  <h4><%= t('mailer.confirm.thank_you')%></h4>
-  <h4><%= t('mailer.confirm.team_qakha')%></h4>
+  <h2 style="font-size: 20px"><%= t('mailer.confirm.code')%><%= @resource.confirmation_token %></h2>
+  <h4 style="font-size: 20px"><%= t('mailer.confirm.thank_you')%></h4>
+  <h4 style="font-size: 20px"><%= t('mailer.confirm.team_qakha')%></h4>
 </div>

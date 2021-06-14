@@ -69,6 +69,7 @@ class Partner < ApplicationRecord
 
   scope :_partner_valid, -> { where.not(status: :not_activated).where.not(status: :locked) }
   scope :_partner_open, -> { where(status: :open) }
+  scope :_created_at_desc, -> { order(created_at: :desc) }
 
   def save_image!(image)
     self.update_columns(image: image)

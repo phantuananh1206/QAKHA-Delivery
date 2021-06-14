@@ -1,7 +1,7 @@
 class Api::V1::ApplicationController < ActionController::API
   respond_to :json
 
-  before_action :load_partners, :load_voucher
+  # before_action :load_partners, :load_voucher
   before_action :auto_clear_cart
 
   def load_partners

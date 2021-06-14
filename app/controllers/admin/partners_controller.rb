@@ -3,7 +3,7 @@ class Admin::PartnersController < Admin::BaseController
   before_action :list_city, :list_type, except: %i(index destroy export)
 
   def index
-    @search = Partner.search(params[:q])
+    @search = Partner._created_at_desc.search(params[:q])
     @partners = @search.result.page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort

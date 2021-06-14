@@ -2,7 +2,7 @@ class Admin::OrdersController < Admin::BaseController
   before_action :load_order, only: %i(show update)
 
   def index
-    @search = Order.includes(:user, :driver, :partner).search(params[:q])
+    @search = Order._created_at_desc.includes(:user, :driver, :partner).search(params[:q])
     @orders = @search.result.page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort

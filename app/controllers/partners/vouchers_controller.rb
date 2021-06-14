@@ -2,7 +2,7 @@ class Partners::VouchersController < Partners::PartnersController
   before_action :load_voucher, only: %i(show update edit destroy update_status)
 
   def index
-    @search = current_partner.vouchers.search(params[:q])
+    @search = current_partner.vouchers._created_at_desc.search(params[:q])
     @vouchers = @search.result.includes(:orders).page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort
