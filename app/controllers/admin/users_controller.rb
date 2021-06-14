@@ -4,7 +4,7 @@ class Admin::UsersController < Admin::BaseController
   before_action :load_address, only: %i(edit_address update_address delete_address)
 
   def index
-    @search = User.search(params[:q])
+    @search = User._created_at_desc.search(params[:q])
     @users = @search.result.page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort

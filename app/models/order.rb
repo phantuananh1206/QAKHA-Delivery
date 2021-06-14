@@ -53,6 +53,7 @@ class Order < ApplicationRecord
   scope :_order_completed, -> { where(status: :completed) }
   scope :_revenue_month, ->(month) { where("MONTH(delivery_time) = ?", month) }
   scope :_revenue_year, ->(year) { where("YEAR(delivery_time) = ?", year) }
+  scope :_created_at_desc, -> { order(created_at: :desc) }
 
   def update_quantity_sold_of_product
     order_details.each do |order_detail|

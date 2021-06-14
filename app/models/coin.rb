@@ -5,4 +5,5 @@ class Coin < ApplicationRecord
             numericality: {greater_than: Settings.validation.number.zero}
   validates :loading_form, presence: true,
             length: {maximum: Settings.validation.loading_max}
+  scope :_created_at_desc, -> { order(created_at: :desc) }
 end

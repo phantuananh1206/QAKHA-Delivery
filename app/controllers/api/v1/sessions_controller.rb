@@ -52,13 +52,18 @@ class Api::V1::SessionsController < Devise::SessionsController
   private
 
   def load_user_authentication
-    @user = User._not_role_locked.find_by_email params[:email]
+    @user = User.find_by_email params[:email]
+
+    render json: {message: "Your account has been locked !!"}, status: :bad_request if @user&.locked?
 
     render json: {message: "Email is not exists. Please sign up !!"}, status: :bad_request unless @user
   end
 
   def load_driver_authentication
     @driver = Driver.find_by_email params[:email]
+
+    render json: {message: "Your account has been locked !!"}, status: :bad_request if @driver&.locked?
+
     render json: {message: "Email is not exists. Please sign up !!"}, status: :bad_request unless @driver
   end
 

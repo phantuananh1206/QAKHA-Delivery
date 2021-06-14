@@ -2,7 +2,7 @@ class Admin::DriversController < Admin::BaseController
   before_action :load_driver, except: %i(index new create export)
 
   def index
-    @search = Driver.search(params[:q])
+    @search = Driver._created_at_desc.search(params[:q])
     @drivers = @search.result.page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort

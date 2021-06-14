@@ -70,6 +70,7 @@ class Driver < ApplicationRecord
 
   scope :by_ids, ->(ids) { where(id: ids) }
   scope :_can_ship, -> { where(status: :online) }
+  scope :_created_at_desc, -> { order(created_at: :desc) }
 
   def save_image!(image)
     self.update_columns(image: image)

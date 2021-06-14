@@ -1,7 +1,7 @@
-<p><%= t('mailer.email_change.hello') %><%= @email %>!</p>
+<h1><%= t('mailer.email_change.hello') %><%= @email %>!</h1>
 
 <% if @resource.try(:unconfirmed_email?) %>
-  <p><%= t('mailer.email_change.notice1') %><%= @resource.unconfirmed_email %>.</p>
+  <p style="font-size: 25px"><%= t('mailer.email_change.notice1') %><%= @resource.unconfirmed_email %>.</p>
 <% else %>
-  <p><%= t('mailer.email_change.notice2') %><%= @resource.email %>.</p>
+  <p style="font-size: 25px"><%= t('mailer.email_change.notice2') %><%= @resource.email %>.</p>
 <% end %>

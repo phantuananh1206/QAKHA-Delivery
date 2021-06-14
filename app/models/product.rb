@@ -18,7 +18,7 @@ class Product < ApplicationRecord
             numericality: {greater_than: Settings.validation.number.zero}
 
   scope :by_ids, ->(ids) { where(id: ids) }
-  scope :order_by_create, -> { order created_at: :desc}
+  scope :_created_at_desc, -> { order(created_at: :desc) }
 
   after_save :clear_cache_partners
   after_destroy :clear_cache_partners

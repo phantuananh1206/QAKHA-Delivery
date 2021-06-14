@@ -2,7 +2,7 @@ class Admin::CitiesController < Admin::BaseController
   before_action :load_city, except: %i(index new create export)
 
   def index
-    @search = City.search(params[:q])
+    @search = City._created_at_desc.search(params[:q])
     @cities = @search.result.page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort

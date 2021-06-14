@@ -65,6 +65,13 @@ class Api::V1::CartsController < Api::V1::ApplicationController
 
   def load_carts
     @carts = Cart.where(user_id: @current_user.id, partner_id: params[:partner_id])
+    @carts.each do |cart|
+      product = Product.find_by(id: cart.product.id)
+      if product&.out_of_stock? || product&.disabled?
+        Cart.destroy(cart[:id].to_i)
+      end
+    end
+    @carts = Cart.where(user_id: @current_user.id, partner_id: params[:partner_id])
     render json: { carts: @carts, total_price_cart: total_price_cart }, status: :ok
   end
 
@@ -79,7 +86,7 @@ class Api::V1::CartsController < Api::V1::ApplicationController
   def load_product_update
     @product = Product.find_by(id: params[:product_id])
     if @product && @product.category.partner_id == params[:partner_id].to_i
-      if @product.status == "out_of_stock"
+      if @product.status == "out_of_stock" || @product.status == "disabled"
         load_cart
         return Cart.destroy(@cart[0][:id].to_i)
       end

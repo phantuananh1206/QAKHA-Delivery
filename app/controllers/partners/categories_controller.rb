@@ -3,7 +3,7 @@ class Partners::CategoriesController < Partners::PartnersController
   before_action :load_category, only: %i(edit update destroy)
 
   def index
-    @search = Category.load_category_of_partner(current_partner.id).search(params[:q])
+    @search = Category.load_category_of_partner(current_partner.id)._created_at_desc.search(params[:q])
     @categories = @search.result.page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort

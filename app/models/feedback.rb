@@ -12,6 +12,7 @@ class Feedback < ApplicationRecord
                             less_than: Settings.validation.max_point}
 
   after_create :update_coins_user, if: :partner_id
+  scope :_created_at_desc, -> { order(created_at: :desc) }
 
   def as_json(options = {})
     super.merge(created_at: created_at.strftime('%d-%m-%Y %H:%M'))
