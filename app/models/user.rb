@@ -48,6 +48,7 @@ class User < ApplicationRecord
 
   scope :_role_admin, -> { where(role: :admin)}
   scope :_not_role_locked, ->{where.not(role: :locked)}
+  scope :_created_at_desc, -> { order(created_at: :desc) }
 
   def self.from_omniauth(auth)
     user_with_provider = find_by(provider: auth.provider, uid: auth.uid)

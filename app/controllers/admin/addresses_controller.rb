@@ -3,7 +3,7 @@ class Admin::AddressesController < Admin::BaseController
   before_action :list_users, except: %i(index destroy export)
 
   def index
-    @search = Address.includes(:user).search(params[:q])
+    @search = Address.includes(:user)._created_at_desc.search(params[:q])
     @addresses = @search.result.page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort

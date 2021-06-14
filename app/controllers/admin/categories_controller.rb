@@ -3,7 +3,7 @@ class Admin::CategoriesController < Admin::BaseController
   before_action :list_partners, except: %i(index destroy export)
 
   def index
-    @search = Category.includes(:partner).search(params[:q])
+    @search = Category.includes(:partner)._created_at_desc.search(params[:q])
     @categories = @search.result.page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort

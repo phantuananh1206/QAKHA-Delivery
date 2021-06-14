@@ -6,6 +6,7 @@ class Category < ApplicationRecord
   validates :name, presence: true
 
   scope :load_category_of_partner, ->(partner_id) { where(partner_id: partner_id) }
+  scope :_created_at_desc, -> { order(created_at: :desc) }
 
   delegate :name, to: :partner, prefix: true
   delegate :products, to: :partner, prefix: true

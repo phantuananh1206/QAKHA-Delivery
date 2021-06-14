@@ -3,7 +3,7 @@ class Partners::OrdersController < ApplicationController
     before_action :load_order, only: %i(show update)
 
   def index
-    @search = current_partner.orders.includes(:user, :driver).search(params[:q])
+    @search = current_partner.orders.includes(:user, :driver)._created_at_desc.search(params[:q])
     @orders = @search.result._created_at_desc.page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort

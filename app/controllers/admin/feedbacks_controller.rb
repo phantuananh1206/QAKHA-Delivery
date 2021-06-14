@@ -3,7 +3,7 @@ class Admin::FeedbacksController < Admin::BaseController
   before_action :list_orders, :list_users, :list_drivers, :list_partners, except: %i(index destroy export)
 
   def index
-    @search = Feedback.includes(:order, :user, :driver, :partner).search(params[:q])
+    @search = Feedback._created_at_desc.includes(:order, :user, :driver, :partner).search(params[:q])
     @feedbacks = @search.result.page(params[:page]).per(5)
     @search.build_condition
     @search.build_sort
