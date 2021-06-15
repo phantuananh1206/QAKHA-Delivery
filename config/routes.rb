@@ -101,6 +101,7 @@ Rails.application.routes.draw do
           post "/partner/confirmation", to: 'registrations#partner_resend_confirmation'
           post "passwords/forgot_pw_driver", to: 'passwords#forgot_pw_driver'
           post "passwords/reset_pw_driver", to: 'passwords#reset_pw_driver'
+          post "/user/resend_change_email", to: 'users#resend_change_email'
         end
         resources :users, only: :index
         resources :types, only: %i(index show)

@@ -485,6 +485,14 @@ en:
       hi: 'Hi'
       content: 'Please enter this confirmation code to retrieve your password.'
       code: 'Code: '
+    kyc:
+      subject: 'Confirm your identity'
+      notice: 'Please bring the following documents to address 03 Quang Trung, Da Nang to complete the registration procedure to become a collaborator of QAKHA-Delivery system:'
+      hi: 'Hi '
+      one: " 1 Original judicial record."
+      two: " 2 Certified ID."
+      three: " 1 Certified driver's license."
+      four: " 1 Copy of household registration without noticing."
   back: ' Back'
   partner:
     sidebar:

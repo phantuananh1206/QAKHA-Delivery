@@ -484,6 +484,14 @@ vi:
       hi: 'Xin chào'
       content: 'Vui lòng nhập mã xác nhận này để lấy lại mật khẩu của bạn.'
       code: 'Mã:'
+    kyc:
+      subject: 'Xác nhận danh tính'
+      notice: 'Bạn vui lòng đem các giấy tờ sau lên địa chỉ 03 Quang Trung, Đà Nẵng để hoàn tất thủ tục đăng ký trở thành đối tác của hệ thống QAKHA-Delivery:'
+      hi: 'Xin chào '
+      one: " 1 Bản gốc lý lịch tư pháp."
+      two: " 2 bản chứng minh thư công chứng."
+      three: " 1 Certified driver's license."
+      four: " 1 Copy of household registration without noticing."
   back: ' Trở về'
   partner:
     sidebar:
