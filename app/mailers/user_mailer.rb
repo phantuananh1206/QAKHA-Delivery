@@ -9,4 +9,9 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: @user.email, subject: t("mailer.forgot_password_title")
   end
+
+  def resend_email_change user
+    @user = user
+    mail to: @user.unconfirmed_email, subject: "Confirmation instructions"
+  end
 end

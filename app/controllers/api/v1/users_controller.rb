@@ -63,6 +63,17 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     end
   end
 
+  def resend_change_email
+    @user = User.find_by(unconfirmed_email: params[:new_email])
+    if @user
+      @user.update_columns(confirmation_token: generate_code, confirmation_sent_at: Time.now)
+      UserMailer.resend_email_change(@user)
+      render json: { message: 'Please check your inbox in your email' }, status: :ok
+    else
+      render json: { message: "User doesn't exist"}, status: :not_found
+    end
+  end
+
   private
 
   def user_params
@@ -84,5 +95,9 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     return if @order = Order.find_by(id: params[:order_id], user_id: @current_user.id)
 
     render json: { message: 'Order not found' }, status: :not_found
+  end
+
+  def generate_code
+    SecureRandom.base64(6)
   end
 end
