@@ -167,6 +167,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   def check_activate ob
     if ob.present?
       ob.activated
+      KycMailer.kyc(ob).deliver_later
       render json: {message: 'This account has been activated. You can sign-in in QAKHA Delivery.'}, status: :ok
     else
       render json: {message: 'The activation code is invalid. Please check and try again.'}, status: :not_found
