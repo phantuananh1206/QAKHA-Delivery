@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :orders, dependent: :restrict_with_error
   has_many :feedbacks, dependent: :restrict_with_error
   has_many :addresses, dependent: :restrict_with_error
+  has_many :carts, dependent: :restrict_with_error
 
   enum role: { admin: 0, member: 1, locked: 2 }
 
